@@ -1,0 +1,11 @@
+BossKele: {
+	BossKeleRotatingLaser.DisplayName: Boss Kele Rotating Laser
+	BossKeleRedLaser.DisplayName: Boss Kele Red Laser
+	BossKeleColorfulOrb.DisplayName: Boss Kele Colorful Orb
+	BossKele.DisplayName: Kele(Boss)
+
+	BossKeleBag: {
+		Tooltip: Right click to open
+		DisplayName: Kele Treasure Bag
+	}
+}

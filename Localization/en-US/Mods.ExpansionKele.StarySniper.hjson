@@ -1,0 +1,133 @@
+GaSniperJ: {
+	Tooltip:
+		'''
+		The upgrade of StarySniperRifle-I
+		FocusAttack：when you not use the StarySniperRifle,focus value will increase by the time
+		focus value give extra damage and give recommendation when it go to limitation
+		can open laser to assist aiming(in the config)
+		can change bullet(musket ball) into high-velocity bullet
+		right click to shoot sharky bullet more slowly and deals more damage
+		in calamitymod ,sharky bullet can deals Marked for Death debuff
+		'''
+	DisplayName: StarySniperRifle-J
+}
+
+GaSniperI: {
+	Tooltip:
+		'''
+		The upgrade of StarySniperRifle-H
+		FocusAttack：when you not use the StarySniperRifle,focus value will increase by the time
+		focus value give extra damage and give recommendation when it go to limitation
+		can open laser to assist aiming(in the config)
+		can change bullet(musket ball) into high-velocity bullet
+		right click to shoot sharky bullet more slowly and deals more damage
+		in calamitymod ,sharky bullet can deals Marked for Death debuff
+		'''
+	DisplayName: StarySniperRifle-I
+}
+
+GaSniperH: {
+	Tooltip:
+		'''
+		The upgrade of StarySniperRifle-G
+		FocusAttack：when you not use the StarySniperRifle,focus value will increase by the time
+		focus value give extra damage and give recommendation when it go to limitation
+		can open laser to assist aiming(in the config)
+		can change bullet(musket ball) into high-velocity bullet
+		right click to shoot sharky bullet more slowly and deals more damage
+		in calamitymod ,sharky bullet can deals Marked for Death debuff
+		'''
+	DisplayName: StarySniperRifle-H
+}
+
+GaSniperG: {
+	Tooltip:
+		'''
+		The upgrade of StarySniperRifle-F
+		FocusAttack：when you not use the StarySniperRifle,focus value will increase by the time
+		focus value give extra damage and give recommendation when it go to limitation
+		can open laser to assist aiming(in the config)
+		can change bullet(musket ball) into high-velocity bullet
+		right click to shoot sharky bullet more slowly and deals more damage
+		in calamitymod ,sharky bullet can deals Marked for Death debuff
+		'''
+	DisplayName: StarySniperRifle-G
+}
+
+GaSniperF: {
+	Tooltip:
+		'''
+		The upgrade of StarySniperRifle-E
+		FocusAttack：when you not use the StarySniperRifle,focus value will increase by the time
+		focus value give extra damage and give recommendation when it go to limitation
+		can open laser to assist aiming(in the config)
+		can change bullet(musket ball) into high-velocity bullet
+		right click to shoot sharky bullet more slowly and deals more damage
+		in calamitymod ,sharky bullet can deals Marked for Death debuff
+		'''
+	DisplayName: StarySniperRifle-F
+}
+
+GaSniperE: {
+	Tooltip:
+		'''
+		The upgrade of StarySniperRifle-D
+		FocusAttack：when you not use the StarySniperRifle,focus value will increase by the time
+		focus value give extra damage and give recommendation when it go to limitation
+		can open laser to assist aiming(in the config)
+		can change bullet(musket ball) into high-velocity bullet
+		right click to shoot sharky bullet more slowly and deals more damage
+		in calamitymod ,sharky bullet can deals Marked for Death debuff
+		'''
+	DisplayName: StarySniperRifle-E
+}
+
+GaSniperD: {
+	Tooltip:
+		'''
+		The upgrade of StarySniperRifle-C
+		FocusAttack：when you not use the StarySniperRifle,focus value will increase by the time
+		focus value give extra damage and give recommendation when it go to limitation
+		can open laser to assist aiming(in the config)
+		can change bullet(musket ball) into high-velocity bullet
+		right click to shoot sharky bullet more slowly and deals more damage
+		in calamitymod ,sharky bullet can deals Marked for Death debuff
+		'''
+	DisplayName: StarySniperRifle-D
+}
+
+GaSniperC: {
+	Tooltip:
+		'''
+		The upgrade of StarySniperRifle-B
+		FocusAttack：when you not use the StarySniperRifle,focus value will increase by the time
+		focus value give extra damage and give recommendation when it go to limitation
+		can open laser to assist aiming(in the config)
+		can change bullet(musket ball) into high-velocity bullet
+		'''
+	DisplayName: StarySniperRifle-C
+}
+
+GaSniperB: {
+	Tooltip:
+		'''
+		The upgrade of StarySniperRifle-A
+		FocusAttack：when you not use the StarySniperRifle,focus value will increase by the time
+		focus value give extra damage and give recommendation when it go to limitation
+		can open laser to assist aiming(in the config)
+		can change bullet(musket ball) into high-velocity bullet
+		'''
+	DisplayName: StarySniperRifle-B
+}
+
+GaSniperA: {
+	Tooltip:
+		'''
+		The first StarySniperRifle
+		FocusAttack：when you not use the StarySniperRifle,focus value will increase by the time
+		focus value give extra damage and give recommendation when it go to limitation
+		can open laser to assist aiming(in the config)
+		can change bullet(musket ball) into high-velocity bullet
+		'''
+	DisplayName: StarySniperRifle-A
+}

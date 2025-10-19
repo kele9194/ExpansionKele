@@ -1,0 +1,18 @@
+RapidBashPotion: {
+	Tooltip: 增加10%近战速度
+	DisplayName: 迅捷猛击药水
+}
+
+CocoaLiquor: {
+	Tooltip:
+		'''
+		30秒药水疾病
+		获得可可增益30秒
+		'''
+	DisplayName: 可可酒
+}
+
+ChocolateBar: {
+	Tooltip: 很满足增益和可可增益
+	DisplayName: 巧克力棒
+}

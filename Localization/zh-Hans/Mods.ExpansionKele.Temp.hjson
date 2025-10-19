@@ -1,0 +1,9 @@
+TestWeapon: {
+	Tooltip: 测试用武器
+	DisplayName: 测试武器
+}
+
+TestShield: {
+	Tooltip: 只是测试用饰品
+	DisplayName: 测试盾牌
+}

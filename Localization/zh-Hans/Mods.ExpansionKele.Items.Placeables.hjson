@@ -1,0 +1,19 @@
+StarryBar: {
+	Tooltip: ""
+	DisplayName: 星元锭
+}
+
+SigwutBar: {
+	Tooltip: ""
+	DisplayName: 赛格锭
+}
+
+FullMoonOre: {
+	Tooltip: ""
+	DisplayName: 望月矿
+}
+
+FullMoonBar: {
+	Tooltip: ""
+	DisplayName: 望月锭
+}

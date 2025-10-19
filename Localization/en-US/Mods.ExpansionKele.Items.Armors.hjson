@@ -1,0 +1,43 @@
+MoonLeggings: {
+	Tooltip:
+		'''
+		+5% increased crit chance and 20% chance to save ammo
+		8% increased summon damage and 15% increased summon speed
+		'''
+	DisplayName: Moon Leggings
+}
+
+MoonHelmet: {
+	Tooltip:
+		'''
+		+4% special damage multiplier and 5% increased Ranged crit chance 
+		14% reduced mana cost and 25% increased whip range
+		'''
+	DisplayName: Moon Helmet
+	SetBonus:
+		'''
+		12 increased weapon damage
+		when use weapon,fire a full moon projectile with FullMoonArmorDebuff
+		hit enemy without this debuff,player get FullMoonBonusBuff(+6% special damage multiplier) 2 seconds
+		debuff begins in 30 seconds,hit enemy with this debuff,make FullMoonArmorDebuff half time
+		when debuff ends,deal weapon damage 12 times explosion
+		'''
+	SetBonusWithCalamity:
+		'''
+		12 increased weapon damage
+		when use weapon,fire a full moon projectile with FullMoonArmorDebuff
+		hit enemy without this debuff,player get FullMoonBonusBuff(+6% special damage multiplier) 2 seconds
+		debuff begins in 30 seconds,hit enemy with this debuff,make FullMoonArmorDebuff half time
+		when debuff ends,deal weapon damage 12 times explosion
+		70 increased stealth value
+		'''
+}
+
+MoonBreastplate: {
+	Tooltip:
+		'''
+		+8% special damage multiplier and 12% increased melee speed
+		80 increased max mana and 3 increased max minions number
+		'''
+	DisplayName: Moon Breastplate
+}

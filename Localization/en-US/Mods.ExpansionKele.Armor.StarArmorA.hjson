@@ -1,0 +1,433 @@
+StarLeggingsJ: {
+	Tooltip:
+		'''
+		32% increased speed
+		12% increased melee crit chance and 21% increased melee speed
+		100 increased max mana and 14% reduced mana cost
+		6% increased ranged crit chance and 25% chance to save ammo
+		'''
+	DisplayName: Star Leggings J
+}
+
+StarLeggingsI: {
+	Tooltip:
+		'''
+		29% increased speed
+		11% increased melee crit chance and 19% increased melee speed
+		100 increased max mana and 13% reduced mana cost
+		6% increased ranged crit chance and 25% chance to save ammo
+		'''
+	DisplayName: Star Leggings I
+}
+
+StarLeggingsH: {
+	Tooltip:
+		'''
+		26% increased speed
+		10% increased melee crit chance and 18% increased melee speed
+		80 increased max mana and 12% reduced mana cost
+		5% increased ranged crit chance and 25% chance to save ammo
+		'''
+	DisplayName: Star Leggings H
+}
+
+StarLeggingsG: {
+	Tooltip:
+		'''
+		23% increased speed
+		9% increased melee crit chance and 16% increased melee speed
+		80 increased max mana and 11% reduced mana cost
+		4% increased ranged crit chance and 25% chance to save ammo
+		'''
+	DisplayName: Star Leggings G
+}
+
+StarLeggingsF: {
+	Tooltip:
+		'''
+		20% increased speed
+		8% increased melee crit chance and 15% increased melee speed
+		60 increased max mana and 10% reduced mana cost
+		4% increased ranged crit chance and 25% chance to save ammo
+		'''
+	DisplayName: Star Leggings F
+}
+
+StarLeggingsE: {
+	Tooltip:
+		'''
+		17% increased speed
+		7% increased melee crit chance and 13% increased melee speed
+		60 increased max mana and 9% reduced mana cost
+		4% increased ranged crit chance and 25% chance to save ammo
+		'''
+	DisplayName: Star Leggings E
+}
+
+StarLeggingsD: {
+	Tooltip:
+		'''
+		14% increased speed
+		6% increased melee crit chance and 12% increased melee speed
+		40 increased max mana and 8% reduced mana cost
+		3% increased ranged crit chance and 25% chance to save ammo
+		'''
+	DisplayName: Star Leggings D
+}
+
+StarLeggingsC: {
+	Tooltip:
+		'''
+		11% increased speed
+		5% increased melee crit chance and 10% increased melee speed
+		40 increased max mana and 7% reduced mana cost
+		3% increased ranged crit chance and 25% chance to save ammo
+		'''
+	DisplayName: Star Leggings C
+}
+
+StarLeggingsB: {
+	Tooltip:
+		'''
+		8% increased speed
+		4% increased melee crit chance and 8% increased melee speed
+		20 increased max mana and 6% reduced mana cost
+		2% increased ranged crit chance and 25% chance to save ammo
+		'''
+	DisplayName: Star Leggings B
+}
+
+StarLeggingsA: {
+	Tooltip:
+		'''
+		5% increased speed
+		3% increased melee crit chance and 2% increased melee speed
+		20 increased max mana and 5% reduced mana cost
+		2% increased ranged crit chance and 25% chance to save ammo
+		'''
+	DisplayName: Star Leggings A
+}
+
+StarLeggings: {
+	Tooltip: ""
+	DisplayName: Star Leggings
+}
+
+StarHelmetJ: {
+	Tooltip:
+		'''
+		36% increased damage
+		+1 max sentry number
+		'''
+	DisplayName: Star Helmet J
+	SetBonus:
+		'''
+		The lower the health, the higher the damage. 
+		If press the StayArmor SetBonus Key ,Life regeneration will be disabled, 
+		With effect of healing and high damage increased.
+		'''
+	SetBonusWithCalamity:
+		'''
+		The lower the health, the higher the damage. 
+		If press the StayArmor SetBonus Key ,Life regeneration will be disabled, 
+		With effect of healing and high damage increased.
+		{0}% increases the thief crit chance and {1} increased stealth value.
+		'''
+}
+
+StarHelmetI: {
+	Tooltip:
+		'''
+		31% increased damage
+		+1 max sentry number
+		'''
+	DisplayName: Star Helmet I
+	SetBonus:
+		'''
+		The lower the health, the higher the damage. 
+		If press the StayArmor SetBonus Key ,Life regeneration will be disabled, 
+		With effect of healing and high damage increased.
+		'''
+	SetBonusWithCalamity:
+		'''
+		The lower the health, the higher the damage. 
+		If press the StayArmor SetBonus Key ,Life regeneration will be disabled, 
+		With effect of healing and high damage increased.
+		{0}% increases the thief crit chance and {1} increased stealth value.
+		'''
+}
+
+StarHelmetH: {
+	Tooltip:
+		'''
+		28% increased damage
+		+1 max sentry number
+		'''
+	DisplayName: Star Helmet H
+	SetBonus:
+		'''
+		The lower the health, the higher the damage. 
+		If press the StayArmor SetBonus Key ,Life regeneration will be disabled, 
+		With effect of healing and high damage increased.
+		'''
+	SetBonusWithCalamity:
+		'''
+		The lower the health, the higher the damage. 
+		If press the StayArmor SetBonus Key ,Life regeneration will be disabled, 
+		With effect of healing and high damage increased.
+		{0}% increases the thief crit chance and {1} increased stealth value.
+		'''
+}
+
+StarHelmetG: {
+	Tooltip:
+		'''
+		25% increased damage
+		+1 max sentry number
+		'''
+	DisplayName: Star Helmet G
+	SetBonus:
+		'''
+		The lower the health, the higher the damage. 
+		If press the StayArmor SetBonus Key ,Life regeneration will be disabled, 
+		With effect of healing and high damage increased.
+		'''
+	SetBonusWithCalamity:
+		'''
+		The lower the health, the higher the damage. 
+		If press the StayArmor SetBonus Key ,Life regeneration will be disabled, 
+		With effect of healing and high damage increased.
+		{0}% increases the thief crit chance and {1} increased stealth value.
+		'''
+}
+
+StarHelmetF: {
+	Tooltip:
+		'''
+		21% increased damage
+		+1 max sentry number
+		'''
+	DisplayName: Star Helmet F
+	SetBonus:
+		'''
+		The lower the health, the higher the damage. 
+		If press the StayArmor SetBonus Key ,Life regeneration will be disabled, 
+		With effect of healing and high damage increased.
+		'''
+	SetBonusWithCalamity:
+		'''
+		The lower the health, the higher the damage. 
+		If press the StayArmor SetBonus Key ,Life regeneration will be disabled, 
+		With effect of healing and high damage increased.
+		{0}% increases the thief crit chance and {1} increased stealth value.
+		'''
+}
+
+StarHelmetE: {
+	Tooltip:
+		'''
+		17% increased damage
+		+1 max sentry number
+		'''
+	DisplayName: Star Helmet E
+	SetBonus:
+		'''
+		The lower the health, the higher the damage. 
+		If press the StayArmor SetBonus Key ,Life regeneration will be disabled, 
+		With effect of healing and high damage increased.
+		'''
+	SetBonusWithCalamity:
+		'''
+		The lower the health, the higher the damage. 
+		If press the StayArmor SetBonus Key ,Life regeneration will be disabled, 
+		With effect of healing and high damage increased.
+		{0}% increases the thief crit chance and {1} increased stealth value.
+		'''
+}
+
+StarHelmetD: {
+	Tooltip:
+		'''
+		14% increased damage
+		+1 max sentry number
+		'''
+	DisplayName: Star Helmet D
+	SetBonus:
+		'''
+		The lower the health, the higher the damage. 
+		If press the StayArmor SetBonus Key ,Life regeneration will be disabled, 
+		With effect of healing and high damage increased.
+		'''
+	SetBonusWithCalamity:
+		'''
+		The lower the health, the higher the damage. 
+		If press the StayArmor SetBonus Key ,Life regeneration will be disabled, 
+		With effect of healing and high damage increased.
+		{0}% increases the thief crit chance and {1} increased stealth value.
+		'''
+}
+
+StarHelmetC: {
+	Tooltip: 12% increased damage
+	DisplayName: Star Helmet C
+	SetBonus:
+		'''
+		The lower the health, the higher the damage. 
+		If press the StayArmor SetBonus Key ,Life regeneration will be disabled, 
+		With effect of healing and high damage increased.
+		'''
+	SetBonusWithCalamity:
+		'''
+		The lower the health, the higher the damage. 
+		If press the StayArmor SetBonus Key ,Life regeneration will be disabled, 
+		With effect of healing and high damage increased.
+		{0}% increases the thief crit chance and {1} increased stealth value.
+		'''
+}
+
+StarHelmetB: {
+	Tooltip: 8% increased damage
+	DisplayName: Star Helmet B
+	SetBonus:
+		'''
+		The lower the health, the higher the damage. 
+		If press the StayArmor SetBonus Key ,Life regeneration will be disabled, 
+		With effect of healing and high damage increased.
+		'''
+	SetBonusWithCalamity:
+		'''
+		The lower the health, the higher the damage. 
+		If press the StayArmor SetBonus Key ,Life regeneration will be disabled, 
+		With effect of healing and high damage increased.
+		{0}% increases the thief crit chance and {1} increased stealth value.
+		'''
+}
+
+StarHelmetA: {
+	Tooltip: 6% increased damage
+	DisplayName: Star Helmet A
+	SetBonus:
+		'''
+		The lower the health, the higher the damage. 
+		If press the StayArmor SetBonus Key ,Life regeneration will be disabled, 
+		With effect of healing and high damage increased.
+		'''
+	SetBonusWithCalamity:
+		'''
+		The lower the health, the higher the damage. 
+		If press the StayArmor SetBonus Key ,Life regeneration will be disabled, 
+		With effect of healing and high damage increased.
+		{0}% increases the thief crit chance and {1} increased stealth value.
+		'''
+}
+
+StarHelmet: {
+	Tooltip: ""
+	DisplayName: Star Helmet
+	SetBonus: Mods.ExpansionKele.Armor.StarArmorA.StarHelmet.SetBonus
+}
+
+StarBreastplateJ: {
+	Tooltip:
+		'''
+		18% increased crit strike chance
+		+5 max minion number
+		immune on fire and knockback
+		'''
+	DisplayName: Star Breastplate J
+}
+
+StarBreastplateI: {
+	Tooltip:
+		'''
+		16% increased crit strike chance
+		+4 max minion number
+		immune on fire and knockback
+		'''
+	DisplayName: Star Breastplate I
+}
+
+StarBreastplateH: {
+	Tooltip:
+		'''
+		14% increased crit strike chance
+		+4 max minion number
+		immune on fire and knockback
+		'''
+	DisplayName: Star Breastplate H
+}
+
+StarBreastplateG: {
+	Tooltip:
+		'''
+		12% increased crit strike chance
+		+3 max minion number
+		immune on fire and knockback
+		'''
+	DisplayName: Star Breastplate G
+}
+
+StarBreastplateF: {
+	Tooltip:
+		'''
+		11% increased crit strike chance
+		+3 max minion number
+		immune on fire and knockback
+		'''
+	DisplayName: Star Breastplate F
+}
+
+StarBreastplateE: {
+	Tooltip:
+		'''
+		10% increased crit strike chance
+		+2 max minion number
+		immune on fire and knockback
+		'''
+	DisplayName: Star Breastplate E
+}
+
+StarBreastplateD: {
+	Tooltip:
+		'''
+		8% increased crit strike chance
+		+2 max minion number
+		immune on fire and knockback
+		'''
+	DisplayName: Star Breastplate D
+}
+
+StarBreastplateC: {
+	Tooltip:
+		'''
+		6% increased crit strike chance
+		+2 max minion number
+		immune on fire and knockback
+		'''
+	DisplayName: Star Breastplate C
+}
+
+StarBreastplateB: {
+	Tooltip:
+		'''
+		5% increased crit strike chance
+		+1 max minion number
+		immune on fire and knockback
+		'''
+	DisplayName: Star Breastplate B
+}
+
+StarBreastplateA: {
+	Tooltip:
+		'''
+		5% increased crit strike chance
+		+1 max minion number
+		immune on fire and knockback
+		'''
+	DisplayName: Star Breastplate A
+}
+
+StarBreastplate: {
+	Tooltip: ""
+	DisplayName: Star Breastplate
+}

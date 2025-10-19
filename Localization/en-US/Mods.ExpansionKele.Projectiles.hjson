@@ -1,0 +1,37 @@
+TestWeaponProjectile.DisplayName: Test Weapon Projectile
+NoDamageLaserProjectile.DisplayName: No Damage Laser Projectile
+VortexMainProjectile.DisplayName: Vortex Main Projectile
+VortexHomingProjectile.DisplayName: Vortex Homing Projectile
+StingerProjectile.DisplayName: Stinger Projectile
+SpectralCurtainCannonProj.DisplayName: Spectral Curtain Cannon Proj
+SpectralCurtainCannonExplosion.DisplayName: Spectral Curtain Cannon Explosion
+SoulCannonProjectile.DisplayName: Soul Cannon Projectile
+SoulCannonHoldOut.DisplayName: Soul Cannon Hold Out
+SharkyBulletPlus.DisplayName: Sharky Bullet Plus
+SharkyBullet.DisplayName: Sharky Bullet
+ProtonCannonProjectile.DisplayName: Proton Cannon Projectile
+ProtonCannonHoldOut.DisplayName: Proton Cannon Hold Out
+NeutronProjectile.DisplayName: Neutron Projectile
+MagicStarProjectileLower.DisplayName: Magic Star Projectile Lower
+MagicStarProjectile.DisplayName: Magic Star Projectile
+MagicRedProjectile.DisplayName: Magic Red Projectile
+MagicPurpleProjectile.DisplayName: Magic Purple Projectile
+MagicCyanProjectile.DisplayName: Magic Cyan Projectile
+MagicBlueProjectile.DisplayName: Magic Blue Projectile
+LifePercentageProjectile.DisplayName: Life Percentage Projectile
+IronCurtainCannonProjectile.DisplayName: Iron Curtain Cannon Projectile
+IronCurtainCannonLaser.DisplayName: Iron Curtain Cannon Laser
+IronCurtainCannonExplosion.DisplayName: Iron Curtain Cannon Explosion
+FullMoonProjectile.DisplayName: Full Moon Projectile
+FullMoonEchoProj.DisplayName: Full Moon Echo Proj
+FullMoonArrowProj.DisplayName: Full Moon Arrow Proj
+ColaProjectileLower.DisplayName: Cola Projectile Lower
+ColaProjectile.DisplayName: Cola Projectile
+ColaExplosion.DisplayName: Cola Explosion
+AAMissile.DisplayName: A A Missile
+SolarSpearProjectile.DisplayName: Solar Spear Projectile
+PearlWoodSpearProjectile.DisplayName: Pearl Wood Spear Projectile
+LightSpearProjectile.DisplayName: Light Spear Projectile
+FrostRayProjectile.DisplayName: Frost Ray Projectile
+BaseMainGunProjectile.DisplayName: Base Main Gun Projectile
+FullMoonArmorProj.DisplayName: Full Moon Armor Proj

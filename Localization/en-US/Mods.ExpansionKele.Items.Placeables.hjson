@@ -1,0 +1,19 @@
+StarryBar: {
+	Tooltip: ""
+	DisplayName: Starry Bar
+}
+
+SigwutBar: {
+	Tooltip: ""
+	DisplayName: Sigwut Bar
+}
+
+FullMoonOre: {
+	Tooltip: ""
+	DisplayName: Full Moon Ore
+}
+
+FullMoonBar: {
+	Tooltip: ""
+	DisplayName: Full Moon Bar
+}

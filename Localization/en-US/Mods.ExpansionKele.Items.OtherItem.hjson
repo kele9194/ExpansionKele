@@ -1,0 +1,34 @@
+Wrench: {
+	Tooltip: allow autouse item you hold(put it in your bag to function)
+	DisplayName: Wrench
+}
+
+WoodDemonInstrument: {
+	Tooltip: manasickness time decrease(put it in your bag to function)
+	DisplayName: Wood Demon Instrument
+}
+
+TrackingLocator: {
+	Tooltip: a device that can trace back time by pressing the set key(put it in your bag to function)
+	DisplayName: Tracking Locator
+}
+
+TestLocator: {
+	Tooltip: a device that provide some properties (not finished)
+	DisplayName: Test Locator
+}
+
+SeismicBlastDetonator: {
+	Tooltip: A bug and huge damage weapon(not finished)
+	DisplayName: Seismic Blast Detonator
+}
+
+LunarKele: {
+	Tooltip: to summon kele(boss)
+	DisplayName: Lunar Kele can
+}
+
+CocoaBeans: {
+	Tooltip: a material for making delicious chocolate
+	DisplayName: Cocoa Beans
+}

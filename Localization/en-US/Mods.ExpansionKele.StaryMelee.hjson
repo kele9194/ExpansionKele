@@ -1,0 +1,114 @@
+StarySwordJ: {
+	Tooltip:
+		'''
+		upgrade of StarySword-I
+		the shooting projectiles deals explosion, explosion get more benefits from your enhanced damage
+		the blade give enemies armorPodwered debuff and onfire debuff
+		the blade hit enemies give them extra damage(based on target's max life) and give you many buffs
+		right click to dash(consumes extra mana,but make you invincible)
+		'''
+	DisplayName: StarySword-J
+}
+
+StarySwordI: {
+	Tooltip:
+		'''
+		upgrade of StarySword-H
+		the shooting projectiles deals explosion, explosion get more benefits from your enhanced damage
+		the blade give enemies armorPodwered debuff and onfire debuff
+		the blade hit enemies give them extra damage(based on target's max life) and give you many buffs
+		right click to dash(consumes extra mana,but make you invincible)
+		'''
+	DisplayName: StarySword-I
+}
+
+StarySwordH: {
+	Tooltip:
+		'''
+		upgrade of StarySword-G
+		the shooting projectiles deals explosion, explosion get more benefits from your enhanced damage
+		the blade give enemies armorPodwered debuff and onfire debuff
+		the blade hit enemies give them extra damage(based on target's max life) and give you many buffs
+		right click to dash(consumes extra mana,but make you invincible)
+		'''
+	DisplayName: StarySword-H
+}
+
+StarySwordG: {
+	Tooltip:
+		'''
+		upgrade of StarySword-F
+		the shooting projectiles deals explosion, explosion get more benefits from your enhanced damage
+		the blade give enemies armorPodwered debuff and onfire debuff
+		the blade hit enemies give them extra damage(based on target's max life) and give you many buffs
+		right click to dash(consumes extra mana,but make you invincible)
+		'''
+	DisplayName: StarySword-G
+}
+
+StarySwordF: {
+	Tooltip:
+		'''
+		upgrade of StarySword-E
+		the shooting projectiles deals explosion, explosion get more benefits from your enhanced damage
+		the blade give enemies armorPodwered debuff and onfire debuff
+		the blade hit enemies give them extra damage(based on target's max life) and give you many buffs
+		right click to dash(consumes extra mana,but make you invincible)
+		'''
+	DisplayName: StarySword-F
+}
+
+StarySwordE: {
+	Tooltip:
+		'''
+		upgrade of StarySword-D
+		the shooting projectiles deals explosion, explosion get more benefits from your enhanced damage
+		the blade give enemies armorPodwered debuff and onfire debuff
+		the blade hit enemies give them extra damage(based on target's max life) and give you many buffs
+		right click to dash(consumes extra mana,but make you invincible)
+		'''
+	DisplayName: StarySword-E
+}
+
+StarySwordD: {
+	Tooltip:
+		'''
+		upgrade of StarySword-C
+		the shooting projectiles deals explosion, explosion get more benefits from your extra melee damage
+		the blade give enemies armorPodwered debuff and onfire debuff
+		the blade hit enemies give them extra damage(based on target's max life)
+		'''
+	DisplayName: StarySword-D
+}
+
+StarySwordC: {
+	Tooltip:
+		'''
+		upgrade of StarySword-B
+		blade give enemies armorPodwered debuff and onfire debuff
+		'''
+	DisplayName: StarySword-C
+}
+
+StarySwordB: {
+	Tooltip:
+		'''
+		upgrade of StarySword-A
+		blade give enemies armorPodweredLower debuff and onfire debuff
+		'''
+	DisplayName: StarySword-B
+}
+
+StarySwordA: {
+	Tooltip:
+		'''
+		The first StarySword
+		blade give enemies armorPodweredLower debuff and onfire debuff
+		'''
+	DisplayName: StarySword-A
+}
+
+StarySword: {
+	Tooltip: " the origin verion of the stary sword"
+	DisplayName: StarySword
+}

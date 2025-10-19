@@ -1,0 +1,34 @@
+Wrench: {
+	Tooltip: 允许自动使用手持物品（放在背包中发挥作用）
+	DisplayName: 扳手
+}
+
+WoodDemonInstrument: {
+	Tooltip: 魔力病时间减少（放在背包中发挥作用）
+	DisplayName: 木魔仪
+}
+
+TrackingLocator: {
+	Tooltip: 一个按下特定按钮可以回溯时间的仪器
+	DisplayName: 回溯仪
+}
+
+TestLocator: {
+	Tooltip: 一个可以提供部分属性的仪器
+	DisplayName: 测试仪器
+}
+
+SeismicBlastDetonator: {
+	Tooltip: 未完成的武器
+	DisplayName: 震波雷管
+}
+
+LunarKele: {
+	Tooltip: 召唤可乐
+	DisplayName: 夜明可乐罐
+}
+
+CocoaBeans: {
+	Tooltip: 一种制作美味巧克力的原材料
+	DisplayName: 可可豆
+}

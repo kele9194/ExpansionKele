@@ -1,0 +1,106 @@
+StarSetBonusBuff: {
+	Description:
+		'''
+		增加所有伤害
+		禁用自然生命恢复并恢复少量生命值
+		'''
+	DisplayName: 星辰套装奖励增益
+}
+
+StarryFireworkBuff: {
+	Description: 减少目标{0}%防御力并增加{1}%受到的伤害
+	DisplayName: 星元焰火减益
+}
+
+RedStarBuff: {
+	Description: 增加{0}%魔法伤害(独立乘数)
+	DisplayName: 红星增益
+}
+
+RapidBash: {
+	Description: 增加{0}%近战攻击速度
+	DisplayName: 迅捷猛击
+}
+
+PurpleStarBuff: {
+	Description: 增加{0}%伤害减免
+	DisplayName: 紫星增益
+}
+
+NeutronDecay: {
+	Description: 每两秒造成相当于最大生命值{0}%的伤害
+	DisplayName: 中子衰变
+}
+
+FullMoonBonusBuff: {
+	Description: 增加{0}%伤害(特殊间隔乘数)
+	DisplayName: 满月增益
+}
+
+FullMoonArmorDebuff: {
+	Description: 时间结束后造成巨大伤害
+	DisplayName: 满月减益
+}
+
+FrostShatterDebuff: {
+	Description:
+		'''
+		感受碎裂的冰晶
+		目标的防御力大幅降低
+		减益持续时间越长受到的伤害越高
+		'''
+	DisplayName: 霜碎减益
+}
+
+CyanStarBuff: {
+	Description:
+		'''
+		增加{0}点防御力和{1}%乘法防御力
+		增加{2}点生命恢复
+		增加{3}%移动速度
+		'''
+	DisplayName: 青星增益
+}
+
+CocoaBuff: {
+	Description:
+		'''
+		增加{0}%移动速度，增加{1}点防御力
+		增加{2}%暴击率
+		增加{3}点生命恢复
+		'''
+	DisplayName: 可可增益
+}
+
+BlueStarBuff: {
+	Description: 增加{0}点法力恢复并减少{1}%法力消耗
+	DisplayName: 蓝星增益
+}
+
+BleedBlue: {
+	Description:
+		'''
+		让他们变成蓝色
+		意味着他们受到了装甲破碎或装甲破碎（减弱版）减益
+		'''
+	DisplayName: 染蓝
+}
+
+ArmorPodweredLower: {
+	Description:
+		'''
+		装甲充能的弱化版本
+		减少{0}点防御力和{1}%防御力
+		减少玩家{2}%耐力
+		'''
+	DisplayName: 装甲破碎（减弱版）
+}
+
+ArmorPodwered: {
+	DisplayName: 装甲破碎
+	Description:
+		'''
+		减少{0}点防御力和{1}%防御力
+		减少玩家{2}%耐力
+		'''
+}

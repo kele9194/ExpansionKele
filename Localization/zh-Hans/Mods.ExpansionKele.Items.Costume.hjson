@@ -1,0 +1,14 @@
+KeleCostumeLegs: {
+	Tooltip: 一个可爱女孩的时装
+	DisplayName: 可乐的时装-下
+}
+
+KeleCostumeHead: {
+	Tooltip: 一个可爱女孩的时装
+	DisplayName: 可乐的时装-上
+}
+
+KeleCostumeBody: {
+	Tooltip: 一个可爱女孩的时装
+	DisplayName: 可乐的时装-中
+}

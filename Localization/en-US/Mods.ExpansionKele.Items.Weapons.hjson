@@ -1,0 +1,172 @@
+VortexMissileLauncher: {
+	Tooltip:
+		'''
+		Fires one direct missile and two homing missiles
+		Homing missiles deal massive additional damage to airborne targets
+		'''
+	DisplayName: Vortex Missile Launcher
+}
+
+StingerLauncher: {
+	DisplayName: Sting Launcher
+	Tooltip:
+		'''
+		Scattering emits 27 steel needles, which cause 20 armor penetration
+		The steel needles cause acid venom debuff
+		'''
+}
+
+SpectralCurtainCannon: {
+	DisplayName: Spectral Curtain Cannon
+	Tooltip:
+		'''
+		Fire tracking shells. Once hit, a deceleration area is created.
+		Players within this area receive health recovery and damage bonuses
+		'''
+}
+
+SoulCannon: {
+	DisplayName: Soul Cannon
+	Tooltip:
+		'''
+		Charge and fire six homing shells.
+		The damage of the shells will increase with the charging time
+		charging speed in water is faster
+		'''
+}
+
+SolarSpear: {
+	DisplayName: Solar Spear
+	Tooltip:
+		'''
+		Alternates between dashing and spinning attacks
+		During dash, becomes invincible and deals 2x damage, penetrating enemies restores health
+		Reflects projectiles during spin, successfully reflecting projectiles also restores health
+		'''
+}
+
+SigLightSpear: {
+	DisplayName: Sig Light Spear
+	Tooltip:
+		'''
+		Dashes forward when used, dealing 2x damage while dashing
+		invincible during dash. Dashing into enemies restores health.
+		'''
+}
+
+ProtonCannonA: {
+	Tooltip: an abandoned weapon
+	DisplayName: Proton Cannon A
+}
+
+ProtonCannon: {
+	Tooltip:
+		'''
+		Charge and fire six shells.
+		The damage of the shells will increase with the charging time
+		and the charging speed in water is faster
+		'''
+	DisplayName: Proton Cannon
+}
+
+PowerShotSMG: {
+	DisplayName: Power Shot SMG
+	Tooltip:
+		'''
+		As you keep shooting, damage gradually increases, up to 2x
+		and ranged critical chance increases up to 20%.
+		When you stop shooting, damage slowly decreases back to base value.
+		Switching weapons resets damage to base value.
+		'''
+}
+
+PearlWoodSpear: {
+	DisplayName: Pearl Wood Spear
+	Tooltip:
+		'''
+		Spinning attack, has a chance to reflect hostile projectiles.
+		Significantly reduces damage taken while in use.
+		Reflecting projectiles restores health.
+		'''
+}
+
+NeutronGun: {
+	Tooltip:
+		'''
+		Fires a neutron beam that inflicts the Neutron Decay debuff
+		dealing {0}% of the enemy's maximum life as damage every 2 seconds
+		'''
+	DisplayName: Neutron Gun
+}
+
+IronCurtainCannon: {
+	DisplayName: Iron Curtain Cannon
+	Tooltip:
+		'''
+		Left-click to fire an iron curtain particle cannon shell
+		which creates a continuous damage iron curtain circle upon hitting blocks or enemies
+		Right-click to fire an iron curtain laser.
+		'''
+}
+
+FullMoonSword: {
+	DisplayName: Full Moon Sword
+	Tooltip:
+		'''
+		Can fire a boomerang-like projectile that deals 66% damage and ignores 15 enemy armor
+		Seems to contain the power of vengeance
+		'''
+}
+
+FullMoonEcho: {
+	DisplayName: Full Moon Echo
+	Tooltip:
+		'''
+		Fires three skewed full moons that slow down and return after a period of time, but damage becomes 60% of original
+		The alternation of blood moon and blue moon, representing death and silence
+		'''
+}
+
+FullMoonBow: {
+	DisplayName: Full Moon Bow
+	Tooltip:
+		'''
+		Fires two full moons
+		they return after penetrating a certain number of enemies/after a period of time/upon touching objects
+		but damage becomes 50% of original
+		The sky is full of moons!
+		'''
+}
+
+FrostRayGun: {
+	DisplayName: Frost Ray Gun
+	Tooltip:
+		'''
+		Fires a frost ray that inflicts the Frost Shatter debuff on hit enemies.
+		Each hit extends the debuff duration by 1s, up to 60s.
+		The Frost Shatter debuff reduces target's defense by 50% and increases damage taken, up to 300%.
+		'''
+}
+
+CodeChaos: {
+	Tooltip:
+		'''
+		Switches between melee, ranged, magic, and summon damage on each use, gaining 4x class damage and critical chance buffs
+		Damage fluctuates between 0.5x and 2x, attack speed fluctuates between 0.75x and 1.25x
+		Critical damage multiplier fluctuates between 0.75x and 1.25x, critical chance fluctuates between 0.75x and 1.25x
+		In melee mode, the blade deals additional 3x true damage, magic mode consumes 10 mana, summon mode still cannot crit
+		An extremely chaotic and random weapon that randomly fires various projectiles from this mod
+		Author's ramble: Why isn't there a ModifyAttackSpeed?
+		'''
+	DisplayName: Code Chaos
+}
+
+BaseMainGun: {
+	DisplayName: Base Main Gun
+	Tooltip: not consume any ammo and deal area damage
+}
+
+AAMissileLauncher: {
+	Tooltip: Launches tracking rockets that deal additional damage to airborne enemies
+	DisplayName: AA Missile Launcher
+}

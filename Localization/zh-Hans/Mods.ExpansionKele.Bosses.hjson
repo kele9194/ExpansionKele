@@ -1,0 +1,11 @@
+BossKele: {
+	BossKeleRotatingLaser.DisplayName: Kele-旋转激光
+	BossKeleRedLaser.DisplayName: Kele-红色激光
+	BossKeleColorfulOrb.DisplayName: Kele-彩色球
+	BossKele.DisplayName: 可乐(Boss)
+
+	BossKeleBag: {
+		Tooltip: 右键打开
+		DisplayName: 可乐的宝藏袋
+	}
+}

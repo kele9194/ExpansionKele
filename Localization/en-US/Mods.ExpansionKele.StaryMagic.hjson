@@ -1,0 +1,149 @@
+defenseStarStaffJ: {
+	Tooltip:
+		'''
+		the upgrade of StarStaff-I 
+		shoot 4 kinds of tracking projectiles,blue ,red ,purple ,cyan,every kinds gives related buff
+		Blue projectiles hit enemy give you extra mana
+		Red projectiles deal 2x damage ,Purple projectiles heal you 
+		Cyan projectiles restore wing time and liferegen speed ,deal 0.25% target's life damage
+		Colorful projectiles(1/20 chance to get) deal 0.25% target's max life and give four kinds of buff
+		More enemies aroud you,more damage projectiles deals
+		'''
+	DisplayName: StarStaff-J
+}
+
+StarStaffI: {
+	Tooltip:
+		'''
+		the upgrade of StarStaff-H
+		shoot 4 kinds of tracking projectiles,blue ,red ,purple ,cyan,every kinds gives related buff
+		Blue projectiles hit enemy give you extra mana
+		Red projectiles deal 2x damage ,Purple projectiles heal you 
+		Cyan projectiles restore wing time and liferegen speed ,deal 0.25% target's life damage
+		Colorful projectiles(1/20 chance to get) deal 0.25% target's max life and give four kinds of buff
+		More enemies aroud you,more damage projectiles deals
+		'''
+	DisplayName: StarStaff-I
+}
+
+StarStaffH: {
+	Tooltip:
+		'''
+		the upgrade of StarStaff-G
+		shoot 4 kinds of tracking projectiles,blue ,red ,purple ,cyan,every kinds gives related buff
+		Blue projectiles hit enemy give you extra mana
+		Red projectiles deal 2x damage ,Purple projectiles heal you 
+		Cyan projectiles restore wing time and liferegen speed ,deal 0.25% target's life damage
+		Colorful projectiles(1/20 chance to get) deal 0.25% target's max life and give four kinds of buff
+		More enemies around you,more damage projectiles deals
+		'''
+	DisplayName: StarStaff-H
+}
+
+StarStaffG: {
+	Tooltip:
+		'''
+		the upgrade of StarStaff-F
+		shoot 4 kinds of tracking projectiles,blue ,red ,purple ,cyan,every kinds gives related buff
+		Blue projectiles hit enemy give you extra mana
+		Red projectiles deal 2x damage ,Purple projectiles heal you 
+		Cyan projectiles restore wing time and liferegen speed ,deal 0.25% target's life damage
+		Colorful projectiles(1/20 chance to get) deal 0.25% target's max life and give four kinds of buff
+		More enemies around you,more damage projectiles deals
+		'''
+	DisplayName: StarStaff-G
+}
+
+StarStaffF: {
+	Tooltip:
+		'''
+		the upgrade of StarStaff-E
+		shoot 4 kinds of tracking projectiles,blue ,red ,purple ,cyan,every kinds gives related buff
+		Blue projectiles hit enemy give you extra mana
+		Red projectiles deal 2x damage ,Purple projectiles heal you 
+		Cyan projectiles restore wing time and liferegen speed ,deal 0.25% target's life damage
+		Colorful projectiles(1/20 chance to get) deal 0.25% target's max life and give four kinds of buff
+		More enemies around you,more damage projectiles deals
+		'''
+	DisplayName: StarStaff-F
+}
+
+StarStaffE: {
+	Tooltip:
+		'''
+		the upgrade of StarStaff-D
+		shoot 4 kinds of tracking projectiles,blue ,red ,purple ,cyan,every kinds gives related buff
+		Blue projectiles hit enemy give you extra mana
+		Red projectiles deal 2x damage ,Purple projectiles heal you 
+		Cyan projectiles restore wing time and liferegen speed ,deal 0.25% target's life damage
+		Colorful projectiles(1/20 chance to get) deal 0.25% target's max life and give four kinds of buff
+		More enemies around you,more damage projectiles deals
+		'''
+	DisplayName: StarStaff-E
+}
+
+StarStaffD: {
+	Tooltip:
+		'''
+		the upgrade of StarStaff-C
+		shoot 4 kinds of tracking projectiles,blue ,red ,purple ,cyan,every kinds gives related buff
+		Blue projectiles hit enemy give you extra mana
+		Red projectiles deal 2x damage ,Purple projectiles heal you 
+		Cyan projectiles restore wing time and liferegen speed ,deal 0.25% target's life damage
+		Colorful projectiles(1/20 chance to get) deal 0.25% target's max life and give four kinds of buff
+		More enemies around you,more damage projectiles deals
+		'''
+	DisplayName: StarStaff-D
+}
+
+StarStaffC: {
+	Tooltip:
+		'''
+		the upgrade of StarStaff-B
+		shoot 4 kinds of tracking projectiles,blue ,red ,purple ,cyan,every kinds gives related buff
+		Blue projectiles hit enemy give you extra mana
+		Red projectiles deal 2x damage ,Purple projectiles heal you 
+		Cyan projectiles restore wing time and liferegen speed ,deal 0.25% target's life damage
+		Colorful projectiles(1/20 chance to get) deal  0.25% target's max life and give four kinds of buff
+		More enemies around you,more damage projectiles deals
+		'''
+	DisplayName: StarStaff-C
+}
+
+StarStaffB: {
+	Tooltip:
+		'''
+		the upgrade of StarStaff-A
+		shoot 4 kinds of tracking projectiles,blue ,red ,purple ,cyan,every kinds gives related buff
+		Blue projectiles hit enemy give you extra mana
+		Red projectiles deal 2x damage ,Purple projectiles heal you 
+		Cyan projectiles restore wing time and liferegen speed ,deal 0.25% target's life damage
+		Colorful projectiles(1/20 chance to get) deal 0.25% target's max life and give four kinds of buff
+		More enemies around you,more damage projectiles deals
+		'''
+	DisplayName: StarStaff-B
+}
+
+StarStaffA: {
+	Tooltip:
+		'''
+		first staff of the Starstaff series
+		shoot 4 kinds of tracking projectiles,blue ,red ,purple ,cyan,every kinds gives related buff
+		Blue projectiles hit enemy give you extra mana
+		Red projectiles deal 2x damage ,Purple projectiles heal you 
+		Cyan projectiles restore wing time and liferegen speed ,deal 0.25% target's life damage
+		Colorful projectiles(1/20 chance to get) deal 0.25% target's max life and give four kinds of buff
+		More enemies around you,more damage projectiles deals
+		'''
+	DisplayName: StarStaff-A
+}
+
+StarStaff: {
+	Tooltip: the original dev star staff
+	DisplayName: Star Staff
+}
+
+StarStaffJ: {
+	DisplayName: Star Staff J
+	Tooltip: ""
+}

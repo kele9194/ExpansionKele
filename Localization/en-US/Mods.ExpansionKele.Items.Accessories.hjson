@@ -1,0 +1,325 @@
+Whetstone: {
+	Tooltip:
+		'''
+		10% increased melee speed
+		0.3% increased melee speed every 1% extra melee damage
+		allow auto swing for melee weapons
+		'''
+	DisplayName: Whetstone
+}
+
+StarryWarriorEmblem: {
+	Tooltip:
+		'''
+		12% increased melee damage and 8% increased melee speed
+		0.3% increased melee speed every 1% extra melee damage
+		allow auto swing for melee weapons，Scale of Melee weapon turned 2x
+		Hit enemies by blade will heal player and increase life regen speed
+		use it to change mode between melee-speed mode and melee-nospeed mode
+		the melee-nospeed mode hasn't finished yet
+		when multiple "StarryXXXXEmblem" are equipped
+		Only the first equipped "StarryXXXXEmblem" is effective 
+		'''
+	DisplayName: Starry Warrior Emblem
+}
+
+StarryTenacityEmblem: {
+	Tooltip:
+		'''
+		20 increased defense and 15% increased defense
+		10% increased special endurance
+		1% increased special endurance (up to 20%) every 10 defense
+		1% increased defense (up to 20%) every 10 defense
+		immune knockback
+		When hit ,get slowly decreased (10 seconds) effects:
+		increased defense (15% of hit damage) and 20% special endurance 
+		when multiple "StarryXXXXEmblem" are equipped
+		Only the first equipped "StarryXXXXEmblem" is effective 
+		'''
+	DisplayName: Starry Tenacity Emblem
+}
+
+StarrySummonerEmblem: {
+	Tooltip:
+		'''
+		2 increased max minion number and 1 increased max sentry number
+		15% increased summon damage and 2% increased crit strike chance
+		25% increased whip range and 15% increased whip speed
+		increase summon damage by crit chance at a 1:1 ratio
+		0.5% increased whip range and 0.4% increased whip speed every 1% extra summon damage
+		0.25 increased life regen and 4 increased defense every numbers(including minion and sentry)
+		when multiple "StarryXXXXEmblem" are equipped
+		Only the first equipped "StarryXXXXEmblem" is effective 
+		'''
+	DisplayName: Starry Summoner Emblem
+}
+
+StarrySorcererEmblem: {
+	Tooltip:
+		'''
+		150 increased max mana and 25% reduced mana cost
+		15% increased magic damage ,6% increased magic crit chance 
+		allow auto use mana potion when needed
+		the lower your mana,the higher your damage,max to 20% increased magic damage
+		1.8 increased max mana and 0.1% reduced mana cost every 1% extra magic damage
+		the bonus of reduced mana cost according to your mana is limited to 30%
+		mana sickness time and effect are decreased 
+		when multiple "StarryXXXXEmblem" are equipped
+		Only the first equipped "StarryXXXXEmblem" is effective 
+		'''
+	DisplayName: Starry Sorcerer Emblem
+}
+
+StarryRangerEmblem: {
+	Tooltip:
+		'''
+		15% increased ranged damage
+		6 increased weapon damage and 10 increased armor penetration
+		1 increased weapon damage every 4% extra ranged damage
+		1 increased armor penetration every 2% extra ranged damage
+		50% reduced ammo consumption and faster shoot speed
+		0.1% increased ranged crit chance every 4 increased pixels (based on 960 pixels)distance to the closed NPC
+		0.1% increased special damage multiplier every 4 decreased pixels (based on 960 pixels)distance to the closed NPC
+		16 pixels equal to width or height of block
+		when multiple "StarryXXXXEmblem" are equipped
+		Only the first equipped "StarryXXXXEmblem" is effective 
+		'''
+	DisplayName: Starry Ranger Emblem
+}
+
+StarryHeartEmblem: {
+	Tooltip:
+		'''
+		100 increased max life, 15% extra max life and 1.5 increased life regen
+		when health is below 50%,
+		every 1% lost max life (based on 50%) will increase life regen time by 4%
+		when health is below 20%,heal 1 HP every 0.33 seconds
+		when hit ,player will be healed and set higher life regen time 
+		when hit to death ,you will get 1 second of invincibility.and be healed to 20% max life(cooldown:60 seconds)
+		this accessory now have some bugs to fix.
+		when multiple "MoonXXXXEmblem" are equipped
+		Only the first equipped "MoonXXXXEmblem" is effective 
+		'''
+	DisplayName: Starry Heart Emblem
+}
+
+StarryCommonalityEmblem: {
+	Tooltip:
+		'''
+		15% increased special damage multiplier and 8% increased crit strike chance
+		8% increased endurance multiplier and 20 defense
+		15% extra attack speed
+		when multiple "StarryXXXXEmblem" are equipped
+		Only the first equipped "StarryXXXXEmblem" is effective 
+		'''
+	DisplayName: Starry Commonality Emblem
+}
+
+StarryAvengerEmblem: {
+	Tooltip:
+		'''
+		inherit properties of "MoonCommonalityEmblem":
+		15% increased special damage multiplier and 8% increased crit strike chance
+		8% increased endurance multiplier, 20 defenseand 15% extra attack speed
+		timer(max to 50 seconds) will be activated when equipped 
+		0.6% increased special damage multiplier every 1 seconds
+		when hit ,timer will be reset,player will get StarryFireworkBuff 3 seconds
+		StarryFireworkBuff:decreases player's defense and special endurance
+		'''
+	DisplayName: Starry Avenger Emblem
+}
+
+MysteryCrystal: {
+	Tooltip:
+		'''
+		40 increased max mana and 2 increased mana regen
+		10% reduced mana cost
+		allow auto use mana potion when needed
+		the lower your mana,the higher your damage,max to 20% increased magic damage
+		1.8 increased max mana and 0.1% reduced mana cost every 1% extra magic damage
+		the bonus of reduced mana cost according to your mana is limited to 30%
+		'''
+	DisplayName: Mystery Crystal
+}
+
+MoonWarriorEmblem: {
+	Tooltip:
+		'''
+		12% increased melee damage and 8% increased melee speed
+		0.26% increased melee speed every 1% extra melee damage
+		allow auto swing for melee weapons
+		use it to change mode between melee-speed mode and melee-nospeed mode
+		the melee-nospeed mode hasn't finished yet
+		when multiple "MoonXXXXEmblem" are equipped
+		Only the first equipped "MoonXXXXEmblem" is effective 
+		'''
+	DisplayName: Moon Warrior Emblem
+}
+
+MoonTenacityEmblem: {
+	Tooltip:
+		'''
+		10 increased defense and 7% increased defense
+		5% increased special endurance
+		0.5% increased special endurance (up to 10%) every 10 defense
+		0.5% increased defense (up to 10%) every 10 defense
+		when multiple "MoonXXXXEmblem" are equipped
+		Only the first equipped "MoonXXXXEmblem" is effective 
+		'''
+	DisplayName: Moon Tenacity Emblem
+}
+
+MoonSummonerEmblem: {
+	Tooltip:
+		'''
+		2 increased max minion number
+		14% increased summon damage and 2% increased crit strike chance
+		12% increased whip range and 8% increased whip speed
+		increase summon damage by crit chance at a 1:1 ratio
+		0.5% increased whip range and 0.4% increased whip speed every 1% extra summon damage
+		when multiple "MoonXXXXEmblem" are equipped
+		Only the first equipped "MoonXXXXEmblem" is effective 
+		'''
+	DisplayName: Moon Summoner Emblem
+}
+
+MoonSorcererEmblem: {
+	Tooltip:
+		'''
+		60 increased max mana and 2 increased mana regen
+		15% increased magic damage and 10% reduced mana cost
+		allow auto use mana potion when needed
+		the lower your mana,the higher your damage,max to 20% increased magic damage
+		1.8 increased max mana and 0.1% reduced mana cost every 1% extra magic damage
+		the bonus of reduced mana cost according to your mana is limited to 30%
+		when multiple "MoonXXXXEmblem" are equipped
+		Only the first equipped "MoonXXXXEmblem" is effective 
+		'''
+	DisplayName: Moon Sorcerer Emblem
+}
+
+MoonRangerEmblem: {
+	Tooltip:
+		'''
+		15% increased ranged damage
+		4 increased weapon damage and 6 increased armor penetration
+		1 increased weapon damage every 4% extra ranged damage
+		1 increased armor penetration every 2% extra ranged damage
+		when multiple "MoonXXXXEmblem" are equipped
+		Only the first equipped "MoonXXXXEmblem" is effective 
+		'''
+	DisplayName: Moon Ranger Emblem
+}
+
+MoonLifeEmblem: {
+	Tooltip:
+		'''
+		60 increased max life and 10% extra max life
+		when health is below 50%,
+		every 1% lost max life (based on 50%) will increase life regen time by 2%
+		when health is below 20%,heal 1 HP every 0.5 seconds
+		when multiple "MoonXXXXEmblem" are equipped
+		Only the first equipped "MoonXXXXEmblem" is effective 
+		'''
+	DisplayName: Moon Life Emblem
+}
+
+MoonCommonalityEmblem: {
+	Tooltip:
+		'''
+		10% increased special damage multiplier and 5% increased crit strike chance
+		5% increased endurance multiplier and 5 defense
+		10% extra attack speed
+		when multiple "MoonXXXXEmblem" are equipped
+		Only the first equipped "MoonXXXXEmblem" is effective 
+		'''
+	DisplayName: Moon Commonality Emblem
+}
+
+MoonAvengerEmblem: {
+	Tooltip:
+		'''
+		inherit properties of "MoonCommonalityEmblem":
+		10% increased special damage multiplier and 5% increased crit strike chance
+		5% increased endurance multiplier, 5 increased defense and 10% extra attack speed
+		timer(max to 50 seconds) will be activated when equipped 
+		0.36% increased special damage multiplier every 1 seconds
+		when hit ,timer will be reset,player will get StarryFireworkBuff 3 seconds
+		StarryFireworkBuff:decreases player's defense and special endurance
+		'''
+	DisplayName: Moon Avenger Emblem
+}
+
+LoyalScroll: {
+	Tooltip:
+		'''
+		1 increased max minion number
+		6% increased summon damage and 6% increased crit strike chance
+		10% increased whip range and 4% increased whip speed
+		increase summon damage by crit chance at a 1:1 ratio
+		0.5% increased whip range and 0.4% increased whip speed every 1% extra summon damage
+		'''
+	DisplayName: Loyal Scroll
+}
+
+LightAmulet: {
+	Tooltip:
+		'''
+		30 extra max life
+		Based on the the distance to the closed NPC,
+		provide extra defense ,life regenability and special endurance
+		max to 15 defense ,100% extra life regen speed and 10% special endurance
+		'''
+	DisplayName: Light Amulet
+}
+
+HallowHeartShield: {
+	Tooltip:
+		'''
+		30% increased speed
+		60% increased max life
+		0.4% increased special endurance and 1 increased defense every 3% lost max life
+		1% reduce speed every 3% lost max life
+		every 20 seconds provides 2.5 seconds of invincible
+		'''
+	DisplayName: Hallow Heart Shield
+}
+
+AttackSpeedBooster: {
+	Tooltip:
+		'''
+		150% base attack speed multiplier for the player
+		player's damage will be 80% of the origin
+		'''
+	DisplayName: Attack Speed Glove
+}
+
+ArmorPiercingNecklace: {
+	Tooltip:
+		'''
+		6 increased weapon damage and 8 increased armor penetration
+		1 increased weapon damage every 4% extra ranged damage
+		1 increased armor penetration every 2% extra ranged damage
+		'''
+	DisplayName: Armor Piercing Necklace
+}
+
+VanillaOverrides: {
+	AvengerEmblemModified: {
+		Enabled: "[c/808080:Modified by KeleExpansion, can be disabled in config]"
+		Disabled: "[c/808080:KeleExpansion modifications disabled]"
+		DamageChange: 15% increased damage
+	}
+
+	DestroyerEmblemModified: {
+		Enabled: "[c/808080:Modified by KeleExpansion, can be disabled in config]"
+		Disabled: "[c/808080:KeleExpansion modifications disabled]"
+		DamageChange: 12% increased damage
+	}
+
+	TerrasparkBootsModified: {
+		Enabled: "[c/808080:Modified by KeleExpansion, can be disabled in config]"
+		Disabled: "[c/808080:KeleExpansion modifications disabled]"
+		FrogLegBonus: Grants Frog Leg effects: Allows auto jump, increases jump speed, increases safe fall distance
+	}
+}

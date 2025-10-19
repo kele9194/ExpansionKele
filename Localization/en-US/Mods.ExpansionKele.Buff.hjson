@@ -1,0 +1,106 @@
+StarSetBonusBuff: {
+	Description:
+		'''
+		Increases all damage
+		Disables natural health regeneration and restores small amount of health
+		'''
+	DisplayName: Star Set Bonus Buff
+}
+
+StarryFireworkBuff: {
+	Description: Reduces defense by {0}% and increases damage taken by {1}%
+	DisplayName: Starry Firework Buff
+}
+
+RedStarBuff: {
+	Description: Increases magic damage by {0}%(independent multiplier)
+	DisplayName: Red Star Buff
+}
+
+RapidBash: {
+	Description: Increases melee attack speed by {0}%
+	DisplayName: Rapid Bash
+}
+
+PurpleStarBuff: {
+	Description: Increases damage reduction by {0}%
+	DisplayName: Purple Star Buff
+}
+
+NeutronDecay: {
+	Description: Deals {0}% of maximum life as damage per two seconds
+	DisplayName: Neutron Decay
+}
+
+FullMoonBonusBuff: {
+	Description: Increases damage by {0}%(special Interval multiplier)
+	DisplayName: Full Moon Bonus Buff
+}
+
+FullMoonArmorDebuff: {
+	Description: when time out,deals huge damage
+	DisplayName: Full Moon Armor Debuff
+}
+
+FrostShatterDebuff: {
+	Description:
+		'''
+		Feel the cracked ice crystals
+		The target's defense is greatly reduced
+		taken damage of the target increases with the time of debuffing.
+		'''
+	DisplayName: Frost Shatter Debuff
+}
+
+CyanStarBuff: {
+	Description:
+		'''
+		Increases defense by {0} and {1}% multiplicative defense,
+		increases life regeneration by {2},
+		and increases movement speed by {3}%
+		'''
+	DisplayName: Cyan Star Buff
+}
+
+CocoaBuff: {
+	Description:
+		'''
+		Increases movement speed by {0}%, adds {1} defense,
+		increases critical hit chance by {2}%,
+		and increases life regeneration by {3}
+		'''
+	DisplayName: Cocoa Buff
+}
+
+BlueStarBuff: {
+	Description: Increases mana regeneration by {0} and reduces mana cost by {1}%
+	DisplayName: Blue Star Buff
+}
+
+BleedBlue: {
+	Description:
+		'''
+		Just turn them into blue 
+		but means they are applied ArmorPodwered or ArmorPodweredLower debuff
+		'''
+	DisplayName: Bleed Blue
+}
+
+ArmorPodweredLower: {
+	Description:
+		'''
+		weaker version of ArmorPodwered
+		Reduce {0} defense and {1}% multiply defense
+		reduce the player's endurance by {2}%
+		'''
+	DisplayName: Armor Podwered Lower
+}
+
+ArmorPodwered: {
+	DisplayName: Armor Podwered
+	Description:
+		'''
+		Reduce {0} defense and {1}% multiply defense
+		reduce the player's endurance by {2}%
+		'''
+}

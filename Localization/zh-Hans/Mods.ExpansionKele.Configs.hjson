@@ -1,0 +1,29 @@
+//请注意翻译按层级优先翻译，其余内部文件更改无效，第二使用LocallizationCtegory进行分级，但是config请遵循源文件操作，第三，文件夹名称和文件位置合并效果一直，并且请注意名称是否正确
+ExpansionKeleConfig: {
+	DisplayName: 可乐拓展配置
+
+	EnableVanillaItemOverrides: {
+		Label: 启用原版物品覆盖
+		Tooltip: 如果启用，将修改一些原版物品属性（如泰拉靴、徽章等）
+	}
+
+	FullMoonOreGenerated: {
+		Label: 望月矿石生成
+		Tooltip: 望月矿石是否已在世界中生成（目前无功能）
+	}
+
+	EnableCalamityRecipes: {
+		Label: 启用灾厄配方
+		Tooltip: 启用在灾厄沉沦海版本中被移除的一些原版物品制作配方（如果加载了灾厄模组）
+	}
+
+	LaserAlwaysOn: {
+		Label: 激光常开
+		Tooltip: 如果启用，星元狙击步枪的激光将始终显示
+	}
+
+	EnableDetailedTooltips: {
+		Label: 启用详细工具提示(开发者专用，简体中文)
+		Tooltip: 如果启用，将显示物品和饰品的详细工具提示(只是给开发者debug看的所以只有中文)
+	}
+}

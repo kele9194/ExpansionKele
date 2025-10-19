@@ -1,0 +1,9 @@
+TestWeapon: {
+	Tooltip: Just a debug weapon
+	DisplayName: Test Weapon
+}
+
+TestShield: {
+	Tooltip: just a debug accessory
+	DisplayName: Test Shield
+}

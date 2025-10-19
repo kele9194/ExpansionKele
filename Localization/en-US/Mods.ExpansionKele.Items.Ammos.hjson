@@ -1,0 +1,4 @@
+SharkyBulletAmmo: {
+	Tooltip: A test ammo that deals huge damage
+	DisplayName: Sharky Bullet Ammo
+}

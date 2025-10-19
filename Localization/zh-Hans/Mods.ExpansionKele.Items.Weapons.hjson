@@ -1,0 +1,172 @@
+VortexMissileLauncher: {
+	Tooltip:
+		'''
+		发射一枚直射导弹和两枚追踪导弹
+		追踪导弹对空中目标造成大量额外伤害
+		'''
+	DisplayName: 涡流导弹发射器
+}
+
+StingerLauncher: {
+	DisplayName: 毒针发射器
+	Tooltip:
+		'''
+		散射发出27根钢针，每根穿透敌人后造成20点护甲穿透
+		钢针会造成酸性毒液减益
+		'''
+}
+
+SpectralCurtainCannon: {
+	DisplayName: 幽幕加农炮
+	Tooltip:
+		'''
+		发射追踪炮弹。命中后会产生减速区域。
+		此区域内的玩家获得生命恢复和伤害加成
+		'''
+}
+
+SoulCannon: {
+	DisplayName: 灵魂加农炮
+	Tooltip:
+		'''
+		蓄力并发射六枚追踪炮弹。
+		炮弹的伤害随着蓄力时间增加
+		在水中蓄力速度更快
+		'''
+}
+
+SolarSpear: {
+	DisplayName: 耀光矛
+	Tooltip:
+		'''
+		在冲刺攻击和旋转攻击之间交替
+		冲刺期间无敌并造成2倍伤害，穿透敌人可恢复生命
+		旋转期间反弹抛射物，成功反弹抛射物也能恢复生命
+		'''
+}
+
+SigLightSpear: {
+	DisplayName: 赛格光矛
+	Tooltip:
+		'''
+		使用时向前冲刺，冲刺过程中造成2倍伤害
+		冲刺期间无敌。冲刺撞击敌人可恢复生命。
+		'''
+}
+
+ProtonCannonA: {
+	Tooltip: 一件被遗弃的武器
+	DisplayName: 质子炮A
+}
+
+ProtonCannon: {
+	Tooltip:
+		'''
+		蓄力并发射六枚炮弹。
+		炮弹的伤害随着蓄力时间增加
+		在水中蓄力速度更快
+		'''
+	DisplayName: 质子炮
+}
+
+PowerShotSMG: {
+	DisplayName: 劲射冲锋枪
+	Tooltip:
+		'''
+		持续射击时伤害逐渐增加，最高可达2倍
+		远程暴击率最多提高20%。
+		停止射击时，伤害缓慢回落至基础值。
+		切换武器会使伤害重置为基础值。
+		'''
+}
+
+PearlWoodSpear: {
+	DisplayName: 珍珠木长矛
+	Tooltip:
+		'''
+		旋转攻击，有几率反弹敌对抛射物。
+		使用时大幅减少所受伤害。
+		反弹抛射物可恢复生命值。
+		'''
+}
+
+NeutronGun: {
+	Tooltip:
+		'''
+		发射中子束，施加中子衰变减益
+		每2秒造成相当于敌人最大生命值{0}%的伤害
+		'''
+	DisplayName: 中子枪
+}
+
+IronCurtainCannon: {
+	DisplayName: 铁幕加农炮
+	Tooltip:
+		'''
+		左键发射铁幕粒子炮炮弹
+		命中方块或敌人后产生持续伤害的铁幕圆环
+		右键发射铁幕激光。
+		'''
+}
+
+FullMoonSword: {
+	DisplayName: 望月长剑
+	Tooltip:
+		'''
+		可以发射回旋镖状的投射物，造成66%的伤害并无视15点敌人护甲
+		似乎蕴含着复仇的力量
+		'''
+}
+
+FullMoonEcho: {
+	DisplayName: 望月回响
+	Tooltip:
+		'''
+		发射三枚倾斜的满月，一段时间后减速返回，但伤害变为原来的60%
+		血月与蓝月的交替，代表死亡与寂静
+		'''
+}
+
+FullMoonBow: {
+	DisplayName: 望月弓
+	Tooltip:
+		'''
+		发射两个月亮
+		穿透一定数量的敌人/经过一段时间/触碰物体后返回
+		但伤害变为原来的50%
+		天空布满了月亮！
+		'''
+}
+
+FrostRayGun: {
+	DisplayName: 霜冻射线枪
+	Tooltip:
+		'''
+		发射霜冻射线，对命中的敌人施加霜碎减益。
+		每次命中都会延长减益持续时间1秒，最长60秒。
+		霜碎减益降低目标50%防御力并增加所受伤害，最高可达300%。
+		'''
+}
+
+CodeChaos: {
+	Tooltip:
+		'''
+		每次使用时在近战、远程、魔法和召唤伤害之间切换，获得4倍职业伤害和暴击率增益
+		伤害在0.5倍到2倍之间波动，攻击速度在0.75倍到1.25倍之间波动
+		暴击伤害倍数在0.75倍到1.25倍之间波动，暴击率在0.75倍到1.25倍之间波动
+		近战模式下，刀刃造成额外3倍真实伤害，魔法模式消耗10点法力，召唤模式仍然无法暴击
+		一种极其混乱和随机的武器，会随机发射该模组的各种抛射物
+		作者的牢骚：为什么没有ModifyAttackSpeed方法
+		'''
+	DisplayName: 混编代码
+}
+
+BaseMainGun: {
+	DisplayName: 基础主炮
+	Tooltip: 不消耗任何弹药并造成范围伤害
+}
+
+AAMissileLauncher: {
+	Tooltip: 发射追踪导弹，对空中敌人造成额外伤害
+	DisplayName: 防空导弹发射器
+}

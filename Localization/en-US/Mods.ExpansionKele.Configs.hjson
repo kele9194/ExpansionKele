@@ -1,0 +1,33 @@
+//请注意翻译按层级优先翻译，其余内部文件更改无效，第二使用LocallizationCtegory进行分级，但是config请遵循源文件操作，第三，文件夹名称和文件位置合并效果一直，并且请注意名称是否正确
+ExpansionKeleConfig: {
+	DisplayName: Expansion Kele Config
+
+	EnableVanillaItemOverrides: {
+		Label: Enable Vanilla Item Overrides
+		Tooltip: If enabled, modifies some vanilla item properties (such as Terra Boots, Emblems, etc.)
+	}
+
+	FullMoonOreGenerated: {
+		Label: Full Moon Ore Generated
+		Tooltip: Whether the full moon ore has been generated in the world(it is not functional now)
+	}
+
+	EnableCalamityRecipes: {
+		Label: Enable Calamity Recipes
+		Tooltip: Enable some crafting recipes for vanilla items that were removed in the Calamity Sunken Sea version (if Calamity is loaded)
+	}
+
+	LaserAlwaysOn: {
+		Label: Laser Always On
+		Tooltip: If enabled, lasers of StarySniperRifle will always be displayed
+	}
+
+	EnableDetailedTooltips: {
+		Label: Enable Detailed Tooltips(For developers,Simplified Chinese)
+		Tooltip:
+			'''
+			If enabled, shows detailed tooltips for items and accessories(just for developer to debug so only simplified Chinese)
+			make it off will not obstacle your game  
+			'''
+	}
+}

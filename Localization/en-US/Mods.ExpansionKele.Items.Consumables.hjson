@@ -1,0 +1,18 @@
+RapidBashPotion: {
+	Tooltip: 10% increased melee speed
+	DisplayName: Rapid Bash Potion
+}
+
+CocoaLiquor: {
+	Tooltip:
+		'''
+		30 seconds of Potionsickness
+		get CocoaBuff 30 seconds
+		'''
+	DisplayName: Cocoa Liquor
+}
+
+ChocolateBar: {
+	Tooltip: Plenty Satisfied buff and CocoaBuff
+	DisplayName: Chocolate Bar
+}
