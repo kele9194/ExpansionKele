@@ -1,0 +1,45 @@
+# Build results
+bin/
+obj/
+
+# Visual Studio files
+.vs/
+*.user
+*.suo
+*.csproj.user
+
+# VSCode files
+.vscode/
+
+# Rider files
+.idea/
+*.sl.DotSettings.user
+
+# Temporary files
+*.tmp
+*.temp
+
+# Log files
+*.log
+
+# Unity cache
+Library/
+Temp/
+
+# Assembly info files (generated)
+*AssemblyInfo.cs
+*.cache
+
+# Other generated files
+*.pidb
+*.dll.mdb
+*.pdb
+
+# OS generated files
+Thumbs.db
+.DS_Store
+
+# tModLoader specific
+*.tmod
+/build/
+/ModLoader/
