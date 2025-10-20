@@ -8,6 +8,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using ExpansionKele;
 using Terraria.Localization;
+using static Terraria.NPC;
 
 namespace ExpansionKele.Content.Items.Weapons
 {
@@ -52,6 +53,33 @@ private int GetValidProjectileType(int index)
             // 如果无效，返回默认Projectile类型
             return ProjectileID.FireArrow;
         }
+
+        private int GetRandomValidProjectileType()
+	{
+		if (ExpansionKele.projectileTypes == null || ExpansionKele.projectileTypes.Length == 0)
+		{
+			return 2;
+		}
+		for (int i = 0; i < 10; i++)
+		{
+			int randomIndex = Main.rand.Next(ExpansionKele.projectileTypes.Length);
+			if (ExpansionKele.projectileTypes[randomIndex] > 0 && ContentSamples.ProjectilesByType.ContainsKey(ExpansionKele.projectileTypes[randomIndex]))
+			{
+				return ExpansionKele.projectileTypes[randomIndex];
+			}
+		}
+		for (int j = 0; j < ExpansionKele.projectileTypes.Length; j++)
+		{
+			if (ExpansionKele.projectileTypes[j] > 0 && ContentSamples.ProjectilesByType.ContainsKey(ExpansionKele.projectileTypes[j]))
+			{
+				return ExpansionKele.projectileTypes[j];
+			}
+		}
+		return 2;
+	}
+
+
+        
 // ... existing code ...
 
         public override void SetDefaults()
@@ -74,26 +102,73 @@ private int GetValidProjectileType(int index)
             Item.noMelee = false;
             Item.noUseGraphic = false;
         }
-// ... existing code ...
 
-        public override void UpdateInventory(Player player)
-        {
-            // 每帧更新浮动参数
-            damageMultiplier = Main.rand.NextFloat(0.5f, 2f);
-            critDamageMultiplier = Main.rand.NextFloat(0.75f, 1.25f);
-            critChanceMultiplier = Main.rand.NextFloat(0.75f, 1.25f);
-            useTimeMultiplier = Main.rand.NextFloat(0.75f, 1.25f);
-            
-            // 应用浮动参数到物品属性
-            Item.useTime = (int)(20 * useTimeMultiplier);
-            Item.useAnimation = (int)(20 * useTimeMultiplier);
-        }
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+	{
+		//IL_0001: Unknown result type (might be due to invalid IL or missing references)
+		//IL_0002: Unknown result type (might be due to invalid IL or missing references)
+		Projectile.NewProjectile((IEntitySource)(object)source, position, velocity, type, damage, knockback, ((Entity)player).whoAmI, 0f, 0f, 0f);
+		return false;
+	}
+
+	public override void OnHitNPC(Player player, NPC target, HitInfo hit, int damageDone)
+	{
+		target.life -= damageDone * 3;
+		if (target.life < 0)
+		{
+			target.life = 0;
+		}
+	}
+// ... existing code ...
+public override void ModifyShootStats(Player player, ref Vector2 position, ref Vector2 velocity, ref int type, ref int damage, ref float knockback)
+	{
+		SwitchDamageType();
+		UpdateFloatParameters();
+		int newType = 2;
+		switch (currentDamageType)
+		{
+		case 3:
+			newType = GetRandomValidProjectileType();
+			break;
+		case 0:
+			newType = GetRandomValidProjectileType();
+			break;
+		case 1:
+			newType = GetRandomValidProjectileType();
+			break;
+		case 2:
+			newType = GetRandomValidProjectileType();
+			break;
+		}
+		if (newType > 0 && ContentSamples.ProjectilesByType.ContainsKey(newType))
+		{
+			type = newType;
+		}
+		else
+		{
+			type = 2;
+		}
+	}
+
+        private void UpdateFloatParameters()
+	{
+		float t1 = (float)Main.rand.NextDouble();
+		float t2 = (float)Main.rand.NextDouble();
+		float t3 = (float)Main.rand.NextDouble();
+		float t4 = (float)Main.rand.NextDouble();
+		damageMultiplier = (float)Math.Pow(2.0, (double)(2f * t1 - 1f));
+		critDamageMultiplier = 1.5f + t2 * 1f;
+		critChanceMultiplier = 0.75f + t3 * 0.5f;
+		useTimeMultiplier = 0.75f + t4 * 0.5f;
+	}
 // ... existing code ...
 
         public override bool CanUseItem(Player player)
         {
             // 切换到下一个伤害类型
             currentDamageType = (currentDamageType + 1) % 4;
+            Item.useTime = (int)(20 * useTimeMultiplier);
+            Item.useAnimation = (int)(20 * useTimeMultiplier);
             SwitchDamageType();
             return base.CanUseItem(player);
         }
@@ -111,15 +186,15 @@ private int GetValidProjectileType(int index)
                     break;
                 case rangedDamageType:
                     Item.DamageType = DamageClass.Ranged;
-                    Item.useStyle = ItemUseStyleID.Shoot;
-                    Item.noMelee = true;
-                    Item.noUseGraphic = true;
+                    Item.useStyle = ItemUseStyleID.Swing;
+                    Item.noMelee = false;
+                    Item.noUseGraphic = false;
                     break;
                 case magicDamageType:
                     Item.DamageType = DamageClass.Magic;
-                    Item.useStyle = ItemUseStyleID.Shoot;
-                    Item.noMelee = true;
-                    Item.noUseGraphic = true;
+                    Item.useStyle = ItemUseStyleID.Swing;
+                    Item.noMelee = false;
+                    Item.noUseGraphic = false;
                     break;
                 case summonDamageType:
                     Item.DamageType = DamageClass.Summon;

@@ -159,6 +159,11 @@ public static int ATKTool(int nonCalamityDamage = 0, int calamityDamage = 0, flo
         }
     }
 }
+        // public override object Call(params object[] args)
+        // {
+        //     // 委托给 ExpansionKeleCallHandler 处理
+        //     return ExpansionKeleCallHandler.HandleCall(this, args);
+        // }
 // ... existing code ...
     }
 }
