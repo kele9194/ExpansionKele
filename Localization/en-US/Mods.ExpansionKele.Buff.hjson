@@ -104,3 +104,19 @@ ArmorPodwered: {
 		reduce the player's endurance by {2}%
 		'''
 }
+
+"": {
+	FullMoonMinionBuff: {
+		DisplayName: {
+			$parentVal: {
+				$parentVal: Full Moon Minion Buff
+			}
+		}
+
+		Description: {
+			$parentVal: {
+				$parentVal: Mods.ExpansionKele.Buffs.FullMoonMinionBuff.Description
+			}
+		}
+	}
+}

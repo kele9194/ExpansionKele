@@ -104,3 +104,15 @@ ArmorPodwered: {
 		减少玩家{2}%耐力
 		'''
 }
+
+"": {
+	FullMoonMinionBuff: {
+		DisplayName: {
+			// $parentVal: Full Moon Minion Buff
+		}
+
+		Description: {
+			// $parentVal: Mods.ExpansionKele.Buffs.FullMoonMinionBuff.Description
+		}
+	}
+}

@@ -170,3 +170,8 @@ AAMissileLauncher: {
 	Tooltip: 发射追踪导弹，对空中敌人造成额外伤害
 	DisplayName: 防空导弹发射器
 }
+
+FullMoonStaff: {
+	// DisplayName: Full Moon Staff
+	// Tooltip: ""
+}

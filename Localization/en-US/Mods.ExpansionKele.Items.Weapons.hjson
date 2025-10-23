@@ -170,3 +170,8 @@ AAMissileLauncher: {
 	Tooltip: Launches tracking rockets that deal additional damage to airborne enemies
 	DisplayName: AA Missile Launcher
 }
+
+FullMoonStaff: {
+	DisplayName: Full Moon Staff
+	Tooltip: ""
+}

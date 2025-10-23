@@ -35,3 +35,5 @@ LightSpearProjectile.DisplayName: Light Spear Projectile
 FrostRayProjectile.DisplayName: Frost Ray Projectile
 BaseMainGunProjectile.DisplayName: Base Main Gun Projectile
 FullMoonArmorProj.DisplayName: Full Moon Armor Proj
+FullMoonMinion.DisplayName: Full Moon Minion
+FullMoonMinionController.DisplayName: Full Moon Minion Controller

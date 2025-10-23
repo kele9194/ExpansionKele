@@ -35,3 +35,5 @@ LightSpearProjectile.DisplayName: 赛格光矛
 FrostRayProjectile.DisplayName: 霜冻射线
 BaseMainGunProjectile.DisplayName: 基础主炮
 FullMoonArmorProj.DisplayName: 望月射弹
+// FullMoonMinion.DisplayName: Full Moon Minion
+// FullMoonMinionController.DisplayName: Full Moon Minion Controller
