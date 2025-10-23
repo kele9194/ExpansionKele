@@ -32,3 +32,8 @@ CocoaBeans: {
 	Tooltip: 一种制作美味巧克力的原材料
 	DisplayName: 可可豆
 }
+
+BrainOfMonster: {
+	Tooltip: ""
+	DisplayName: 怪物大脑
+}

@@ -27,8 +27,8 @@ namespace ExpansionKele.Content.Items.OtherItem
             Item.rare = ItemRarityID.Blue;
         }
         public override void ModifyTooltips(System.Collections.Generic.List<TooltipLine> tooltips) {  
-			tooltips.Add(new TooltipLine(Mod, "obtain", "可以通过砍伐树木获得"));
-            tooltips.Add(new TooltipLine(Mod, "pity", "作者碎碎念：找不到摇树还找不到红木树判断方法"));
+			// tooltips.Add(new TooltipLine(Mod, "obtain", "可以通过砍伐树木获得"));
+            // tooltips.Add(new TooltipLine(Mod, "pity", "作者碎碎念：找不到摇树还找不到红木树判断方法"));
         }  
     }
     

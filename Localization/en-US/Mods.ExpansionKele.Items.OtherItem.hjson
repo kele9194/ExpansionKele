@@ -32,3 +32,8 @@ CocoaBeans: {
 	Tooltip: a material for making delicious chocolate
 	DisplayName: Cocoa Beans
 }
+
+BrainOfMonster: {
+	Tooltip: ""
+	DisplayName: Brain Of Monster
+}

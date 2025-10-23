@@ -1,3 +1,4 @@
+using ExpansionKele.Content.Items.OtherItem;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -9,10 +10,26 @@ namespace ExpansionKele
         
         public override void AddRecipes()
         {
-            Recipe.Create(ItemID.MeteoriteBar)
-                .AddIngredient(ItemID.HellstoneBar, 1)
-                .AddIngredient(ItemID.FallenStar, 1)
-                .AddTile(TileID.Hellforge)
+            Recipe.Create(ItemID.WormScarf)
+                .AddIngredient(ItemID.Silk, 10)
+                .AddIngredient(ItemID.ShadowScale, 5)
+                .AddIngredient(ItemID.DemoniteBar, 5)
+                .AddTile(TileID.Anvils)
+                .Register();
+
+            Recipe.Create(ItemID.BrainOfConfusion)
+                .AddIngredient(ModContent.ItemType<BrainOfMonster>(), 1)
+                .AddIngredient(ItemID.CrimtaneBar, 6)
+                .AddIngredient(ItemID.TissueSample, 6)
+                .AddTile(TileID.Anvils)
+                .Register();
+
+            Recipe.Create(ItemID.Extractinator)
+                .AddIngredient(ItemID.Wire, 50)
+                .AddRecipeGroup("ExpansionKele:AnyIronBars", 10)
+                .AddIngredient(ItemID.Lever, 3)
+                .AddIngredient(ItemID.Switch, 3)
+                .AddTile(TileID.TinkerersWorkbench)
                 .Register();
 
             // 狱石锭由陨石锭*1和黑曜石*1在熔炉合成
