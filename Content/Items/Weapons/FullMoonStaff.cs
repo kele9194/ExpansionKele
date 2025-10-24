@@ -28,8 +28,8 @@ namespace ExpansionKele.Content.Items.Weapons
 
         public override void SetDefaults()
         {
-            Item.SetNameOverride("望月法杖");
-            Item.damage = ExpansionKele.ATKTool(80, 100);         // 基础伤害值
+            // Item.SetNameOverride("望月法杖");
+            Item.damage = ExpansionKele.ATKTool(120, 150);         // 基础伤害值
             Item.DamageType = DamageClass.Summon;                // 召唤伤害类型
             Item.width = 26;                                     // 物品宽高
             Item.height = 28;

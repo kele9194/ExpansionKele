@@ -9,18 +9,9 @@ Currently, this mod includes the following series:
 Additionally, there are:
 - Nearly 20 other types of weapons, 6 accessories, 3 ingots, 1 armor set, and 1 incomplete boss
 This mod does not rewrite existing boss AI, so it allows joining after creating the mod
-
 If you have any ideas or suggestions, feel free to leave a comment.
 
 Recent updates:
-v1.1.7
-20251003:
-Modified Terra Boots effect to now also provide Frog Leg effects while keeping the same recipe
-Added configuration for whether this mod modifies a few vanilla items, enabled by default
-Added Full Moon Emblem mutual exclusion and Stary Emblem mutual exclusion, allowing at most one Full Moon Emblem and one Stary Emblem to be active simultaneously
-
-20251005:
-Added weapon Code Chaos, obtainable by defeating Kele(boss).
 
 v1.1.8
 20251006:
@@ -44,6 +35,10 @@ v1.2.0
 20251015-1019
 Completed mod reorganization and Chinese/English localization
 
+v1.2.1
+Fixed some weapon code errors and Chinese/English localization errors
+Add new weapons: FullMoon Summoning Staff, FullMoon ShortSword
+
 这个模组仅为娱乐，开发者仅为本人，并且仍然在完善中，和灾厄模组游玩时会有部分重写以适配灾厄数值环境。
 
 目前该模组拥有以下系列：
@@ -54,19 +49,9 @@ Completed mod reorganization and Chinese/English localization
 此外还有：
 近20种其他类型武器，6个其他类型饰品，3种锭，1个套装，1个未完成boss。
 此外该模组无现有bossAI重写，因此允许在创建世界后加入。
-
 如果有其他任何想法或建议欢迎留言。
 
-近期更新：
-v1.1.7
-20251003：
-修改了泰拉靴的效果，现在在配方不变的情况下可以获得蛙腿的效果；
-添加了是否该模组是否修改原版少量品的配置，默认开启；
-添加了满月徽章互锁和星元徽章互锁，即只允许最多一个满月徽章和最多一个星元徽章生效。
-
-20251005：
-新增武器混沌编码，由击败boss可乐获得。
-
+近期更新： 
 v1.1.8
 20251006：
 为所有现存武器都添加了装载灾厄模组和无灾厄模组下的伤害兼容；
@@ -88,3 +73,7 @@ v1.1.9
 v1.2.0
 20251015-1019
 完成mod重整和中英文本地化
+
+v1.2.1
+完成少量武器代码错误和英文本地化错误
+新增望月召唤杖，望月短剑

@@ -23,7 +23,7 @@ namespace ExpansionKele.Content.Items.Tools
 
         public override void SetDefaults()
         {
-            Item.SetNameOverride("望月镐斧");
+            // Item.SetNameOverride("望月镐斧");
             Item.damage = 32;                    // 基础伤害值
             Item.DamageType = DamageClass.Melee;  // 近战伤害类型
             Item.width = 40;                     // 物品宽度

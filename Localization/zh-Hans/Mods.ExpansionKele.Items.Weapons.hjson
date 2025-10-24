@@ -172,6 +172,15 @@ AAMissileLauncher: {
 }
 
 FullMoonStaff: {
-	// DisplayName: Full Moon Staff
-	// Tooltip: ""
+	DisplayName: 望月召唤杖
+	Tooltip:
+		'''
+		月亮环绕在你身边并造成伤害
+		多次使用召唤杖改变你和月亮的距离
+		'''
+}
+
+FullMoonShortsword: {
+	DisplayName: 望月短剑
+	Tooltip: 发射追踪月亮弹幕，当月亮弹幕击中敌人后会积雪向前然后返回玩家
 }

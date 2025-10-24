@@ -6,6 +6,7 @@ namespace ExpansionKele.Content.Buff
 {
     public class FullMoonMinionBuff : ModBuff
     {
+        public override string LocalizationCategory =>"Buff";
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("望月守护");

@@ -105,18 +105,7 @@ ArmorPodwered: {
 		'''
 }
 
-"": {
-	FullMoonMinionBuff: {
-		DisplayName: {
-			$parentVal: {
-				$parentVal: Full Moon Minion Buff
-			}
-		}
-
-		Description: {
-			$parentVal: {
-				$parentVal: Mods.ExpansionKele.Buffs.FullMoonMinionBuff.Description
-			}
-		}
-	}
+FullMoonMinionBuff: {
+	DisplayName: FullMoon Minion Buff
+	Description: Moons arounds you
 }

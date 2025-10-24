@@ -37,3 +37,6 @@ BaseMainGunProjectile.DisplayName: Base Main Gun Projectile
 FullMoonArmorProj.DisplayName: Full Moon Armor Proj
 FullMoonMinion.DisplayName: Full Moon Minion
 FullMoonMinionController.DisplayName: Full Moon Minion Controller
+FullMoonShortSwordProjectile.DisplayName: Full Moon Short Sword Projectile
+FullMoonShadowProjectile.DisplayName: Full Moon Shadow Projectile
+FullMoonShortSwordMoonProj.DisplayName: Full Moon Short Sword Moon Proj

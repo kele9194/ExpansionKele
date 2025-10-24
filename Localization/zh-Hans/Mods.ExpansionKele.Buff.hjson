@@ -105,14 +105,7 @@ ArmorPodwered: {
 		'''
 }
 
-"": {
-	FullMoonMinionBuff: {
-		DisplayName: {
-			// $parentVal: Full Moon Minion Buff
-		}
-
-		Description: {
-			// $parentVal: Mods.ExpansionKele.Buffs.FullMoonMinionBuff.Description
-		}
-	}
+FullMoonMinionBuff: {
+	DisplayName: 望月召唤杖增益
+	Description: 月亮在环绕着你
 }
