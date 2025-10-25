@@ -186,6 +186,6 @@ FullMoonShortsword: {
 }
 
 FullMoonSpear: {
-	Tooltip: '''Shoot a spearhead and spread moons that lately return'''
+	Tooltip: Shoot a spearhead and spread moons that lately return
 	DisplayName: Full Moon Spear
 }

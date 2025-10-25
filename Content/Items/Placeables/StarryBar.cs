@@ -1,3 +1,4 @@
+using ExpansionKele.Content.Items.Tiles;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -17,7 +18,7 @@ namespace ExpansionKele.Content.Items.Placeables
         public override void SetDefaults()
         {
             //Item.SetNameOverride("星元锭");
-            //Item.DefaultToPlaceableTile(ModContent.TileType<FullMoonBarTile>());
+        Item.DefaultToPlaceableTile(ModContent.TileType<StarryBarTile>());
             base.Item.width = 30;
 		base.Item.height = 24;
 		base.Item.useStyle = ItemUseStyleID.Swing;

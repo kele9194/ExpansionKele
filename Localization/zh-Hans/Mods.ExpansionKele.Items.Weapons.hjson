@@ -186,6 +186,6 @@ FullMoonShortsword: {
 }
 
 FullMoonSpear: {
-	Tooltip: '''发射矛尖向两侧发射月亮，月亮在前进一段时间后返回玩家'''
+	Tooltip: 发射矛尖向两侧发射月亮，月亮在前进一段时间后返回玩家
 	DisplayName: 望月矛
 }

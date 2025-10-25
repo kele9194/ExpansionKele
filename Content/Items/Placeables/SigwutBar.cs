@@ -1,3 +1,4 @@
+using ExpansionKele.Content.Items.Tiles;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -19,6 +20,7 @@ namespace ExpansionKele.Content.Items.Placeables
         {
             //base.Item.SetNameOverride("西格武特锭");
             base.Item.height = 24;
+            Item.DefaultToPlaceableTile(ModContent.TileType<SigwutBarTile>());
 		base.Item.useStyle = ItemUseStyleID.Swing;
 		base.Item.useTurn = true;
 		base.Item.useAnimation = 15;

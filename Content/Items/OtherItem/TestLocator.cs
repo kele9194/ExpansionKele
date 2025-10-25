@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using ExpansionKele.Content.Customs;
 using Terraria.ID;
 using ExpansionKele.Content.Items.Accessories;
+using System.Formats.Asn1;
+using Stubble.Core.Classes;
+using ExpansionKele.Content.Items.Tiles;
 
 namespace ExpansionKele.Content.Items.OtherItem
 {
@@ -22,6 +25,7 @@ namespace ExpansionKele.Content.Items.OtherItem
             Item.useAnimation = 30;
         }
 
+        // ... existing code ...
         public override void ModifyTooltips(List<TooltipLine> tooltips)
         {
             Player player = Main.LocalPlayer;
@@ -43,6 +47,10 @@ namespace ExpansionKele.Content.Items.OtherItem
             // 添加自定义减伤提示信息
             tooltips.Add(new TooltipLine(Mod, "CustomDamageReduction", $"自定义减伤: {customDamageReduction * 100:F2}%"));
             tooltips.Add(new TooltipLine(Mod, "CooldownTimer", $"冷却时间: {starryLifeEmblemPlayer.fatalCooldownTimer:F2}"));
+            
+            // 显示满月矿石生成状态
+            tooltips.Add(new TooltipLine(Mod, "FullMoonOreGenerated", $"满月矿石已生成: {FullMoonOreSystem.oreGenerated}"));
         }
+// ... existing code ...
     }
 }

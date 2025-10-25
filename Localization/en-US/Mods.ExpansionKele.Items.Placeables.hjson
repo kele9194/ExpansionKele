@@ -17,3 +17,5 @@ FullMoonBar: {
 	Tooltip: ""
 	DisplayName: Full Moon Bar
 }
+
+FullMoonOreTile.MapEntry: Mods.ExpansionKele.Items.Placeables.FullMoonOreTile.MapEntry
