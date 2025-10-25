@@ -38,5 +38,7 @@ FullMoonArmorProj.DisplayName: 望月射弹
 FullMoonMinion.DisplayName: 望月召唤杖月亮
 FullMoonMinionController.DisplayName: 望月召唤杖控制仆从
 FullMoonShortSwordProjectile.DisplayName: 望月短剑
-// FullMoonShadowProjectile.DisplayName: Full Moon Shadow Projectile
 FullMoonShortSwordMoonProj.DisplayName: 望月短剑追踪弹幕
+// FullMoonSpearProjectile.DisplayName: Full Moon Spear Projectile
+// FullMoonSpearMoonProjectile.DisplayName: Full Moon Spear Moon Projectile
+// FullMoonSpearHeadProjectile.DisplayName: Full Moon Spear Head Projectile

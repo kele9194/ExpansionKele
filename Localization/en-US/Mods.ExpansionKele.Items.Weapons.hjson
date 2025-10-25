@@ -172,7 +172,7 @@ AAMissileLauncher: {
 }
 
 FullMoonStaff: {
-	DisplayName: Full Moon Staff
+	DisplayName: FullMoon Summoning Staff
 	Tooltip:
 		'''
 		moons are around you and deals damage 
@@ -183,4 +183,9 @@ FullMoonStaff: {
 FullMoonShortsword: {
 	DisplayName: Full Moon Shortsword
 	Tooltip: Shoot a tracking moon ,after hit,it will straight forward and return
+}
+
+FullMoonSpear: {
+	Tooltip: '''Shoot a spearhead and spread moons that lately return'''
+	DisplayName: Full Moon Spear
 }

@@ -184,3 +184,8 @@ FullMoonShortsword: {
 	DisplayName: 望月短剑
 	Tooltip: 发射追踪月亮弹幕，当月亮弹幕击中敌人后会积雪向前然后返回玩家
 }
+
+FullMoonSpear: {
+	Tooltip: '''发射矛尖向两侧发射月亮，月亮在前进一段时间后返回玩家'''
+	DisplayName: 望月矛
+}

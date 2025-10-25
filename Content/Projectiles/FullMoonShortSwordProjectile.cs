@@ -38,7 +38,9 @@ namespace ExpansionKele.Content.Projectiles
 			Projectile.extraUpdates = 1; // Update 1+extraUpdates times per tick
 			Projectile.timeLeft = 360; // This value does not matter since we manually kill it earlier, it just has to be higher than the duration we use in AI
 			Projectile.hide = true; // Important when used alongside player.heldProj. "Hidden" projectiles have special draw conditions
-		}
+            Projectile.usesLocalNPCImmunity = true; // 使用本地无敌帧
+            Projectile.localNPCHitCooldown = 5; 
+        }
 
 		public override void AI() {
 			Player player = Main.player[Projectile.owner];

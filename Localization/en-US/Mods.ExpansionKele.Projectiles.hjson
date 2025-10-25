@@ -38,5 +38,7 @@ FullMoonArmorProj.DisplayName: Full Moon Armor Proj
 FullMoonMinion.DisplayName: Full Moon Minion
 FullMoonMinionController.DisplayName: Full Moon Minion Controller
 FullMoonShortSwordProjectile.DisplayName: Full Moon Short Sword Projectile
-FullMoonShadowProjectile.DisplayName: Full Moon Shadow Projectile
 FullMoonShortSwordMoonProj.DisplayName: Full Moon Short Sword Moon Proj
+FullMoonSpearProjectile.DisplayName: Full Moon Spear Projectile
+FullMoonSpearMoonProjectile.DisplayName: Full Moon Spear Moon Projectile
+FullMoonSpearHeadProjectile.DisplayName: Full Moon Spear Head Projectile

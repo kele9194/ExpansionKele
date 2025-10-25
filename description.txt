@@ -35,7 +35,7 @@ v1.2.0
 20251015-1019
 Completed mod reorganization and Chinese/English localization
 
-v1.2.1
+v1.2.2
 Fixed some weapon code errors and Chinese/English localization errors
 Add new weapons: FullMoon Summoning Staff, FullMoon ShortSword
 
@@ -77,3 +77,6 @@ v1.2.0
 v1.2.1
 完成少量武器代码错误和英文本地化错误
 新增望月召唤杖，望月短剑
+
+v1.2.2
+暂无更新
