@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework;
 using ExpansionKele.Properties;
 using ExpansionKele.Content.Armor.StarArmorA;
 using ExpansionKele.Content.Armor;
+using Terraria.ID;
 
 namespace ExpansionKele
 {
@@ -25,6 +26,8 @@ namespace ExpansionKele
             activeStarryEmblemType = -1;
             activeMoonEmblemType = -1;
         }
+
+        
 
         
 

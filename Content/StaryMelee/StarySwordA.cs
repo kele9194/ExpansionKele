@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework;
 using ExpansionKele.Content.Projectiles;
 using ExpansionKele.Content.Buff;
 using Terraria.DataStructures;
+using ExpansionKele.Content.Customs;
 
 
 
@@ -12,6 +13,8 @@ namespace ExpansionKele.Content.StaryMelee
 {
     public class StarySwordA : ModItem
     {
+        public override string Texture => this.GetRelativeTexturePath("./StarySwordSmall");
+        //如果不删除原本的贴图有限使用原来的
         public override string LocalizationCategory => "StaryMelee";
         private const string setNameOverride="星元剑A";
         private const string introduction ="星元剑系列第一把武器,左键近战挥击可造成破甲I和着火减益";

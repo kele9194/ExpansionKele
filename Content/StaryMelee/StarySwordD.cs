@@ -6,6 +6,7 @@ using ExpansionKele.Content.Projectiles;
 using ExpansionKele.Content.Buff;
 using Terraria.DataStructures;
 using System;
+using ExpansionKele.Content.Customs;
 
 
 
@@ -15,6 +16,7 @@ namespace ExpansionKele.Content.StaryMelee
 {
     public class StarySwordD : ModItem
     {
+        public override string Texture => this.GetRelativeTexturePath("./StarySwordSuper");
         public override string LocalizationCategory => "StaryMelee";
          private const int LeftClickDamage = 23;
         private const float LeftClickKnockBack = 8f;

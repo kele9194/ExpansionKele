@@ -7,11 +7,14 @@ using ExpansionKele.Content.Buff;
 using Terraria.DataStructures;
 using System;
 using System.Collections.Generic;
+using ExpansionKele.Content.Customs;
+using ExpansionKele.Commons;
 
 namespace ExpansionKele.Content.StaryMelee
 {
     public abstract class StarySwordAbs : ModItem
     {
+        public override string Texture => this.GetRelativeTexturePath("./StarySwordSuper");
         public virtual string setNameOverride { get; }
         // 基础属性
         public virtual int BaseDamage { get; }
@@ -73,6 +76,11 @@ namespace ExpansionKele.Content.StaryMelee
             Item.shoot = ModContent.ProjectileType<ColaProjectile>();
             Item.shootSpeed = ShootSpeed;
         }
+
+        // public override void UseItemFrame(Player player)
+        // {
+        //     ExpansionKeleUtils.ConductBetterItemLocation(player);
+        // }
 
         public override Vector2? HoldoutOffset() 
         {  

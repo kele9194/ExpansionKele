@@ -13,6 +13,7 @@ namespace ExpansionKele.Content.StaryMelee
 {
     public class StarySwordE : StarySwordAbs
     {
+        
         public override string LocalizationCategory => "StaryMelee";
         public override string setNameOverride => "星元剑E";
         private const string introduction = "星元剑D的升级版，近战可造成两次伤害，第二次拥有恐怖的二次乘伤和短时增益，右键允许突进但无法连续使用，突进损失一定蓝量但给予无敌帧";

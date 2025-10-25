@@ -1,3 +1,4 @@
+using ExpansionKele.Commons;
 using ExpansionKele.Content.Items.Placeables;
 using Terraria;
 using Terraria.ID;
@@ -42,5 +43,16 @@ namespace ExpansionKele.Global
                     
             }
         }
+
+        public override void UseItemFrame(Item item, Player player)
+        {
+            // 应用改进的物品定位逻辑到所有近战挥舞类武器
+            if (item.useStyle == ItemUseStyleID.Swing)
+            {
+                ExpansionKeleUtils.ConductBetterItemLocation(player);
+            }
+        }
+
     }
 }
+

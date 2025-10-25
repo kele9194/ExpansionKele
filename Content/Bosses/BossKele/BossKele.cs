@@ -1,10 +1,7 @@
 // 引入必要的命名空间
 using System;
-using System.Collections.Generic;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria;
-using Microsoft.Xna.Framework.Audio;
 using Terraria.DataStructures;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
@@ -12,9 +9,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using System.IO;
 using Terraria.Audio;
-using ExpansionKele.Content.Projectiles;
 using ExpansionKele.Content.Items.Placeables;
-
 namespace ExpansionKele.Content.Bosses.BossKele
 {
     // 自动加载Boss头像
@@ -80,16 +75,12 @@ private float orbitRotation;
     Main.npcFrameCount[NPC.type] = 1; // 设置为单帧纹理
     NPCID.Sets.BossBestiaryPriority.Add(NPC.type); // 添加到图鉴优先级列表
 }
-
-//         s'sss
-
         // 每次生成NPC时调用，用于初始化NPC属性
         public override void SetDefaults()
 {
     // 基础尺寸和碰撞箱设置
     NPC.width = 50;
     NPC.height = 70;
-
     // 攻击伤害与防御属性
     NPC.damage = 60;
     NPC.defense = NormalDefense;
@@ -165,15 +156,18 @@ private float orbitRotation;
     }
 }
 
-        // AI逻辑主函数
-        // AI逻辑主函数
-        // AI逻辑主函数
-// 处理Boss的移动逻辑// AI逻辑主函数
+public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo)
+    {
+        // 直接设置NPC造成防御损伤
+        if (ModLoader.TryGetMod("CalamityMod", out Mod calamity))
+        {
+            calamity.Call("SetDefenseDamageNPC", NPC, true);
+        }
+    }
 public override void AI()
 {
     Player target = Main.player[NPC.target]; // 获取目标玩家
 
-    // 如果所有玩家都死亡，触发Boss清理逻辑
     if (AllPlayersDead())
     {
         Timer++; // 启动倒计时
@@ -251,7 +245,7 @@ public override void AI()
             if (Timer >= 120)
             {
                 PrepareRedLaser(target); // 发射红色激光
-                DrawLaserWarningLine(NPC.Center, target.Center, Color.Red);
+                //DrawLaserWarningLine(NPC.Center, target.Center, Color.Red);
                 ChooseNextAttack(); // 120帧后选择下一个攻击阶段
             }
 
@@ -464,20 +458,20 @@ private void RotateLasers(float rotationSpeed)
     }
 }
 
-private void DrawLaserWarningLine(Vector2 start, Vector2 end, Color color, int dustType = 60)
-{
-    const int MaxDust = 500;
-    float distance = Vector2.Distance(start, end);
-    Vector2 direction = (end - start).SafeNormalize(Vector2.Zero);
+// private void DrawLaserWarningLine(Vector2 start, Vector2 end, Color color, int dustType = 60)
+// {
+//     const int MaxDust = 500;
+//     float distance = Vector2.Distance(start, end);
+//     Vector2 direction = (end - start).SafeNormalize(Vector2.Zero);
 
-    for (int i = 0; i < distance / 4f && i < MaxDust; i++)
-    {
-        Vector2 position = start + direction * i * 4f;
-        Dust dust = Dust.NewDustDirect(position - Vector2.One * 4f, 8, 8, dustType, 0f, 0f, 100, color, 1.5f);
-        dust.noGravity = true;
-        dust.velocity *= 0.1f;
-    }
-}
+//     for (int i = 0; i < distance / 4f && i < MaxDust; i++)
+//     {
+//         Vector2 position = start + direction * i * 4f;
+//         Dust dust = Dust.NewDustDirect(position - Vector2.One * 4f, 8, 8, dustType, 0f, 0f, 100, color, 1.5f);
+//         dust.noGravity = true;
+//         dust.velocity *= 0.1f;
+//     }
+// }
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {

@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework;
 using ExpansionKele.Content.Projectiles;
 using ExpansionKele.Content.Buff;
 using Terraria.DataStructures;
+using ExpansionKele.Content.Customs;
 
 
 
@@ -12,6 +13,7 @@ namespace ExpansionKele.Content.StaryMelee
 {
     public class StarySwordB : ModItem
     {
+        public override string Texture => this.GetRelativeTexturePath("./StarySwordSmall");
         public override string LocalizationCategory => "StaryMelee";
         private const int constcrit = 2;
         private const string setNameOverride="星元剑B";
