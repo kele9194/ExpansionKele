@@ -18,4 +18,4 @@ FullMoonBar: {
 	DisplayName: 望月锭
 }
 
-// FullMoonOreTile.MapEntry: Mods.ExpansionKele.Items.Placeables.FullMoonOreTile.MapEntry
+FullMoonOreTile.MapEntry: 望月矿

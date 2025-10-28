@@ -34,6 +34,11 @@ CocoaBeans: {
 }
 
 BrainOfMonster: {
-	Tooltip: ""
+	Tooltip: A brain?
 	DisplayName: Brain Of Monster
+}
+
+ShadowSilk: {
+	DisplayName: Shadow Silk
+	Tooltip: To summon Shadow Of Revenge at night
 }

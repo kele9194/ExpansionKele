@@ -9,3 +9,18 @@ BossKele: {
 		DisplayName: Kele Treasure Bag
 	}
 }
+
+ShadowOfRevenge: {
+	ShadowOfRevenge.DisplayName: Shadow Of Revenge
+
+	Projectiles: {
+		BossMoonProj1.DisplayName: Boss Moon Proj1
+		BossMoonProj2.DisplayName: Boss Moon Proj2
+		BossMoonProj3.DisplayName: Boss Moon Proj3
+	}
+
+	ShadowOfRevengeTreasureBag: {
+		DisplayName: Shadow Of Revenge Treasure Bag
+		Tooltip: Right click to open
+	}
+}

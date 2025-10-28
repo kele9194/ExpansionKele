@@ -26,6 +26,7 @@ namespace ExpansionKele
             activeStarryEmblemType = -1;
             activeMoonEmblemType = -1;
         }
+        
 
         
 

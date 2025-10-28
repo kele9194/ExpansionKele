@@ -9,3 +9,18 @@ BossKele: {
 		DisplayName: 可乐的宝藏袋
 	}
 }
+
+ShadowOfRevenge: {
+	ShadowOfRevenge.DisplayName: 复仇之影
+
+	Projectiles: {
+		BossMoonProj1.DisplayName: Boss Moon Proj1
+		BossMoonProj2.DisplayName: Boss Moon Proj2
+		BossMoonProj3.DisplayName: Boss Moon Proj3
+	}
+
+	ShadowOfRevengeTreasureBag: {
+		DisplayName: 宝藏袋(复仇之影)
+		Tooltip: 右键打开
+	}
+}

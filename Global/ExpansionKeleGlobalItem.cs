@@ -47,7 +47,7 @@ namespace ExpansionKele.Global
         public override void UseItemFrame(Item item, Player player)
         {
             // 应用改进的物品定位逻辑到所有近战挥舞类武器
-            if (item.useStyle == ItemUseStyleID.Swing)
+            if (item.useStyle == ItemUseStyleID.Swing)//&&item.noUseGraphic==false
             {
                 ExpansionKeleUtils.ConductBetterItemLocation(player);
             }

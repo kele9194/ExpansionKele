@@ -61,8 +61,6 @@ private float orbitRotation;
 
         // 不同模式下的基础生命值设定
         private const int NormalHP = 150000;
-        private const int ExpertHP = 249600;
-        private const int MasterHP = 309401;
 
         // 不同模式下的基础防御值设定
         private const int NormalDefense = 50;
@@ -89,12 +87,10 @@ private float orbitRotation;
     NPC.lifeMax = NormalHP;
     if (Main.masterMode)
     {
-        NPC.lifeMax = MasterHP;
         NPC.defense = MasterDefense;
     }
     else if (Main.expertMode)
     {
-        NPC.lifeMax = ExpertHP;
         NPC.defense = ExpertDefense;
     }
 

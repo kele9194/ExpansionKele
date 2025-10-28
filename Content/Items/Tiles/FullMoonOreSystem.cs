@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Threading;
+using ExpansionKele.Content.Bosses.ShadowOfRevenge;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Chat;
@@ -28,13 +29,10 @@ namespace ExpansionKele.Content.Items.Tiles
 
 		public override void PostUpdateWorld() {
 			// 检查是否已经生成过矿石
-			if (!oreGenerated) {
-				// 检查是否击败了任意机械Boss
-				if (NPC.downedMechBossAny) {
-					// 生成满月矿石
-					BlessWorldWithFullMoonOre();
-					oreGenerated = true;
-				}
+			if (DownedShadowOfRevengeBoss.downedShadowOfRevenge && !oreGenerated) {
+				var fullMoonOreSystem = ModContent.GetInstance<FullMoonOreSystem>();
+				fullMoonOreSystem.BlessWorldWithFullMoonOre();
+				oreGenerated = true;
 			}
 		}
 

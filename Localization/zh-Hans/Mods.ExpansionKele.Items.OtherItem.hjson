@@ -37,3 +37,8 @@ BrainOfMonster: {
 	Tooltip: ""
 	DisplayName: 怪物大脑
 }
+
+ShadowSilk: {
+	DisplayName: 暗影绸布
+	Tooltip: 召唤复仇之影
+}
