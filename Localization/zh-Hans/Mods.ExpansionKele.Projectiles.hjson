@@ -39,6 +39,11 @@ FullMoonMinion.DisplayName: 望月召唤杖月亮
 FullMoonMinionController.DisplayName: 望月召唤杖控制仆从
 FullMoonShortSwordProjectile.DisplayName: 望月短剑
 FullMoonShortSwordMoonProj.DisplayName: 望月短剑追踪弹幕
-// FullMoonSpearProjectile.DisplayName: Full Moon Spear Projectile
-// FullMoonSpearMoonProjectile.DisplayName: Full Moon Spear Moon Projectile
-// FullMoonSpearHeadProjectile.DisplayName: Full Moon Spear Head Projectile
+FullMoonSpearProjectile.DisplayName: 望月长矛
+FullMoonSpearMoonProjectile.DisplayName: 望月长矛月亮
+FullMoonSpearHeadProjectile.DisplayName: 望月长矛矛尖
+KillingsBladeThrownProjectile.DisplayName: 杀戮刀片
+GaussRifleProjectile.DisplayName: 高斯步枪
+FragmentsEmergenceProjectile.DisplayName: 碎片浮现弹幕
+FragmentsEmergenceHitProjectile.DisplayName: 碎片浮现剑刃弹幕
+// NoMoreRovingProjectile.DisplayName: No More Roving Projectile

@@ -37,6 +37,9 @@ namespace ExpansionKele.Content.Items.OtherItem
             // 获取玩家的自定义减伤数值
             var reductionPlayer = player.GetModPlayer<CustomDamageReductionPlayer>();
             float customDamageReduction = reductionPlayer.customDamageReduction;
+            float preDefenseDamageReduction = reductionPlayer.preDefenseDamageReduction;
+            float customDamageReductionMulti = reductionPlayer.customDamageReductionMulti;
+            float preDefenseDamageReductionMulti = reductionPlayer.preDefenseDamageReductionMulti;
 
             var starryLifeEmblemPlayer = player.GetModPlayer<StarryLifeEmblemPlayer>();
             int CooldownTimer= starryLifeEmblemPlayer.fatalCooldownTimer;
@@ -45,7 +48,10 @@ namespace ExpansionKele.Content.Items.OtherItem
             tooltips.Add(new TooltipLine(Mod, "MultiplicativeDamage", $"乘算增伤: {(multiplicativeDamage - 1f) * 100:F2}%"));
             
             // 添加自定义减伤提示信息
+            tooltips.Add(new TooltipLine(Mod, "PreDefenseDamageReductionMulti", $"预减防伤乘数: {preDefenseDamageReductionMulti * 100:F2}%"));
+            tooltips.Add(new TooltipLine(Mod, "PreDefenseDamageReduction", $"预减防伤: {preDefenseDamageReduction * 100:F2}%"));
             tooltips.Add(new TooltipLine(Mod, "CustomDamageReduction", $"自定义减伤: {customDamageReduction * 100:F2}%"));
+            tooltips.Add(new TooltipLine(Mod, "CustomDamageReduction", $"自定义减伤乘数: {customDamageReductionMulti * 100:F2}%"));
             tooltips.Add(new TooltipLine(Mod, "CooldownTimer", $"冷却时间: {starryLifeEmblemPlayer.fatalCooldownTimer:F2}"));
             
             // 显示满月矿石生成状态

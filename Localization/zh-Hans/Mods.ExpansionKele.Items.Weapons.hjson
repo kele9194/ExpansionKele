@@ -182,10 +182,43 @@ FullMoonStaff: {
 
 FullMoonShortsword: {
 	DisplayName: 望月短剑
-	Tooltip: 发射追踪月亮弹幕，当月亮弹幕击中敌人后会积雪向前然后返回玩家
+	Tooltip: 发射追踪月亮弹幕，当月亮弹幕击中敌人后会继续向前然后返回玩家
 }
 
 FullMoonSpear: {
 	Tooltip: 发射矛尖向两侧发射月亮，月亮在前进一段时间后返回玩家
 	DisplayName: 望月矛
+}
+
+KillingsBlade: {
+	DisplayName: 杀戮刀片
+	Tooltip:
+		'''
+		左键剑刃命中敌人储存刀片
+		右键消耗扔出刀片，刀片存储数量有上限
+		纪念该mod第一把未完成的同名武器。
+		那把未完成武器更像现在的星元剑系列武器
+		'''
+}
+
+GaussRifle: {
+	Tooltip: 右键装填子弹，伤害会随剩余子弹数量下降而下降
+	DisplayName: 高斯步枪
+}
+
+FragmentsEmergence: {
+	DisplayName: 碎片浮现
+	Tooltip:
+		'''
+		发射一发不断减速的碎片，弹幕滞留造成更多伤害
+		近战攻击会造成碎片爆炸
+		'''
+}
+
+NoMoreRoving: {
+	DisplayName: 不再漫游
+	Tooltip: '''
+	发射一个高伤害的魔法雷
+	魔法类停止时部署，部署时敌人接触会爆炸
+	'''
 }

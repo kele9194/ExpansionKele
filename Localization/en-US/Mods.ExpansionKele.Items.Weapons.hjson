@@ -189,3 +189,41 @@ FullMoonSpear: {
 	Tooltip: Shoot a spearhead and spread moons that lately return
 	DisplayName: Full Moon Spear
 }
+
+KillingsBlade: {
+	DisplayName: Killings Blade
+	Tooltip:
+		'''
+		Left click to attack，hit enemy will restore blades
+		Right click to quickly throw blades
+		blades restoration has the limit.
+		to commemorate the first but failed weapon of this mod with the same name
+		the old unfinished Killings Blade is now more like StarySword
+		'''
+}
+
+GaussRifle: {
+	Tooltip:
+		'''
+		Right click to reload ammo
+		the less ammo ,the lower damage.
+		'''
+	DisplayName: Gauss Rifle
+}
+
+FragmentsEmergence: {
+	DisplayName: Fragments Emergence
+	Tooltip:
+		'''
+		Shoot a fragment that will slow down，when stop ,it cause more Damage
+		blade hit enemy will explode with some fragments.
+		'''
+}
+
+NoMoreRoving: {
+	DisplayName: No More Roving
+	Tooltip: '''
+	Shoot a mine that when stop,it deploys
+	when enemies touch it,it explodes
+	'''
+}

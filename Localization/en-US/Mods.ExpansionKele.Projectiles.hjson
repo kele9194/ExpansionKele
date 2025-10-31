@@ -42,3 +42,8 @@ FullMoonShortSwordMoonProj.DisplayName: Full Moon Short Sword Moon Proj
 FullMoonSpearProjectile.DisplayName: Full Moon Spear Projectile
 FullMoonSpearMoonProjectile.DisplayName: Full Moon Spear Moon Projectile
 FullMoonSpearHeadProjectile.DisplayName: Full Moon Spear Head Projectile
+KillingsBladeThrownProjectile.DisplayName: Killings Blade Thrown Projectile
+GaussRifleProjectile.DisplayName: Gauss Rifle Projectile
+FragmentsEmergenceProjectile.DisplayName: Fragments Emergence Projectile
+FragmentsEmergenceHitProjectile.DisplayName: Fragments Emergence Hit Projectile
+NoMoreRovingProjectile.DisplayName: No More Roving Projectile

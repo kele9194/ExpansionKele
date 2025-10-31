@@ -323,3 +323,26 @@ VanillaOverrides: {
 		FrogLegBonus: Grants Frog Leg effects: Allows auto jump, increases jump speed, increases safe fall distance
 	}
 }
+
+IronWillShield: {
+	DisplayName: Iron Will Shield
+	Tooltip:
+		'''
+		immune knockback
+		Without be hit ,you can slowly generate your resistance
+		'''
+}
+
+IronOathShield: {
+	DisplayName: Iron Oath Shield
+	Tooltip:
+		'''
+		immune knockback
+		60 increased max life
+		Without be hit ,you can slowly generate your resistance qiucklier than Iron Will Shield
+		30% increased speed	
+		0.4% increased special endurance and 1 increased defense every 3% lost max life
+		1% reduce speed every 3% lost max life
+		every 20 seconds provides 3 seconds of invincible
+		'''
+}
