@@ -42,3 +42,13 @@ ShadowSilk: {
 	DisplayName: 暗影绸布
 	Tooltip: 召唤复仇之影
 }
+
+RedemptionShard: {
+	// DisplayName: Redemption Shard
+	// Tooltip: ""
+}
+
+GolemShard: {
+	// DisplayName: Golem Shard
+	// Tooltip: ""
+}

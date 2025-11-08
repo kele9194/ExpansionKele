@@ -4,7 +4,7 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 using System;
-using ExpansionKele.Content.Items.Weapons;
+using ExpansionKele.Content.Items.Weapons.Ranged;
 
 namespace ExpansionKele.Content.Projectiles{
  

@@ -36,12 +36,20 @@ namespace ExpansionKele
             MaxInstances = 3,
         };
 
+        public static SoundStyle FadeReloadSound = new SoundStyle("ExpansionKele/Content/Audio/FadeReloadAudio")
+        {
+            Volume = 0.4f,
+            PitchVariance = 0.1f,
+            MaxInstances = 2,
+        };
+
         public static Texture2D sniperLaserTexture = ModContent.Request<Texture2D>("ExpansionKele/Content/StarySniper/SniperLaser").Value;
 
         public static SoundStyle GetSniperSound()
         {
             return SniperSound;
         }
+
 
         public override void Load()
         {

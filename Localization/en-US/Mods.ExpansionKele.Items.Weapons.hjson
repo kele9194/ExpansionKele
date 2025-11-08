@@ -222,8 +222,25 @@ FragmentsEmergence: {
 
 NoMoreRoving: {
 	DisplayName: No More Roving
-	Tooltip: '''
-	Shoot a mine that when stop,it deploys
-	when enemies touch it,it explodes
-	'''
+	Tooltip:
+		'''
+		Shoot a mine that when stop,it deploys
+		when enemies touch it,it explodes
+		'''
+}
+
+Resentment: {
+	Tooltip:
+		'''
+		When hold it ,you will lose your life to death 
+		attack enemy will regain your life
+		the lower your life ,the higher damage and higher taken damage
+		'''
+	DisplayName: Resentment
+	DeathReason: "{0} was devoured resentment"
+}
+
+Fade: {
+	DisplayName: Fade
+	Tooltip: ""
 }

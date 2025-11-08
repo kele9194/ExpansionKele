@@ -46,4 +46,6 @@ KillingsBladeThrownProjectile.DisplayName: 杀戮刀片
 GaussRifleProjectile.DisplayName: 高斯步枪
 FragmentsEmergenceProjectile.DisplayName: 碎片浮现弹幕
 FragmentsEmergenceHitProjectile.DisplayName: 碎片浮现剑刃弹幕
-// NoMoreRovingProjectile.DisplayName: No More Roving Projectile
+NoMoreRovingProjectile.DisplayName: 不再漫游
+ResentmentProjectile.DisplayName: 怨憎
+// FadeProjectile.DisplayName: Fade Projectile

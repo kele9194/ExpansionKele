@@ -42,3 +42,13 @@ ShadowSilk: {
 	DisplayName: Shadow Silk
 	Tooltip: To summon Shadow Of Revenge at night
 }
+
+RedemptionShard: {
+	DisplayName: Redemption Shard
+	Tooltip: ""
+}
+
+GolemShard: {
+	DisplayName: Golem Shard
+	Tooltip: ""
+}

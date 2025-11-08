@@ -47,3 +47,5 @@ GaussRifleProjectile.DisplayName: Gauss Rifle Projectile
 FragmentsEmergenceProjectile.DisplayName: Fragments Emergence Projectile
 FragmentsEmergenceHitProjectile.DisplayName: Fragments Emergence Hit Projectile
 NoMoreRovingProjectile.DisplayName: No More Roving Projectile
+ResentmentProjectile.DisplayName: Resentment Projectile
+FadeProjectile.DisplayName: Fade Projectile

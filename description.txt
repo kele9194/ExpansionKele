@@ -43,6 +43,13 @@ v1.2.3
 redraw Stary Sword texture ,add and redraw bars and ores textures.
 now the FullMoonOre can generate in the world during the game
 
+v1.2.4
+Add new Boss:Shadow of Revenge
+delete the recipe of FullMoonOre
+add new weapon:Gauss Rifle ,KillingsBlade, No More Roving,Fragments Emergence
+add new accessories:IronWillShield and IronOathShield
+
+
 这个模组仅为娱乐，开发者仅为本人，并且仍然在完善中，和灾厄模组游玩时会有部分重写以适配灾厄数值环境。
 
 目前该模组拥有以下系列：
@@ -88,3 +95,12 @@ v1.2.2
 v1.2.3
 重绘星元剑贴图，新增重绘矿和锭贴图和放置贴图
 望月矿的现在将会在游戏途中生成
+
+v1.2.4
+新增boss复仇之影
+删除望月矿的配方
+新增武器：高斯步枪，杀戮刀片，不再漫游，碎片浮现
+新增饰品：钢铁意志之盾，钢铁誓约之盾
+
+
+枪械换弹上膛 许可:CC0 作者:圣手书生 来源:耳聆网 https://www.ear0.com/sound/22302

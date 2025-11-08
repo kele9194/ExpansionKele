@@ -217,8 +217,25 @@ FragmentsEmergence: {
 
 NoMoreRoving: {
 	DisplayName: 不再漫游
-	Tooltip: '''
-	发射一个高伤害的魔法雷
-	魔法类停止时部署，部署时敌人接触会爆炸
-	'''
+	Tooltip:
+		'''
+		发射一个高伤害的魔法雷
+		魔法类停止时部署，部署时敌人接触会爆炸
+		'''
+}
+
+Resentment: {
+	Tooltip:
+		'''
+		手持该武器会不断损失生命值
+		攻击敌人会获得生命值
+		生命值越低，伤害越高，受到伤害也越高
+		'''
+	DisplayName: 怨憎
+	DeathReason: "{0}被怨憎吞噬"
+}
+
+Fade: {
+	// DisplayName: Fade
+	// Tooltip: ""
 }

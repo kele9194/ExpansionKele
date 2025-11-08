@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.GameContent.ItemDropRules;
-using ExpansionKele.Content.Items.Weapons;
+using ExpansionKele.Content.Items.Weapons.Melee;
 using ExpansionKele.Content.Items.Placeables;
 
 namespace ExpansionKele.Content.Bosses.BossKele
