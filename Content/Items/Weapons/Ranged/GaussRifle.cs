@@ -62,6 +62,7 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
                 Item.useTime = reloadTime;
                 Item.useAnimation = reloadTime;
                 Item.noUseGraphic = true;
+                Item.UseSound = null;
                 // 只要弹药不是满的就可以装填
                 return ammoCount < MaxAmmoCount;
             }
@@ -69,6 +70,7 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
                 Item.useTime = AmmoTime;
                 Item.useAnimation =AmmoTime;
                 Item.noUseGraphic = false;
+                Item.UseSound = SoundID.Item40;
                 if (ammoCount == 0)
                 {
                     CombatText.NewText(player.getRect(), Color.Cyan, "NoAmmo", true);

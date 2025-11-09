@@ -109,3 +109,13 @@ FullMoonMinionBuff: {
 	DisplayName: 望月召唤杖增益
 	Description: 月亮在环绕着你
 }
+
+NightFireflyBuff: {
+	DisplayName: 萤火增益
+	Description: 像萤火一样
+}
+
+RedemptionAttackBuff: {
+	DisplayName: 救赎增益
+	Description: 逐渐增加你的伤害和减少你受到伤害
+}

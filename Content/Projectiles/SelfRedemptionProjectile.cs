@@ -6,9 +6,10 @@ using Terraria.ModLoader;
 
 namespace ExpansionKele.Content.Projectiles
 {
-	public class FadeProjectile : ModProjectile
+	public class SelfRedemptionProjectile : ModProjectile
 	{
-		
+		public override string LocalizationCategory => "Projectiles";
+
 		public override void SetStaticDefaults() {
 			// DisplayName.SetDefault("Fade Projectile");
 		}
@@ -50,7 +51,7 @@ public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
 			// 当击中NPC且将其击杀时，掉落救赎碎片
 			if (target.life <= 0) {
 				// 每次击杀掉落10-20个救赎碎片
-				int itemCount = Main.rand.Next(10, 21); // Next方法的上限是排他的，所以要写21才能得到最大20
+				int itemCount = Main.rand.Next(4, 7); // Next方法的上限是排他的，所以要写21才能得到最大20
 				Item.NewItem(Projectile.GetSource_OnHit(target), target.getRect(), ModContent.ItemType<RedemptionShard>(), itemCount);
 			}
 			Projectile.damage = (int)(Projectile.damage * 0.7f);

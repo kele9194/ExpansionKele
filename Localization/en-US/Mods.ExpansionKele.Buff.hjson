@@ -109,3 +109,13 @@ FullMoonMinionBuff: {
 	DisplayName: FullMoon Minion Buff
 	Description: Moons arounds you
 }
+
+NightFireflyBuff: {
+	DisplayName: Night Firefly Buff
+	Description: Be like a firefly
+}
+
+RedemptionAttackBuff: {
+	DisplayName: Redemption Attack Buff
+	Description: increase damage and decrease taken damage
+}

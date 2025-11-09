@@ -236,6 +236,42 @@ Resentment: {
 }
 
 Fade: {
-	// DisplayName: Fade
+	DisplayName: 黯淡
+	Tooltip:
+		'''
+		右键装填子弹
+		子弹击杀敌人掉落救赎碎片
+		手持该武器受伤会减少武器伤害，增加自身受到伤害
+		'''
+}
+
+SharpTeeth: {
+	Tooltip: 秒杀最大生命值小于300的敌人
+	DisplayName: 利齿
+}
+
+SelfRedemption: {
+	Tooltip:
+		'''
+		右键装填子弹
+		子弹击杀敌人掉落救赎碎片
+		手持该武器受伤会增加武器伤害，减少自身受到伤害
+		'''
+	DisplayName: 自我救赎
+}
+
+NightFirefly: {
+	DisplayName: 夜萤火
+	Tooltip:
+		'''
+		当血量低于1/3时右键激发萤火增益
+		增益会大幅度提升伤害，并回复自身生命值
+		但是会缓慢失去生命至1
+		在此期间你会承受更少的伤害
+		'''
+}
+
+RippleStaff: {
+	// DisplayName: Ripple Staff
 	// Tooltip: ""
 }

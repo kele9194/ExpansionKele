@@ -48,4 +48,9 @@ FragmentsEmergenceProjectile.DisplayName: 碎片浮现弹幕
 FragmentsEmergenceHitProjectile.DisplayName: 碎片浮现剑刃弹幕
 NoMoreRovingProjectile.DisplayName: 不再漫游
 ResentmentProjectile.DisplayName: 怨憎
-// FadeProjectile.DisplayName: Fade Projectile
+FadeProjectile.DisplayName: 黯淡
+SelfRedemptionProjectile.DisplayName: 自我救赎
+// MagicProj.NightFireflyProjectile.DisplayName: Night Firefly Projectile
+// RedemptionBulletProjectile.DisplayName: Redemption Bullet Projectile
+// RedemptionArrowProjectile.DisplayName: Redemption Arrow Projectile
+// RippleProjectile.DisplayName: Ripple Projectile

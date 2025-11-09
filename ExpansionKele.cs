@@ -71,7 +71,7 @@ namespace ExpansionKele
                 ModContent.ProjectileType<AAMissile>(),
                 ModContent.ProjectileType<ColaProjectile>(),
                 ModContent.ProjectileType<ColaProjectileLower>(),
-                ModContent.ProjectileType<FrostRayProjectile>(),
+                //ModContent.ProjectileType<FrostRayProjectile>(),
                 ModContent.ProjectileType<FullMoonArrowProj>(),
                 ModContent.ProjectileType<FullMoonEchoProj>(),
                 ModContent.ProjectileType<FullMoonProjectile>(),

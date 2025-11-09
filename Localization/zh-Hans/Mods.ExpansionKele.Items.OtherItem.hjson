@@ -44,11 +44,11 @@ ShadowSilk: {
 }
 
 RedemptionShard: {
-	// DisplayName: Redemption Shard
-	// Tooltip: ""
+	DisplayName: 救赎碎片
+	Tooltip: ""
 }
 
 GolemShard: {
-	// DisplayName: Golem Shard
-	// Tooltip: ""
+	DisplayName: 石巨人碎片
+	Tooltip: ""
 }

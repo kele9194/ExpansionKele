@@ -5,13 +5,16 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using ExpansionKele.Content.Projectiles;
 using ExpansionKele.Content.Customs;
+using ExpansionKele.Content.Items.Weapons.Magic;
+using ExpansionKele.Content.Items.Placeables;
+using ExpansionKele.Content.Items.OtherItem;
 
 namespace ExpansionKele.Content.Items.Weapons.Ranged
 {
-	public class Fade : ModItem
+	public class SelfRedemption : ModItem
 	{
         public override string LocalizationCategory => "Items.Weapons";
-        private const int MaxAmmoCount = 30;
+        private const int MaxAmmoCount = 40;
 		private int ammoCount = MaxAmmoCount;
         private const int reloadTime = 100;
         private const int AmmoTime = 8;
@@ -25,7 +28,7 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
 
 		public override void SetDefaults() {
 			// 基本属性设置
-			Item.damage = ExpansionKele.ATKTool(120,144); // 伤害45
+			Item.damage = ExpansionKele.ATKTool(189,234); // 伤害75
 			Item.DamageType = DamageClass.Ranged; // 远程伤害
 			Item.width = 32;
 			Item.height = 32;
@@ -34,13 +37,13 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
 			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.noMelee = true; // 不接触伤害
 			Item.knockBack = 2f;
-			Item.value = Item.sellPrice(0, 2, 50, 0); // 卖价2银50铜
-			Item.rare = ItemRarityID.Blue; // 蓝色稀有度
+			Item.value = Item.sellPrice(0, 10, 0, 0); // 卖价10金币
+			Item.rare = ItemRarityID.Yellow; // 黄色稀有度
 			Item.UseSound = SoundID.Item11; // 枪声
 			Item.autoReuse = true; // 自动连发
 			
 			// 弹药相关设置
-			Item.shoot = ModContent.ProjectileType<FadeProjectile>(); // 发射FadeProjectile
+			Item.shoot = ModContent.ProjectileType<SelfRedemptionProjectile>(); // 发射FadeProjectile
 			Item.shootSpeed = 16f; // 射速16
 			Item.useAmmo = AmmoID.None; // 不消耗弹药
 			
@@ -51,6 +54,7 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
 			// 允许右键使用
 			return true;
 		}
+		
         public override bool CanUseItem(Player player)
 		{
 			// 右键装填
@@ -76,10 +80,11 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
 				return ammoCount > 0;
 			}
 		}
+		
 		public override void HoldItem(Player player) {
-
-			var fadePlayer = player.GetModPlayer<FadePlayer>();
-			fadePlayer.isHoldingFade = true;
+			// 应用负面效果
+			var selfRedemptionPlayer = player.GetModPlayer<SelfRedemptionPlayer>();
+			selfRedemptionPlayer.isHoldingSelfRedemption = true;
 		}
 
 		
@@ -113,29 +118,32 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
 		
 		public override void AddRecipes() {
 			CreateRecipe()
-				.AddIngredient(ItemID.IllegalGunParts, 1)
-				.AddIngredient(ItemID.ChlorophyteBar, 12)
-				.AddIngredient(ItemID.HallowedBar, 5)
-				.AddTile(TileID.Anvils)
+				.AddIngredient<Fade>()
+				.AddIngredient<Resentment>()
+				.AddIngredient<StarryBar>(3)
+				.AddIngredient<RedemptionShard>(3996)
+				.AddTile(TileID.LunarCraftingStation) // 远古操纵机
 				.Register();
 		}
+		
 	}
 
-	public class FadePlayer : ModPlayer
+	public class SelfRedemptionPlayer : ModPlayer
 	{
-		public bool isHoldingFade = false;
+		public bool isHoldingSelfRedemption = false;
+		
 		public override void ResetEffects()
 		{
-			isHoldingFade = false;
+			isHoldingSelfRedemption = false;
 		}
 	}
 
-	public class HitEffectPlayer : ModPlayer
+	public class SelfRedemptionHitEffectPlayer : ModPlayer
     {
         // 受击后效果相关变量
         public bool hitEffectActive = false;
         public int hitEffectTimer = 0;
-        public const int HitEffectDuration = 240; // 持续240帧 (4秒)
+        public const int HitEffectDuration = 360; // 持续360帧 (6秒)
 
         public override void ResetEffects()
         {
@@ -146,20 +154,20 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
 		{
 			base.ModifyHurt(ref modifiers);
 
-			// 只有当玩家手持Fade武器时才激活效果
-			var fadePlayer = Player.GetModPlayer<FadePlayer>();
-			if (fadePlayer.isHoldingFade && !hitEffectActive)
+			// 只有当玩家手持SelfRedemption武器时才激活效果
+			var selfRedemptionPlayer = Player.GetModPlayer<SelfRedemptionPlayer>();
+			if (selfRedemptionPlayer.isHoldingSelfRedemption && !hitEffectActive)
 			{
 				hitEffectActive = true;
 				hitEffectTimer = HitEffectDuration;
 			}
 
-			// 如果受击效果激活，则减少20%防御前减伤
-			if (hitEffectActive && fadePlayer.isHoldingFade)
+			// 如果受击效果激活，则增加30%防御前减伤
+			if (hitEffectActive && selfRedemptionPlayer.isHoldingSelfRedemption)
 			{
 				var defensePlayer = Player.GetModPlayer<CustomDamageReductionPlayer>();
-				defensePlayer.preDefenseDamageReductionMulti += 0.2f; // 减少20%防御前减伤
-				Terraria.Audio.SoundEngine.PlaySound(SoundID.Item29, Player.position);
+				defensePlayer.preDefenseDamageReductionMulti -= 0.3f; // 增加30%防御前减伤
+                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item29, Player.position);
 			}
 		}
 
@@ -178,12 +186,12 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
 
         public override void ModifyWeaponDamage(Item item, ref StatModifier damage)
         {
-            // 只有当玩家手持Fade武器且受击效果激活时，才降低20%武器伤害
-            var fadePlayer = Player.GetModPlayer<FadePlayer>();
-            if (hitEffectActive && fadePlayer.isHoldingFade)
+            // 只有当玩家手持SelfRedemption且受击效果激活时，才增加20%武器伤害
+            var selfRedemptionPlayer = Player.GetModPlayer<SelfRedemptionPlayer>();
+            if (hitEffectActive && selfRedemptionPlayer.isHoldingSelfRedemption)
             {
                 var damagePlayer = Player.GetModPlayer<ExpansionKeleDamageMulti>();
-                damagePlayer.MultiplyMultiplicativeDamageBonus(0.8f); // 降低20%武器伤害
+                damagePlayer.MultiplyMultiplicativeDamageBonus(1.2f); // 增加20%武器伤害
             }
         }
 
@@ -193,7 +201,7 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
             var fadePlayer = Player.GetModPlayer<FadePlayer>();
             if (hitEffectActive && fadePlayer.isHoldingFade && Main.rand.NextDouble() <= 0.5)
             {
-                Player.lifeRegenTime -= 1;
+                Player.lifeRegenTime += 2;
             }
         }
     }

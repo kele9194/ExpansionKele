@@ -242,5 +242,41 @@ Resentment: {
 
 Fade: {
 	DisplayName: Fade
+	Tooltip:
+		'''
+		need to reload ammo with the right click
+		kill the enemies ,they drops RedemptionShards
+		when hit ,you will lose your weapon damage and take more damage
+		'''
+}
+
+SharpTeeth: {
+	Tooltip: Instantly kill the enemies that lower than 300 max HP
+	DisplayName: Sharp Teeth
+}
+
+SelfRedemption: {
+	Tooltip:
+		'''
+		need to reload ammo with the right click
+		kill the enemies ,they drops RedemptionShards
+		when hit ,you will increase your weapon damage and take less damage
+		'''
+	DisplayName: Self Redemption
+}
+
+NightFirefly: {
+	DisplayName: Night Firefly
+	Tooltip:
+		'''
+		when you life is lower than 1/3,use right click to able fireflybuff
+		increase your weapon damage 
+		heal you and then slowly lose your life to 1HP
+		during the buff,you will take less damage
+		'''
+}
+
+RippleStaff: {
+	DisplayName: Ripple Staff
 	Tooltip: ""
 }

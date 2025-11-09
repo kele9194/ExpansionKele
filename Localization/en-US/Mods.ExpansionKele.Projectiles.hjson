@@ -49,3 +49,8 @@ FragmentsEmergenceHitProjectile.DisplayName: Fragments Emergence Hit Projectile
 NoMoreRovingProjectile.DisplayName: No More Roving Projectile
 ResentmentProjectile.DisplayName: Resentment Projectile
 FadeProjectile.DisplayName: Fade Projectile
+SelfRedemptionProjectile.DisplayName: Self Redemption Projectile
+MagicProj.NightFireflyProjectile.DisplayName: Night Firefly Projectile
+RedemptionBulletProjectile.DisplayName: Redemption Bullet Projectile
+RedemptionArrowProjectile.DisplayName: Redemption Arrow Projectile
+RippleProjectile.DisplayName: Ripple Projectile

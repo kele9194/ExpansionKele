@@ -2,3 +2,13 @@ SharkyBulletAmmo: {
 	Tooltip: A test ammo that deals huge damage
 	DisplayName: Sharky Bullet Ammo
 }
+
+RedemptionBullet: {
+	Tooltip: A bullet that can heal you.
+	DisplayName: Redemption Bullet
+}
+
+RedemptionArrow: {
+	DisplayName: Redemption Arrow
+	Tooltip: Hit enemies can increase your damage and decrease your taken damage.
+}

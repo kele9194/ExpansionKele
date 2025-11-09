@@ -2,3 +2,13 @@ SharkyBulletAmmo: {
 	Tooltip: 一种造成巨额伤害的测试弹药
 	DisplayName: 鲨牙弹
 }
+
+RedemptionBullet: {
+	Tooltip: 一发可以治愈你的子弹
+	DisplayName: 救赎弹
+}
+
+RedemptionArrow: {
+	DisplayName: 救赎箭
+	Tooltip: 多次击中将不断增加你的伤害，减少你受到的伤害
+}
