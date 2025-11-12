@@ -52,3 +52,19 @@ GolemShard: {
 	DisplayName: 石巨人碎片
 	Tooltip: ""
 }
+
+SolarRelic: {
+	Tooltip:
+		'''
+		放在背包中并收藏以发挥作用
+		将伤害的10%转化为真伤
+		真伤无视敌人防御和减伤，并且允许2倍暴击
+		但是好像在纯原版没有什么用？
+		'''
+	DisplayName: 日耀圣物
+}
+
+ChromiumOrePowder: {
+	Tooltip: 击败骷髅王后可以从提炼机提炼中获取
+	DisplayName: 铬矿粉
+}

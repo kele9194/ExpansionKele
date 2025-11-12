@@ -33,7 +33,7 @@ namespace ExpansionKele.Content.Items.Placeables
         }
         public override void AddRecipes()
         {
-            Recipe.Create(ModContent.ItemType<SigwutBar>())
+            Recipe.Create(ModContent.ItemType<SigwutBar>(),3)
             .AddIngredient(ItemID.MeteoriteBar, 1)
             .AddIngredient(ItemID.Bone, 1)
             .AddIngredient(ItemID.HellstoneBar, 1) 

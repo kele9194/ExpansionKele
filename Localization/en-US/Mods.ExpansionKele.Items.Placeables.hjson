@@ -19,3 +19,16 @@ FullMoonBar: {
 }
 
 FullMoonOreTile.MapEntry: Full Moon Ore
+
+ChromiumBar: {
+	DisplayName: Chromium Bar
+	Tooltip: ""
+}
+
+ChromiumOre: {
+	DisplayName: Chromium Ore
+	Tooltip: MoltenPickaxe can dig it
+}
+
+ChromiumOreTile.MapEntry: Chromium Ore
+ChromiumBarTile.MapEntry: Chromium Bar

@@ -119,3 +119,8 @@ RedemptionAttackBuff: {
 	DisplayName: Redemption Attack Buff
 	Description: increase damage and decrease taken damage
 }
+
+SlicingBuff: {
+	DisplayName: Slicing Buff
+	Description: make enemies take more damage
+}

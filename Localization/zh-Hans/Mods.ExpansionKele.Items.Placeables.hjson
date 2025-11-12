@@ -19,3 +19,16 @@ FullMoonBar: {
 }
 
 FullMoonOreTile.MapEntry: 望月矿
+
+ChromiumBar: {
+	DisplayName: 铬钢锭
+	Tooltip: ""
+}
+
+ChromiumOre: {
+	DisplayName: 铬矿
+	Tooltip: 可由熔岩镐挖掘
+}
+
+ChromiumOreTile.MapEntry: 铬矿
+ChromiumBarTile.MapEntry: 铬钢锭

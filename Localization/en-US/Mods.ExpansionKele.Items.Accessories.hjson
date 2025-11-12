@@ -346,3 +346,16 @@ IronOathShield: {
 		every 20 seconds provides 3 seconds of invincible
 		'''
 }
+
+FullMoonAmulet: {
+	Tooltip:
+		'''
+		25% multiplicative damage reduction
+		+5 armor penetration
+		Divides your health bar into three equal segments
+		taken damage will be restricted to one health segment,
+		40s cooldown for each health segment
+		only one health segment can be cooling down at the same time
+		'''
+	DisplayName: Full Moon Amulet
+}

@@ -1,4 +1,5 @@
 using ExpansionKele.Commons;
+using ExpansionKele.Content.Items.OtherItem;
 using ExpansionKele.Content.Items.Placeables;
 using Terraria;
 using Terraria.ID;
@@ -9,6 +10,11 @@ namespace ExpansionKele.Global
 {  
     public class ExpansionKeleGlobalItem : GlobalItem
     {
+        public override void SetStaticDefaults()
+        {
+            SetStaticDefaults_ShimmerRecipes();
+        }
+        // ... existing code ...
         public override void ExtractinatorUse(int extractType, int extractinatorBlockType, ref int resultType, ref int resultStack)
         {
             // extractType: 0 = 泥沙/雪泥, 3347 = 沙漠化石
@@ -17,32 +23,32 @@ namespace ExpansionKele.Global
                 // 泥沙和雪泥
                 case 0:
                     // 4%概率产出望月矿
-                    if (Main.rand.NextFloat() < 0.04f)
+                    if (Main.rand.NextFloat() < 0.04f && NPC.downedBoss3)
                     {
                         // Main.NewText($"{extractType}");
-                        resultType = ModContent.ItemType<SigwutBar>();
-                        resultStack = Main.rand.Next(1, 17); // 1-16个
+                        resultType = ModContent.ItemType<ChromiumOrePowder>();
+                        resultStack = Main.rand.Next(1, 13); // 1-16个
                     }
                     break;
                     
                 // 沙漠化石
                 case 3347:
                     // 4%概率产出星光矿
-                    if (Main.rand.NextFloat() < 0.04f)
+                    if (Main.rand.NextFloat() < 0.04f && NPC.downedBoss3)
                     {
                         // Main.NewText($"{extractType}");
-                        resultType = ModContent.ItemType<SigwutBar>();
-                        resultStack = Main.rand.Next(1, 17); // 1-16个
+                        resultType = ModContent.ItemType<ChromiumOrePowder>();
+                        resultStack = Main.rand.Next(1, 13); // 1-16个
                     }
                     break;
                 default:{
-                    Main.NewText($"{extractType}");
                     break;
                 }
                 
                     
             }
         }
+// ... existing code ...
 
         public override void UseItemFrame(Item item, Player player)
         {
@@ -51,6 +57,11 @@ namespace ExpansionKele.Global
             {
                 ExpansionKeleUtils.ConductBetterItemLocation(player);
             }
+        }
+        private void SetStaticDefaults_ShimmerRecipes()
+        {
+            var shimmerTransmute = ItemID.Sets.ShimmerTransformToItem;
+            shimmerTransmute[ModContent.ItemType<ChromiumOre>()] =ItemID.Hellstone;
         }
 
     }

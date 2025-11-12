@@ -162,6 +162,26 @@ public override void ModifyShootStats(Player player, ref Vector2 position, ref V
 		useTimeMultiplier = 0.75f + t4 * 0.5f;
 	}
 // ... existing code ...
+public override void ModifyWeaponDamage(Player player, ref StatModifier damage)
+	{
+		switch (currentDamageType)
+		{
+		case 3:
+			damage = damage.CombineWith(player.GetDamage(DamageClass.Melee).Scale(3f));
+			break;
+		case 0:
+			damage = damage.CombineWith(player.GetDamage(DamageClass.Ranged).Scale(3f));
+			break;
+		case 1:
+			damage = damage.CombineWith(player.GetDamage(DamageClass.Magic).Scale(3f));
+			break;
+		case 2:
+			damage = damage.CombineWith(player.GetDamage(DamageClass.Summon).Scale(3f));
+			break;
+		}
+		damage = damage.CombineWith(new StatModifier(1f, damageMultiplier, 0f, 0f));
+	}
+// ... existing code ...
 
         public override bool CanUseItem(Player player)
         {

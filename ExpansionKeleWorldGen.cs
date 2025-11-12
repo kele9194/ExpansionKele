@@ -9,47 +9,72 @@ using Terraria.WorldBuilding;
 
 namespace ExpansionKele
 {
-    /*public class ExpansionKeleWorldGen : ModSystem
+    public class ExpansionKeleWorldGen : ModSystem
     {
-
-
-        private void CheckAndGenerateOre()
+        public override void ModifyWorldGenTasks(List<GenPass> tasks, ref double totalWeight)
         {
-            var config = ModContent.GetInstance<ExpansionKeleConfig>();
-
-            if (NPC.downedMechBossAny && !config.FullMoonOreGenerated)
+            // 在地狱生成之后添加铬矿生成任务
+            int index = tasks.FindIndex(genpass => genpass.Name.Equals("Underworld"));
+            if (index != -1)
             {
-                GenerateFullMoonOre(null, null);
-                config.FullMoonOreGenerated = true;
+                tasks.Insert(index + 1, new PassLegacy("Chromium Ore", GenerateChromiumOre));
             }
         }
-        
-        public override void PostUpdateEverything()
-{
-    if (!ModContent.GetInstance<ExpansionKeleConfig>().FullMoonOreGenerated)
-    {
-        CheckAndGenerateOre();
+
+        public override void SetStaticDefaults() {
+            // 允许OreRunner替换地狱中的灰烬方块
+            TileID.Sets.CanBeClearedDuringOreRunner[TileID.Ash] = true;
+        }
+
+        // ... existing code ...
+        private void GenerateChromiumOre(GenerationProgress progress, GameConfiguration config)
+        {
+            progress.Message = "正在生成铬矿";
+
+            // 获取铬矿的tile类型
+            int chromiumOreType = ModContent.TileType<Content.Items.Tiles.ChromiumOreTile>();
+            
+            // 确定生成区域：从Underworld开始到Main.maxTilesY-50
+            int startY = Main.UnderworldLayer;
+            int endY = Main.maxTilesY-50;
+            
+            // 确保起始位置小于结束位置
+            if (startY >= endY) {
+                startY = Main.UnderworldLayer;
+                endY = Main.maxTilesY-50;
+            }
+            
+            // 确保不会超出世界边界
+            startY = Math.Max(startY, Main.UnderworldLayer);
+            endY = Math.Min(endY, Main.maxTilesY-50);
+            
+            // 生成铬矿矿脉
+            int maxAttempts = 10000; // 最大尝试次数
+            int generatedCount = 0;
+            int maxOre = (int)(Main.maxTilesX * Main.maxTilesY * 0.00012f); // 调整生成密度
+            
+            for (int k = 0; k < maxOre && generatedCount < maxAttempts; k++)
+            {
+                // 寻找合适的生成点
+                int attempts = 0;
+                int x, y;
+                
+                do
+                {
+                    x = WorldGen.genRand.Next(100, Main.maxTilesX - 100);
+                    y = WorldGen.genRand.Next(startY, endY);
+                    attempts++;
+                    generatedCount++;
+                } 
+                while (attempts < 100 && Main.tile[x, y].TileType != TileID.Ash);
+                
+                // 只有在灰烬块上才生成矿石
+                if (Main.tile[x, y].TileType == TileID.Ash) {
+                    // 使用OreRunner生成矿脉
+                    WorldGen.OreRunner(x, y, WorldGen.genRand.Next(3, 6), WorldGen.genRand.Next(3, 6), (ushort)chromiumOreType);
+                }
+            }
+        }
+// ... existing code ...
     }
 }
-
-        private void GenerateFullMoonOre(GenerationProgress progress, GameConfiguration config)
-{
-    if (progress == null)
-    {
-        progress = new GenerationProgress();
-        progress.Message = "罪恶与力量于石头处渗出";
-        Main.NewText(progress.Message, 255, 255, 255);
-    }
-
-    int oreType = ModContent.TileType<FullMoonOreTile>();
-
-    for (int i = 0; i < 600; i++)
-{
-    int x = WorldGen.genRand.Next(200, Main.maxTilesX - 200);
-    int y = WorldGen.genRand.Next((int)Main.rockLayer, Main.maxTilesY); // 修改此处
-
-    WorldGen.TileRunner(x, y, WorldGen.genRand.Next(7, 12), 3, oreType);
-}
-}
-        }*/
-    }

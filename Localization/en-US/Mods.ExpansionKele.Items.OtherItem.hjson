@@ -52,3 +52,19 @@ GolemShard: {
 	DisplayName: Golem Shard
 	Tooltip: ""
 }
+
+SolarRelic: {
+	Tooltip:
+		'''
+		Place in bag and favorite to take effect
+		Converts 10% of damage to true damage
+		True damage ignores enemy defense and damage reduction, and allows 2x critical hits
+		But it seems to have no use in pure vanilla?
+		'''
+	DisplayName: Solar Relic
+}
+
+ChromiumOrePowder: {
+	Tooltip: the ore powder that can be extracted after downed boss Skeletron
+	DisplayName: Chromium Ore Powder
+}

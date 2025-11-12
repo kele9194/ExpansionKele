@@ -272,6 +272,21 @@ NightFirefly: {
 }
 
 RippleStaff: {
-	// DisplayName: Ripple Staff
-	// Tooltip: ""
+	DisplayName: 荡漾水杖
+	Tooltip: 发射一个带轻微追踪的水弹
+}
+
+Gatling: {
+	Tooltip: 一把随着使用射速和散步不断增大的加特林
+	DisplayName: 加特林
+}
+
+ChromiumSword: {
+	Tooltip:
+		'''
+		减少敌人的防御，概率反弹弹幕
+		击中敌人施加切割减益
+		对没有切割减益的敌人造成更多伤害
+		'''
+	DisplayName: 铬钢剑
 }

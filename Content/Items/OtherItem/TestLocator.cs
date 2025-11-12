@@ -43,6 +43,8 @@ namespace ExpansionKele.Content.Items.OtherItem
 
             var starryLifeEmblemPlayer = player.GetModPlayer<StarryLifeEmblemPlayer>();
             int CooldownTimer= starryLifeEmblemPlayer.fatalCooldownTimer;
+
+            var fullMoonAmuletPlayer = player.GetModPlayer<FullMoonAmuletPlayer>();
             
             // 添加乘算增伤提示信息
             tooltips.Add(new TooltipLine(Mod, "MultiplicativeDamage", $"乘算增伤: {(multiplicativeDamage - 1f) * 100:F2}%"));
@@ -56,6 +58,12 @@ namespace ExpansionKele.Content.Items.OtherItem
             
             // 显示满月矿石生成状态
             tooltips.Add(new TooltipLine(Mod, "FullMoonOreGenerated", $"满月矿石已生成: {FullMoonOreSystem.oreGenerated}"));
+            string cooldownInfo = "望月护符各段冷却时间:";
+            for (int i = 0; i < fullMoonAmuletPlayer.healthSegmentCooldown.Length; i++)
+            {
+                cooldownInfo += $"\n第{i + 1}段: {fullMoonAmuletPlayer.healthSegmentCooldown[i]} ticks";
+            }
+            tooltips.Add(new TooltipLine(Mod, "FullMoonAmuletCooldown", cooldownInfo));
         }
 // ... existing code ...
     }

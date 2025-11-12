@@ -13,24 +13,6 @@ If you have any ideas or suggestions, feel free to leave a comment.
 
 Recent updates:
 
-v1.1.8
-20251006:
-Added damage compatibility for all existing weapons both with and without the Calamity mod
-Reduced mana sickness time from Wood Wood Instrument reduced from 50% to 33%
-
-v1.1.8.1
-20251006:
-Nerfed unreasonable slowdown effect of Spectral Curtain Cannon
-increase Soul Cannon damage
-
-v1.1.9
-20251014:
-Added Sig Light Spear, Pearlwood Spear
-
-20251015:
-Added SolarSpear
-Enhanced Light Spear, Pearlwood Spear，SolarSpear
-
 v1.2.0
 20251015-1019
 Completed mod reorganization and Chinese/English localization
@@ -49,6 +31,19 @@ delete the recipe of FullMoonOre
 add new weapon:Gauss Rifle ,KillingsBlade, No More Roving,Fragments Emergence
 add new accessories:IronWillShield and IronOathShield
 
+v1.2.5
+Added ammunition: Redemption Bullet, Redemption Arrow
+Added melee weapon: Sharp Teeth
+Added ranged weapons: Fade, Self Redemption
+Added magic weapons: Resentment, Ripple Staff, Night Firefly
+Added materials: Golem Shard, Redemption Shard
+
+v1.2.6
+New Materials: Chromium Ore, Chromium Ore Powder, Chromium Bar 
+New Weapons: Chromium Sword, Gatling 
+New Accessory: FullMoon Amulet
+New Item:Solar Relic
+
 
 这个模组仅为娱乐，开发者仅为本人，并且仍然在完善中，和灾厄模组游玩时会有部分重写以适配灾厄数值环境。
 
@@ -63,24 +58,6 @@ add new accessories:IronWillShield and IronOathShield
 如果有其他任何想法或建议欢迎留言。
 
 近期更新： 
-v1.1.8
-20251006：
-为所有现存武器都添加了装载灾厄模组和无灾厄模组下的伤害兼容；
-木魔仪的魔力病减少时间由50%削弱为33%
-
-v1.1.8.1
-20251006：
-削弱了幽幕加农炮不合理的减速效果；
-增强了灵魂加农炮的伤害
-
-v1.1.9
-20251014：
-新增赛格光矛，珍珠木长矛
-
-20251015：
-新增耀光矛；
-增强赛格长矛，珍珠木长矛，耀光矛
-
 v1.2.0
 20251015-1019
 完成mod重整和中英文本地化
@@ -103,5 +80,15 @@ v1.2.4
 新增饰品：钢铁意志之盾，钢铁誓约之盾
 
 v1.2.5
+新增弹药：救赎弹，救赎箭
+新增近战武器：利齿
+新增射手武器：黯淡，自我救赎
+新增法师武器：怨憎，荡漾水杖，夜萤火
+新增材料：石巨人碎片，救赎碎片
 
+v1.2.6
+新增材料：铬矿石，铬矿粉，铬钢锭
+新增武器：铬钢剑，加特林
+新增饰品：望月护符
+新增物品：日耀圣物
 
