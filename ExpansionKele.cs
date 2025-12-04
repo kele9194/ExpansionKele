@@ -45,6 +45,10 @@ namespace ExpansionKele
 
         public static Texture2D sniperLaserTexture = ModContent.Request<Texture2D>("ExpansionKele/Content/StarySniper/SniperLaser").Value;
 
+        // 添加物品修改UI的按键绑定
+
+        
+
         public static SoundStyle GetSniperSound()
         {
             return SniperSound;
@@ -66,6 +70,8 @@ namespace ExpansionKele
             StarKeyBind = KeybindLoader.RegisterKeybind(this, "StarBonusBuff", Keys.F);
             sniperLaserTexture = ModContent.Request<Texture2D>("ExpansionKele/Content/StarySniper/SniperLaser").Value;
             TrackingKeyBind = KeybindLoader.RegisterKeybind(this, "TrackingLocator", Keys.Y);
+            
+            
             projectileTypes = new int[]
             {
                 ModContent.ProjectileType<AAMissile>(),
@@ -93,6 +99,7 @@ namespace ExpansionKele
                 ModContent.ProjectileType<VortexMainProjectile>()
                 //以后可以继续完善
             };
+            
 
             
 

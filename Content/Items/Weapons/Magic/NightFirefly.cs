@@ -29,8 +29,8 @@ namespace ExpansionKele.Content.Items.Weapons.Magic
 			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.noMelee = true; // 不接触伤害
 			Item.knockBack = 5f;
-			Item.value = Item.sellPrice(0, 10, 0, 0); // 卖价10金币
-			Item.rare = ItemRarityID.Yellow; // 黄色稀有度
+			Item.value = ItemUtils.CalculateValueFromRecipes(this);// 卖价10金币
+			Item.rare = ItemUtils.CalculateRarityFromRecipes(this);  // 黄色稀有度
 			Item.UseSound = SoundID.Item8; // 魔法射击音效
 			Item.autoReuse = true; // 自动连发
 			Item.shoot = ModContent.ProjectileType<NightFireflyProjectile>(); // 发射NightFireflyProjectile

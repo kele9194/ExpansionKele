@@ -1,3 +1,4 @@
+using ExpansionKele.Content.Customs;
 using ExpansionKele.Content.Items.Placeables;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -32,8 +33,8 @@ namespace ExpansionKele.Content.Items.Tools
             Item.useAnimation = 13;              // 动画持续时间
             Item.useStyle = ItemUseStyleID.Swing; // 挥舞动作
             Item.knockBack = 6;                 // 击退值
-            Item.value = Item.sellPrice(gold: 8); // 卖出价格：8金币
-            Item.rare = ItemRarityID.Pink;       // 粉色稀有度
+            Item.value = ItemUtils.CalculateValueFromRecipes(this);              // 卖出价格
+            Item.rare = ItemUtils.CalculateRarityFromRecipes(this);         // 粉色稀有度
             Item.UseSound = SoundID.Item1;       // 使用音效
             Item.autoReuse = true;               // 自动重复使用
             Item.attackSpeedOnlyAffectsWeaponAnimation = true; // 攻速只影响动画速度

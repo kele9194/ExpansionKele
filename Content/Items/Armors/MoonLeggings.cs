@@ -3,6 +3,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using System.Collections.Generic;
 using ExpansionKele.Content.Items.Placeables;
+using ExpansionKele.Content.Customs;
 
 namespace ExpansionKele.Content.Items.Armors
 {
@@ -21,8 +22,8 @@ namespace ExpansionKele.Content.Items.Armors
             //Item.SetNameOverride("望月护腿");
             Item.width = 18;
             Item.height = 18;
-            Item.value = Item.sellPrice(gold: 1);
-            Item.rare = ItemRarityID.Pink;
+            Item.value = ItemUtils.CalculateValueFromRecipes(this);              // 卖出价格
+            Item.rare = ItemUtils.CalculateRarityFromRecipes(this);   
             Item.defense = 11;
         }
 

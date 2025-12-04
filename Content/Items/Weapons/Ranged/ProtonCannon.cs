@@ -4,6 +4,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using ExpansionKele.Content.Projectiles;
 using Terraria.Localization;
+using ExpansionKele.Content.Customs;
 
 namespace ExpansionKele.Content.Items.Weapons.Ranged
 {
@@ -13,6 +14,7 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
     /// </summary>
     public class ProtonCannon : ModItem
     {
+        
         
         /// <summary>
         /// 充能音效
@@ -64,8 +66,8 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
             Item.noMelee = true;
             Item.noUseGraphic = true;
             Item.knockBack = 4f;
-            Item.value = Item.sellPrice(gold: 1);
-            Item.rare = ItemRarityID.Green;
+            Item.value = ItemUtils.CalculateValueFromRecipes(this);
+            Item.rare = ItemUtils.CalculateRarityFromRecipes(this); 
             Item.UseSound = null;
             Item.autoReuse = false;
             Item.channel = true; // 启用通道模式

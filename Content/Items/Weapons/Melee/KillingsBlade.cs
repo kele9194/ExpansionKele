@@ -4,6 +4,7 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 using ExpansionKele.Content.Projectiles;
+using ExpansionKele.Content.Customs;
 
 namespace ExpansionKele.Content.Items.Weapons.Melee
 {
@@ -33,8 +34,8 @@ namespace ExpansionKele.Content.Items.Weapons.Melee
             Item.useAnimation = 14;
             Item.useStyle = ItemUseStyleID.Swing; // 使用挥舞
             Item.knockBack = 3f;
-            Item.value = Item.sellPrice(gold: 10);
-            Item.rare = ItemRarityID.Red;
+            Item.value = ItemUtils.CalculateValueFromRecipes(this);
+            Item.rare = ItemUtils.CalculateRarityFromRecipes(this); 
             Item.UseSound = SoundID.Item1;
             Item.autoReuse = true;
             Item.shoot = ModContent.ProjectileType<KillingsBladeThrownProjectile>();

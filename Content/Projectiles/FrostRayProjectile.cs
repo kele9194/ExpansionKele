@@ -23,7 +23,7 @@ public class FrostRayProjectile : ModProjectile
             Projectile.alpha = 255;
             AIType = ProjectileID.Bullet;
             Projectile.usesLocalNPCImmunity = true;
-            Projectile.localNPCHitCooldown = 2; // 5的局部无敌帧
+            Projectile.localNPCHitCooldown = 20; // 5的局部无敌帧
         }
 
         public override void AI()

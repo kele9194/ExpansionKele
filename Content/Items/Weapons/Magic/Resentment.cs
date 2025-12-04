@@ -25,7 +25,7 @@ namespace ExpansionKele.Content.Items.Weapons.Magic
 
         public override void SetDefaults()
         {
-            Item.damage = ExpansionKele.ATKTool(140,170);                        // 基础伤害
+            Item.damage = ExpansionKele.ATKTool(150,190);                        // 基础伤害
             Item.DamageType = DamageClass.Magic;     // 魔法伤害类型
             Item.mana = 10;                          // 消耗10魔力
             Item.width = 28;                         // 物品宽高
@@ -35,8 +35,8 @@ namespace ExpansionKele.Content.Items.Weapons.Magic
             Item.useStyle = ItemUseStyleID.Shoot;    // 使用样式为射击
             Item.noMelee = true;                     // 关闭近战攻击判定
             Item.knockBack = 4;                      // 击退值
-            Item.value = Item.sellPrice(gold: 5);    // 卖出价格
-            Item.rare = ItemRarityID.LightRed;       // 稀有度
+            Item.value = ItemUtils.CalculateValueFromRecipes(this);    // 卖出价格
+            Item.rare = ItemUtils.CalculateRarityFromRecipes(this);      // 稀有度
             Item.UseSound = SoundID.Item8;           // 魔法射击音效
             Item.autoReuse = true;                   // 自动重用
             Item.shoot = ModContent.ProjectileType<ResentmentProjectile>(); // 发射自定义弹幕

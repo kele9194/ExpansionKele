@@ -4,6 +4,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using ExpansionKele.Content.Bosses;
 using ExpansionKele.Content.Bosses.BossKele;
+using ExpansionKele.Content.Customs;
 
 namespace ExpansionKele.Content.Items.OtherItem
 {
@@ -25,8 +26,8 @@ namespace ExpansionKele.Content.Items.OtherItem
             Item.useAnimation = 45; // 使用动画时间
             Item.useStyle = ItemUseStyleID.HoldUp; // 使用方式
             Item.noMelee = true; // 不是近战物品
-            Item.value = Item.sellPrice(0, 0, 1, 20); // 价值
-            Item.rare = ItemRarityID.Purple; // 稀有度
+            Item.value = ItemUtils.CalculateValueFromRecipes(this);              // 卖出价格
+            Item.rare = ItemUtils.CalculateRarityFromRecipes(this);   
             Item.UseSound = SoundID.Item44; // 使用音效
             Item.autoReuse = false; // 不自动重用
             Item.maxStack = 1; // 最大堆叠数量

@@ -5,12 +5,18 @@ using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using ExpansionKele.Content.Buff;
 using Terraria.Localization;
+using ExpansionKele.Content.Customs;
 
 namespace ExpansionKele.Content.Items.Weapons.Ranged
 {
     public class FrostRayGun : ModItem
     {
         public override string LocalizationCategory => "Items.Weapons";
+        
+        public override void SetStaticDefaults()
+        {
+            ItemID.Sets.IsRangedSpecialistWeapon[Type] = true;
+        }
 
         public override void SetDefaults()
         {
@@ -23,8 +29,8 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.noMelee = true;
             Item.knockBack = 2;
-            Item.value = Item.buyPrice(0, 10, 0, 0);
-            Item.rare = ItemRarityID.LightRed;
+            Item.value = ItemUtils.CalculateValueFromRecipes(this);
+            Item.rare = ItemUtils.CalculateRarityFromRecipes(this); 
             Item.UseSound = SoundID.Item11;
             Item.autoReuse = true;
             Item.shoot = ModContent.ProjectileType<FrostRayProjectile>();

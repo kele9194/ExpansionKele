@@ -1,4 +1,5 @@
 using System;
+using ExpansionKele.Content.Customs;
 using ExpansionKele.Content.Items.Placeables;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -21,8 +22,8 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
             Item.DamageType = DamageClass.Ranged;
             Item.noMelee = true;
             Item.knockBack = 2f;
-            Item.value = Item.sellPrice(0, 2, 0, 0);
-            Item.rare = ItemRarityID.Green;
+            Item.value = ItemUtils.CalculateValueFromRecipes(this);
+            Item.rare = ItemUtils.CalculateRarityFromRecipes(this); 
             Item.UseSound = SoundID.Item11;
             Item.autoReuse = true;
             Item.shoot = ProjectileID.Bullet;

@@ -2,6 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using ExpansionKele.Content.Items.Tiles;
+using ExpansionKele.Content.Customs;
 
 namespace ExpansionKele.Content.Items.Placeables
 {
@@ -27,8 +28,8 @@ namespace ExpansionKele.Content.Items.Placeables
             Item.autoReuse = true;
             Item.consumable = true;
             Item.maxStack = 9999;
-            Item.value = Item.sellPrice(0, 0, 10);
-            Item.rare = ItemRarityID.LightPurple;
+            Item.value = ItemUtils.CalculateValueFromRecipes(this);              // 卖出价格
+            Item.rare = ItemUtils.CalculateRarityFromRecipes(this);   
         }
 
         public override void AddRecipes()

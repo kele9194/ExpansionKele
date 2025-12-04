@@ -3,6 +3,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Audio;
 using Terraria.DataStructures;
+using ExpansionKele.Content.Customs;
 
 
 namespace ExpansionKele.Content.Items.Costume
@@ -22,8 +23,8 @@ namespace ExpansionKele.Content.Items.Costume
             //Item.SetNameOverride("可乐的测试时装头部");
             Item.width = 18;
             Item.height = 18;
-            Item.rare = ItemRarityID.Blue;
-            Item.value = Item.sellPrice(gold: 2);
+            Item.value = ItemUtils.CalculateValueFromRecipes(this);              // 卖出价格
+            Item.rare = ItemUtils.CalculateRarityFromRecipes(this);   
             Item.vanity = true;
         }
 

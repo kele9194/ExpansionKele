@@ -290,3 +290,33 @@ ChromiumSword: {
 		'''
 	DisplayName: 铬钢剑
 }
+
+EMPPistol: {
+	Tooltip: 发射EMP链使敌人停止移动
+	DisplayName: EMP手枪
+}
+
+ElectricBallista: {
+	Tooltip: 发射一个会发射电链的带电球体，电链无视敌人的防御
+	DisplayName: 电流弩
+}
+
+SeitaadBallista: {
+	DisplayName: 赛泰隆电弩
+	Tooltip:
+		'''
+		发射一个EMP弹，在敌人附近敌人会释放EMP波
+		EMP弹有冷却时间
+		发射一个会发射电链的带电球体，电链无视敌人的防御
+		当电链暴击时，会导致敌人停止移动
+		'''
+}
+
+SolarSword: {
+	DisplayName: 耀斑阔剑
+	Tooltip:
+		'''
+		近战命中敌人导致爆炸
+		会发射一个会分裂成小火球的火球
+		'''
+}

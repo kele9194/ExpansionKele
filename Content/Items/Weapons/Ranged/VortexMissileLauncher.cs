@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using Terraria.DataStructures;
 using Terraria.Localization;
 using ExpansionKele.Content.Items.Weapons.Ranged;
+using ExpansionKele.Content.Customs;
 
 namespace ExpansionKele.Content.Items.Weapons.Ranged
 {
@@ -15,6 +16,10 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
     /// </summary>
     public class VortexMissileLauncher : ModItem
     {
+        public override void SetStaticDefaults()
+        {
+            ItemID.Sets.IsRangedSpecialistWeapon[Type] = true;
+        }
         public override string LocalizationCategory => "Items.Weapons";
         /// <summary>
         /// 设置物品的基础属性
@@ -23,7 +28,7 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
         public override void SetDefaults()
         {
             //Item.SetNameOverride("星璇导弹发射器");
-            Item.damage = ExpansionKele.ATKTool(175,default);
+            Item.damage = ExpansionKele.ATKTool(320,380);
             Item.DamageType = DamageClass.Ranged;
             Item.width = 40;
             Item.height = 40;
@@ -32,8 +37,8 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.noMelee = true;
             Item.knockBack = 4;
-            Item.value = Item.sellPrice(gold: 2);
-            Item.rare = ItemRarityID.Yellow;
+            Item.value = ItemUtils.CalculateValueFromRecipes(this);
+            Item.rare = ItemUtils.CalculateRarityFromRecipes(this); 
             Item.UseSound = SoundID.Item61;
             Item.autoReuse = true;
             Item.shoot = ProjectileID.MoonlordBullet; // 使用自定义主导弹

@@ -23,8 +23,8 @@ namespace ExpansionKele.Content.Items.OtherItem
             Item.width = 32;
             Item.height = 32;
             Item.maxStack = 1;
-            Item.value = Item.sellPrice(0, 5, 0, 0); // 5金币
-            Item.rare = ItemRarityID.Yellow; // 黄色稀有度
+            Item.value = ItemUtils.CalculateValueFromRecipes(this);              // 卖出价格
+            Item.rare = ItemUtils.CalculateRarityFromRecipes(this);   
         }
 
         public override void UpdateInventory(Player player)

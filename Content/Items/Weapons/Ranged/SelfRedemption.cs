@@ -23,12 +23,14 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
 		{
 			// 允许右键重复使用
 			ItemID.Sets.ItemsThatAllowRepeatedRightClick[Item.type] = true;
+			ItemID.Sets.IsRangedSpecialistWeapon[Type] = true;
 		}
+
 
 
 		public override void SetDefaults() {
 			// 基本属性设置
-			Item.damage = ExpansionKele.ATKTool(189,234); // 伤害75
+			Item.damage = ExpansionKele.ATKTool(189,480); // 伤害75
 			Item.DamageType = DamageClass.Ranged; // 远程伤害
 			Item.width = 32;
 			Item.height = 32;
@@ -37,8 +39,8 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
 			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.noMelee = true; // 不接触伤害
 			Item.knockBack = 2f;
-			Item.value = Item.sellPrice(0, 10, 0, 0); // 卖价10金币
-			Item.rare = ItemRarityID.Yellow; // 黄色稀有度
+			Item.value = ItemUtils.CalculateValueFromRecipes(this); // 卖价10金币
+			Item.rare = ItemUtils.CalculateRarityFromRecipes(this);  // 黄色稀有度
 			Item.UseSound = SoundID.Item11; // 枪声
 			Item.autoReuse = true; // 自动连发
 			

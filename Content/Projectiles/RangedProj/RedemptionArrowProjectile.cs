@@ -49,8 +49,8 @@ namespace ExpansionKele.Content.Projectiles.RangedProj
             Player player = Main.player[Projectile.owner];
             var modPlayer = player.GetModPlayer<Content.Buff.RedemptionAttackPlayer>();
             
-            // 增加层数（最多10层）
-            if (modPlayer.redemptionAttackStacks < 10)
+            // 增加层数（最多20层）
+            if (modPlayer.redemptionAttackStacks < 20)
             {
                 modPlayer.redemptionAttackStacks++;
             }

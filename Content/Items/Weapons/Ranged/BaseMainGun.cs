@@ -1,4 +1,5 @@
 using System.Linq;
+using ExpansionKele.Content.Customs;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
@@ -10,6 +11,10 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
     public class BaseMainGun : ModItem
     {
         public override string LocalizationCategory => "Items.Weapons";
+        public override void SetStaticDefaults()
+        {
+            ItemID.Sets.IsRangedSpecialistWeapon[Type] = true;
+        }
 
         public override void SetDefaults()
         {
@@ -23,8 +28,8 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
             Item.useStyle = ItemUseStyleID.Shoot; // 射击风格
             Item.noMelee = true; // 禁用近战攻击
             Item.knockBack = 4; // 击退值
-            Item.value = Item.sellPrice(gold: 5); // 价值
-            Item.rare = ItemRarityID.LightRed; // 稀有度
+            Item.value = ItemUtils.CalculateValueFromRecipes(this); // 价值
+            Item.rare = ItemUtils.CalculateRarityFromRecipes(this);  // 稀有度
             Item.UseSound = SoundID.Item11; // 使用音效
             Item.autoReuse = true; // 自动重用
             Item.shoot = ModContent.ProjectileType<BaseMainGunProjectile>(); // 默认发射物（将在实际射击中替换）

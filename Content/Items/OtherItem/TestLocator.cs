@@ -18,8 +18,8 @@ namespace ExpansionKele.Content.Items.OtherItem
             //Item.SetNameOverride("自定义属性检测仪");
             Item.width = 24;
             Item.height = 24;
-            Item.value = 0;
-            Item.rare = ItemRarityID.Red;
+            Item.value = ItemUtils.CalculateValueFromRecipes(this);              // 卖出价格
+            Item.rare = ItemUtils.CalculateRarityFromRecipes(this);   
             Item.useStyle = ItemUseStyleID.Swing;
             Item.useTime = 30;
             Item.useAnimation = 30;

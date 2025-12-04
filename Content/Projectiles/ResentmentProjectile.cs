@@ -7,6 +7,8 @@ namespace ExpansionKele.Content.Projectiles
 {
     public class ResentmentProjectile : ModProjectile
     {
+        private bool hasHealed = false; // 添加标志位，记录是否已恢复生命值
+
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("怨憎");
@@ -19,12 +21,14 @@ namespace ExpansionKele.Content.Projectiles
             Projectile.friendly = true;
             Projectile.hostile = false;
             Projectile.DamageType = DamageClass.Magic;
-            Projectile.penetrate = 1; // 只能穿透一个敌人
+            Projectile.penetrate = 2; // 只能穿透一个敌人
             Projectile.timeLeft = 600;
             Projectile.alpha = 255; // 透明度
             Projectile.ignoreWater = true;
             Projectile.tileCollide = true;
-            Projectile.extraUpdates = 1;
+            Projectile.extraUpdates = 4;
+            Projectile.usesLocalNPCImmunity = true;
+            Projectile.localNPCHitCooldown = 30;
         }
 
         public override void AI()
@@ -46,8 +50,12 @@ namespace ExpansionKele.Content.Projectiles
         {
             Player player = Main.player[Projectile.owner];
             
-            // 弹幕命中敌人恢复10点生命值
-            player.Heal(10);
+            // 弹幕命中敌人恢复20点生命值，但每发弹幕只会触发一次
+            if (!hasHealed)
+            {
+                player.Heal(16);
+                hasHealed = true;
+            }
             
             // 击中敌人后产生特效
             for (int i = 0; i < 10; i++)

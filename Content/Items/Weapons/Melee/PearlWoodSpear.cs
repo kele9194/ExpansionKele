@@ -18,12 +18,12 @@ namespace ExpansionKele.Content.Items.Weapons.Melee
             //Item.SetNameOverride("珍珠木长矛");
             Item.width = 76;
             Item.height = 76;
-            Item.damage = ExpansionKele.ATKTool(120,150);
+            Item.damage = ExpansionKele.ATKTool(65,80);
             Item.useTime = 16;
             Item.useAnimation = 16;
             Item.useStyle = ItemUseStyleID.Shoot;
-            Item.value = Item.sellPrice(0, 0, 50, 0);
-            Item.rare = ItemRarityID.Green;
+            Item.value = ItemUtils.CalculateValueFromRecipes(this);
+            Item.rare = ItemUtils.CalculateRarityFromRecipes(this); 
             Item.knockBack = 5f;
             Item.DamageType = DamageClass.MeleeNoSpeed;
             Item.noMelee = true;
@@ -116,7 +116,7 @@ namespace ExpansionKele.Content.Items.Weapons.Melee
             player.ChangeDir(Projectile.velocity.X > 0 ? 1 : -1);
             player.itemRotation = (Projectile.velocity * player.direction).ToRotation();
             var reductionPlayer = player.GetModPlayer<CustomDamageReductionPlayer>();
-            reductionPlayer.MulticustomDamageReduction(0.40f);
+            reductionPlayer.MulticustomDamageReduction(0.60f);
             
             // 检查是否完成一次完整旋转
             if (Projectile.ai[1] >= useTime)

@@ -68,3 +68,26 @@ ChromiumOrePowder: {
 	Tooltip: the ore powder that can be extracted after downed boss Skeletron
 	DisplayName: Chromium Ore Powder
 }
+
+DefenseRegulator: {
+	Tooltip:
+		'''
+		[c/808080:When Calamity Mod is not loaded:]
+		[c/808080:Does nothing]
+
+		When Calamity Mod is loaded:
+		Locks all defense prefixes and Ironskin potion effects to a fixed progression stage
+		Left-click to cycle through stages: 
+		Pre-Hardmode → Hardmode → Post-Moon Lord → Post-DoG → Unlimited → Pre-Hardmode...
+		'''
+	DisplayName: Defense Regulator
+	CalamityRequired: Requires Calamity Mod to function
+	NeedCalamity: Does nothing without Calamity Mod
+	StagePreHardmode: Pre-Hardmode
+	StageHardmode: Hardmode
+	StagePostMoonLord: Post-Moon Lord
+	StagePostDoG: Post-DoG
+	StageUnlimited: Unlimited
+	StageSet: Defense stage set to: {0}
+	CurrentStage: Current stage: {0}
+}

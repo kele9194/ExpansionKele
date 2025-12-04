@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System;
 using ExpansionKele.Content.Projectiles;
 using ExpansionKele.Content.Buff;
+using ExpansionKele.Content.Customs;
 
 namespace ExpansionKele.Content.StaryMagic
 {
@@ -34,7 +35,7 @@ namespace ExpansionKele.Content.StaryMagic
     public override void SetDefaults()
     {
         //Item.SetNameOverride(setNameOverride);
-        Item.damage = damage;
+        Item.damage = ExpansionKele.ATKTool(default,damage);
         Item.DamageType = DamageClass.Magic;
         Item.mana = itemMana;
         Item.width = 40;
@@ -44,8 +45,8 @@ namespace ExpansionKele.Content.StaryMagic
         Item.useStyle = ItemUseStyleID.Shoot;
         Item.noMelee = true;
         Item.knockBack = 2;
-        Item.value = Item.sellPrice(0, 1, 0, 0);
-        Item.rare = ItemRarityID.Pink; 
+        Item.value = ItemUtils.CalculateValueFromRecipes(this);
+        Item.rare = ItemUtils.CalculateRarityFromRecipes(this); 
         Item.UseSound = SoundID.Item71;
         Item.shoot=ProjectileID.BlackBolt;//无用但得有
         Item.autoReuse = true;

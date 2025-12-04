@@ -7,6 +7,7 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
+using ExpansionKele.Content.Customs;
 
 namespace ExpansionKele.Content.Items.Weapons.Ranged
 {
@@ -24,7 +25,10 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
         public const int MAX_OVERLOAD = 50;
         // 衰减计时器
         public const int DECAY_TIMER = 10;
-        
+        public override void SetStaticDefaults()
+        {
+            ItemID.Sets.IsRangedSpecialistWeapon[Type] = true;
+        }
         /// <summary>
         /// 设置物品的基础属性
         /// 包括伤害、使用时间、稀有度等
@@ -32,15 +36,15 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
         public override void SetDefaults()
         {
             //Item.SetNameOverride("劲射冲锋枪");
-            Item.damage = ExpansionKele.ATKTool(30,36);
+            Item.damage = ExpansionKele.ATKTool(32,40);
             Item.useTime = 10;
             Item.useAnimation = 10;
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.DamageType = DamageClass.Ranged;
             Item.noMelee = true;
             Item.knockBack = 4f;
-            Item.value = Item.sellPrice(gold: 1);
-            Item.rare = ItemRarityID.Green;
+            Item.value = ItemUtils.CalculateValueFromRecipes(this);
+            Item.rare = ItemUtils.CalculateRarityFromRecipes(this); 
             Item.UseSound = SoundID.Item11;
             Item.autoReuse = true;
             Item.shoot = ProjectileID.Bullet; // 修改为实际子弹类型

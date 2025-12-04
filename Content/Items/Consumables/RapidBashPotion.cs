@@ -3,6 +3,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using ExpansionKele.Content.Buff;
 using System.Collections.Generic;
+using ExpansionKele.Content.Customs;
 
 namespace ExpansionKele.Content.Items.Consumables
 {
@@ -28,8 +29,8 @@ namespace ExpansionKele.Content.Items.Consumables
             Item.autoReuse = false;
             Item.consumable = true;
             Item.UseSound = SoundID.Item3;
-            Item.rare = ItemRarityID.Blue;
-            Item.value = Item.buyPrice(silver: 50);
+            Item.value = ItemUtils.CalculateValueFromRecipes(this);              // 卖出价格
+            Item.rare = ItemUtils.CalculateRarityFromRecipes(this);   
             Item.buffType = ModContent.BuffType<RapidBash>();
             Item.buffTime = time *60* 60; // 4 minutes in ticks
             Item.maxStack=9999;

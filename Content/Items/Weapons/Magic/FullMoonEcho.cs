@@ -6,6 +6,8 @@ using Terraria.ModLoader;
 using ExpansionKele.Content.Projectiles;
 using System.Collections.Generic;
 using ExpansionKele.Content.Items.Placeables;
+using ExpansionKele.Commons;
+using ExpansionKele.Content.Customs;
 
 namespace ExpansionKele.Content.Items.Weapons.Magic
 {
@@ -38,8 +40,8 @@ namespace ExpansionKele.Content.Items.Weapons.Magic
             Item.useStyle = ItemUseStyleID.Shoot; // 使用样式为射击
             Item.noMelee = true;                // 禁止近战攻击判定
             Item.knockBack = 2;                 // 击退值
-            Item.value = Item.sellPrice(gold: 5); // 卖出价格：5 金币
-            Item.rare = ItemRarityID.Pink;       // 稀有度：粉红（稀有）
+            Item.value = ItemUtils.CalculateValueFromRecipes(this); // 卖出价格：5 金币
+            Item.rare = ItemUtils.CalculateRarityFromRecipes(this);       // 稀有度：粉红（稀有）
             Item.UseSound = SoundID.Item21;      // 射击音效
             Item.autoReuse = true;              // 自动重用
             Item.shoot = ModContent.ProjectileType<FullMoonEchoProj>(); // 发射的弹幕类型

@@ -53,7 +53,7 @@ namespace ExpansionKele.Content.Projectiles
             Projectile.light = 0.8f;
             Projectile.extraUpdates = 1;            // 每帧更新两次
             Projectile.usesLocalNPCImmunity = true; // 使用本地无敌帧
-            Projectile.localNPCHitCooldown = 15;     // 本地无敌帧为8
+            Projectile.localNPCHitCooldown = 30;     // 本地无敌帧为8
         }
 
         public override void OnSpawn(Terraria.DataStructures.IEntitySource source)
@@ -122,7 +122,7 @@ namespace ExpansionKele.Content.Projectiles
         private void TrackingAI(Player player)
         {
             // 使用HomingProjectileHelper进行追踪
-            ProjectileHelper.FindAndMoveTowardsTarget(Projectile, 8f, 400f, 10f);
+            ProjectileHelper.FindAndMoveTowardsTarget(Projectile, 12f, 400f, 10f);
             
             // 设置旋转角度
             Projectile.rotation = Projectile.velocity.ToRotation() + MathHelper.PiOver2;

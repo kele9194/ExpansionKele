@@ -1,3 +1,4 @@
+using ExpansionKele.Content.Customs;
 using ExpansionKele.Content.Items.OtherItem;
 using ExpansionKele.Content.Projectiles.RangedProj;
 using Terraria;
@@ -24,8 +25,8 @@ namespace ExpansionKele.Content.Items.Ammos
             Item.maxStack = Item.CommonMaxStack;
             Item.consumable = true;
             Item.knockBack = 2.0f;
-            Item.value = Item.sellPrice(0, 0, 0, 8);
-            Item.rare = ItemRarityID.Blue;
+            Item.value = ItemUtils.CalculateValueFromRecipes(this);              // 卖出价格
+            Item.rare = ItemUtils.CalculateRarityFromRecipes(this);   
             Item.shoot = ModContent.ProjectileType<RedemptionArrowProjectile>();
             Item.shootSpeed = 4f;
             Item.ammo = AmmoID.Arrow;

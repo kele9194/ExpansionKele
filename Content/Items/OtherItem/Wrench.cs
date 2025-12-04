@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using ExpansionKele.Content.Customs;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -15,8 +16,8 @@ namespace ExpansionKele.Content.Items.OtherItem
             Item.width = 32;
             Item.height = 32;
             Item.maxStack = 1; // 最大堆叠数为1
-            Item.value = Item.buyPrice(0,0,10,0);
-            Item.rare = ItemRarityID.Blue;
+            Item.value = ItemUtils.CalculateValueFromRecipes(this);              // 卖出价格
+            Item.rare = ItemUtils.CalculateRarityFromRecipes(this);   
         }
 
         public override void AddRecipes()

@@ -1,3 +1,4 @@
+using ExpansionKele.Content.Customs;
 using ExpansionKele.Content.Projectiles;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -20,14 +21,14 @@ namespace ExpansionKele.Content.Items.Weapons.Melee
         {
             Item.width = 40;
             Item.height = 40;
-            Item.value = Item.buyPrice(0, 10, 0, 0);
-            Item.rare = ItemRarityID.Cyan;
+            Item.value = ItemUtils.CalculateValueFromRecipes(this);
+            Item.rare = ItemUtils.CalculateRarityFromRecipes(this); 
             Item.useStyle = ItemUseStyleID.Swing;
             Item.useAnimation = 20;
             Item.useTime = 20;
             Item.UseSound = SoundID.Item1;
             Item.autoReuse = true;
-            Item.damage = ExpansionKele.ATKTool(24,26);
+            Item.damage = ExpansionKele.ATKTool(12,13);
             Item.knockBack = 6f;
             Item.DamageType = DamageClass.Melee;
             Item.shoot = ModContent.ProjectileType<FragmentsEmergenceProjectile>();

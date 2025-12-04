@@ -54,11 +54,10 @@ namespace ExpansionKele.Content.Projectiles.RangedProj
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
             Player player = Main.player[Projectile.owner];
-            // 50% 概率恢复生命值
+            // 50% 概率消耗血量槽回复生命值
             if (Main.rand.NextBool(2))
             {
-                // 使用 RedemptionHealLimiter 来限制每秒恢复的生命值
-                player.GetModPlayer<RedemptionHealLimiter>().Heal(1, player);
+                player.GetModPlayer<RedemptionHealLimiter>().TryUseHealSlot();
             }
         }
         
@@ -70,30 +69,41 @@ namespace ExpansionKele.Content.Projectiles.RangedProj
     }
 
     public class RedemptionHealLimiter : ModPlayer
-{
-    // 记录上次恢复生命值的时间（游戏帧数）
-    private int lastHealFrame = 0;
-    private const int HealCooldown = 15; // 冷却时间15帧
-
-    public override void ResetEffects()
     {
-        // 不再需要基于秒的重置逻辑
-    }
+        // 血量槽当前储存的生命值
+        public int healSlot = 0;
+        // 血量槽最大容量
+        public const int MaxHealSlot = 30;
+        // 上次回复血量槽的时间
+        private int lastHealSlotRegen = 0;
+        // 回复间隔（帧数）
+        private const int RegenRate = 6;
 
-    /// <summary>
-    /// 处理救赎弹的生命恢复，限制每次恢复之间有15帧冷却时间
-    /// </summary>
-    /// <param name="amount">尝试恢复的生命值</param>
-    /// <param name="player">要恢复生命的玩家</param>
-    public void Heal(int amount, Player player)
-    {
-        // 检查是否已经过了冷却时间
-        int currentFrame = (int)Main.GameUpdateCount;
-        if (currentFrame - lastHealFrame >= HealCooldown)
+        public override void PreUpdate()
         {
-            player.Heal(amount);
-            lastHealFrame = currentFrame;
+            // 每隔一定时间自动回复血量槽
+            int currentFrame = (int)Main.GameUpdateCount;
+            if (currentFrame - lastHealSlotRegen >= RegenRate)
+            {
+                if (healSlot < MaxHealSlot)
+                {
+                    healSlot++;
+                }
+                lastHealSlotRegen = currentFrame;
+            }
+        }
+
+        /// <summary>
+        /// 尝试使用血量槽回复生命值
+        /// </summary>
+        public void TryUseHealSlot()
+        {
+            // 如果血量槽有储存的生命值，则消耗1点并回复1点生命值
+            if (healSlot > 0)
+            {
+                healSlot--;
+                Player.Heal(1);
+            }
         }
     }
-}
 }

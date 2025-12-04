@@ -4,6 +4,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using ExpansionKele.Content.Projectiles;
 using System.Collections.Generic;
+using ExpansionKele.Content.Customs;
 
 namespace ExpansionKele.Content.Items.Weapons.Ranged
 {
@@ -22,6 +23,7 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
             ItemID.Sets.IsRangedSpecialistWeapon[Type] = true;
         }
 
+
         public override void SetDefaults()
         {
             //Item.SetNameOverride(setNameOverride);
@@ -34,8 +36,8 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
             Item.noMelee = true;
             Item.noUseGraphic = true;
             Item.knockBack = 4f;
-            Item.value = Item.sellPrice(gold: 2);
-            Item.rare = ItemRarityID.Pink;
+            Item.value = ItemUtils.CalculateValueFromRecipes(this);
+            Item.rare = ItemUtils.CalculateRarityFromRecipes(this); 
             Item.UseSound = null;
             Item.autoReuse = false;
             Item.channel = true;

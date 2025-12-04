@@ -1,3 +1,4 @@
+using ExpansionKele.Content.Customs;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
@@ -23,8 +24,8 @@ namespace ExpansionKele.Content.Items.OtherItem
             Item.width = 24;
             Item.height = 24;
             Item.maxStack = 1; // 无法堆叠
-            Item.value = Item.sellPrice(gold: 10);
-            Item.rare = ItemRarityID.Purple;
+            Item.value = ItemUtils.CalculateValueFromRecipes(this);              // 卖出价格
+            Item.rare = ItemUtils.CalculateRarityFromRecipes(this);   
             Item.useTime = 30;
             Item.useAnimation = 30;
             Item.useStyle = ItemUseStyleID.HoldUp;

@@ -68,3 +68,26 @@ ChromiumOrePowder: {
 	Tooltip: 击败骷髅王后可以从提炼机提炼中获取
 	DisplayName: 铬矿粉
 }
+
+DefenseRegulator: {
+	Tooltip:
+		'''
+		[c/808080:未加载灾厄模组时:]
+		[c/808080:无效果]
+
+		加载灾厄模组时:
+		锁定所有防御词缀和铁皮药水效果到固定进度阶段
+		左键点击循环切换阶段:
+		困难前 → 困难模式 → 月球领主后 → 击败神明吞噬者后 → 无限制 → 困难前...
+		'''
+	DisplayName: 防御调节器
+	CalamityRequired: 需要加载灾厄模组才能发挥作用
+	NeedCalamity: 未加载灾厄模组时无效果
+	StagePreHardmode: 困难前
+	StageHardmode: 困难模式
+	StagePostMoonLord: 月球领主后
+	StagePostDoG: 击败神明吞噬者后
+	StageUnlimited: 无限制
+	StageSet: 防御阶段已设置为: {0}
+	CurrentStage: 当前阶段: {0}
+}

@@ -31,10 +31,7 @@ namespace ExpansionKele.Content.StaryMelee
         //Item.SetNameOverride(setNameOverride);
         Item.width = 60;
 		Item.height = 60;
-		Item.damage = 24;
-        if(ExpansionKele.calamity!=null){
-            Item.damage=(int)(Item.damage*1.25);
-        }
+		Item.damage = Item.damage = ExpansionKele.ATKTool(default,24);
 		Item.DamageType = DamageClass.Melee;
 		Item.useAnimation = 18;
 		Item.useStyle = ItemUseStyleID.Swing;
@@ -43,8 +40,8 @@ namespace ExpansionKele.Content.StaryMelee
 		Item.knockBack = 8f;
 		Item.UseSound = SoundID.Item1;
 		Item.autoReuse = true;
-        Item.value = Item.sellPrice(silver:(int)(Item.damage*0.3f));
-        Item.rare = ItemRarityID.Green; // 稀有度
+        Item.value = ItemUtils.CalculateValueFromRecipes(this);
+        Item.rare = ItemUtils.CalculateRarityFromRecipes(this); 
         Item.shoot = ModContent.ProjectileType<ColaProjectileLower>(); // 射弹类型
         Item.shootSpeed =  10f; // 射弹速度
         Item.crit= constcrit;

@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using Terraria;
+using Terraria.ModLoader;
 
 namespace ExpansionKele.Commons
 {
@@ -20,5 +22,16 @@ namespace ExpansionKele.Commons
             if (player.gravDir < 0)
                 player.itemLocation.Y = player.Center.Y + (player.position.Y - player.itemLocation.Y);
         }
-    } 
+
+     /// <summary>
+        /// 根据配方材料计算物品的价值
+        /// </summary>
+        /// <param name="item">要计算价值的物品</param>
+        /// <param name="profitMargin">利润率，例如1.5表示50%利润</param>
+        /// <returns>计算后的物品价值</returns>
+        
+
+}
+
+
 }

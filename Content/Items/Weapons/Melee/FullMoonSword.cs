@@ -7,6 +7,7 @@ using ExpansionKele.Content.Projectiles;
 using System.Collections.Generic;
 using Terraria.Localization;
 using ExpansionKele.Content.Items.Placeables;
+using ExpansionKele.Content.Customs;
 
 namespace ExpansionKele.Content.Items.Weapons.Melee
 {
@@ -34,11 +35,7 @@ namespace ExpansionKele.Content.Items.Weapons.Melee
         public override void SetDefaults()
         {
             //Item.SetNameOverride("望月长剑");
-            Item.damage = ExpansionKele.ATKTool(54,default);
-            // 如果安装了灾厄模组，增加37%伤害
-            if(ExpansionKele.calamity!=null){
-                Item.damage=(int)(Item.damage*1.37f);
-            }
+            Item.damage = ExpansionKele.ATKTool(100,145);
             Item.DamageType = DamageClass.Melee;
             Item.width = 40;
             Item.height = 40;
@@ -46,8 +43,8 @@ namespace ExpansionKele.Content.Items.Weapons.Melee
             Item.useAnimation = 20;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.knockBack = 6f;
-            Item.value = Item.sellPrice(gold: 1);
-            Item.rare = ItemRarityID.Yellow;
+            Item.value = ItemUtils.CalculateValueFromRecipes(this);
+            Item.rare = ItemUtils.CalculateRarityFromRecipes(this); 
             Item.UseSound = SoundID.Item1;
             Item.autoReuse = true;
             Item.shoot = ModContent.ProjectileType<FullMoonProjectile>();

@@ -54,3 +54,15 @@ MagicProj.NightFireflyProjectile.DisplayName: Night Firefly Projectile
 RedemptionBulletProjectile.DisplayName: Redemption Bullet Projectile
 RedemptionArrowProjectile.DisplayName: Redemption Arrow Projectile
 RippleProjectile.DisplayName: Ripple Projectile
+RadiationProjectile.DisplayName: Radiation Projectile
+RadiationFieldIndicator.DisplayName: Radiation Field Indicator
+EMPPulseProjectile.DisplayName: EMP Pulse Projectile
+ElectricBallProjectile.DisplayName: Electric Ball Projectile
+SeitaadBallistaProjectile.DisplayName: Seitaad Ballista Projectile
+EMPWave.DisplayName: EMP Wave
+EMPBallProjectile.DisplayName: EMP Ball Projectile
+SolarFireball.DisplayName: Solar Fireball
+SplitSolarFireball.DisplayName: Split Solar Fireball
+ElectricBallistaShockProjectile.DisplayName: Electric Ballista Shock Projectile
+SeitaadBallistaShockProjectile.DisplayName: Seitaad Ballista Shock Projectile
+SolarSpearSpinOnlyProjectile.DisplayName: Solar Spear Spin Only Projectile

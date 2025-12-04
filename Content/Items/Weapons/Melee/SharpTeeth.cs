@@ -1,3 +1,4 @@
+using ExpansionKele.Content.Customs;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -20,7 +21,7 @@ namespace ExpansionKele.Content.Items.Weapons.Melee
 
         public override void SetDefaults()
         {
-            Item.damage = ExpansionKele.ATKTool(20,24);                 // 20点伤害
+            Item.damage = ExpansionKele.ATKTool(18,22); //20,24                // 20点伤害
             Item.DamageType = DamageClass.Melee; // 近战伤害类型
             Item.width = 30;                  // 物品宽度
             Item.height = 30;                 // 物品高度
@@ -28,8 +29,8 @@ namespace ExpansionKele.Content.Items.Weapons.Melee
             Item.useAnimation = 15;           // 动画时间15
             Item.useStyle = ItemUseStyleID.Swing; // 挥舞使用方式
             Item.knockBack = 4f;              // 击退力度
-            Item.value = Item.sellPrice(silver: 50); // 售价50银币
-            Item.rare = ItemRarityID.Blue;    // 蓝色稀有度
+            Item.value = ItemUtils.CalculateValueFromRecipes(this); // 售价50银币
+            Item.rare = ItemUtils.CalculateRarityFromRecipes(this);     // 蓝色稀有度
             Item.UseSound = SoundID.Item1;    // 使用声音
             Item.autoReuse = true;            // 自动连击
         }

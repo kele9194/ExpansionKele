@@ -2,6 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using ExpansionKele.Content.Bosses.ShadowOfRevenge;
+using ExpansionKele.Content.Customs;
 
 namespace ExpansionKele.Content.Items.OtherItem
 {
@@ -21,8 +22,8 @@ namespace ExpansionKele.Content.Items.OtherItem
             Item.useAnimation = 45;
             Item.useStyle = ItemUseStyleID.HoldUp;
             Item.noMelee = true;
-            Item.value = Item.sellPrice(0, 1, 0, 0);
-            Item.rare = ItemRarityID.Purple;
+            Item.value = ItemUtils.CalculateValueFromRecipes(this);              // 卖出价格
+            Item.rare = ItemUtils.CalculateRarityFromRecipes(this);   
             Item.UseSound = SoundID.Item44;
             Item.autoReuse = false;
             Item.maxStack = 1;

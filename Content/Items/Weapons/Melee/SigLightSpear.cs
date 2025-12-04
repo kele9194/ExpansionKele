@@ -33,8 +33,8 @@ namespace ExpansionKele.Content.Items.Weapons.Melee
             Item.useTime = 20;
             Item.useAnimation = 20;
             Item.useStyle = ItemUseStyleID.Shoot;
-            Item.value = Item.sellPrice(0, 2, 50, 0);
-            Item.rare = ItemRarityID.Orange;
+            Item.value = ItemUtils.CalculateValueFromRecipes(this);
+            Item.rare = ItemUtils.CalculateRarityFromRecipes(this); 
             Item.knockBack = 6f;
             Item.DamageType = DamageClass.MeleeNoSpeed;
             Item.noMelee = true;

@@ -1,3 +1,4 @@
+using ExpansionKele.Content.Customs;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
@@ -23,8 +24,8 @@ namespace ExpansionKele.Content.Items.OtherItem
             Item.width = 16;
             Item.height = 16;
             Item.maxStack = Item.CommonMaxStack;
-            Item.value = Item.sellPrice(silver: 2);
-            Item.rare = ItemRarityID.Blue;
+            Item.value = ItemUtils.CalculateValueFromRecipes(this);              // 卖出价格
+            Item.rare = ItemUtils.CalculateRarityFromRecipes(this);   
         }
         public override void ModifyTooltips(System.Collections.Generic.List<TooltipLine> tooltips) {  
 			// tooltips.Add(new TooltipLine(Mod, "obtain", "可以通过砍伐树木获得"));

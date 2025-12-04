@@ -50,7 +50,7 @@ public class FullMoonArrowProj : ModProjectile
         Projectile.DamageType = DamageClass.Ranged;
         Projectile.extraUpdates = 0;
         Projectile.usesLocalNPCImmunity = true;  // 使用本地无敌帧系统
-        Projectile.localNPCHitCooldown = 2; 
+        Projectile.localNPCHitCooldown = 20; 
     }
 
     public override void AI()

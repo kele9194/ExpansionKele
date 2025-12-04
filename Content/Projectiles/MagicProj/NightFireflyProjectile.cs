@@ -23,6 +23,9 @@ namespace ExpansionKele.Content.Projectiles.MagicProj
 			Projectile.ignoreWater = true;
 			Projectile.tileCollide = true;
 			Projectile.ArmorPenetration = 40; // 40点护甲穿透
+			Projectile.extraUpdates = 3;
+			Projectile.usesLocalNPCImmunity = true;
+			Projectile.localNPCHitCooldown = 15;
 		}
 
 		public override void AI()

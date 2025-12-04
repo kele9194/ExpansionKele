@@ -44,6 +44,16 @@ New Weapons: Chromium Sword, Gatling
 New Accessory: FullMoon Amulet
 New Item:Solar Relic
 
+v1.3 
+Adjusted the damage of quite a few weapons in Calamity, so that these weapons won't have ridiculous damage. 
+Note: The Stary series weapons are temporarily excluded from this adjustment. They remain intentionally overpowered for now.
+Added appropriate prices and rarities for almost all items. 
+For items that have recipes, rarity is determined by the highest rarity material.
+Price is calculated as the sum of all crafting material prices.
+New additions: Electric Ballista, Seitaad Ballista, Solar Sword, EMP Pistol. 
+New weapon damage scaler: A setting to adjust damage of all weapons in this mod with default multiplier of 1
+Convert all ranged weapons that don't consume ammo in this mod into expert weapons, allowing them to receive bonuses from Shroomite Helmet.
+
 
 这个模组仅为娱乐，开发者仅为本人，并且仍然在完善中，和灾厄模组游玩时会有部分重写以适配灾厄数值环境。
 
@@ -91,4 +101,14 @@ v1.2.6
 新增武器：铬钢剑，加特林
 新增饰品：望月护符
 新增物品：日耀圣物
+
+v1.3
+调整了相当一部分武器在灾厄中的伤害，使这些武器不至于拥有太过离谱的伤害
+注意：星元系列武器暂不在本次调整范围内，它们目前为止是暂时默认超模的
+为几乎所有物品提供了合适的价钱和稀有度
+其中有配方的物品稀有度由材料中最高稀有度决定
+价格由所有合成材料价格之和
+新增：电流弩，赛泰隆电弩，耀斑阔剑，EMP手枪
+新增武器伤害标尺：在设置中可以调整所有本mod武器伤害，默认倍率为1
+将所有不消耗弹药的远程武器转化为了专业武器，使其能接受蘑菇矿头盔的加成
 

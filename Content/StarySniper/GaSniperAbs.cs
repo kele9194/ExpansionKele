@@ -7,6 +7,7 @@ using Terraria.DataStructures;
 using System;
 using Terraria.Audio;
 using System.Collections.Generic;
+using ExpansionKele.Content.Customs;
 
 namespace ExpansionKele.Content.StarySniper
 {
@@ -35,12 +36,7 @@ namespace ExpansionKele.Content.StarySniper
             //Item.SetNameOverride(ItemName);
             Item.width = 80;
             Item.height = 31;
-            Item.damage = BaseDamage;
-            
-            if(ExpansionKele.calamity != null)
-            {
-                Item.damage = (int)(BaseDamage * 1.45);
-            }
+            Item.damage = Item.damage = Item.damage = ExpansionKele.ATKTool(BaseDamage,default);
             
             Item.autoReuse = true;  
             Item.DamageType = DamageClass.Ranged; 
@@ -52,9 +48,9 @@ namespace ExpansionKele.Content.StarySniper
             Item.useTime = UseTime; 
             Item.UseSound = ExpansionKele.SniperSound; 
             Item.useStyle = ItemUseStyleID.Shoot; 
-            Item.value = Item.buyPrice(gold: 6); 
+            Item.value = ItemUtils.CalculateValueFromRecipes(this);
+            Item.rare = ItemUtils.CalculateRarityFromRecipes(this); 
             Item.crit = Crit;
-            Item.rare = Rarity; 
 
             Item.shoot = ProjectileID.Bullet;
             Item.useAmmo = AmmoID.Bullet;

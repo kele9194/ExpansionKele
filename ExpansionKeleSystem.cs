@@ -5,6 +5,7 @@ using Terraria.ModLoader;
 
 namespace ExpansionKele
 {
+    
     public class WoodDemonInstrumentRecipe : ModSystem
     {
         

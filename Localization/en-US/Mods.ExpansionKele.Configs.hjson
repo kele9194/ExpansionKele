@@ -31,4 +31,9 @@ ExpansionKeleConfig: {
 			make it off will not obstacle your game  
 			'''
 	}
+
+	SpecificWeaponDamageMultiplier: {
+		Tooltip: Provide a weapon damage multiplier for weapons in this mod
+		Label: Specific Weapon Damage Multiplier
+	}
 }

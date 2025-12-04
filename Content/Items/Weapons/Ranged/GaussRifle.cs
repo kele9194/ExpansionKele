@@ -5,6 +5,7 @@ using Terraria.ModLoader;
 using Terraria.DataStructures;
 using ExpansionKele.Content.Projectiles;
 using ExpansionKele.Content.Items.Placeables;
+using ExpansionKele.Content.Customs;
 
 namespace ExpansionKele.Content.Items.Weapons.Ranged
 {
@@ -20,6 +21,8 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
         private const int reloadTime = 8;
         private const int AmmoTime=44;
 
+        
+
         public override void SetDefaults()
         {
             Item.width = 64;
@@ -31,8 +34,8 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.noMelee = true;
             Item.knockBack = 6f;
-            Item.value = Item.buyPrice(gold: 10);
-            Item.rare = ItemRarityID.Yellow;
+            Item.value = ItemUtils.CalculateValueFromRecipes(this);
+            Item.rare = ItemUtils.CalculateRarityFromRecipes(this); 
             Item.UseSound = SoundID.Item40;
             Item.autoReuse = false;
             Item.shoot = ModContent.ProjectileType<GaussRifleProjectile>();
@@ -46,7 +49,9 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
         {
             // 允许右键重复使用
             ItemID.Sets.ItemsThatAllowRepeatedRightClick[Item.type] = true;
+            ItemID.Sets.IsRangedSpecialistWeapon[Type] = true;
         }
+
 
         public override bool AltFunctionUse(Player player)
         {

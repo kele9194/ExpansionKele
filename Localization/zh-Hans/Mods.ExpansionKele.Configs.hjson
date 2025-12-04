@@ -27,4 +27,9 @@ ExpansionKeleConfig: {
 		Label: 启用详细工具提示(开发者专用，简体中文)
 		Tooltip: 如果启用，将显示物品和饰品的详细工具提示(只是给开发者debug看的所以只有中文)
 	}
+
+	SpecificWeaponDamageMultiplier: {
+		Tooltip: 为所有本模组武器提供的伤害乘数标尺
+		Label: 伤害乘数标尺
+	}
 }

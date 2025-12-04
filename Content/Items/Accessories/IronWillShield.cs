@@ -17,7 +17,7 @@ namespace ExpansionKele.Content.Items.Accessories
             Item.value = Item.buyPrice(0, 10, 0, 0);
             Item.rare = ItemRarityID.Green;
             Item.accessory = true;
-            Item.defense = ExpansionKele.ATKTool(2,5);
+            Item.defense = 3;
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)

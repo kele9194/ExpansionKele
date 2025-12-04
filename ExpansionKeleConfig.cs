@@ -36,5 +36,11 @@ namespace ExpansionKele
         // 新增属性：控制是否显示详细工具提示
         [DefaultValue(false)]
         public bool EnableDetailedTooltips { get; set; }
+        
+        [DefaultValue(1.0f)]
+        [Range(0.1f, 2.0f)]
+        [Increment(0.01f)]
+        [Slider]
+        public float SpecificWeaponDamageMultiplier { get; set; } = 1.0f;
     }
 }

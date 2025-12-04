@@ -7,6 +7,7 @@ using ExpansionKele.Content.Projectiles;
 using System.Collections.Generic;
 using Terraria.Localization;
 using ExpansionKele.Content.Items.Placeables;
+using ExpansionKele.Content.Customs;
 
 namespace ExpansionKele.Content.Items.Weapons.Ranged
 {
@@ -21,11 +22,8 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
 
         public override void SetStaticDefaults()
         {
-            // 可选：设置显示名称和描述（用于调试或国际化）
-            // DisplayName.SetDefault("Full Moon Bow");
-            // Tooltip.SetDefault("Fires two arrows that transform into full moon arrows");
+            ItemID.Sets.IsRangedSpecialistWeapon[Type] = true;
         }
-
         public override void SetDefaults()
         {
             //Item.SetNameOverride("望月弓");         // 设置物品中文名
@@ -38,8 +36,8 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
             Item.useStyle = ItemUseStyleID.Shoot;   // 使用样式为射击
             Item.noMelee = true;                    // 关闭近战攻击判定
             Item.knockBack = 2;                     // 击退值
-            Item.value = Item.sellPrice(gold: 10);  // 卖出价格
-            Item.rare = ItemRarityID.Red;           // 稀有度：红色
+            Item.value = ItemUtils.CalculateValueFromRecipes(this); // 卖出价格
+            Item.rare = ItemUtils.CalculateRarityFromRecipes(this);            // 稀有度：红色
             Item.UseSound = SoundID.Item5;          // 射击音效
             Item.autoReuse = true;                  // 自动重用
             Item.shoot = ProjectileID.WoodenArrowFriendly; // 默认发射物（会被替换）

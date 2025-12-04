@@ -4,6 +4,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.Localization;
+using ExpansionKele.Content.Customs;
 
 namespace ExpansionKele.Content.Items.OtherItem
 {
@@ -20,8 +21,8 @@ namespace ExpansionKele.Content.Items.OtherItem
 			Item.width = 26;
 			Item.height = 26;
 			Item.maxStack = 9999;
-			Item.value = Item.sellPrice(silver: 25);
-			Item.rare = ItemRarityID.Yellow;
+			Item.value = ItemUtils.CalculateValueFromRecipes(this);              // 卖出价格
+            Item.rare = ItemUtils.CalculateRarityFromRecipes(this);   
 		}
 	}
 

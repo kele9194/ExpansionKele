@@ -1,3 +1,4 @@
+using ExpansionKele.Content.Customs;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
@@ -13,8 +14,8 @@ namespace ExpansionKele.Content.Items.OtherItem
             Item.width = 20;
             Item.height = 20;
             Item.maxStack = 9999;
-            Item.value = 100; // 设置基础价值
-            Item.rare = ItemRarityID.White; // 普通稀有度
+            Item.value = ItemUtils.CalculateValueFromRecipes(this);              // 卖出价格
+            Item.rare = ItemUtils.CalculateRarityFromRecipes(this);   
             Item.consumable = false;
              // 确保不能放置
         }

@@ -1,3 +1,4 @@
+using ExpansionKele.Content.Customs;
 using ExpansionKele.Content.Items.OtherItem;
 using ExpansionKele.Content.Projectiles.RangedProj;
 using Terraria;
@@ -24,8 +25,8 @@ namespace ExpansionKele.Content.Items.Ammos
             Item.maxStack = Item.CommonMaxStack;
             Item.consumable = true; // 标记为消耗品
             Item.knockBack = 1.0f;
-            Item.value = Item.sellPrice(0, 0, 0, 5); // 设置弹药的价值
-            Item.rare = ItemRarityID.Blue; // 设置弹药的稀有度
+            Item.value = ItemUtils.CalculateValueFromRecipes(this);              // 卖出价格
+            Item.rare = ItemUtils.CalculateRarityFromRecipes(this);   
             Item.shoot = ModContent.ProjectileType<RedemptionBulletProjectile>(); // 设置弹道类型为救赎弹抛射体
             Item.shootSpeed = 15f; // 设置弹道的速度
             Item.ammo = AmmoID.Bullet; // 设置弹药类型为子弹

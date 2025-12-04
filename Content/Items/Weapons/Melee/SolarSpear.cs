@@ -16,16 +16,20 @@ namespace ExpansionKele.Content.Items.Weapons.Melee
     public class SolarSpear : ModItem
     {
         public override string LocalizationCategory => "Items.Weapons";
+        public override void SetStaticDefaults()
+        {
+            ItemID.Sets.ItemsThatAllowRepeatedRightClick[Item.type] = true;
+        }
         public override void SetDefaults()
         {
             Item.width = 80;
             Item.height = 80;
-            Item.damage = ExpansionKele.ATKTool(180, 210);
+            Item.damage = ExpansionKele.ATKTool(220, 250);
             Item.useTime = 24;
             Item.useAnimation = 24;
             Item.useStyle = ItemUseStyleID.Shoot;
-            Item.value = Item.sellPrice(0, 5, 0, 0);
-            Item.rare = ItemRarityID.Yellow;
+            Item.value = ItemUtils.CalculateValueFromRecipes(this);
+            Item.rare = ItemUtils.CalculateRarityFromRecipes(this); 
             Item.knockBack = 7f;
             Item.DamageType = DamageClass.MeleeNoSpeed;
             Item.noMelee = true;
@@ -33,6 +37,21 @@ namespace ExpansionKele.Content.Items.Weapons.Melee
             Item.autoReuse = true;
             Item.shoot = ModContent.ProjectileType<SolarSpearProjectile>();
             Item.shootSpeed = 5f;
+        }
+
+        public override bool AltFunctionUse(Player player) => true;
+
+        public override bool CanUseItem(Player player) {
+            if (player.altFunctionUse == 2) {
+                Item.shoot = ModContent.ProjectileType<SolarSpearSpinOnlyProjectile>();
+                Item.useTime = 12;
+                Item.useAnimation = 12;
+            } else {
+                Item.shoot = ModContent.ProjectileType<SolarSpearProjectile>();
+                Item.useTime = 24;
+                Item.useAnimation = 24;
+            }
+            return base.CanUseItem(player);
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)
@@ -438,8 +457,193 @@ namespace ExpansionKele.Content.Items.Weapons.Melee
             // 冲刺阶段造成2倍伤害
             if (phase == PHASE_DASH && !dashBlocked)
             {
-                modifiers.FinalDamage *= 2f;
+                modifiers.FinalDamage *= 2.5f;
             }
+        }
+    }
+
+    public class SolarSpearSpinOnlyProjectile : ModProjectile
+    {
+        private const float PROJECTILE_REFLECT_HEAL_PERCENT = 0.01f;
+        public int timer;
+        public float BaseRadius;
+        private float rotationSpeed;
+        private float currentRotation;
+
+        public override string Texture => "ExpansionKele/Content/Items/Weapons/Melee/SolarSpearProjectile";
+
+        public override void SetDefaults()
+        {
+            Projectile.width = 22;
+            Projectile.height = 22;
+            Projectile.aiStyle = -1;
+            Projectile.friendly = true;
+            Projectile.penetrate = -1;
+            Projectile.tileCollide = false;
+            Projectile.hide = true;
+            Projectile.ownerHitCheck = true;
+            Projectile.DamageType = DamageClass.MeleeNoSpeed;
+            Projectile.usesLocalNPCImmunity = true;
+            Projectile.localNPCHitCooldown = 3;
+        }
+
+        public override void OnSpawn(IEntitySource source)
+        {
+            timer = 0;
+            Projectile.ai[1] = 0;
+
+            // 获取贴图尺寸并计算BaseRadius
+            Texture2D texture = TextureAssets.Projectile[Projectile.type].Value;
+            int textureLength = Math.Max(texture.Width, texture.Height);
+            BaseRadius = textureLength * 1.4142f / 2f;
+        }
+
+        public override void AI()
+        {
+            Player player = Main.player[Projectile.owner];
+            player.heldProj = Projectile.whoAmI;
+            player.itemTime = 2;
+            player.itemAnimation = 2;
+            player.noKnockback = true;
+
+            // 获取该抛射体对应的物品使用时间
+            int useTime = 12;
+            Item item = player.HeldItem;
+            if (item.type == ModContent.ItemType<SolarSpear>())
+            {
+                useTime = item.useTime;
+            }
+
+            timer = (int)Projectile.ai[1]++;
+
+            var reductionPlayer = player.GetModPlayer<CustomDamageReductionPlayer>();
+            reductionPlayer.MulticustomDamageReduction(0.5f);
+            player.gravity = 0;
+
+            // 初始化旋转参数
+            if (timer == 0)
+            {
+                rotationSpeed = MathHelper.TwoPi / useTime;
+                currentRotation = 0f;
+            }
+
+            // 计算旋转角度
+            currentRotation = rotationSpeed * timer;
+
+            // 设置抛射体位置和旋转
+            Vector2 direction = player.Center.DirectionTo(Main.MouseWorld);
+            float distanceFromPlayer = 0f;
+            Projectile.Center = player.Center + currentRotation.ToRotationVector2() * distanceFromPlayer;
+            Projectile.rotation = currentRotation + MathHelper.PiOver4;
+
+            // 设置玩家面向和物品旋转
+            player.ChangeDir(Projectile.velocity.X > 0 ? 1 : -1);
+            player.itemRotation = (Projectile.velocity * player.direction).ToRotation();
+
+            // 检查附近的敌对弹幕并尝试反弹
+            TryReflectProjectiles(player);
+
+            // 检查是否完成使用周期
+            if (timer >= useTime - 1)
+            {
+                Projectile.Kill();
+            }
+        }
+
+        private void TryReflectProjectiles(Player player)
+        {
+            // 获取武器纹理尺寸
+            Texture2D texture = ModContent.Request<Texture2D>("ExpansionKele/Content/Items/Weapons/Melee/SolarSpearProjectile").Value;
+            float weaponRadius = Math.Max(texture.Width, texture.Height) / 2f * Projectile.scale;
+            Vector2 weaponCenter = Projectile.Center;
+
+            // 遍历所有弹幕
+            for (int i = 0; i < Main.maxProjectiles; i++)
+            {
+                Projectile proj = Main.projectile[i];
+                if (proj.active && proj.hostile && !proj.friendly)
+                {
+                    // 计算弹幕中心到武器中心的距离
+                    float distance = Vector2.Distance(proj.Center, weaponCenter);
+
+                    // 检查弹幕是否在武器范围内
+                    if (distance <= weaponRadius + Math.Max(proj.width, proj.height) / 2f)
+                    {
+                        // 50%概率反弹弹幕
+                        if (Main.rand.NextBool(2))
+                        {
+                            // 将敌对弹幕转换为友方弹幕
+                            proj.hostile = false;
+                            proj.friendly = true;
+
+                            // 反转弹幕速度方向
+                            proj.velocity = -proj.velocity;
+
+                            // 设置弹幕伤害为武器伤害的一半
+                            proj.damage = Projectile.damage;
+
+                            // 设置弹幕所有者为玩家
+                            proj.owner = Projectile.owner;
+
+                            // 添加视觉效果
+                            for (int j = 0; j < 10; j++)
+                            {
+                                Dust dust = Dust.NewDustDirect(
+                                    proj.position,
+                                    proj.width,
+                                    proj.height,
+                                    DustID.SolarFlare,
+                                    0,
+                                    0,
+                                    100,
+                                    default(Color),
+                                    1.2f
+                                );
+                                dust.noGravity = true;
+                                dust.velocity *= 2f;
+                            }
+
+                            // 每反弹一次弹幕恢复1%最大生命值
+                            int healAmount = (int)(player.statLifeMax2 * PROJECTILE_REFLECT_HEAL_PERCENT);
+                            player.Heal(healAmount);
+                        }
+                    }
+                }
+            }
+        }
+
+        public override bool PreDraw(ref Color lightColor)
+        {
+            Texture2D texture = ModContent.Request<Texture2D>("ExpansionKele/Content/Items/Weapons/Melee/SolarSpearProjectile").Value;
+
+            Vector2 position = Projectile.Center - Main.screenPosition;
+            Vector2 origin = new Vector2(texture.Width / 2, texture.Height / 2);
+
+            SpriteEffects effects = Projectile.spriteDirection == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
+
+            Main.EntitySpriteDraw(texture, position, null, lightColor, Projectile.rotation, origin, Projectile.scale, effects, 0);
+
+            return false;
+        }
+
+        public override bool? Colliding(Rectangle projHitbox, Rectangle targetHitbox)
+        {
+            // 使用线段碰撞检测
+            float spinning = currentRotation;
+            float staffRadiusHit = BaseRadius;
+            float useless = 0f;
+            Vector2 spinDirection = spinning.ToRotationVector2();
+            if (Collision.CheckAABBvLineCollision(
+                targetHitbox.TopLeft(),
+                targetHitbox.Size(),
+                Projectile.Center + spinDirection * -staffRadiusHit,
+                Projectile.Center + spinDirection * staffRadiusHit,
+                22f * Projectile.scale,
+                ref useless))
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

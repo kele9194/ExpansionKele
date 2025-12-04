@@ -1,3 +1,4 @@
+using ExpansionKele.Content.Customs;
 using ExpansionKele.Content.Projectiles;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -20,17 +21,17 @@ namespace ExpansionKele.Content.Items.Weapons.Magic
         {
             Item.width = 28;
             Item.height = 32;
-            Item.value = Item.buyPrice(0, 5, 0, 0);
-            Item.rare = ItemRarityID.Pink;
+            Item.value = ItemUtils.CalculateValueFromRecipes(this);;
+            Item.rare = ItemUtils.CalculateRarityFromRecipes(this); 
             Item.useStyle = ItemUseStyleID.Swing;
             Item.useAnimation = 25;
             Item.useTime = 25;
             Item.UseSound = SoundID.Item8;
             Item.autoReuse = true;
-            Item.damage = ExpansionKele.ATKTool(60,80);
+            Item.damage = ExpansionKele.ATKTool(25,28);
             Item.knockBack = 3f;
             Item.DamageType = DamageClass.Magic;
-            Item.mana = 0;
+            Item.mana = 12;
             Item.shoot = ModContent.ProjectileType<NoMoreRovingProjectile>();
             Item.shootSpeed = 8f;
             Item.noUseGraphic = true;

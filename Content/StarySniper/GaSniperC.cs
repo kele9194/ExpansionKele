@@ -5,6 +5,7 @@ using Terraria.ModLoader;
 using Terraria.DataStructures;
 using System;
 using Terraria.Audio;
+using ExpansionKele.Content.Customs;
 
 namespace ExpansionKele.Content.StarySniper
 {
@@ -20,21 +21,17 @@ namespace ExpansionKele.Content.StarySniper
 			Item.height = 31; // The height of item hitbox
 
 			Item.autoReuse = true;  // Whether or not you can hold click to automatically use it again.
-			Item.damage = 165; // Sets the item's damage. Note that projectiles shot by this weapon will use its and the used ammunition's damage added together.
-			if(ExpansionKele.calamity != null)
-			{
-				Item.damage = (int)(Item.damage*1.25);
-			}
+			Item.damage = Item.damage = ExpansionKele.ATKTool(165,default);
 			Item.DamageType = DamageClass.Ranged; // What type of damage does this item affect?
 			Item.knockBack = 6f; // Sets the item's knockback. Note that projectiles shot by this weapon will use its and the used ammunition's knockback added together.
 			Item.noMelee = true; // So the item's animation doesn't do damage.
-			Item.rare = ItemRarityID.Orange; //3// The color that the item's name will be in-game.
 			Item.shootSpeed = 16f; // The speed of the projectile (measured in pixels per frame.)
 			Item.useAnimation = 84; // The length of the item's use animation in ticks (60 ticks == 1 second.)
 			Item.useTime = 84; // The item's use time in ticks (60 ticks == 1 second.)
 			Item.UseSound = ExpansionKele.SniperSound; // The sound that this item plays when used.
 			Item.useStyle = ItemUseStyleID.Shoot; // How you use the item (swinging, holding out, shoot, etc.)
-			Item.value = Item.buyPrice(silver:(int)(Item.damage/Item.useTime*10f)); // The value of the weapon in copper coins
+			Item.value = ItemUtils.CalculateValueFromRecipes(this);
+            Item.rare = ItemUtils.CalculateRarityFromRecipes(this); 
 			Item.crit=5;
 
 			Item.shoot = ProjectileID.Bullet;

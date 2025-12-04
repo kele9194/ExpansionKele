@@ -22,8 +22,8 @@ namespace ExpansionKele.Content.Items.OtherItem
             Item.width = 20;
             Item.height = 20;
             Item.maxStack = 1; // 最大堆叠数为1
-            Item.value = Item.buyPrice(0,0,10,0);
-            Item.rare = ItemRarityID.Blue;
+            Item.value = ItemUtils.CalculateValueFromRecipes(this);              // 卖出价格
+            Item.rare = ItemUtils.CalculateRarityFromRecipes(this);   
             Item.consumable = false; // 无法放置
         }
 

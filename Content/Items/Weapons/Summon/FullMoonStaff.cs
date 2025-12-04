@@ -7,6 +7,7 @@ using ExpansionKele.Content.Projectiles;
 using System.Collections.Generic;
 using ExpansionKele.Content.Items.Placeables;
 using ExpansionKele.Content.Buff;
+using ExpansionKele.Content.Customs;
 
 namespace ExpansionKele.Content.Items.Weapons.Summon
 {
@@ -38,8 +39,8 @@ namespace ExpansionKele.Content.Items.Weapons.Summon
             Item.useStyle = ItemUseStyleID.Swing;                // 使用样式为挥舞
             Item.noMelee = true;                                 // 关闭近战攻击判定
             Item.knockBack = 1;                                  // 击退值
-            Item.value = Item.sellPrice(gold: 5);                // 卖出价格
-            Item.rare = ItemRarityID.Pink;                       // 稀有度：粉红
+            Item.value = ItemUtils.CalculateValueFromRecipes(this);              // 卖出价格
+            Item.rare = ItemUtils.CalculateRarityFromRecipes(this);                       // 稀有度：粉红
             Item.UseSound = SoundID.Item44;                      // 使用音效
             Item.shoot = ModContent.ProjectileType<FullMoonMinionController>(); // 发射主控弹幕
             Item.shootSpeed = 10f;                               // 弹幕初始速度

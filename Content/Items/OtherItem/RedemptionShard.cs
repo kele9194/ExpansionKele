@@ -1,3 +1,4 @@
+using ExpansionKele.Content.Customs;
 using Terraria;
 using Terraria.ModLoader;
 
@@ -15,8 +16,8 @@ namespace ExpansionKele.Content.Items.OtherItem
 			Item.width = 16;
 			Item.height = 16;
 			Item.maxStack = 9999;
-			Item.value = 1000; // 设置价值
-			Item.rare = Terraria.ID.ItemRarityID.Blue;
+			Item.value = ItemUtils.CalculateValueFromRecipes(this);              // 卖出价格
+            Item.rare = ItemUtils.CalculateRarityFromRecipes(this);   
 		}
 	}
 }

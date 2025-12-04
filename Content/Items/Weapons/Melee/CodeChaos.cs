@@ -9,6 +9,7 @@ using Terraria.ModLoader;
 using ExpansionKele;
 using Terraria.Localization;
 using static Terraria.NPC;
+using ExpansionKele.Content.Customs;
 
 namespace ExpansionKele.Content.Items.Weapons.Melee
 {
@@ -81,18 +82,23 @@ private int GetValidProjectileType(int index)
 
         
 // ... existing code ...
+        public override void SetStaticDefaults()
+        {
+            ItemID.Sets.IsRangedSpecialistWeapon[Type] = true;
+        }
+
 
         public override void SetDefaults()
         {
-            Item.damage = 200;
+            Item.damage = ExpansionKele.ATKTool(270,320);
             Item.width = 40;
             Item.height = 40;
             Item.useTime = 20;
             Item.useAnimation = 20;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.knockBack = 6;
-            Item.value = Item.sellPrice(gold: 10);
-            Item.rare = ItemRarityID.Master;
+            Item.value = ItemUtils.CalculateValueFromRecipes(this);
+            Item.rare = ItemUtils.CalculateRarityFromRecipes(this); 
             Item.UseSound = SoundID.Item1;
             Item.autoReuse = true;
             Item.shoot = ProjectileID.Bullet;

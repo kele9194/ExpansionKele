@@ -15,12 +15,12 @@ namespace ExpansionKele.Content.Projectiles
 			Projectile.width = 12;
 			Projectile.height = 12;
 			Projectile.friendly = true;
-			Projectile.penetrate = -1; // 无限穿透
+			Projectile.penetrate = 1; // 无限穿透
 			Projectile.tileCollide = true;
 			Projectile.DamageType = DamageClass.Melee;
 			Projectile.timeLeft = 180; // 初始时间
 			Projectile.usesLocalNPCImmunity = true;
-			Projectile.localNPCHitCooldown = 10;
+			Projectile.localNPCHitCooldown = -1;
 		}
 
 				public override void AI() {

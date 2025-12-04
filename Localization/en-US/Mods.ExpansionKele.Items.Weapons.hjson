@@ -278,24 +278,59 @@ NightFirefly: {
 
 RippleStaff: {
 	DisplayName: Ripple Staff
-	Tooltip: '''
-	shoot ripples that homing a little
-	'''
+	Tooltip: shoot ripples that homing a little
 }
 
 Gatling: {
-	Tooltip: '''
-	a minigun that shoot faster and more faster
-	and Scatter more and more 
-	'''
+	Tooltip:
+		'''
+		a minigun that shoot faster and more faster
+		and Scatter more and more 
+		'''
 	DisplayName: Gatling
 }
 
 ChromiumSword: {
-	Tooltip: '''
-	can reflect projectles and decrease enemy defense
-	can scatter the enemies and give Slicing debuff
-	the enemies without Slicing debuff will take more damage from this weapon
-	'''
+	Tooltip:
+		'''
+		can reflect projectles and decrease enemy defense
+		can scatter the enemies and give Slicing debuff
+		the enemies without Slicing debuff will take more damage from this weapon
+		'''
 	DisplayName: Chromium Sword
+}
+
+EMPPistol: {
+	Tooltip: Shoot a EMP chain that will stop enemies movement
+	DisplayName: EMP Pistol
+}
+
+ElectricBallista: {
+	Tooltip:
+		'''
+		Shoot a Electric ball that release Electric chain
+		the Electric chain ignores defense
+		'''
+	DisplayName: Electric Ballista
+}
+
+SeitaadBallista: {
+	DisplayName: Seitaad Ballista
+	Tooltip:
+		'''
+		Shoot a EMP ball that can release Electric chain that can release EMP wave
+		EMP ball has cooldown
+		Shoot  Electric balls that release Electric chain
+		the Electric chain ignores defense
+		when crit ,the Electric chain will stop enemies movement
+		'''
+}
+
+SolarSword: {
+	DisplayName: Solar Sword
+	Tooltip:
+		'''
+		Hit enemies will deal a explode
+		Shoot a fireBall that spilt fire
+		'''
 }

@@ -5,6 +5,7 @@ using Terraria.ModLoader;
 using ExpansionKele.Content.Projectiles;
 using Terraria.DataStructures;
 using Microsoft.Xna.Framework;
+using ExpansionKele.Content.Customs;
 
 namespace ExpansionKele.Content.Items.Weapons.Melee
 {
@@ -20,8 +21,8 @@ namespace ExpansionKele.Content.Items.Weapons.Melee
 
 		public override void SetDefaults() {
 			// 常规属性
-			Item.rare = ItemRarityID.Pink; // 粉红色稀有度
-			Item.value = Item.sellPrice(gold: 2); // 售价
+			Item.rare = ItemUtils.CalculateRarityFromRecipes(this);  // 粉红色稀有度
+			Item.value = ItemUtils.CalculateValueFromRecipes(this); // 售价
 
 			// 使用属性
 			Item.useStyle = ItemUseStyleID.Shoot; // 使用风格为射击

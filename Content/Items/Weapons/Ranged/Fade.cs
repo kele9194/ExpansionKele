@@ -20,7 +20,9 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
 		{
 			// 允许右键重复使用
 			ItemID.Sets.ItemsThatAllowRepeatedRightClick[Item.type] = true;
+			ItemID.Sets.IsRangedSpecialistWeapon[Type] = true;
 		}
+
 
 
 		public override void SetDefaults() {
@@ -34,8 +36,8 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
 			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.noMelee = true; // 不接触伤害
 			Item.knockBack = 2f;
-			Item.value = Item.sellPrice(0, 2, 50, 0); // 卖价2银50铜
-			Item.rare = ItemRarityID.Blue; // 蓝色稀有度
+			Item.value = ItemUtils.CalculateValueFromRecipes(this); // 卖价2银50铜
+			Item.rare = ItemUtils.CalculateRarityFromRecipes(this);  // 蓝色稀有度
 			Item.UseSound = SoundID.Item11; // 枪声
 			Item.autoReuse = true; // 自动连发
 			

@@ -7,6 +7,7 @@ using Terraria.DataStructures;
 using Terraria.Localization;
 using ExpansionKele.Content.Items.Weapons.Ranged;
 using ExpansionKele.Content.Projectiles;
+using ExpansionKele.Content.Customs;
 
 namespace ExpansionKele.Content.Items.Weapons.Ranged
 {
@@ -17,6 +18,7 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
 
         public override void SetStaticDefaults() {
 			BaseTooltip = this.GetLocalization("Tooltip");
+            ItemID.Sets.IsRangedSpecialistWeapon[Type] = true;
 		}
         public override void SetDefaults()
         {
@@ -30,8 +32,8 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.noMelee = true;
             Item.knockBack = 4;
-            Item.value = Item.sellPrice(gold: 1);
-            Item.rare = ItemRarityID.Blue;
+            Item.value = ItemUtils.CalculateValueFromRecipes(this);
+            Item.rare = ItemUtils.CalculateRarityFromRecipes(this); 
             Item.UseSound = SoundID.Item61;
             Item.autoReuse = true;
             Item.shoot = ModContent.ProjectileType<AAMissile>();

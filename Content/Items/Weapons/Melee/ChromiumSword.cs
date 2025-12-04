@@ -19,7 +19,7 @@ namespace ExpansionKele.Content.Items.Weapons.Melee
 
         public override void SetDefaults()
         {
-            Item.damage = ExpansionKele.ATKTool(38, 50);
+            Item.damage = ExpansionKele.ATKTool(75, 110);
             Item.DamageType = DamageClass.Melee;
             Item.width = 72;
             Item.height = 72;
@@ -27,8 +27,8 @@ namespace ExpansionKele.Content.Items.Weapons.Melee
             Item.useAnimation = 27;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.knockBack = 6f;
-            Item.value = Item.sellPrice(0, 2, 0, 0);
-            Item.rare = ItemRarityID.Green;
+            Item.value = ItemUtils.CalculateValueFromRecipes(this);
+            Item.rare = ItemUtils.CalculateRarityFromRecipes(this); 
             Item.UseSound = SoundID.Item1;
             Item.autoReuse = true;
         }

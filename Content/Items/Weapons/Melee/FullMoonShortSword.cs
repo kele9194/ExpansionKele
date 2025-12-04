@@ -6,6 +6,7 @@ using Terraria.ModLoader;
 using ExpansionKele.Content.Projectiles;
 using System.Collections.Generic;
 using ExpansionKele.Content.Items.Placeables;
+using ExpansionKele.Content.Customs;
 
 namespace ExpansionKele.Content.Items.Weapons.Melee
 {
@@ -34,8 +35,8 @@ namespace ExpansionKele.Content.Items.Weapons.Melee
             Item.useAnimation = 15;
             Item.useStyle = ItemUseStyleID.Rapier;
             Item.knockBack = 4f;
-            Item.value = Item.sellPrice(gold: 2);
-            Item.rare = ItemRarityID.Pink;
+            Item.value = ItemUtils.CalculateValueFromRecipes(this);
+            Item.rare = ItemUtils.CalculateRarityFromRecipes(this); 
             Item.UseSound = SoundID.Item1;
             Item.autoReuse = true;
             Item.shoot = ModContent.ProjectileType<FullMoonShortSwordProjectile>();

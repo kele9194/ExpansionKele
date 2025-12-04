@@ -50,7 +50,19 @@ NoMoreRovingProjectile.DisplayName: 不再漫游
 ResentmentProjectile.DisplayName: 怨憎
 FadeProjectile.DisplayName: 黯淡
 SelfRedemptionProjectile.DisplayName: 自我救赎
-// MagicProj.NightFireflyProjectile.DisplayName: Night Firefly Projectile
-// RedemptionBulletProjectile.DisplayName: Redemption Bullet Projectile
-// RedemptionArrowProjectile.DisplayName: Redemption Arrow Projectile
-// RippleProjectile.DisplayName: Ripple Projectile
+MagicProj.NightFireflyProjectile.DisplayName: 夜萤火
+RedemptionBulletProjectile.DisplayName: 救赎弹
+RedemptionArrowProjectile.DisplayName: 救赎箭
+RippleProjectile.DisplayName: 荡漾之水
+RadiationProjectile.DisplayName: 辐射抛射体（已弃用）
+RadiationFieldIndicator.DisplayName: 辐射场指示器
+EMPPulseProjectile.DisplayName: EMP脉冲
+ElectricBallProjectile.DisplayName: EMP弹
+SeitaadBallistaProjectile.DisplayName: 赛泰隆电弩
+EMPWave.DisplayName: EMP波
+EMPBallProjectile.DisplayName: EMP爆弹
+SolarFireball.DisplayName: 耀斑阔剑火球
+SplitSolarFireball.DisplayName: 耀斑阔剑分裂火球
+ElectricBallistaShockProjectile.DisplayName: 电流弩电链
+SeitaadBallistaShockProjectile.DisplayName: 赛泰隆电弩电链
+SolarSpearSpinOnlyProjectile.DisplayName: 耀光矛（旋转模式）

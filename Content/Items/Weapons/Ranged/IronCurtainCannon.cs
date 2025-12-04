@@ -8,6 +8,7 @@ using static Terraria.NPC;
 using Terraria.DataStructures;
 using ExpansionKele.Content.Projectiles;
 using Terraria.Localization;
+using ExpansionKele.Content.Customs;
 
 namespace ExpansionKele.Content.Items.Weapons.Ranged
 {
@@ -28,7 +29,10 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
         public override void SetStaticDefaults()
         {
             ItemID.Sets.ItemsThatAllowRepeatedRightClick[base.Item.type] = true;
+            ItemID.Sets.IsRangedSpecialistWeapon[Type] = true;
         }
+
+
 
         /// <summary>
         /// 允许使用物品的副功能（右键）
@@ -39,6 +43,7 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
         {
             return true; // 允许右键使用
         }
+        
 
         /// <summary>
         /// 设置物品的基础属性
@@ -47,7 +52,7 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
         public override void SetDefaults()
         {
             //Item.SetNameOverride("铁幕加农炮");
-            Item.damage = ExpansionKele.ATKTool(default,constDamage);
+            Item.damage = ExpansionKele.ATKTool(80,100);
             Item.DamageType = DamageClass.Ranged;
             Item.width = 64;
             Item.height = 32;
@@ -56,8 +61,8 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.noMelee = true;
             Item.knockBack = 4;
-            Item.value = Item.buyPrice(0, 10, 0, 0);
-            Item.rare = ItemRarityID.Pink;
+            Item.value = ItemUtils.CalculateValueFromRecipes(this);
+            Item.rare = ItemUtils.CalculateRarityFromRecipes(this); 
             Item.UseSound = SoundID.Item11;
             Item.autoReuse = true;
             Item.shoot = ModContent.ProjectileType<IronCurtainCannonProjectile>();

@@ -7,6 +7,7 @@ using System;
 using ExpansionKele.Content.Projectiles;
 using System.Collections.Generic;
 using Terraria.Localization;
+using ExpansionKele.Content.Customs;
 
 namespace ExpansionKele.Content.Items.Weapons.Ranged
 {
@@ -23,6 +24,10 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
         const float spreadAngle = 10f;
         // 盔甲穿透值
         public static readonly int ArmorPenetration = 20;
+        public override void SetStaticDefaults()
+        {
+            ItemID.Sets.IsRangedSpecialistWeapon[Type] = true;
+        }
         
         /// <summary>
         /// 设置物品的基础属性
@@ -33,15 +38,15 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
             //Item.SetNameOverride("毒针发射器");
             Item.width = 40;
             Item.height = 22;
-            Item.damage = ExpansionKele.ATKTool(10,12);
+            Item.damage = ExpansionKele.ATKTool(5,6);
             Item.DamageType = DamageClass.Ranged;
             Item.useTime = 30;
             Item.useAnimation = 30;
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.noMelee = true;
             Item.knockBack = 2f;
-            Item.value = Item.sellPrice(silver: 50);
-            Item.rare = ItemRarityID.Blue;
+            Item.value = ItemUtils.CalculateValueFromRecipes(this);
+            Item.rare = ItemUtils.CalculateRarityFromRecipes(this); 
             Item.UseSound = SoundID.Item5;
             Item.autoReuse = false;
             Item.shoot = ModContent.ProjectileType<StingerProjectile>();

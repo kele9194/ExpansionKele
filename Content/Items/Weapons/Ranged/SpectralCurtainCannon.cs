@@ -13,6 +13,10 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
     {
         public override string LocalizationCategory => "Items.Weapons";
         private const int constDamage = 85;
+        public override void SetStaticDefaults()
+        {
+            ItemID.Sets.IsRangedSpecialistWeapon[Type] = true;
+        }
 
         public override void SetDefaults()
         {
@@ -26,8 +30,8 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.noMelee = true;
             Item.knockBack = 4;
-            Item.value = Item.buyPrice(0, 15, 0, 0);
-            Item.rare = ItemRarityID.LightRed;
+            Item.value = ItemUtils.CalculateValueFromRecipes(this);
+            Item.rare = ItemUtils.CalculateRarityFromRecipes(this); 
             Item.UseSound = SoundID.Item11;
             Item.autoReuse = true;
             Item.shoot = ModContent.ProjectileType<SpectralCurtainCannonProj>();

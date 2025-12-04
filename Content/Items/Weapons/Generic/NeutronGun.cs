@@ -7,6 +7,7 @@ using ExpansionKele.Content.Projectiles;
 using System.Collections.Generic;
 using ExpansionKele.Content.Buff;
 using Terraria.Localization;
+using ExpansionKele.Content.Customs;
 
 namespace ExpansionKele.Content.Items.Weapons.Generic
 {
@@ -37,9 +38,9 @@ namespace ExpansionKele.Content.Items.Weapons.Generic
             // 击退力为0
             Item.knockBack = 0;
             // 物品价值为1金币
-            Item.value = Item.buyPrice(gold: 1);
+            Item.value = ItemUtils.CalculateValueFromRecipes(this);
             // 稀有度为红色（最高稀有度之一）
-            Item.rare = ItemRarityID.Red;
+            Item.rare = ItemUtils.CalculateRarityFromRecipes(this); 
             // 使用音效为Item11
             Item.UseSound = SoundID.Item11;
             // 不自动重复使用

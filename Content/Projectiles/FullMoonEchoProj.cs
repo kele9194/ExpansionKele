@@ -71,7 +71,7 @@ namespace ExpansionKele.Content.Projectiles
             Projectile.DamageType = DamageClass.Magic;
             Projectile.extraUpdates = 0;
             Projectile.usesLocalNPCImmunity = true;  // 使用本地无敌帧系统
-            Projectile.localNPCHitCooldown = 3;
+            Projectile.localNPCHitCooldown = 20;
 
             Projectile.timeLeft = 600; // 初始生命周期为 600 ticks（10 秒）
         }

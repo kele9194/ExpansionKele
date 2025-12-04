@@ -20,7 +20,6 @@ namespace ExpansionKele.Content.StaryMelee
         public virtual int BaseDamage { get; }
         public virtual int UseTime { get; }
         public virtual new int UseAnimation => UseTime;
-        public virtual int Rarity { get; }
         public virtual int Crit { get; }
         public virtual int Width => 80;
         public virtual int Height => 80;
@@ -53,18 +52,13 @@ namespace ExpansionKele.Content.StaryMelee
         public override void SetDefaults()
         {
             //Item.SetNameOverride(setNameOverride);
-            Item.damage = BaseDamage;
+            Item.damage = Item.damage = ExpansionKele.ATKTool(default,BaseDamage);
             Item.useTime = UseTime;
             Item.useAnimation = UseAnimation;
             Item.width = Width;
             Item.height = Height;
-            Item.rare = Rarity;
             Item.crit = Crit;
             
-            // Calamity Mod兼容性处理
-            if(ExpansionKele.calamity != null){
-                Item.damage = (int)(Item.damage * 1.25);
-            }
             
             Item.DamageType = DamageClass.Melee;
             Item.useStyle = ItemUseStyleID.Swing;
@@ -72,7 +66,8 @@ namespace ExpansionKele.Content.StaryMelee
             Item.knockBack = KnockBack;
             Item.UseSound = SoundID.Item1;
             Item.autoReuse = AutoReuse;
-            Item.value = Item.sellPrice(silver:(int)(Item.damage*0.3f));
+            Item.value = ItemUtils.CalculateValueFromRecipes(this);
+            Item.rare = ItemUtils.CalculateRarityFromRecipes(this); 
             Item.shoot = ModContent.ProjectileType<ColaProjectile>();
             Item.shootSpeed = ShootSpeed;
         }

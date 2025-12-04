@@ -1,3 +1,4 @@
+using ExpansionKele.Content.Customs;
 using ExpansionKele.Content.Projectiles.MagicProj;
 using Terraria;
 using Terraria.ID;
@@ -18,7 +19,7 @@ namespace ExpansionKele.Content.Items.Weapons.Magic
 
         public override void SetDefaults()
         {
-            Item.damage = ExpansionKele.ATKTool(28,35); // 伤害30
+            Item.damage = ExpansionKele.ATKTool(28,32); // 伤害30
             Item.DamageType = DamageClass.Magic; // 魔法伤害
             Item.width = 40;
             Item.height = 40;
@@ -26,8 +27,8 @@ namespace ExpansionKele.Content.Items.Weapons.Magic
             Item.useAnimation = 25; // 使用动画25
             Item.useStyle = ItemUseStyleID.Shoot; // 射击样式
             Item.knockBack = 4;
-            Item.value = Item.sellPrice(0, 0, 50, 0); // 50银币
-            Item.rare = ItemRarityID.Blue; // 蓝色稀有度
+            Item.value = ItemUtils.CalculateValueFromRecipes(this); // 50银币
+            Item.rare = ItemUtils.CalculateRarityFromRecipes(this);  // 蓝色稀有度
             Item.UseSound = SoundID.Item21; // 使用音效
             Item.autoReuse = true; // 自动连发
             Item.shoot = ModContent.ProjectileType<RippleProjectile>(); // 发射水弹

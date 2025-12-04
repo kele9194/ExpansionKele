@@ -1,3 +1,4 @@
+using ExpansionKele.Content.Customs;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
@@ -16,8 +17,8 @@ namespace ExpansionKele.Content.Items.OtherItem
             Item.width = 24;
             Item.height = 24;
             Item.maxStack = 1;
-            Item.value = Item.sellPrice(gold: 5);
-            Item.rare = ItemRarityID.Cyan;
+            Item.value = ItemUtils.CalculateValueFromRecipes(this);              // 卖出价格
+            Item.rare = ItemUtils.CalculateRarityFromRecipes(this);   
         }
 
         public override void UpdateInventory(Player player)

@@ -3,6 +3,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using ExpansionKele.Content.Buff;
 using System.Collections.Generic;
+using ExpansionKele.Content.Customs;
 
 namespace ExpansionKele.Content.Items.Consumables
 {
@@ -28,8 +29,8 @@ namespace ExpansionKele.Content.Items.Consumables
             Item.autoReuse = false;
             Item.consumable = true;
             Item.UseSound = SoundID.Item3;
-            Item.rare = ItemRarityID.Blue;
-            Item.value = Item.buyPrice(silver: 20);
+            Item.value = ItemUtils.CalculateValueFromRecipes(this);              // 卖出价格
+            Item.rare = ItemUtils.CalculateRarityFromRecipes(this);   
             Item.maxStack = 30;
             Item.healLife = 60; // 回复60点生命值
             Item.buffType = ModContent.BuffType<CocoaBuff>();
