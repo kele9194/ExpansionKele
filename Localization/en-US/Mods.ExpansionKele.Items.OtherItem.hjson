@@ -91,3 +91,21 @@ DefenseRegulator: {
 	StageSet: Defense stage set to: {0}
 	CurrentStage: Current stage: {0}
 }
+
+GiftOfLight: {
+	Tooltip:
+		'''
+		Beginner gift
+		Favore it to give you Shine and Spelunker buff forever
+		'''
+	DisplayName: Gift Of Light
+}
+
+CrossFire: {
+	Tooltip:
+		'''
+		when kill every enemy,your damage will increase temporarily
+		FAvor it to have function
+		'''
+	DisplayName: CrossFire
+}

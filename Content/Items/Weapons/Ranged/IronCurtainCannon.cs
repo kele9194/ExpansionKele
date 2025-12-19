@@ -28,7 +28,7 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
         /// </summary>
         public override void SetStaticDefaults()
         {
-            ItemID.Sets.ItemsThatAllowRepeatedRightClick[base.Item.type] = true;
+            // ItemID.Sets.ItemsThatAllowRepeatedRightClick[base.Item.type] = true;
             ItemID.Sets.IsRangedSpecialistWeapon[Type] = true;
         }
 
@@ -39,10 +39,10 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
         /// </summary>
         /// <param name="player">使用物品的玩家</param>
         /// <returns>是否允许使用副功能</returns>
-        public override bool AltFunctionUse(Player player)
-        {
-            return true; // 允许右键使用
-        }
+        // public override bool AltFunctionUse(Player player)
+        // {
+        //     return true; // 允许右键使用
+        // }
         
 
         /// <summary>
@@ -78,14 +78,14 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
         public override bool CanUseItem(Player player)
         {
             // 右键使用
-            if (player.altFunctionUse == 2)
-            {
-                // 设置较快的使用时间和激光弹幕
-                Item.useTime = 35;
-                Item.useAnimation =35;
-                Item.shoot = ModContent.ProjectileType<IronCurtainCannonLaser>();
-            }
-            else
+            // if (player.altFunctionUse == 2)
+            // {
+            //     // 设置较快的使用时间和激光弹幕
+            //     Item.useTime = 35;
+            //     Item.useAnimation =35;
+            //     Item.shoot = ModContent.ProjectileType<IronCurtainCannonLaser>();
+            // }
+            // else
             {
                 // 左键使用，设置较慢的使用时间和粒子炮弹幕
                 Item.useTime = 60;
@@ -117,6 +117,11 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
         /// 添加物品合成配方
         /// 需要光之魂、陨石锭在铁砧上合成
         /// </summary>
+        /// 
+        public override Vector2? HoldoutOffset()
+        {
+            return new Vector2(-10f, 0f);
+        }
         public override void AddRecipes()
         {
             Recipe recipe = Recipe.Create(ModContent.ItemType<IronCurtainCannon>());

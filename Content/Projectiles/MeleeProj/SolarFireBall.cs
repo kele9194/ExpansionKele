@@ -46,7 +46,7 @@ namespace ExpansionKele.Content.Projectiles.MeleeProj
         public override void OnKill(int timeLeft)
         {
             // 碰撞到物块时也分裂
-            if (timeLeft <= 0)
+            if (timeLeft > 0)
             {
                 SpawnSplitFireballs(Projectile.Center, 0f);
             }

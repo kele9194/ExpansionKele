@@ -23,6 +23,8 @@ namespace ExpansionKele.Content.StaryMelee
         public virtual int Crit { get; }
         public virtual int Width => 80;
         public virtual int Height => 80;
+        public virtual int Value { get; }
+        public virtual int Rarity { get; }
         
         public virtual float KnockBack => 8f;
         public virtual bool AutoReuse => true;
@@ -66,8 +68,8 @@ namespace ExpansionKele.Content.StaryMelee
             Item.knockBack = KnockBack;
             Item.UseSound = SoundID.Item1;
             Item.autoReuse = AutoReuse;
-            Item.value = ItemUtils.CalculateValueFromRecipes(this);
-            Item.rare = ItemUtils.CalculateRarityFromRecipes(this); 
+            Item.value = Value;
+            Item.rare = Rarity; 
             Item.shoot = ModContent.ProjectileType<ColaProjectile>();
             Item.shootSpeed = ShootSpeed;
         }

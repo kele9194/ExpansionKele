@@ -124,3 +124,8 @@ SlicingBuff: {
 	DisplayName: Slicing Buff
 	Description: make enemies take more damage
 }
+
+CrossFireBuff: {
+	Description: when kill enemies ,increase damage
+	DisplayName: Cross Fire Buff
+}

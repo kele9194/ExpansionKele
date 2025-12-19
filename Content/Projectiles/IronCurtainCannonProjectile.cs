@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
 using static Terraria.NPC;
 using Terraria.DataStructures;
+using Terraria.Audio;
 namespace ExpansionKele.Content.Projectiles
 { 
 
@@ -45,6 +46,7 @@ public class IronCurtainCannonProjectile : ModProjectile
             {
                 Terraria.Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Vector2.Zero, ModContent.ProjectileType<IronCurtainCannonExplosion>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
             }
+            SoundEngine.PlaySound(new SoundStyle("ExpansionKele/Content/Audio/IronCurtainExplosion") with { Volume = 30f, PitchVariance = 0.1f }, Projectile.Center);
         }
     }
         public class IronCurtainCannonExplosion : ModProjectile
@@ -67,6 +69,10 @@ public class IronCurtainCannonProjectile : ModProjectile
 
        public override void AI()
 {
+    
+        // 播放爆炸音效
+        
+
 
     for (int i = 0; i < Main.maxPlayers; i++)
         {
@@ -87,7 +93,7 @@ public class IronCurtainCannonProjectile : ModProjectile
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            // 防止重复伤害
+            
         }
 
         public override bool PreDraw(ref Color lightColor)

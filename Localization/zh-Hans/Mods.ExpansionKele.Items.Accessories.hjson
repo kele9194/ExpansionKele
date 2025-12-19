@@ -289,7 +289,7 @@ AttackSpeedBooster: {
 	Tooltip:
 		'''
 		玩家150%基础攻击速度乘数
-		玩家伤害为原来的80%
+		玩家伤害为原来的75%
 		'''
 	DisplayName: 攻速手套
 }
@@ -357,4 +357,27 @@ FullMoonAmulet: {
 		同一时间内只有一段血条在冷却
 		'''
 	DisplayName: 望月护符
+}
+
+ChromiumShield: {
+	Tooltip:
+		'''
+		14%防御前减伤(乘算)
+		免疫击退
+		'''
+	DisplayName: 铬钢盾
+}
+
+PainKiller: {
+	Tooltip:
+		'''
+		你收到的伤害将减少
+		经典模式：8点
+		专家模式：16点
+		大师模式：24点
+		当你受到的伤害小于1时，你将闪避这次伤害
+		'''
+	DisplayName: 镇痛剂
+	ZenithText: 天顶世界修改：75%概率受到伤害减少60，25%概率增加60点受到伤害
+	FTWText: FTW世界修改：减少30点受到伤害
 }

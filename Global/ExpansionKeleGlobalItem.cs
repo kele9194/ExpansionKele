@@ -63,6 +63,7 @@ namespace ExpansionKele.Global
         {
             var shimmerTransmute = ItemID.Sets.ShimmerTransformToItem;
             shimmerTransmute[ModContent.ItemType<ChromiumOre>()] =ItemID.Hellstone;
+            shimmerTransmute[ModContent.ItemType<FullMoonOre>()] =ItemID.MythrilOre;
         }
         public override void ModifyWeaponDamage(Item item, Player player, ref StatModifier damage)
         {

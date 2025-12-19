@@ -91,3 +91,17 @@ DefenseRegulator: {
 	StageSet: 防御阶段已设置为: {0}
 	CurrentStage: 当前阶段: {0}
 }
+
+GiftOfLight: {
+	Tooltip: 新手礼物：收藏以激活给予永续洞穴探险药水和光芒药水效果
+	DisplayName: 光之礼
+}
+
+CrossFire: {
+	Tooltip:
+		'''
+		每消灭一个敌人，你的伤害都会短暂提高
+		收藏以发挥作用
+		'''
+	DisplayName: 交叉火力
+}

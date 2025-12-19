@@ -12,6 +12,7 @@ using System.Configuration;
 using Microsoft.Xna.Framework.Graphics;
 using ExpansionKele.Content.Customs;
 using ExpansionKele.Content.Items.Placeables;
+using Terraria.Localization;
 
 namespace ExpansionKele.Content.Bosses.ShadowOfRevenge
 {
@@ -20,6 +21,7 @@ namespace ExpansionKele.Content.Bosses.ShadowOfRevenge
     public class ShadowOfRevenge : ModNPC
     {
         public override string LocalizationCategory => "Bosses.ShadowOfRevenge";
+        public static LocalizedText SpawnCondition { get; private set; }
 
         // 定义Boss的攻击类型枚举（暂时留空，后续添加）
         public enum ShadowOfRevengeAttackType
@@ -77,6 +79,7 @@ namespace ExpansionKele.Content.Bosses.ShadowOfRevenge
         {
             Main.npcFrameCount[NPC.type] = 1; // 设置为单帧纹理
             NPCID.Sets.BossBestiaryPriority.Add(NPC.type); // 添加到图鉴优先级列表
+            SpawnCondition = this.GetLocalization("SpawnCondition");
             
             // 指定Boss是否免疫某些Debuff
             // NPCID.Sets.ImmuneToRegularBuffs[Type] = true;

@@ -10,6 +10,7 @@ using Terraria.ModLoader;
 using System.IO;
 using Terraria.Audio;
 using ExpansionKele.Content.Items.Placeables;
+using Terraria.Localization;
 namespace ExpansionKele.Content.Bosses.BossKele
 {
     // 自动加载Boss头像
@@ -17,6 +18,9 @@ namespace ExpansionKele.Content.Bosses.BossKele
     public class BossKele : ModNPC
     {
         public override string LocalizationCategory=>"Bosses.BossKele";
+        public static LocalizedText SpawnCondition { get; private set; }
+
+
         // 定义Boss的攻击类型枚举
         public enum BossKeleAttackType
         {
@@ -72,6 +76,7 @@ private float orbitRotation;
 {
     Main.npcFrameCount[NPC.type] = 1; // 设置为单帧纹理
     NPCID.Sets.BossBestiaryPriority.Add(NPC.type); // 添加到图鉴优先级列表
+    SpawnCondition = this.GetLocalization("SpawnCondition");
 }
         // 每次生成NPC时调用，用于初始化NPC属性
         public override void SetDefaults()
@@ -480,6 +485,12 @@ private void RotateLasers(float rotationSpeed)
             notExpertRule.OnSuccess(ItemDropRule.Common(ItemID.SuperHealingPotion, 1, 15, 15));
             notExpertRule.OnSuccess(ItemDropRule.Common(ItemID.PlatinumCoin, 1, 2, 2));
             npcLoot.Add(notExpertRule);
+        }
+
+        public override void OnKill()
+        {
+            // 标记BossKele已被击败
+            DownedBossKele.downedBossKele = true;
         }
     }
 }

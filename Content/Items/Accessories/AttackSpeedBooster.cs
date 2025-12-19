@@ -10,7 +10,7 @@ namespace ExpansionKele.Content.Items.Accessories
     public class AttackSpeedBooster : ModItem
     {
         public const float AttackSpeedReduction = 2f/3f; // 50% 使用时间减少
-        public const float DamageMultiplierBase = 1.20f; // 1.25 倍基础乘算增伤
+        public const float DamageMultiplierBase = 1.125f; // 1.25 倍基础乘算增伤
         public override string LocalizationCategory => "Items.Accessories";
 
         public override void SetDefaults()

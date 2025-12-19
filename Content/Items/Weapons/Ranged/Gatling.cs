@@ -61,6 +61,13 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
             return speedMultiplier;
         }
 
+        // 添加80%概率不消耗弹药
+        public override bool CanConsumeAmmo(Item weapon, Player player)
+        {
+            // 80%概率不消耗弹药
+            return Main.rand.NextFloat() >= 0.8f;
+        }
+
         public override void AddRecipes()
         {
             CreateRecipe()
@@ -78,7 +85,7 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
         }
     }
 
-            public class GatlingPlayer : ModPlayer
+    public class GatlingPlayer : ModPlayer
     {
         // 使用次数计数器
         public int useCounter = 0;

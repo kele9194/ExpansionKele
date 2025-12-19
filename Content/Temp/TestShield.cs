@@ -45,6 +45,7 @@ namespace ExpansionKele.Content.Temp
             if (consecutiveDamage >= 1500)
             {
                 ExpansionKeleTool.MultiplyDamageBonus(player, 2.0f); // 增加150%乘算增伤
+                player.statDefense*=1.5f;
             }
             if (consecutiveDamage >= 3000)
             {

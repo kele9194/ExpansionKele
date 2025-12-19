@@ -37,6 +37,7 @@ namespace ExpansionKele.Content.Projectiles
             Projectile.tileCollide = true;
             Projectile.usesLocalNPCImmunity = true;
             Projectile.localNPCHitCooldown = 15;
+            Projectile.ArmorPenetration=5;
         }
 
         public override void AI()

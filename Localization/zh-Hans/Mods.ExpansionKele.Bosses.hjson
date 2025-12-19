@@ -2,7 +2,11 @@ BossKele: {
 	BossKeleRotatingLaser.DisplayName: Kele-旋转激光
 	BossKeleRedLaser.DisplayName: Kele-红色激光
 	BossKeleColorfulOrb.DisplayName: Kele-彩色球
-	BossKele.DisplayName: 可乐(Boss)
+
+	BossKele: {
+		DisplayName: 可乐(Boss)
+		SpawnCondition: 使用夜明可乐罐召唤
+	}
 
 	BossKeleBag: {
 		Tooltip: 右键打开
@@ -11,7 +15,10 @@ BossKele: {
 }
 
 ShadowOfRevenge: {
-	ShadowOfRevenge.DisplayName: 复仇之影
+	ShadowOfRevenge: {
+		DisplayName: 复仇之影
+		SpawnCondition: 使用暗影丝绸召唤
+	}
 
 	Projectiles: {
 		BossMoonProj1.DisplayName: Boss Moon Proj1

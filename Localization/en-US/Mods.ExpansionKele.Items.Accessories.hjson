@@ -289,7 +289,7 @@ AttackSpeedBooster: {
 	Tooltip:
 		'''
 		150% base attack speed multiplier for the player
-		player's damage will be 80% of the origin
+		player's damage will be 75% of the origin
 		'''
 	DisplayName: Attack Speed Glove
 }
@@ -358,4 +358,27 @@ FullMoonAmulet: {
 		only one health segment can be cooling down at the same time
 		'''
 	DisplayName: Full Moon Amulet
+}
+
+ChromiumShield: {
+	Tooltip:
+		'''
+		14% Pre-defense damage reduction(*0.86)
+		knockback resistance
+		'''
+	DisplayName: Chromium Shield
+}
+
+PainKiller: {
+	Tooltip:
+		'''
+		You can resist damage by 
+		Classic:8
+		Expert:16
+		Matser:24
+		if the damage is lower than 1,you will dodge.
+		'''
+	DisplayName: Pain Killer
+	ZenithText: GFB change :resisted damage up to 30
+	FTWText: FTW change :75% chance to resist damage up to 60, 25% chance to take 60 more damage
 }

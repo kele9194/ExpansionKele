@@ -124,3 +124,8 @@ SlicingBuff: {
 	DisplayName: 切割减益
 	Description: 受到更多伤害
 }
+
+CrossFireBuff: {
+	Description: 当击杀敌人时，增加伤害
+	DisplayName: 交叉火力
+}

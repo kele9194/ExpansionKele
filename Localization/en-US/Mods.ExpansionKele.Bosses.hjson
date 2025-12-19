@@ -2,7 +2,11 @@ BossKele: {
 	BossKeleRotatingLaser.DisplayName: Boss Kele Rotating Laser
 	BossKeleRedLaser.DisplayName: Boss Kele Red Laser
 	BossKeleColorfulOrb.DisplayName: Boss Kele Colorful Orb
-	BossKele.DisplayName: Kele(Boss)
+
+	BossKele: {
+		DisplayName: Kele(Boss)
+		SpawnCondition: Use LunarKele to summon
+	}
 
 	BossKeleBag: {
 		Tooltip: Right click to open
@@ -11,7 +15,10 @@ BossKele: {
 }
 
 ShadowOfRevenge: {
-	ShadowOfRevenge.DisplayName: Shadow Of Revenge
+	ShadowOfRevenge: {
+		DisplayName: Shadow Of Revenge
+		SpawnCondition: Use Shadow Silk to summon
+	}
 
 	Projectiles: {
 		BossMoonProj1.DisplayName: Boss Moon Proj1

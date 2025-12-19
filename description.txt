@@ -1,4 +1,4 @@
-This mod is developed purely for entertainment, developed by me alone, and still under development. 
+This mod is developed purely for entertainment, developed by me alone, trying to achieve some imagination in ths mod and still under development. 
 When playing with the Calamity mod, some content will be adjusted to fit Calamity's numerical environment.
 
 Currently, this mod includes the following series:
@@ -7,7 +7,7 @@ Currently, this mod includes the following series:
 (Art assets may be reused due to limited artistic skills)
 
 Additionally, there are:
-- Nearly 20 other types of weapons, 6 accessories, 3 ingots, 1 armor set, and 1 incomplete boss
+- Nearly 40 other types of weapons, 6 accessories, 3 ingots, 1 armor set, and 2 initial bosses
 This mod does not rewrite existing boss AI, so it allows joining after creating the mod
 If you have any ideas or suggestions, feel free to leave a comment.
 
@@ -44,7 +44,7 @@ New Weapons: Chromium Sword, Gatling
 New Accessory: FullMoon Amulet
 New Item:Solar Relic
 
-v1.3 
+v1.3.1
 Adjusted the damage of quite a few weapons in Calamity, so that these weapons won't have ridiculous damage. 
 Note: The Stary series weapons are temporarily excluded from this adjustment. They remain intentionally overpowered for now.
 Added appropriate prices and rarities for almost all items. 
@@ -54,8 +54,17 @@ New additions: Electric Ballista, Seitaad Ballista, Solar Sword, EMP Pistol.
 New weapon damage scaler: A setting to adjust damage of all weapons in this mod with default multiplier of 1
 Convert all ranged weapons that don't consume ammo in this mod into expert weapons, allowing them to receive bonuses from Shroomite Helmet.
 
+v1.3.2
+Added starter item: Gift of Light
+Fixed an issue where Sharp Teeth would not drop items when instantly killing enemies
+Added support prompts for two bosses in the boss checklist mod
+Added weapons: Thoughts Cross Blade, Super Gear, Balloon Bow
+Added accessories: Chromium Shield, Life Healing Wings
+Added bag item: Cross Fire
 
-这个模组仅为娱乐，开发者仅为本人，并且仍然在完善中，和灾厄模组游玩时会有部分重写以适配灾厄数值环境。
+
+这个模组仅为娱乐，开发者仅为本人，并且仍然在完善中，致力于让许多奇思妙想实现于游戏模组中，
+和灾厄模组游玩时会有部分重写以适配灾厄数值环境。
 
 目前该模组拥有以下系列：
 星元剑系列，星元狙击步枪系列，星元法杖系列共30把星元系列武器；
@@ -63,7 +72,7 @@ Convert all ranged weapons that don't consume ammo in this mod into expert weapo
 （不擅长美术所以贴图会重复）
 
 此外还有：
-近20种其他类型武器，6个其他类型饰品，3种锭，1个套装，1个未完成boss。
+近40种其他类型武器，6个其他类型饰品，3种锭，1个套装，两个初步boss。
 此外该模组无现有bossAI重写，因此允许在创建世界后加入。
 如果有其他任何想法或建议欢迎留言。
 
@@ -102,7 +111,7 @@ v1.2.6
 新增饰品：望月护符
 新增物品：日耀圣物
 
-v1.3
+v1.3.1
 调整了相当一部分武器在灾厄中的伤害，使这些武器不至于拥有太过离谱的伤害
 注意：星元系列武器暂不在本次调整范围内，它们目前为止是暂时默认超模的
 为几乎所有物品提供了合适的价钱和稀有度
@@ -112,3 +121,10 @@ v1.3
 新增武器伤害标尺：在设置中可以调整所有本mod武器伤害，默认倍率为1
 将所有不消耗弹药的远程武器转化为了专业武器，使其能接受蘑菇矿头盔的加成
 
+v1.3.2
+新增新手物品：光之礼
+修复利齿在秒杀时不会掉落物品的问题
+新增了两个boss在boss checklist模组的提示
+新增武器：念心十字斩,巨型齿轮，气球弓
+新增饰品：铬钢盾,生命光之翼
+新增背包物品：交叉火力

@@ -66,3 +66,13 @@ SplitSolarFireball.DisplayName: 耀斑阔剑分裂火球
 ElectricBallistaShockProjectile.DisplayName: 电流弩电链
 SeitaadBallistaShockProjectile.DisplayName: 赛泰隆电弩电链
 SolarSpearSpinOnlyProjectile.DisplayName: 耀光矛（旋转模式）
+ThoughtsCrossBladeProjectile.DisplayName: 念心十字斩大斩击
+ThoughtsCrossBladeMiniProjectile.DisplayName: 念心十字斩小斩击
+SuperGearProjectile.DisplayName: 超级齿轮
+BalloonArrowProjectile.DisplayName: 气球箭
+BalloonTetherProjectile.DisplayName: 气球束缚
+DotZeroFiveSniperCrosshair.DisplayName: .05狙击步枪瞄准镜
+DotZeroFiveSniperBullet.DisplayName: .05狙击步枪
+AutoAimingSniperBullet.DisplayName: 自动狙击步枪
+AutoAimingMarker.DisplayName: 自动狙击步枪瞄准
+SixthSniperBullet.DisplayName: 自动狙击步枪爆击

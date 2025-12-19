@@ -11,15 +11,38 @@ using Terraria.ID;
 
 namespace ExpansionKele
 {
+    /// <summary>
+    /// ExpansionKele模组的专用玩家数据管理类
+    /// 警告：此类仅用于处理星之套装效果激活功能！
+    /// 为了遵循单一职责原则和保持代码整洁，请勿在此类中添加任何其他功能！
+    /// 需要添加新功能时，请创建独立的ModPlayer子类来实现特定功能！
+    /// 这样做有助于维护模块化架构并提高代码可维护性！
+    /// </summary>
+    /// <remarks>
+    /// 设计理念：每个ModPlayer子类应只负责一项核心功能
+    /// 如果你想要添加新功能，请参考以下方式：
+    /// 1. 创建一个新的类继承自ModPlayer
+    /// 2. 在新类中实现你的功能逻辑
+    /// 3. 不要修改或扩展现有的ExpansionKelePlayer类
+    /// 
+    /// 示例格式：
+    /// public class MyNewFeaturePlayer : ModPlayer {
+    ///     // 实现你的新功能
+    /// }
+    /// </remarks>
     public class ExpansionKelePlayer : ModPlayer
     {
         // private Keys? setBonusKey = null; // 缓存键绑定
         private int buffDuration = 504; // 增益持续时间，默认5秒
 
+        // 徽章类型跟踪变量
         public int activeStarryEmblemType = -1;
         public int activeMoonEmblemType = -1;
         public bool moonWarriorEmblemSpeedMode = true;
 
+        /// <summary>
+        /// 每帧重置临时效果状态
+        /// </summary>
         public override void ResetEffects()
         {
             // 每一帧开始时重置徽章的应用状态
@@ -27,12 +50,10 @@ namespace ExpansionKele
             activeMoonEmblemType = -1;
         }
         
-
-        
-
-        
-
-
+        /// <summary>
+        /// 在玩家更新后执行逻辑，专门用于处理星之套装技能激活
+        /// 再次强调：不要在此方法中添加其他无关逻辑！
+        /// </summary>
         public override void PostUpdate()
         {
             // 使用 KeybindSystem 来检测按键是否刚刚按下
@@ -43,6 +64,7 @@ namespace ExpansionKele
                 Player playerInstance = Player;
 
                 // 检查玩家是否装备了完整的套装
+                // 基础星之套装
                 if (playerInstance.armor[0].type == ModContent.ItemType<StarHelmet>() &&
                     playerInstance.armor[1].type == ModContent.ItemType<StarBreastplate>() &&
                     playerInstance.armor[2].type == ModContent.ItemType<StarLeggings>())
@@ -53,6 +75,7 @@ namespace ExpansionKele
                     playerInstance.AddBuff(buff.Type, buffDuration);
                     //Main.NewText("检测通过", Color.Red);
                 }
+                // 星之套装 A 系列
                 if (playerInstance.armor[0].type == ModContent.ItemType<StarHelmetA>() &&
                     playerInstance.armor[1].type == ModContent.ItemType<StarBreastplateA>() &&
                     playerInstance.armor[2].type == ModContent.ItemType<StarLeggingsA>())
@@ -64,6 +87,7 @@ namespace ExpansionKele
                     //Main.NewText("检测通过", Color.Red);
                 }
 
+                // 星之套装 B 系列
                 if (playerInstance.armor[0].type == ModContent.ItemType<StarHelmetB>() &&
                     playerInstance.armor[1].type == ModContent.ItemType<StarBreastplateB>() &&
                     playerInstance.armor[2].type == ModContent.ItemType<StarLeggingsB>())
@@ -74,6 +98,7 @@ namespace ExpansionKele
                     playerInstance.AddBuff(ModContent.BuffType<StarSetBonusBuff>(), buffDuration);
                     //Main.NewText("检测通过", Color.Red);
                 }
+                // 星之套装 C 系列
                 if (playerInstance.armor[0].type == ModContent.ItemType<StarHelmetC>() &&
                     playerInstance.armor[1].type == ModContent.ItemType<StarBreastplateC>() &&
                     playerInstance.armor[2].type == ModContent.ItemType<StarLeggingsC>())
@@ -82,6 +107,7 @@ namespace ExpansionKele
                     buff.SetTime(buffDuration);
                     playerInstance.AddBuff(ModContent.BuffType<StarSetBonusBuff>(), buffDuration);
                 }
+                // 星之套装 D 系列
                 if (playerInstance.armor[0].type == ModContent.ItemType<StarHelmetD>() &&
                     playerInstance.armor[1].type == ModContent.ItemType<StarBreastplateD>() &&
                     playerInstance.armor[2].type == ModContent.ItemType<StarLeggingsD>())
@@ -90,6 +116,7 @@ namespace ExpansionKele
                     buff.SetTime(buffDuration);
                     playerInstance.AddBuff(ModContent.BuffType<StarSetBonusBuff>(), buffDuration);
                 }
+                // 星之套装 E 系列
                 if (playerInstance.armor[0].type == ModContent.ItemType<StarHelmetE>() &&
                     playerInstance.armor[1].type == ModContent.ItemType<StarBreastplateE>() &&
                     playerInstance.armor[2].type == ModContent.ItemType<StarLeggingsE>())
@@ -98,6 +125,7 @@ namespace ExpansionKele
                     buff.SetTime(buffDuration);
                     playerInstance.AddBuff(ModContent.BuffType<StarSetBonusBuff>(), buffDuration);
                 }
+                // 星之套装 F 系列
                 if (playerInstance.armor[0].type == ModContent.ItemType<StarHelmetF>() &&
                     playerInstance.armor[1].type == ModContent.ItemType<StarBreastplateF>() &&
                     playerInstance.armor[2].type == ModContent.ItemType<StarLeggingsF>())
@@ -106,6 +134,7 @@ namespace ExpansionKele
                     buff.SetTime(buffDuration);
                     playerInstance.AddBuff(ModContent.BuffType<StarSetBonusBuff>(), buffDuration);
                 }
+                // 星之套装 G 系列
                 if (playerInstance.armor[0].type == ModContent.ItemType<StarHelmetG>() &&
                     playerInstance.armor[1].type == ModContent.ItemType<StarBreastplateG>() &&
                     playerInstance.armor[2].type == ModContent.ItemType<StarLeggingsG>())
@@ -114,6 +143,7 @@ namespace ExpansionKele
                     buff.SetTime(buffDuration);
                     playerInstance.AddBuff(ModContent.BuffType<StarSetBonusBuff>(), buffDuration);
                 }
+                // 星之套装 H 系列
                 if (playerInstance.armor[0].type == ModContent.ItemType<StarHelmetH>() &&
                     playerInstance.armor[1].type == ModContent.ItemType<StarBreastplateH>() &&
                     playerInstance.armor[2].type == ModContent.ItemType<StarLeggingsH>())
@@ -122,6 +152,7 @@ namespace ExpansionKele
                     buff.SetTime(buffDuration);
                     playerInstance.AddBuff(ModContent.BuffType<StarSetBonusBuff>(), buffDuration);
                 }
+                // 星之套装 I 系列
                 if (playerInstance.armor[0].type == ModContent.ItemType<StarHelmetI>() &&
                     playerInstance.armor[1].type == ModContent.ItemType<StarBreastplateI>() &&
                     playerInstance.armor[2].type == ModContent.ItemType<StarLeggingsI>())
@@ -130,6 +161,7 @@ namespace ExpansionKele
                     buff.SetTime(buffDuration);
                     playerInstance.AddBuff(ModContent.BuffType<StarSetBonusBuff>(), buffDuration);
                 }
+                // 星之套装 J 系列
                 if (playerInstance.armor[0].type == ModContent.ItemType<StarHelmetJ>() &&
                     playerInstance.armor[1].type == ModContent.ItemType<StarBreastplateJ>() &&
                     playerInstance.armor[2].type == ModContent.ItemType<StarLeggingsJ>())

@@ -7,7 +7,7 @@ namespace ExpansionKele.Content.Items.Weapons.Melee
 {
     /// <summary>
     /// 锋利牙齿 - 近战武器
-    /// 对最大生命值小于300的敌人直接击杀
+    /// 对最大生命值小于玩家最大生命值一定比例的敌人直接击杀
     /// </summary>
     public class SharpTeeth : ModItem
     {
@@ -35,20 +35,17 @@ namespace ExpansionKele.Content.Items.Weapons.Melee
             Item.autoReuse = true;            // 自动连击
         }
 
+        // ... existing code ...
         public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
         {
-            // 对最大生命值小于300的敌人直接击杀
-            if (target.lifeMax < 300 && target.active && !target.friendly && !target.dontTakeDamage)
+            // 对最大生命值小于玩家最大生命值的敌人直接击杀
+            if (target.lifeMax <= player.statLifeMax2 && target.active && !target.friendly && !target.dontTakeDamage)
             {
-                target.life = 0;
-                target.HitEffect(0, 300.0);
-                target.active = false;
-                if (Main.netMode != NetmodeID.SinglePlayer)
-                {
-                    NetMessage.SendData(MessageID.DamageNPC, -1, -1, null, target.whoAmI, -1);
-                }
+                // 使用专门的瞬间击杀方法确保敌人掉落物品
+                target.StrikeInstantKill();
             }
         }
+// ... existing code ...
 
         public override void AddRecipes()
         {

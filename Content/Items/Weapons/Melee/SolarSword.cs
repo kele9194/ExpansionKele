@@ -30,6 +30,7 @@ namespace ExpansionKele.Content.Items.Weapons.Melee
             Item.autoReuse = true;
             Item.shoot = ModContent.ProjectileType<SolarFireball>();
             Item.shootSpeed = 15f;
+            Item.scale=0.75f;
         }
 
         public override void MeleeEffects(Player player, Rectangle hitbox)

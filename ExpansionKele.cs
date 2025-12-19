@@ -17,7 +17,9 @@ using Terraria.Audio;
 using ExpansionKele;
 using Terraria;
 using ExpansionKele.Content.Projectiles;
-using ExpansionKele.Content.Items.Weapons;
+using ExpansionKele.Content.Bosses.ShadowOfRevenge;
+using ExpansionKele.Content.Bosses.BossKele;
+
 
 namespace ExpansionKele
 {
@@ -26,6 +28,8 @@ namespace ExpansionKele
         public static Mod calamity;
         public static ModKeybind StarKeyBind;
         public static ModKeybind TrackingKeyBind { get; private set; } // 正确位置：类成员
+
+        public static ModKeybind AutoAimingKeyBind{ get; private set; }
         public static object Content { get; internal set; }
         public static int[] projectileTypes;
 
@@ -41,6 +45,13 @@ namespace ExpansionKele
             Volume = 0.4f,
             PitchVariance = 0.1f,
             MaxInstances = 2,
+        };
+
+        public static SoundStyle IronCurtainExplosionSound = new SoundStyle("ExpansionKele/Content/Audio/IronCurtainExplosion")
+        {
+            Volume = 0.8f,
+            PitchVariance = 0.1f,
+            MaxInstances = 3,
         };
 
         public static Texture2D sniperLaserTexture = ModContent.Request<Texture2D>("ExpansionKele/Content/StarySniper/SniperLaser").Value;
@@ -70,6 +81,7 @@ namespace ExpansionKele
             StarKeyBind = KeybindLoader.RegisterKeybind(this, "StarBonusBuff", Keys.F);
             sniperLaserTexture = ModContent.Request<Texture2D>("ExpansionKele/Content/StarySniper/SniperLaser").Value;
             TrackingKeyBind = KeybindLoader.RegisterKeybind(this, "TrackingLocator", Keys.Y);
+            AutoAimingKeyBind = KeybindLoader.RegisterKeybind(this, "AutoAiming", "MouseRight");
             
             
             projectileTypes = new int[]
@@ -113,8 +125,54 @@ namespace ExpansionKele
             StarKeyBind = null;
             sniperLaserTexture = null;
             TrackingKeyBind = null;
+            AutoAimingKeyBind = null;
             // 其他卸载逻辑
         }
+
+        // ... existing code ...
+        // ... existing code ...
+                public override void PostSetupContent()
+        {
+            // 注册Boss到BossChecklist (v2.0.0+ 版本)
+            if (ModLoader.HasMod("BossChecklist"))
+            {
+                Mod bossChecklist = ModLoader.GetMod("BossChecklist");
+                
+                // 注册ShadowOfRevenge Boss
+                bossChecklist.Call(
+                    "LogBoss",
+                    this,
+                    "ShadowOfRevenge",
+                    9f,
+                    (Func<bool>)(() => DownedShadowOfRevengeBoss.downedShadowOfRevenge),
+                    ModContent.NPCType<ShadowOfRevenge>(),
+                    new Dictionary<string, object>() {
+                        ["spawnItems"] = ModContent.ItemType<Content.Items.OtherItem.ShadowSilk>(),
+                        ["spawnInfo"] = Language.GetText("Mods.ExpansionKele.Bosses.ShadowOfRevenge.ShadowOfRevenge.SpawnCondition")
+                        
+                    }
+                );
+                
+                // 注册BossKele
+                bossChecklist.Call(
+                    "LogBoss",
+                    this,
+                    "BossKele",
+                    18.5f,
+                    (Func<bool>)(() =>DownedBossKele.downedBossKele),
+                    ModContent.NPCType<BossKele>(),
+                    new Dictionary<string, object>() {
+                        ["spawnItems"] = ModContent.ItemType<Content.Items.OtherItem.LunarKele>(),
+                        ["spawnInfo"] = Language.GetText("Mods.ExpansionKele.Bosses.BossKele.BossKele.SpawnCondition")
+                            
+                    }
+
+                );
+            }
+        }
+// ... existing code ...
+// ... existing code ...
+// ... existing code ...
 
         
         /// <summary>
@@ -173,6 +231,22 @@ public static int ATKTool(int nonCalamityDamage = 0, int calamityDamage = 0, flo
             // 如果两个伤害值都为0，则将第一个数设为100001
             return 100001;
         }
+    }
+
+}
+
+public static int DEFTool(int nonCalamityDefense, int calamityDefense)
+{
+    // 检查是否安装了灾厄模组
+    if (ModLoader.HasMod("CalamityMod"))
+    {
+        // 如果安装了灾厄模组，使用灾厄防御值
+        return calamityDefense;
+    }
+    else
+    {
+        // 如果没有安装灾厄模组，使用原版防御值
+        return nonCalamityDefense;
     }
 }
         // public override object Call(params object[] args)

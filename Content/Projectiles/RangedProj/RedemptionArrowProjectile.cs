@@ -16,7 +16,7 @@ namespace ExpansionKele.Content.Projectiles.RangedProj
         public override void SetDefaults()
         {
             Projectile.width = 14;
-            Projectile.height = 32;
+            Projectile.height = 14;
             Projectile.friendly = true;
             Projectile.penetrate = 1;
             Projectile.timeLeft = 600;

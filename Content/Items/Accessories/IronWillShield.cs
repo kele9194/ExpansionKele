@@ -17,7 +17,7 @@ namespace ExpansionKele.Content.Items.Accessories
             Item.value = Item.buyPrice(0, 10, 0, 0);
             Item.rare = ItemRarityID.Green;
             Item.accessory = true;
-            Item.defense = 3;
+            Item.defense = ExpansionKele.DEFTool(2,5);
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)
@@ -35,7 +35,7 @@ namespace ExpansionKele.Content.Items.Accessories
         public override void AddRecipes()
         {
             CreateRecipe()
-                .AddRecipeGroup("ExpansionKele:AnyIronBars", 5)// 需要12个木头
+                .AddRecipeGroup("ExpansionKele:AnyIronBars", 5)
                 .AddRecipeGroup("ExpansionKele:BeforeSecondaryBars", 5)
                 .AddTile(TileID.Anvils) // 在工作台制作
                 .Register();

@@ -40,8 +40,9 @@ SolarSpear: {
 	Tooltip:
 		'''
 		Alternates between dashing and spinning attacks
-		During dash, becomes invincible and deals 2x damage, penetrating enemies restores health
+		During dash, becomes invincible and deals 2.5x damage, penetrating enemies restores health
 		Reflects projectiles during spin, successfully reflecting projectiles also restores health
+		Right click to just use spinning attacks
 		'''
 }
 
@@ -215,8 +216,8 @@ FragmentsEmergence: {
 	DisplayName: Fragments Emergence
 	Tooltip:
 		'''
-		Shoot a fragment that will slow down，when stop ,it cause more Damage
-		blade hit enemy will explode with some fragments.
+		Shoot a fragment that will slow down，which has 5 armor penetration
+		blade hit enemy will explode with some fragments,which have 20 armor penetration
 		'''
 }
 
@@ -251,7 +252,7 @@ Fade: {
 }
 
 SharpTeeth: {
-	Tooltip: Instantly kill the enemies that lower than 300 max HP
+	Tooltip: Instantly kill the enemies that lower than the max HP of the player
 	DisplayName: Sharp Teeth
 }
 
@@ -286,6 +287,7 @@ Gatling: {
 		'''
 		a minigun that shoot faster and more faster
 		and Scatter more and more 
+		80% chance not to consume ammo
 		'''
 	DisplayName: Gatling
 }
@@ -333,4 +335,92 @@ SolarSword: {
 		Hit enemies will deal a explode
 		Shoot a fireBall that spilt fire
 		'''
+}
+
+ThoughtsCrossBlade: {
+	Tooltip:
+		'''
+		Slash at the mouse position creating a cross-shaped attack
+		A stronger smaller cross slash will appear after the cross slash
+		Blade and cross slashes inflict Slicing debuff
+		'''
+	DisplayName: Thoughts Cross Blade
+}
+
+WoodenCrossbow: {
+	DisplayName: Wooden Crossbow
+	Tooltip:
+		'''
+		Right-click to draw the bow, left-click to fire and clear draw levels
+		Left-click is only allowed when draw level is greater than or equal to 1
+		The more draw levels, the faster damage increases, 
+		arrow speed increases more, and arrow armor penetration increases more
+		Additionally applies 1x base arrow damage
+		'''
+}
+
+ShadowCrossbow: {
+	DisplayName: Shadow Crossbow
+	Tooltip:
+		'''
+		Right-click to draw the bow, left-click to fire and clear draw levels
+		Left-click is only allowed when draw level is greater than or equal to 1
+		The more draw levels, the faster damage increases, 
+		arrow speed increases more, and arrow armor penetration increases more
+		Additionally applies 1x base arrow damage
+		While holding, increases speed by 30% and acceleration by 150%
+		'''
+}
+
+BloodCrossbow: {
+	DisplayName: Blood Crossbow
+	Tooltip:
+		'''
+		Right-click to draw the bow, left-click to fire and clear draw levels
+		Left-click is only allowed when draw level is greater than or equal to 1
+		The more draw levels, the faster damage increases, 
+		arrow speed increases more, and arrow armor penetration increases more
+		Additionally applies 1x base arrow damage
+		While holding, increases life regeneration speed by 100%
+		'''
+}
+
+SuperGear: {
+	Tooltip:
+		'''
+		Throws gravity-unaffected gears that greatly slow down when contact enemies 
+		Gears can bounce, and attack speed reduces the gear damage interval
+		'''
+	DisplayName: Super Gear
+}
+
+BalloonBow: {
+	DisplayName: Balloon Bow
+	Tooltip:
+		'''
+		Fires balloon arrows that lift targets into the air
+		Lift height is affected by target's hitbox
+		'''
+}
+
+DotZeroFiveSniperRifle: {
+	Tooltip:
+		'''
+		Creates a scope frame at the cursor position
+		Left-click to fire projectiles at the cursor position
+		Note: Switch to another item if some keys or settings don't respond
+		'''
+	DisplayName: .05 Sniper Rifle
+}
+
+AutoAimingSniperRifle: {
+	Tooltip:
+		'''
+		Automatically generates an aim marker targeting enemies
+		Attacks directly target the marked enemy
+		Set keybinding (default right mouse button) to reselect target
+		every six bullet can deal more damage 
+		Note: Switch to another item if some keys or settings don't respond
+		'''
+	DisplayName: Auto-Aiming Sniper Rifle
 }

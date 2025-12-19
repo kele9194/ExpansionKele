@@ -277,6 +277,16 @@ namespace ExpansionKele.Content.Customs
             var reductionPlayer = player.GetModPlayer<CustomDamageReductionPlayer>();
             reductionPlayer.SetPreDefenseDamageReduction(reduction);
         }
+        /// <summary>
+        /// 为指定玩家乘算防御前减伤值
+        /// </summary>
+        /// <param name="player">要设置减伤的玩家</param>
+        /// <param name="multiplier">乘数，例如0.9表示减少10%伤害</param>
+        public static void MultiplyPreDefenseDamageReduction(Player player, float multiplier)
+        {
+            var reductionPlayer = player.GetModPlayer<CustomDamageReductionPlayer>();
+            reductionPlayer.MultiPreDefenseDamageReduction(multiplier);
+        }
     }
 
     
