@@ -32,4 +32,9 @@ ExpansionKeleConfig: {
 		Tooltip: 为所有本模组武器提供的伤害乘数标尺
 		Label: 伤害乘数标尺
 	}
+
+	EnableGlobalDamageMultiplierModification: {
+		Label: 设置伤害倍率器
+		Tooltip: 暂时无效
+	}
 }

@@ -19,6 +19,7 @@ using Terraria;
 using ExpansionKele.Content.Projectiles;
 using ExpansionKele.Content.Bosses.ShadowOfRevenge;
 using ExpansionKele.Content.Bosses.BossKele;
+using ExpansionKele.Content.Customs;
 
 
 namespace ExpansionKele
@@ -249,6 +250,27 @@ public static int DEFTool(int nonCalamityDefense, int calamityDefense)
         return nonCalamityDefense;
     }
 }
+        public override void HandlePacket(BinaryReader reader, int whoAmI)
+        {
+            var packetType = (HandHeldMessageType)reader.ReadByte();
+            switch (packetType)
+            {
+                case HandHeldMessageType.SyncModMultiplier:
+                    string modName = reader.ReadString();
+                    float modMultiplier = reader.ReadSingle();
+                    HandHeldSystem.SetModDamageMultiplier(modName, modMultiplier);
+                    break;
+                case HandHeldMessageType.SyncVanillaMultiplier:
+                    float vanillaMultiplier = reader.ReadSingle();
+                    HandHeldSystem.SetVanillaDamageMultiplier(vanillaMultiplier);
+                    break;
+                default:
+                    // 如果是其他包类型，调用基类处理
+                    base.HandlePacket(reader, whoAmI);
+                    break;
+            }
+        }
+
         // public override object Call(params object[] args)
         // {
         //     // 委托给 ExpansionKeleCallHandler 处理

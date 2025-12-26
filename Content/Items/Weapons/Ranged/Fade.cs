@@ -27,7 +27,7 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
 
 		public override void SetDefaults() {
 			// 基本属性设置
-			Item.damage = ExpansionKele.ATKTool(120,144); // 伤害45
+			Item.damage = ExpansionKele.ATKTool(130,160); // 伤害45
 			Item.DamageType = DamageClass.Ranged; // 远程伤害
 			Item.width = 32;
 			Item.height = 32;
@@ -159,8 +159,7 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
 			// 如果受击效果激活，则减少20%防御前减伤
 			if (hitEffectActive && fadePlayer.isHoldingFade)
 			{
-				var defensePlayer = Player.GetModPlayer<CustomDamageReductionPlayer>();
-				defensePlayer.preDefenseDamageReductionMulti += 0.2f; // 减少20%防御前减伤
+				modifiers.IncomingDamageMultiplier*=1.2f; // 减少20%防御前减伤
 				Terraria.Audio.SoundEngine.PlaySound(SoundID.Item29, Player.position);
 			}
 		}
@@ -184,8 +183,7 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
             var fadePlayer = Player.GetModPlayer<FadePlayer>();
             if (hitEffectActive && fadePlayer.isHoldingFade)
             {
-                var damagePlayer = Player.GetModPlayer<ExpansionKeleDamageMulti>();
-                damagePlayer.MultiplyMultiplicativeDamageBonus(0.8f); // 降低20%武器伤害
+                damage*=0.8f; // 降低20%武器伤害
             }
         }
 

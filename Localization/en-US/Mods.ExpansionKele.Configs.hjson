@@ -36,4 +36,9 @@ ExpansionKeleConfig: {
 		Tooltip: Provide a weapon damage multiplier for weapons in this mod
 		Label: Specific Weapon Damage Multiplier
 	}
+
+	EnableGlobalDamageMultiplierModification: {
+		Label: Enable Global Damage Multiplier Modification
+		Tooltip: it doe not work now
+	}
 }

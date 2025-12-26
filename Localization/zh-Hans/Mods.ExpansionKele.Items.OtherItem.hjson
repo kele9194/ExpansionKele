@@ -105,3 +105,8 @@ CrossFire: {
 		'''
 	DisplayName: 交叉火力
 }
+
+BalanceScale: {
+	Tooltip: 展示倍率，但暂时不起作用
+	DisplayName: 平衡天平
+}

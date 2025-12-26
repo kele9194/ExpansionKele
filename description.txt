@@ -62,6 +62,9 @@ Added weapons: Thoughts Cross Blade, Super Gear, Balloon Bow
 Added accessories: Chromium Shield, Life Healing Wings
 Added bag item: Cross Fire
 
+v1.3.2.1
+Make some adjustments
+
 
 这个模组仅为娱乐，开发者仅为本人，并且仍然在完善中，致力于让许多奇思妙想实现于游戏模组中，
 和灾厄模组游玩时会有部分重写以适配灾厄数值环境。
@@ -128,3 +131,6 @@ v1.3.2
 新增武器：念心十字斩,巨型齿轮，气球弓
 新增饰品：铬钢盾,生命光之翼
 新增背包物品：交叉火力
+
+v1.3.2.1
+部分调整

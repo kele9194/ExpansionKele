@@ -42,5 +42,8 @@ namespace ExpansionKele
         [Increment(0.01f)]
         [Slider]
         public float SpecificWeaponDamageMultiplier { get; set; } = 1.0f;
+        
+        [DefaultValue(false)]
+        public bool EnableGlobalDamageMultiplierModification { get; set; }
     }
 }

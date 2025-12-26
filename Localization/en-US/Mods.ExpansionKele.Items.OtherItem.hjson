@@ -109,3 +109,8 @@ CrossFire: {
 		'''
 	DisplayName: CrossFire
 }
+
+BalanceScale: {
+	Tooltip: show multipliers,but not work now
+	DisplayName: Balance Scale
+}
