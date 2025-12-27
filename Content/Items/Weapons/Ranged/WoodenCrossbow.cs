@@ -23,10 +23,20 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
             ItemID.Sets.ItemsThatAllowRepeatedRightClick[Item.type] = true;
         }
 
+        public override bool CanConsumeAmmo(Item ammo,Player player)
+        {
+            // 右键蓄力时不消耗弹药
+            if (player.altFunctionUse == 2)
+            {
+                return false;
+            }
+            return base.CanConsumeAmmo(ammo, player);
+        }
+
         public override void SetDefaults()
         {
             // 基本属性设置
-            Item.damage = ExpansionKele.ATKTool(15, default); // 基础伤害
+            Item.damage = ExpansionKele.ATKTool(8, default); // 基础伤害
             Item.DamageType = DamageClass.Ranged; // 远程伤害类型
             Item.width = 50; // 物品宽度
             Item.height = 24; // 物品高度
@@ -76,6 +86,8 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
             }
         }
 
+        
+
         public override void ModifyShootStats(Player player, ref Vector2 position, ref Vector2 velocity, ref int type, ref int damage, ref float knockback)
         {
             // 根据蓄力层数计算伤害倍数
@@ -111,8 +123,7 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
             proj.damage += extraDamage;
             
             chargeLevel = 0;
-            
-            Main.NewText($"剩余蓄力层数: {chargeLevel}, 伤害倍数: {Math.Pow(chargeLevel + 1, 1.5):F2}"); // 显示剩余层数（+1因为上面减去了1）
+        
             return false;
         }
             }

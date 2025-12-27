@@ -4,6 +4,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Localization;
 using ExpansionKele.Content.Customs;
+using ExpansionKele.Content.Customs.Commands;
 
 namespace ExpansionKele.Content.Items.OtherItem
 {

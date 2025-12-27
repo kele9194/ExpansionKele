@@ -32,7 +32,7 @@ namespace ExpansionKele.Content.Items.Armors
             player.GetCritChance(DamageClass.Generic) += 5;
             player.ammoCost80 = true;
             player.GetDamage(DamageClass.Summon) += 0.08f;
-            player.GetAttackSpeed(DamageClass.SummonMeleeSpeed) += 0.15f;
+            player.GetAttackSpeed(DamageClass.Melee) += 0.15f;
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)

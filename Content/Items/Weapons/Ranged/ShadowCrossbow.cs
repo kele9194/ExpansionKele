@@ -22,11 +22,20 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
             // 允许重复右键点击
             ItemID.Sets.ItemsThatAllowRepeatedRightClick[Item.type] = true;
         }
+        public override bool CanConsumeAmmo(Item ammo,Player player)
+        {
+            // 右键蓄力时不消耗弹药
+            if (player.altFunctionUse == 2)
+            {
+                return false;
+            }
+            return base.CanConsumeAmmo(ammo, player);
+        }
 
         public override void SetDefaults()
         {
             // 基本属性设置
-            Item.damage = ExpansionKele.ATKTool(50, 60); // 基础伤害改为42
+            Item.damage = ExpansionKele.ATKTool(40, 48); // 基础伤害改为42
             Item.DamageType = DamageClass.Ranged; // 远程伤害类型
             Item.width = 50; // 物品宽度
             Item.height = 24; // 物品高度

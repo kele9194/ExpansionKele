@@ -9,10 +9,10 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
-using static ExpansionKele.Content.Customs.RuntimeItemModificationSystem;
+using static ExpansionKele.Content.Customs.Commands.RuntimeItemModificationSystem;
 using static ExpansionKele.ExpansionKeleConfig;
 
-namespace ExpansionKele.Content.Customs
+namespace ExpansionKele.Content.Customs.Commands
 {
     [Autoload(Side = ModSide.Both)]
     public class BalancingCommand : ModCommand
@@ -22,9 +22,9 @@ namespace ExpansionKele.Content.Customs
         public override CommandType Type
             => CommandType.Chat;
 
-        public override string Usage => "/balance global set <float>";
+        public override string Usage => "/balance global set <float> or /balance clear";
 
-        public override string Description => "Set global damage multiplier for all items when holding balance item";
+        public override string Description => "Set global damage multiplier for all items when holding balance item, or clear to reset to 1.0";
 
         public override void Action(CommandCaller caller, string input, string[] args)
         {
@@ -36,15 +36,58 @@ namespace ExpansionKele.Content.Customs
             }
 
             // 检查参数数量
-            if (args.Length < 3)
+            if (args.Length < 1)
             {
                 ShowUsage(caller);
                 return;
             }
 
             string target = args[0].ToLower();
-            string operation = args[1].ToLower();
-            string valueStr = args[2];
+            string operation = "";
+            string valueStr = "";
+
+            if (args.Length >= 3)
+            {
+                operation = args[1].ToLower();
+                valueStr = args[2];
+            }
+
+            // Handle clear command
+            if (target == "clear")
+            {
+                // 检查配置是否允许全局倍率修改
+                if (!Instance.EnableGlobalDamageMultiplierModification)
+                {
+                    SendErrorMessage(caller, "Global damage multiplier modification is disabled in the configuration.");
+                    return;
+                }
+
+                // 清除全局伤害倍率设置，将其重置为1.0
+                BalancingSystem.ClearGlobalDamageMultiplier();
+                
+                // 通知所有玩家
+                string message = "Server: Global damage multiplier has been reset to 1.0x";
+                if (Main.netMode == NetmodeID.SinglePlayer)
+                {
+                    Main.NewText(message, Color.Yellow);
+                }
+                else if (Main.netMode == NetmodeID.Server)
+                {
+                    Terraria.Chat.ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral(message), Color.Yellow);
+                }
+                else if (Main.netMode == NetmodeID.MultiplayerClient)
+                {
+                    caller.Reply("Successfully reset global damage multiplier to 1.0x", Color.Green);
+                }
+                return;
+            }
+
+            // 检查参数数量是否足够用于set操作
+            if (args.Length < 3)
+            {
+                ShowUsage(caller);
+                return;
+            }
 
             // 检查是否为global命令
             if (target != "global")
@@ -81,20 +124,13 @@ namespace ExpansionKele.Content.Customs
                 return;
             }
 
-            // 检查权限（仅服务器管理员或单人游戏中的玩家可以执行此命令）
-            if (caller.CommandType == CommandType.Console || Main.netMode == NetmodeID.SinglePlayer)
+            // 允许所有玩家执行此命令（移除权限检查）
+            bool hasPermission = true; // 总是允许执行命令
+            
+            if (hasPermission)
             {
                 // 设置全局伤害倍数
                 BalancingSystem.SetGlobalDamageMultiplier(value);
-                
-                // 同步到所有客户端
-                if (Main.netMode == NetmodeID.Server)
-                {
-                    ModPacket packet = Mod.GetPacket();
-                    packet.Write((byte)BalancingMessageType.SyncGlobalMultiplier);
-                    packet.Write(value);
-                    packet.Send();
-                }
                 
                 // 通知所有玩家
                 string message = $"Server: Global damage multiplier has been set to {value:F2}x";
@@ -113,7 +149,7 @@ namespace ExpansionKele.Content.Customs
             }
             else
             {
-                SendErrorMessage(caller, "Insufficient permissions. Only server admins can execute this command.");
+                SendErrorMessage(caller, "Insufficient permissions. Only server host can execute this command.");
             }
         }
 
@@ -122,14 +158,20 @@ namespace ExpansionKele.Content.Customs
             if (caller.CommandType == CommandType.Console)
             {
                 Console.WriteLine("Usage: /balance global set <float>");
+                Console.WriteLine("       /balance clear");
                 Console.WriteLine("Sets global damage multiplier for all items.");
+                Console.WriteLine("clear: Resets global damage multiplier to 1.0x");
                 Console.WriteLine("Example: /balance global set 1.5");
+                Console.WriteLine("Example: /balance clear");
             }
             else
             {
                 caller.Reply("Usage: /balance global set <float>", Color.Yellow);
+                caller.Reply("       /balance clear", Color.Yellow);
                 caller.Reply("Sets global damage multiplier for all items.", Color.Gray);
+                caller.Reply("clear: Resets global damage multiplier to 1.0x", Color.Gray);
                 caller.Reply("Example: /balance global set 1.5", Color.Gray);
+                caller.Reply("Example: /balance clear", Color.Gray);
             }
         }
 
@@ -147,29 +189,21 @@ namespace ExpansionKele.Content.Customs
     }
 
     /// <summary>
-    /// 管理平衡天平效果的玩家组件
+    /// 管理平衡天平效果的全局物品组件
     /// </summary>
-    public class BalancingPlayer : ModPlayer
+    public class BalancingGlobalItem : GlobalItem
     {
-        public override void ResetEffects()
-        {
-            // 如果启用了全局倍率修改，则不需要重置任何与平衡物品相关的状态
-        }
 
-        public override void ModifyWeaponDamage(Item item, ref StatModifier damage)
+        public override void ModifyWeaponDamage(Item item, Player player, ref StatModifier damage)
         {
-            // 应用全局伤害倍率（从BalancingSystem获取）
-            // 如果启用了全局倍率修改，则应用全局倍率
-            if (ExpansionKeleConfig.Instance.EnableGlobalDamageMultiplierModification)
+            // 对于武器，应用全局伤害倍率
+            if (item.damage > 0)
             {
-                damage *= BalancingSystem.GlobalDamageMultiplier;
+                if (ExpansionKeleConfig.Instance.EnableGlobalDamageMultiplierModification)
+                {
+                    damage *= BalancingSystem.GlobalDamageMultiplier;
+                }
             }
-        }
-
-       
-        public override void PostUpdateEquips()
-        {
-            // 如果启用了全局倍率修改，不需要进行任何特殊处理
         }
     }
 
@@ -192,6 +226,12 @@ namespace ExpansionKele.Content.Customs
         public static void SetGlobalDamageMultiplier(float multiplier)
         {
             GlobalDamageMultiplier = Math.Max(0, multiplier); // 确保值不小于0
+            _savedMultiplier = GlobalDamageMultiplier; // 保存当前设置
+        }
+
+        public static void ClearGlobalDamageMultiplier()
+        {
+            GlobalDamageMultiplier = 1.0f; // 重置为默认值
             _savedMultiplier = GlobalDamageMultiplier; // 保存当前设置
         }
 
@@ -226,26 +266,6 @@ namespace ExpansionKele.Content.Customs
             }
             
             GlobalDamageMultiplier = _savedMultiplier;
-        }
-        
-        // ... existing code ...
-        public override void NetSend(BinaryWriter writer)
-        {
-            writer.Write((byte)BalancingMessageType.SyncGlobalMultiplier);
-            writer.Write(GlobalDamageMultiplier);
-        }
-        
-        public override void NetReceive(BinaryReader reader)
-        {
-            BalancingMessageType msgType = (BalancingMessageType)reader.ReadByte();
-            switch (msgType)
-            {
-                case BalancingMessageType.SyncGlobalMultiplier:
-                    float multiplier = reader.ReadSingle();
-                    GlobalDamageMultiplier = multiplier;
-                    _savedMultiplier = multiplier;
-                    break;
-            }
         }
     }
 }

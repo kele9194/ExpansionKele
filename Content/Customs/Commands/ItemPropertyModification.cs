@@ -6,7 +6,7 @@ using System.IO;
 using Terraria.DataStructures;
 using System.Linq;
 
-namespace ExpansionKele.Content.Customs
+namespace ExpansionKele.Content.Customs.Commands
 {
     /// <summary>
     /// 物品属性修改数据

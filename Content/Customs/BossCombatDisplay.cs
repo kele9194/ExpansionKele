@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework;
 using Terraria.Localization;
 using Terraria.Chat;
 using Terraria.ID;
+using ExpansionKele.Content.Customs.Commands;
 
 namespace ExpansionKele.Content.Customs
 {
@@ -71,6 +72,11 @@ namespace ExpansionKele.Content.Customs
                     ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral(message), messageColor);
                 }
             }
+        }
+
+        internal static void DisplayBossCombatInfo(int currentBossNPCType, uint combatStartTime, NPC trackedBoss, int playerCountAtStart, object playerDefeat)
+        {
+            throw new NotImplementedException();
         }
     }
 }

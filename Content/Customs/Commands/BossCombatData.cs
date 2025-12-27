@@ -7,7 +7,7 @@ using Terraria.Localization;
 using Terraria.Chat;
 using Terraria.ID;
 
-namespace ExpansionKele.Content.Customs
+namespace ExpansionKele.Content.Customs.Commands
 {
     /// <summary>
     /// 战斗结果类型

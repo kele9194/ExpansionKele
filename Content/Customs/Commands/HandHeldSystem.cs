@@ -1,17 +1,10 @@
-using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
-using System.IO;
-using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 
 namespace ExpansionKele.Content.Customs
 {
-    /// <summary>
-    /// 管理手持物品伤害倍率的系统，用于管理特定mod物品和原版物品的伤害倍率
-    /// </summary>
     [Autoload(Side = ModSide.Both)]
     public class HandHeldSystem : ModSystem
     {
@@ -35,6 +28,17 @@ namespace ExpansionKele.Content.Customs
         {
             VanillaDamageMultiplier = Math.Max(0, multiplier); // 确保值不小于0
             _savedVanillaMultiplier = VanillaDamageMultiplier; // 保存当前设置
+        }
+
+        public static void ClearAllDamageMultipliers()
+        {
+            // 清除所有mod伤害倍率
+            ModDamageMultipliers.Clear();
+            _savedModMultipliers.Clear();
+            
+            // 重置原版伤害倍率
+            VanillaDamageMultiplier = 1.0f;
+            _savedVanillaMultiplier = 1.0f;
         }
 
         public override void OnWorldLoad()
@@ -72,16 +76,13 @@ namespace ExpansionKele.Content.Customs
         // 添加加载数据的方法
         public override void LoadWorldData(TagCompound tag)
         {
-            // 加载mod倍率
-            _savedModMultipliers.Clear();
             if (tag.ContainsKey("ModDamageMultipliers"))
             {
-                var modMultipliers = tag.GetList<TagCompound>("ModDamageMultipliers");
-                foreach (var modData in modMultipliers)
+                var modMultiplierList = tag.GetList<TagCompound>("ModDamageMultipliers");
+                _savedModMultipliers = new Dictionary<string, float>();
+                foreach (var modMultiplierTag in modMultiplierList)
                 {
-                    string modName = modData.GetString("ModName");
-                    float multiplier = modData.GetFloat("Multiplier");
-                    _savedModMultipliers[modName] = multiplier;
+                    _savedModMultipliers[modMultiplierTag.GetString("ModName")] = modMultiplierTag.GetFloat("Multiplier");
                 }
             }
             else
@@ -89,7 +90,6 @@ namespace ExpansionKele.Content.Customs
                 _savedModMultipliers = new Dictionary<string, float>(); // 默认值
             }
 
-            // 加载原版倍率
             if (tag.ContainsKey("VanillaDamageMultiplier"))
             {
                 _savedVanillaMultiplier = tag.GetFloat("VanillaDamageMultiplier");
@@ -99,7 +99,7 @@ namespace ExpansionKele.Content.Customs
                 _savedVanillaMultiplier = 1.0f; // 默认值
             }
 
-            // 应用保存的值
+            // 应用加载的值
             ModDamageMultipliers = new Dictionary<string, float>(_savedModMultipliers);
             VanillaDamageMultiplier = _savedVanillaMultiplier;
         }

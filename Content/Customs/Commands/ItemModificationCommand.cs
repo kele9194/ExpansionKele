@@ -4,9 +4,9 @@ using System.Linq;
 using Terraria;
 using Terraria.Localization;
 using Terraria.ModLoader;
-using static ExpansionKele.Content.Customs.RuntimeItemModificationSystem;
+using static ExpansionKele.Content.Customs.Commands.RuntimeItemModificationSystem;
 
-namespace ExpansionKele.Content.Customs
+namespace ExpansionKele.Content.Customs.Commands
 {
     [Autoload(Side = ModSide.Both)]
     public class ItemModificationCommand : ModCommand

@@ -7,9 +7,8 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace ExpansionKele.Content.Customs
+namespace ExpansionKele.Content.Customs.Commands
 {
-    [Autoload(Side = ModSide.Both)]
     [Autoload(Side = ModSide.Both)]
     public class HandHeldItemDamageCommand : ModCommand
     {
@@ -17,9 +16,9 @@ namespace ExpansionKele.Content.Customs
 
         public override CommandType Type => CommandType.Chat;
 
-        public override string Usage => "/HHbalance h set <float> (for mod-specific items) or /HHbalance van set <float> (for all vanilla items)";
+        public override string Usage => "/HHbalance h set <float> (for mod-specific items) or /HHbalance van set <float> (for all vanilla items) or /HHbalance clear (to reset all multipliers to 1.0)";
 
-        public override string Description => "Set damage multiplier for mod items based on held item's mod, or all vanilla items";
+        public override string Description => "Set damage multiplier for mod items based on held item's mod, or all vanilla items, or clear all multipliers to 1.0";
 
         public override void Action(CommandCaller caller, string input, string[] args)
         {
@@ -31,17 +30,46 @@ namespace ExpansionKele.Content.Customs
             }
 
             // 检查参数数量
-            if (args.Length < 3)
+            if (args.Length < 1)
             {
                 ShowUsage(caller);
                 return;
             }
 
             string target = args[0].ToLower();
-            string operation = args[1].ToLower();
-            string valueStr = args[2];
+            string operation = "";
+            string valueStr = "";
 
-            // 检查是否为set操作
+            if (args.Length >= 3)
+            {
+                operation = args[1].ToLower();
+                valueStr = args[2];
+            }
+
+            // Handle clear command
+            if (target == "clear")
+            {
+                // 清除所有倍率设置，将它们重置为1.0
+                HandHeldSystem.ClearAllDamageMultipliers();
+                
+                // 通知所有玩家
+                string message = "Server: All damage multipliers have been reset to 1.0x";
+                if (Main.netMode == NetmodeID.SinglePlayer)
+                {
+                    Main.NewText(message, Color.Yellow);
+                }
+                else if (Main.netMode == NetmodeID.Server)
+                {
+                    Terraria.Chat.ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral(message), Color.Yellow);
+                }
+                else if (Main.netMode == NetmodeID.MultiplayerClient)
+                {
+                    caller.Reply("Successfully reset all damage multipliers to 1.0x", Color.Green);
+                }
+                return;
+            }
+
+            // 检查是否为set操作（对于非clear命令）
             if (operation != "set")
             {
                 ShowUsage(caller);
@@ -62,8 +90,10 @@ namespace ExpansionKele.Content.Customs
                 return;
             }
 
-            // 检查权限（仅服务器管理员或单人游戏中的玩家可以执行此命令）
-            if (caller.CommandType == CommandType.Console || Main.netMode == NetmodeID.SinglePlayer)
+            // 检查权限（允许所有玩家执行此命令）
+            bool hasPermission = true; // 总是允许执行命令
+            
+            if (hasPermission)
             {
                 if (target == "h")
                 {
@@ -103,16 +133,6 @@ namespace ExpansionKele.Content.Customs
                     {
                         caller.Reply($"Successfully set damage multiplier for all items from mod '{modName}' to {value:F2}x", Color.Green);
                     }
-                    
-                    // 同步到所有客户端
-                    if (Main.netMode == NetmodeID.Server)
-                    {
-                        ModPacket packet = Mod.GetPacket();
-                        packet.Write((byte)HandHeldMessageType.SyncModMultiplier);
-                        packet.Write(modName);
-                        packet.Write(value);
-                        packet.Send();
-                    }
                 }
                 else if (target == "van")
                 {
@@ -133,15 +153,6 @@ namespace ExpansionKele.Content.Customs
                     {
                         caller.Reply($"Successfully set damage multiplier for all vanilla items to {value:F2}x", Color.Green);
                     }
-                    
-                    // 同步到所有客户端
-                    if (Main.netMode == NetmodeID.Server)
-                    {
-                        ModPacket packet = Mod.GetPacket();
-                        packet.Write((byte)HandHeldMessageType.SyncVanillaMultiplier);
-                        packet.Write(value);
-                        packet.Send();
-                    }
                 }
                 else
                 {
@@ -151,7 +162,7 @@ namespace ExpansionKele.Content.Customs
             }
             else
             {
-                SendErrorMessage(caller, "Insufficient permissions. Only server admins can execute this command.");
+                SendErrorMessage(caller, "Insufficient permissions. Only server host can execute this command.");
             }
         }
 
@@ -161,19 +172,25 @@ namespace ExpansionKele.Content.Customs
             {
                 Console.WriteLine("Usage: /HHbalance h set <float>");
                 Console.WriteLine("       /HHbalance van set <float>");
+                Console.WriteLine("       /HHbalance clear");
                 Console.WriteLine("h: Sets damage multiplier for all items from the mod of the held item.");
                 Console.WriteLine("van: Sets damage multiplier for all vanilla items.");
+                Console.WriteLine("clear: Resets all damage multipliers to 1.0x");
                 Console.WriteLine("Example: /HHbalance h set 1.5 (when holding a mod item)");
                 Console.WriteLine("Example: /HHbalance van set 1.5");
+                Console.WriteLine("Example: /HHbalance clear");
             }
             else
             {
                 caller.Reply("Usage: /HHbalance h set <float>", Color.Yellow);
                 caller.Reply("       /HHbalance van set <float>", Color.Yellow);
+                caller.Reply("       /HHbalance clear", Color.Yellow);
                 caller.Reply("h: Sets damage multiplier for all items from the mod of the held item.", Color.Gray);
                 caller.Reply("van: Sets damage multiplier for all vanilla items.", Color.Gray);
+                caller.Reply("clear: Resets all damage multipliers to 1.0x", Color.Gray);
                 caller.Reply("Example: /HHbalance h set 1.5 (when holding a mod item)", Color.Gray);
                 caller.Reply("Example: /HHbalance van set 1.5", Color.Gray);
+                caller.Reply("Example: /HHbalance clear", Color.Gray);
             }
         }
 
@@ -190,9 +207,5 @@ namespace ExpansionKele.Content.Customs
         }
     }
 
-    public enum HandHeldMessageType : byte
-    {
-        SyncModMultiplier,
-        SyncVanillaMultiplier
-    }
+    // 删除枚举，因为我们不再需要网络同步
 }

@@ -10,9 +10,9 @@ namespace ExpansionKele.Content.Items.Accessories
         public override string LocalizationCategory => "Items.Accessories";
         // 定义常量
         private const float MeleeDamageBonus = 0.15f; // 15% 近战伤害加成
-        private const float AttackSpeedBonus = 0.18f; // 10% 攻击速度加成
+        private const float AttackSpeedBonus = 0.18f; // 18% 攻击速度加成
         private const float DamageToSpeedRatio = 0.3f; // 每1%额外近战伤害增加的攻击速度百分比
-        private const float MeleeScaleIncrease = 1f; //近战武器尺寸增加
+        private const float MeleeScaleIncrease = 0.5f; //近战武器尺寸增加50%
 
         public override void SetDefaults()
         {
@@ -96,7 +96,7 @@ namespace ExpansionKele.Content.Items.Accessories
     }
 
     // ... existing code ...
-    public class MeleeScalePlayer : ModPlayer
+     public class MeleeScalePlayer : ModPlayer
     {
         public float meleeScaleIncrease = 0f;
         public bool hasStarryWarriorEmblem = false;
@@ -118,7 +118,7 @@ namespace ExpansionKele.Content.Items.Accessories
 
             if (Player.HeldItem != null && Player.HeldItem.damage > 0)
             {
-                if (meleeScaleIncrease > 0f)
+                if (hasStarryWarriorEmblem && meleeScaleIncrease > 0f)
                 {
                     // 只有当武器改变时才重置尺寸
                     if (Player.HeldItem.scale != originalScale + meleeScaleIncrease &&
@@ -136,14 +136,17 @@ namespace ExpansionKele.Content.Items.Accessories
                 else
                 {
                     // 如果没有加成，恢复原始尺寸
-                    if (Player.HeldItem.scale != originalScale && originalScale != 1f)
+                    if (Player.HeldItem.scale != originalScale)
                     {
                         Player.HeldItem.scale = originalScale;
-                        originalScale = 1f;
                     }
                 }
             }
-            meleeScaleIncrease = 0f;
+            // 重置加成值，但保留hasStarryWarriorEmblem标志供OnHitNPCWithItem使用
+            if (!hasStarryWarriorEmblem)
+            {
+                meleeScaleIncrease = 0f;
+            }
         }
         
         public override void OnHitNPCWithItem(Item item, NPC target, NPC.HitInfo hit, int damageDone)
