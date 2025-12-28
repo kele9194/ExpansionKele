@@ -362,7 +362,9 @@ FullMoonAmulet: {
 ChromiumShield: {
 	Tooltip:
 		'''
-		14%防御前减伤(乘算)
+		12%防御前减伤(乘算)
+		40 EC护盾
+		4 EC护盾恢复速度
 		免疫击退
 		'''
 	DisplayName: 铬钢盾

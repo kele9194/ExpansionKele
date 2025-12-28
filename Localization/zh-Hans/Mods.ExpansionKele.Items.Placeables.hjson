@@ -32,3 +32,9 @@ ChromiumOre: {
 
 ChromiumOreTile.MapEntry: 铬矿
 ChromiumBarTile.MapEntry: 铬钢锭
+// PsionicOreTile.MapEntry: Mods.ExpansionKele.Items.Placeables.PsionicOreTile.MapEntry
+
+PsionicOre: {
+	// DisplayName: Psionic Ore
+	// Tooltip: ""
+}

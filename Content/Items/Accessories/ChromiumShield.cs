@@ -24,7 +24,11 @@ namespace ExpansionKele.Content.Items.Accessories
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
             // 添加14%防御前减伤
-            ExpansionKeleTool.MultiplyPreDefenseDamageReduction(player, 0.86f);
+            ExpansionKeleTool.MultiplyPreDefenseDamageReduction(player, 0.88f);
+            ECShieldSystem ecshield = player.GetModPlayer<ECShieldSystem>();
+            ecshield.ShieldActive = true;
+            ecshield.MaxShieldModifier+=4f;
+            ecshield.ShieldRegenModifier*=4f;
             player.noKnockback=true;
         }
 

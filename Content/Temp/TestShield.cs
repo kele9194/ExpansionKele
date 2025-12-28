@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework;
 using Terraria.ID;
 using Terraria.ModLoader;
 using ExpansionKele.Content.Customs;
-
+using ExpansionKele.Content.Customs.ECShield;
 
 namespace ExpansionKele.Content.Temp
 {
@@ -29,42 +29,31 @@ namespace ExpansionKele.Content.Temp
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            ExpansionKeleTool.AddDamageBonus(player,0.5f);
-            ExpansionKeleTool.AddDamageReduction(player,0.2f);
+            // ECShieldSystem ecShield = player.GetModPlayer<ECShieldSystem>();
             
-            // 使用DamageTrackingHelper获取连续伤害值并应用增伤效果
-            long consecutiveDamage = DamageTrackingHelper.GetConsecutiveDamage(player,120);
-            if(consecutiveDamage>10000)
-            {
-                consecutiveDamage=10000;
-            }
-            //Main.NewText("连续伤害:"+consecutiveDamage);
+            // // 激活EC护盾系统
+            // ecShield.ShieldActive = true;
             
-            // 应用增伤效果
+            // // 设置护盾最大值为100
+            // ecShield.MaxShieldModifier *= 0.2f;
             
-            if (consecutiveDamage >= 1500)
-            {
-                ExpansionKeleTool.MultiplyDamageBonus(player, 2.0f); // 增加150%乘算增伤
-                player.statDefense*=1.5f;
-            }
-            if (consecutiveDamage >= 3000)
-            {
-                ExpansionKeleTool.AddDamageBonus(player, 3.0f); // 增加300%乘算增伤
-            }
+            // // 设置基础恢复率为0.2（每秒恢复护盾最大值的20%）
+            // ecShield.ShieldRegenModifier *= 10f;
+            
         }
         public override void ModifyTooltips(List<TooltipLine> tooltips)
         {
-            var tooltipData = new Dictionary<string, string>
-            {
-                //{ "Defense", $"防御力 +{Item.defense}" },
-				{"MaxSpeedBonus", $"测试用"},
+            // var tooltipData = new Dictionary<string, string>
+            // {
+            //     //{ "Defense", $"防御力 +{Item.defense}" },
+			// 	{"MaxSpeedBonus", $"获得100点EC护盾\n护盾恢复速度+20%"},
                 
-            };
+            // };
 
-            foreach (var kvp in tooltipData)
-            {
-                tooltips.Add(new TooltipLine(Mod, kvp.Key, kvp.Value));
-            }
+            // foreach (var kvp in tooltipData)
+            // {
+            //     tooltips.Add(new TooltipLine(Mod, kvp.Key, kvp.Value));
+            // }
         }
         public override void AddRecipes()
         {

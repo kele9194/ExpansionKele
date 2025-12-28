@@ -32,3 +32,9 @@ ChromiumOre: {
 
 ChromiumOreTile.MapEntry: Chromium Ore
 ChromiumBarTile.MapEntry: Chromium Bar
+PsionicOreTile.MapEntry: Mods.ExpansionKele.Items.Placeables.PsionicOreTile.MapEntry
+
+PsionicOre: {
+	DisplayName: Psionic Ore
+	Tooltip: ""
+}

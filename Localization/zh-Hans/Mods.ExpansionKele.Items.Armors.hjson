@@ -4,7 +4,7 @@ MoonLeggings: {
 		5%增加暴击率和20%节省弹药几率
 		8%增加召唤伤害和15%增加召唤速度
 		'''
-	DisplayName: 月亮护腿
+	DisplayName: 望月护腿
 }
 
 MoonHelmet: {
@@ -13,7 +13,7 @@ MoonHelmet: {
 		+4%特殊伤害乘数和5%增加远程暴击率
 		14%减少魔力消耗和25%增加鞭子范围
 		'''
-	DisplayName: 月亮头盔
+	DisplayName: 望月头盔
 	SetBonus:
 		'''
 		增加12点武器伤害
@@ -39,5 +39,5 @@ MoonBreastplate: {
 		+8%特殊伤害乘数和12%增加近战速度
 		增加80最大法力值和3个最大召唤物数量
 		'''
-	DisplayName: 月亮胸甲
+	DisplayName: 望月胸甲
 }

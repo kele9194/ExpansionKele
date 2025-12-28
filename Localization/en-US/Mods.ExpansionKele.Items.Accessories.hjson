@@ -363,7 +363,9 @@ FullMoonAmulet: {
 ChromiumShield: {
 	Tooltip:
 		'''
-		14% Pre-defense damage reduction(*0.86)
+		12% Pre-defense damage reduction(*0.88)
+		40 ECshield
+		4 ECshield regen
 		knockback resistance
 		'''
 	DisplayName: Chromium Shield
