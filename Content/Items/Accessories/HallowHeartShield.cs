@@ -31,8 +31,8 @@ namespace ExpansionKele.Content.Items.Accessories
             //Item.SetNameOverride(setNameOverride);
             Item.width = 24;
             Item.height = 28;
-            Item.value = Item.buyPrice(10);
-            Item.rare = ItemRarityID.Green;
+            Item.value = ItemUtils.CalculateValueFromRecipes(this);
+            Item.rare = ItemUtils.CalculateRarityFromRecipes(this); 
             Item.accessory = true;
 
             

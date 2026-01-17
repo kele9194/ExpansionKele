@@ -7,9 +7,9 @@ namespace ExpansionKele.Content.Customs.ECShield
     /// </summary>
     public class ShieldStateManagement
     {
-        private readonly ShieldCore _core;
+        private readonly ECShieldSystem _core;
 
-        public ShieldStateManagement(ShieldCore core)
+        public ShieldStateManagement(ECShieldSystem core)
         {
             _core = core;
         }
@@ -33,20 +33,20 @@ namespace ExpansionKele.Content.Customs.ECShield
             // 根据当前护盾值更新状态
             if (_core.IsBroken)
             {
-                _core.ShieldState = ShieldState.Broken;
+                _core.CurrentShieldState = ECShieldSystem.ShieldState.Broken;
             }
             else if (_core.IsRegenerating)
             {
-                _core.ShieldState = ShieldState.InRegen;
+                _core.CurrentShieldState = ECShieldSystem.ShieldState.InRegen;
             }
             else if (_core.CurrentShield >= _core.MaxShield)
             {
-                _core.ShieldState = ShieldState.Full;
+                _core.CurrentShieldState = ECShieldSystem.ShieldState.Full;
             }
             else
             {
                 // 如果护盾未满且不在恢复中，设置为冷却状态
-                _core.ShieldState = ShieldState.Cooldown;
+                _core.CurrentShieldState = ECShieldSystem.ShieldState.Cooldown;
             }
         }
 // ... existing code ...
@@ -70,7 +70,7 @@ namespace ExpansionKele.Content.Customs.ECShield
                 if (_core.CurrentShield < _core.MaxShield)
                 {
                     _core.IsRegenerating = true;
-                    float regenAmount = _core.ShieldRegenBase * _core.ShieldStrength * (1f / 60f); // 每帧恢复量
+                    float regenAmount = _core.ShieldRegen * _core.ShieldStrength * (1f / 60f); // 每帧恢复量
                     _core.CurrentShield = System.Math.Min(_core.MaxShield, _core.CurrentShield + regenAmount);
                     
                     // 如果护盾满了，停止恢复
@@ -78,7 +78,7 @@ namespace ExpansionKele.Content.Customs.ECShield
                     {
                         _core.CurrentShield = _core.MaxShield;
                         _core.IsRegenerating = false;
-                        _core.ShieldState = ShieldState.Full;
+                        _core.CurrentShieldState = ECShieldSystem.ShieldState.Full;
                     }
                 }
                 else

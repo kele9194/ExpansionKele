@@ -15,8 +15,8 @@ namespace ExpansionKele.Content.Items.Accessories
         {
             Item.width = 24;
             Item.height = 28;
-            Item.value = Item.sellPrice(0, 1, 0, 0);
-            Item.rare = ItemRarityID.Green;
+            Item.value = ItemUtils.CalculateValueFromRecipes(this);
+            Item.rare = ItemUtils.CalculateRarityFromRecipes(this); 
             Item.accessory = true;
             Item.defense = 2;
         }
@@ -27,8 +27,8 @@ namespace ExpansionKele.Content.Items.Accessories
             ExpansionKeleTool.MultiplyPreDefenseDamageReduction(player, 0.88f);
             ECShieldSystem ecshield = player.GetModPlayer<ECShieldSystem>();
             ecshield.ShieldActive = true;
-            ecshield.MaxShieldModifier+=4f;
-            ecshield.ShieldRegenModifier*=4f;
+            ecshield.MaxShieldModifier.Base+=50f;
+            ecshield.ShieldRegenModifier.Base+=5f;
             player.noKnockback=true;
         }
 

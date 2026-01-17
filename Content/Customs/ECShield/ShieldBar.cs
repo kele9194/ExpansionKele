@@ -151,14 +151,16 @@ internal class PlayerAboveUIElement : UIElement
         if(filledWidth > 0)
         {
             Rectangle barFill = new Rectangle((int)screenPos.X +texture.Width/2, (int)screenPos.Y - barHeight/2 , filledWidth, barHeight);
-            spriteBatch.Draw(TextureAssets.MagicPixel.Value, barFill, Color.Green);
+            // 根据填充比例计算颜色，从红色(0,1,0)到绿色(0,255,0)，使用Lerp函数插值
+            Color fillColor = new Color((byte)(255 * (1 - fillRatio)), (byte)(255 * fillRatio), 0);
+            spriteBatch.Draw(TextureAssets.MagicPixel.Value, barFill, fillColor);
         }
 
         string shieldText = $"{ecShield.CurrentShield:F0} / {ecShield.MaxShield:F0}"; // 修改为整数格式
         Vector2 textSize = FontAssets.MouseText.Value.MeasureString(shieldText);
         Vector2 textPosition = new Vector2(
             (int)screenPos.X + texture.Width / 2 + barWidth / 2 - textSize.X / 2, // 水平居中
-            (int)screenPos.Y - barHeight / 2 // 在进度条上方30像素
+            (int)screenPos.Y - barHeight / 2 // 在进度条上方0像素
         );
 
         // 绘制文字阴影以提高可读性

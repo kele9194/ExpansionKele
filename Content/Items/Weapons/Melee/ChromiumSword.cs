@@ -5,6 +5,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using ExpansionKele.Content.Customs;
 using System;
+using ExpansionKele.Content.Projectiles.MeleeProj;
 
 namespace ExpansionKele.Content.Items.Weapons.Melee
 {
@@ -31,75 +32,44 @@ namespace ExpansionKele.Content.Items.Weapons.Melee
             Item.rare = ItemUtils.CalculateRarityFromRecipes(this); 
             Item.UseSound = SoundID.Item1;
             Item.autoReuse = true;
-        }
-
-        public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
-        {
-            // 削减敌人2点防御
-            target.defense = Math.Max(0, target.defense - 2);
             
-            // 施加切割减益3秒
-            target.AddBuff(ModContent.BuffType<Buff.SlicingBuff>(), 180); // 3秒 = 180 ticks
-
-            base.OnHitNPC(player, target, hit, damageDone);
+            // 修改为能量剑模式
+            Item.shoot = ModContent.ProjectileType<ChromiumSwordProjectile>();
+            Item.shootsEveryUse = true;
+            Item.noMelee = true; // 禁用直接接触伤害，使用弹幕代替
         }
 
-        public override void MeleeEffects(Player player, Rectangle hitbox)
-        {
-            // 有概率反弹弹幕
-            if (Main.rand.NextBool(2)) // 50%
-            {
-                TryReflectProjectiles(player, hitbox);
-            }
-        }
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback) {
+			float adjustedItemScale = player.GetAdjustedItemScale(Item); // Get the melee scale of the player and item.
+			Projectile.NewProjectile(source, player.MountedCenter, new Vector2(player.direction, 0f), type, damage, knockback, player.whoAmI, player.direction * player.gravDir, player.itemAnimationMax, adjustedItemScale);
+			NetMessage.SendData(MessageID.PlayerControls, number: player.whoAmI); // Sync the changes in multiplayer.
 
-        private void TryReflectProjectiles(Player player, Rectangle hitbox)
-        {
-            // 遍历所有弹幕
-            for (int i = 0; i < Main.maxProjectiles; i++)
-            {
-                Projectile proj = Main.projectile[i];
-                if (proj.active && proj.hostile && !proj.friendly)
-                {
-                    // 检查弹幕是否在武器范围内
-                    Rectangle projRect = new Rectangle((int)proj.position.X, (int)proj.position.Y, proj.width, proj.height);
-                    if (hitbox.Intersects(projRect))
-                    {
-                        // 50%概率反弹弹幕
-                        if (Main.rand.NextBool(2))
-                        {
-                            // 将敌对弹幕转换为友方弹幕
-                            proj.hostile = false;
-                            proj.friendly = true;
+			return base.Shoot(player, source, position, velocity, type, damage, knockback);
+		}
 
-                            // 反转弹幕速度方向
-                            proj.velocity = -proj.velocity;
+        // 删除原来的OnHitNPC方法，因为它现在由弹幕处理
+        // public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
+        // {
+        //     // 削减敌人2点防御
+        //     target.defense = Math.Max(0, target.defense - 2);
+        //     
+        //     // 施加切割减益3秒
+        //     target.AddBuff(ModContent.BuffType<Buff.SlicingBuff>(), 180); // 3秒 = 180 ticks
+        //
+        //     base.OnHitNPC(player, target, hit, damageDone);
+        // }
 
-                            // 设置弹幕所有者为玩家
-                            proj.owner = player.whoAmI;
+        // 删除原来的MeleeEffects方法，能量剑没有弹幕反弹效果
+        // public override void MeleeEffects(Player player, Rectangle hitbox)
+        // {
+        //     // 有概率反弹弹幕
+        //     if (Main.rand.NextBool(2)) // 50%
+        //     {
+        //         TryReflectProjectiles(player, hitbox);
+        //     }
+        // }
 
-                            // 添加视觉效果
-                            for (int j = 0; j < 10; j++)
-                            {
-                                Dust dust = Dust.NewDustDirect(
-                                    proj.position,
-                                    proj.width,
-                                    proj.height,
-                                    DustID.MagicMirror,
-                                    0,
-                                    0,
-                                    100,
-                                    default(Color),
-                                    1.2f
-                                );
-                                dust.noGravity = true;
-                                dust.velocity *= 2f;
-                            }
-                        }
-                    }
-                }
-            }
-        }
+        // 删除原来的TryReflectProjectiles方法
 
         public override void AddRecipes()
         {

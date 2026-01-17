@@ -424,3 +424,23 @@ AutoAimingSniperRifle: {
 		'''
 	DisplayName: Auto-Aiming Sniper Rifle
 }
+
+SpectreSword: {
+	DisplayName: Spectre Sword
+	Tooltip:
+		'''
+		Holding without using accumulates energy, increasing blade size and damage
+		Right-click directly produces a large blade, causing directly larger damage
+		'''
+}
+
+ShroomiteSword: {
+	Tooltip:
+		'''
+		Generates mushrooms around the player while swinging that hover in air
+		Melee attacks mark enemies, dealing extra damage to unmarked enemies
+		More mushroom-marked enemies (see charge bar) generate more mushrooms when attacking
+		Floating mushrooms track and attack mushroom-marked enemies within range
+		'''
+	DisplayName: Shroomite Sword
+}

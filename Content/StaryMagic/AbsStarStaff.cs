@@ -11,8 +11,10 @@ using ExpansionKele.Content.Customs;
 namespace ExpansionKele.Content.StaryMagic
 {
     
+    
     public abstract class AbsStarStaff : ModItem
 {
+
     protected abstract string setNameOverride { get; }
     
     public override string Texture => "ExpansionKele/Content/StaryMagic/StarStaffs";
@@ -31,6 +33,7 @@ namespace ExpansionKele.Content.StaryMagic
     public override void SetStaticDefaults()
 	{
 		ItemID.Sets.ItemsThatAllowRepeatedRightClick[base.Item.type] = true;
+        Item.staff[Item.type] = true;
 	}
     public override void SetDefaults()
     {

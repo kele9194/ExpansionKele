@@ -3,6 +3,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using System.Collections.Generic;
 using ExpansionKele.Content.Items.Placeables;
+using ExpansionKele.Content.Customs;
 
 namespace ExpansionKele.Content.Items.Accessories
 {
@@ -18,8 +19,8 @@ namespace ExpansionKele.Content.Items.Accessories
             //Item.SetNameOverride("磨刀石");
             Item.width = 24;
             Item.height = 24;
-            Item.value = Item.buyPrice(0, 10, 0, 0);
-            Item.rare = ItemRarityID.LightPurple;
+            Item.value = ItemUtils.CalculateValueFromRecipes(this);
+            Item.rare = ItemUtils.CalculateRarityFromRecipes(this); 
             Item.accessory = true;
         }
 

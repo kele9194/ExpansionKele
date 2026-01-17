@@ -9,8 +9,8 @@ namespace ExpansionKele.Content.Items.Accessories
 {
     public class AttackSpeedBooster : ModItem
     {
-        public const float AttackSpeedReduction = 2f/3f; // 50% 使用时间减少
-        public const float DamageMultiplierBase = 1.125f; // 1.25 倍基础乘算增伤
+        public static float AttackSpeedBoostSpeed = 1.5f;// 50% 使用时间减少
+        public static float AttackSpeedBoostDamage = 0.75f;// 0.75 倍基础乘算增伤
         public override string LocalizationCategory => "Items.Accessories";
 
         public override void SetDefaults()
@@ -18,17 +18,21 @@ namespace ExpansionKele.Content.Items.Accessories
             //Item.SetNameOverride("攻速手套");
             Item.width = 24;
             Item.height = 24;
-            Item.value = Item.buyPrice(0, 15, 0, 0);
-            Item.rare = ItemRarityID.Pink;
+            Item.value = ItemUtils.CalculateValueFromRecipes(this);
+            Item.rare = ItemUtils.CalculateRarityFromRecipes(this); 
             Item.accessory = true;
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
+            if (player.GetModPlayer<SlowSpeedGlovePlayer>().SlowSpeedGloveEquipped)
+            {
+                return;
+            }
             // 为装备此饰品的玩家添加修饰器
             player.GetModPlayer<AttackSpeedBoosterPlayer>().AttackSpeedBoosterEquipped = true;
-            player.GetModPlayer<AttackSpeedBoosterPlayer>().attackSpeedBoosterMultiplier = 1/AttackSpeedReduction;
-            ExpansionKeleTool.MultiplyDamageBonus(player, AttackSpeedReduction*AttackSpeedBooster.DamageMultiplierBase);
+            player.GetModPlayer<AttackSpeedBoosterPlayer>().attackSpeedBoosterMultiplier = AttackSpeedBoostSpeed;
+            ExpansionKeleTool.MultiplyDamageBonus(player, AttackSpeedBoostDamage);
         }
 
         // ... existing code ...
@@ -40,8 +44,8 @@ namespace ExpansionKele.Content.Items.Accessories
                 tooltips.Add(new TooltipLine(Mod, "DetailedInfo", "[c/00FF00:详细信息:]"));
                 var tooltipData = new Dictionary<string, string>
                 {
-                    {"AttackSpeedBoostSpeed", $"[c/00FF00:攻击速度增加 {1/AttackSpeedBooster.AttackSpeedReduction*100}%]"},
-                    {"AttackSpeedBoostDamage", $"[c/00FF00:伤害增加 {(AttackSpeedReduction*DamageMultiplierBase*100):F0}%]"}
+                    {"AttackSpeedBoostSpeed", $"[c/00FF00:攻击速度增加 {(AttackSpeedBoostSpeed-1)*100}%]"},
+                    {"AttackSpeedBoostDamage", $"[c/00FF00:伤害增加 {(AttackSpeedBoostDamage*100):F0}%]"}
                 };
 
                 foreach (var kvp in tooltipData)

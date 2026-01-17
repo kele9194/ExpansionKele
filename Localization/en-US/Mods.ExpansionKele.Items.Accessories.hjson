@@ -14,9 +14,9 @@ StarryWarriorEmblem: {
 		12% increased melee damage and 8% increased melee speed
 		0.3% increased melee speed every 1% extra melee damage
 		allow auto swing for melee weapons，Scale of Melee weapon turned 1.5x
-		Hit enemies by blade will heal player and increase life regen speed
-		use it to change mode between melee-speed mode and melee-nospeed mode
-		the melee-nospeed mode hasn't finished yet
+		Hit enemies nearby will heal player and increase life regen speed
+		For meleeNoSpeed weapons
+		provide extra defense and special endurance according to meleespeed
 		when multiple "StarryXXXXEmblem" are equipped
 		Only the first equipped "StarryXXXXEmblem" is effective 
 		'''
@@ -147,9 +147,9 @@ MoonWarriorEmblem: {
 		'''
 		15% increased melee damage and 12% increased melee speed
 		0.26% increased melee speed every 1% extra melee damage
-		allow auto swing for melee weapons
-		use it to change mode between melee-speed mode and melee-nospeed mode
-		the melee-nospeed mode hasn't finished yet
+		allow auto swing for melee weapons，Scale of Melee weapon turned 1.15x
+		For meleeNoSpeed weapons
+		provide extra defense and special endurance according to meleespeed
 		when multiple "MoonXXXXEmblem" are equipped
 		Only the first equipped "MoonXXXXEmblem" is effective 
 		'''
@@ -290,6 +290,9 @@ AttackSpeedBooster: {
 		'''
 		150% base attack speed multiplier for the player
 		player's damage will be 75% of the origin
+		accessories slots take effect in order;
+		if both attack speed gloves and slow speed gloves are equipped
+		only the first one in the inventory will take effect.
 		'''
 	DisplayName: Attack Speed Glove
 }
@@ -383,4 +386,21 @@ PainKiller: {
 	DisplayName: Pain Killer
 	ZenithText: GFB change :resisted damage up to 30
 	FTWText: FTW change :75% chance to resist damage up to 60, 25% chance to take 60 more damage
+}
+
+SlowSpeedGlove: {
+	Tooltip:
+		'''
+		70% base attack speed multiplier for the player
+		player's damage will be 165% of the origin
+		accessories slots take effect in order;
+		if both attack speed gloves and slow speed gloves are equipped
+		only the first one in the accessory slots will take effect.
+		'''
+	DisplayName: Slow Speed Glove
+	TooltipsWithCalamity:
+		'''
+		Calamity adaptation:Decrease stealth regen by 45%
+		tips:In Calamity ,the decreased stealth regen will be partly increases stealth attack damage
+		'''
 }

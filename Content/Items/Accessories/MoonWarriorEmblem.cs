@@ -4,6 +4,8 @@ using Terraria.ModLoader;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using ExpansionKele.Content.Items.Placeables;
+using ExpansionKele.Content.Customs;
+using System;
 
 namespace ExpansionKele.Content.Items.Accessories
 {
@@ -14,17 +16,17 @@ namespace ExpansionKele.Content.Items.Accessories
         private const float MeleeDamageBonus = 0.12f; // 12% 近战伤害加成
         private const float AttackSpeedBonus = 0.08f; // 8% 攻击速度加成
         private const float DamageToSpeedRatio = 0.26f; // 每1%额外近战伤害增加的攻击速度百分比
-        private const float SpeedModeMultiplier = 1.0f; // 攻速模式下额外攻速收益倍率
-        private const float NonSpeedModeMultiplier = 0.4f; // 非攻速模式下额外攻速收益倍率
-        private const float NonSpeedModeConversionRate = 0.5f; // 非攻速模式下转换比例
+
+        private const float AttackSpeedToDRbonus = 0.01f/0.05f;
+        private const float AttackSpeedToDEFBonus = 1f/0.05f;
 
         public override void SetDefaults()
         {
             //Item.SetNameOverride("战士满月徽章");
             Item.width = 24;
             Item.height = 24;
-            Item.value = Item.buyPrice(0, 10, 0, 0);
-            Item.rare = ItemRarityID.Pink;
+            Item.value = ItemUtils.CalculateValueFromRecipes(this);
+            Item.rare = ItemUtils.CalculateRarityFromRecipes(this); 
             Item.accessory = true;
             Item.useTime = 30;
             Item.useAnimation = 30;
@@ -33,20 +35,7 @@ namespace ExpansionKele.Content.Items.Accessories
 
         public override bool? UseItem(Player player)
         {
-            if (player.whoAmI == Main.myPlayer)
-            {
-                ExpansionKelePlayer modPlayer = player.GetModPlayer<ExpansionKelePlayer>();
-                modPlayer.moonWarriorEmblemSpeedMode = !modPlayer.moonWarriorEmblemSpeedMode;
-                
-                if (modPlayer.moonWarriorEmblemSpeedMode)
-                {
-                    Main.NewText("已切换至攻速模式", Color.Green);
-                }
-                else
-                {
-                    Main.NewText("已切换至非攻速模式", Color.Orange);
-                }
-            }
+            // 移除模式切换功能，保留UseItem方法但不做任何操作
             return true;
         }
 
@@ -71,25 +60,22 @@ namespace ExpansionKele.Content.Items.Accessories
             float additionalMeleeDamage = player.GetDamage(DamageClass.Melee).Additive - 1f;
             additionalMeleeDamage+=player.GetDamage(DamageClass.Generic).Additive-1;
             
-            if (modPlayer.moonWarriorEmblemSpeedMode)
-            {
-                // 攻速模式
-                player.GetAttackSpeed(DamageClass.Melee) += additionalMeleeDamage * DamageToSpeedRatio * SpeedModeMultiplier;
-            }
-            else
-            {
-                // 非攻速模式
-                // 减少额外攻速收益到原来的0.4倍
-                player.GetAttackSpeed(DamageClass.Melee) += additionalMeleeDamage * DamageToSpeedRatio * NonSpeedModeMultiplier;
-                
-                // 将剩余的0.6倍中的一半转化为额外近战伤害加成
-                float convertedDamageBonus = additionalMeleeDamage * DamageToSpeedRatio * (1 - NonSpeedModeMultiplier) * NonSpeedModeConversionRate;
-                player.GetDamage(DamageClass.Melee) += convertedDamageBonus;
-            }
+            // 总是应用完整的攻击速度加成（移除模式切换功能）
+            player.GetAttackSpeed(DamageClass.Melee) += additionalMeleeDamage * DamageToSpeedRatio;
             
             // 允许自动挥舞
             player.autoReuseGlove = true;
+            
+            // 对非攻速武器的补偿机制
+            if(player.HeldItem.DamageType == DamageClass.MeleeNoSpeed){
+                float extraMeleeSpeed = StarryWarriorEmblem.GetExtraMaxMeleeSpeed(player);
+                float damageReductionMultiplier = Math.Max(0.01f, 1 - (extraMeleeSpeed * AttackSpeedToDRbonus)); // 确保不会变成负数
+                player.GetModPlayer<CustomDamageReductionPlayer>().MulticustomDamageReduction(damageReductionMultiplier);
+                player.statDefense+=(int)(extraMeleeSpeed * AttackSpeedToDEFBonus);
+            }
         }
+
+       
 
         // ... existing code ...
         public override void ModifyTooltips(List<TooltipLine> tooltips)
@@ -97,23 +83,16 @@ namespace ExpansionKele.Content.Items.Accessories
             if (ModContent.GetInstance<ExpansionKeleConfig>().EnableDetailedTooltips)
             {
                 ExpansionKelePlayer modPlayer = Main.LocalPlayer.GetModPlayer<ExpansionKelePlayer>();
-                string modeText = modPlayer.moonWarriorEmblemSpeedMode ? "攻速模式" : "非攻速模式";
+                string modeText = "固定模式（移除了切换功能）"; // 显示当前模式状态
                 var tooltipData = new Dictionary<string, string>
                 {
                     {"MoonWarriorEmblemDamage", $"[c/00FF00:+{MeleeDamageBonus * 100}%近战伤害]"},
                     {"MoonWarriorEmblemSpeed", $"[c/00FF00:+{AttackSpeedBonus * 100}%攻击速度]"},
                     {"MoonWarriorEmblemBonus", $"[c/00FF00:每1%额外近战伤害增加{DamageToSpeedRatio}%攻击速度]"},
-                    {"MoonWarriorEmblemMode", $"[c/00FF00:当前模式: {modeText} (手持使用以切换)]"},
+                    {"MoonWarriorEmblemMode", $"[c/00FF00:当前模式: {modeText}]"},
                     {"MoonWarriorEmblemAuto", "[c/00FF00:允许自动挥舞]"},
                     {"WARNING", "[c/800000:注意：多个满月徽章装备将只有第一个生效]"}
                 };
-                
-                // 如果是非攻速模式，添加额外说明
-                if (!modPlayer.moonWarriorEmblemSpeedMode)
-                {
-                    tooltipData.Add("MoonWarriorEmblemNonSpeedDetail1", "[c/00FF00:非攻速模式下额外攻击造成的近战攻速收益减少为原来的40%]");
-                    tooltipData.Add("MoonWarriorEmblemNonSpeedDetail2", "[c/00FF00:并将剩余60%攻速收益的一半转化为额外近战伤害加成]");
-                }
 
                 foreach (var kvp in tooltipData)
                 {
@@ -131,6 +110,31 @@ namespace ExpansionKele.Content.Items.Accessories
             recipe.AddIngredient(ModContent.ItemType<Whetstone>(), 1);
             recipe.AddTile(TileID.TinkerersWorkbench);
             recipe.Register();
+        }
+    }
+
+    public class ScaleModifierGlobalItemSmaller : GlobalItem
+    {
+        public override  void ModifyItemScale(Item item, Player player, ref float scale)
+        {
+            ExpansionKelePlayer modPlayer = player.GetModPlayer<ExpansionKelePlayer>();
+            if (modPlayer.activeMoonEmblemType==ModContent.ItemType<MoonWarriorEmblem>() &&
+                (item.DamageType == DamageClass.Melee || IsTrueMelee(item)))
+            {
+                scale *= 1.15f;
+            }
+            
+        }
+
+        public static bool IsTrueMelee(Item item)
+        {
+            // 如果启用了Calamity模组，检查是否为真近战
+            if (ExpansionKele.calamity != null)
+            {
+                var trueMeleeDamageClass = ExpansionKele.calamity.Find<DamageClass>("TrueMeleeDamageClass");
+                return item.DamageType == trueMeleeDamageClass;
+            }
+            return false;
         }
     }
 }

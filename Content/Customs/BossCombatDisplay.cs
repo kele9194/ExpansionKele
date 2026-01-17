@@ -14,6 +14,11 @@ namespace ExpansionKele.Content.Customs
     /// </summary>
     public static class BossCombatDisplay
     {
+        // 添加一个静态变量来跟踪最后发送的消息，防止重复发送
+        private static string _lastMessage = "";
+        private static long _lastMessageTimestamp = 0;
+        private static readonly object _lockObject = new object(); // 线程安全锁
+
         /// <summary>
         /// 显示Boss战信息到聊天框
         /// </summary>
@@ -52,6 +57,18 @@ namespace ExpansionKele.Content.Customs
 
             string message = $"Boss: {Lang.GetNPCName(bossNPCType)}, 战斗时长: {durationSeconds:F2}秒, Boss剩余血量: {healthPercent:F2}%, 玩家人数: {playerCountAtStart}, 结果: {resultText}";
             
+            // 防止重复消息：检查是否与上一条消息相同
+            lock (_lockObject)
+            {
+                if (_lastMessage == message && (DateTimeOffset.UtcNow.ToUnixTimeMilliseconds() - _lastMessageTimestamp) < 2000) // 2.45f秒内不重复发送
+                {
+                    return; // 如果消息相同且时间间隔小于1秒，则不发送
+                }
+
+                _lastMessage = message;
+                _lastMessageTimestamp = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
+            }
+
             // 在单人游戏中显示给本地玩家，在多人游戏中可能需要网络消息
             if (Main.netMode == NetmodeID.SinglePlayer) // 单人模式
             {
@@ -74,9 +91,10 @@ namespace ExpansionKele.Content.Customs
             }
         }
 
-        internal static void DisplayBossCombatInfo(int currentBossNPCType, uint combatStartTime, NPC trackedBoss, int playerCountAtStart, object playerDefeat)
-        {
-            throw new NotImplementedException();
-        }
+        // Deleted:internal static void DisplayBossCombatInfo(int currentBossNPCType, uint combatStartTime, NPC trackedBoss, int playerCountAtStart, object playerDefeat)
+        // Deleted:{
+        // Deleted:    // 删除这个方法，因为它是一个重复的内部方法，且实现不完整
+        // Deleted:    // 实际的功能应该由上面的公共方法提供
+        // Deleted:}
     }
 }

@@ -3,6 +3,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using System.Collections.Generic;
 using ExpansionKele.Content.Items.Placeables;
+using ExpansionKele.Content.Customs;
 
 namespace ExpansionKele.Content.Items.Accessories
 {
@@ -21,8 +22,8 @@ namespace ExpansionKele.Content.Items.Accessories
             //Item.SetNameOverride("游侠满月徽章");
             Item.width = 24;
             Item.height = 24;
-            Item.value = Item.buyPrice(0, 5, 0, 0);
-            Item.rare = ItemRarityID.Pink;
+            Item.value = ItemUtils.CalculateValueFromRecipes(this);
+            Item.rare = ItemUtils.CalculateRarityFromRecipes(this); 
             Item.accessory = true;
         }
 

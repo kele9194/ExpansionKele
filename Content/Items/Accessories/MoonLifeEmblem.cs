@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using ExpansionKele.Content.Customs;
 using ExpansionKele.Content.Items.Placeables;
 using Terraria;
 using Terraria.ID;
@@ -23,8 +24,8 @@ namespace ExpansionKele.Content.Items.Accessories
             //Item.SetNameOverride("满月生命徽章");
             Item.width = 32;
             Item.height = 36;
-            Item.value = Item.buyPrice(0, 50, 0, 0);
-            Item.rare = ItemRarityID.Pink;
+            Item.value = ItemUtils.CalculateValueFromRecipes(this);
+            Item.rare = ItemUtils.CalculateRarityFromRecipes(this); 
             Item.accessory = true;
         }
 

@@ -1,3 +1,3 @@
-displayName = Kele expansion(Vanilla and Calamity adapted)
+displayName = Kele expansion
 author = CRO0820
-version = 1.3.2.1
+version = 1.3.4

@@ -76,3 +76,8 @@ DotZeroFiveSniperBullet.DisplayName: .05狙击步枪
 AutoAimingSniperBullet.DisplayName: 自动狙击步枪
 AutoAimingMarker.DisplayName: 自动狙击步枪瞄准
 SixthSniperBullet.DisplayName: 自动狙击步枪爆击
+SpectreSwordProjectile.DisplayName: 幽灵长剑
+ChromiumSwordProjectile.DisplayName: 铬钢剑
+ShroomiteSwordProjectile.DisplayName: 蘑菇剑
+FloatingMushroomProjectile.DisplayName: 悬浮蘑菇
+// FullMoonSwordProjectile.DisplayName: Full Moon Sword Projectile

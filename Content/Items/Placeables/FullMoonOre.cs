@@ -34,33 +34,6 @@ namespace ExpansionKele.Content.Items.Placeables
 
         public override void AddRecipes()
         {
-            Recipe recipe;
-            // 检查灾厄模组是否被加载
-            if (ModLoader.HasMod("CalamityMod"))
-            {
-                // 检查是否存在 Shadow of Revenge NPC 或 Boss
-            bool hasShadowOfRevenge = ModContent.TryFind<ModNPC>("ExpansionKele", "Shadowofrevenge", out _);
             
-            // 如果存在 Shadow of Revenge，则不添加合成表
-            if (hasShadowOfRevenge)
-                return;
-            if (ModLoader.HasMod("CalamityMod"))
-            {
-                // 灾厄存在时：1秘银矿 + 1暗影之魂 = 1望月矿
-                recipe = CreateRecipe(4);
-                recipe.AddRecipeGroup("ExpansionKele:SecondaryBars", 1);
-                recipe.AddIngredient(ItemID.SoulofNight, 1);
-                recipe.AddTile(TileID.MythrilAnvil);
-            }
-            else
-            {
-                // 灾厄不存在时：1神圣锭 + 4暗影之魂 = 4望月矿
-                recipe = CreateRecipe(4);
-                recipe.AddIngredient(ItemID.HallowedBar, 1);
-                recipe.AddIngredient(ItemID.SoulofNight, 1);
-                recipe.AddTile(TileID.AdamantiteForge);
-            }  
-            recipe.Register();
-        }
     }
 }}

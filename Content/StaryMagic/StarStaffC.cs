@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System;
 using ExpansionKele.Content.Projectiles;
 using ExpansionKele.Content.Buff;
+using ExpansionKele.Content.Customs;
 
 namespace ExpansionKele.Content.StaryMagic
 {
@@ -15,6 +16,12 @@ namespace ExpansionKele.Content.StaryMagic
     public override string LocalizationCategory => "StaryMagic";
     protected override int damage => 30;
     protected override string setNameOverride => "星元法杖C";
+    public override void SetDefaults()
+        {
+            base.SetDefaults();
+            Item.value = ItemUtils.CalculateValueFromRecipes(this);
+            Item.rare = ItemUtils.CalculateRarityFromRecipes(this);
+        }
 
         public override void AddRecipes()  
 	{  

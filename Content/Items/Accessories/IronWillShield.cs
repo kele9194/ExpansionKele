@@ -14,8 +14,8 @@ namespace ExpansionKele.Content.Items.Accessories
         {
             Item.width = 24;
             Item.height = 28;
-            Item.value = Item.buyPrice(0, 10, 0, 0);
-            Item.rare = ItemRarityID.Green;
+            Item.value = ItemUtils.CalculateValueFromRecipes(this);
+            Item.rare = ItemUtils.CalculateRarityFromRecipes(this); 
             Item.accessory = true;
             Item.defense = ExpansionKele.DEFTool(0,2);
         }

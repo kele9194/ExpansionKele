@@ -30,8 +30,8 @@ namespace ExpansionKele.Content.Items.Accessories
             //Item.SetNameOverride("明光护符"); // 设置饰品名称
             Item.width = 24; // 设置饰品宽度
             Item.height = 28; // 设置饰品高度
-            Item.value = Item.buyPrice(0, 1, 0, 0); // 设置饰品价值（1银币）
-            Item.rare = ItemRarityID.Blue; // 设置饰品稀有度为蓝色
+            Item.value = ItemUtils.CalculateValueFromRecipes(this);
+            Item.rare = ItemUtils.CalculateRarityFromRecipes(this); 
             Item.accessory = true; // 设置饰品为可装备的饰品
             Item.defense= DefenseBonus;
         }

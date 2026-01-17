@@ -16,7 +16,7 @@ namespace ExpansionKele.Content.Items.OtherItem
 			Item.width = 16;
 			Item.height = 16;
 			Item.maxStack = 9999;
-			Item.value = ItemUtils.CalculateValueFromRecipes(this);              // 卖出价格
+			Item.value = ItemUtils.CalculateValueFromRecipes(this,1.0f,200);              // 卖出价格
             Item.rare = ItemUtils.CalculateRarityFromRecipes(this);   
 		}
 	}

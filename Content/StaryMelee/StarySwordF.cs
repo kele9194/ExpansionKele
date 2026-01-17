@@ -7,6 +7,7 @@ using ExpansionKele.Content.Buff;
 using Terraria.DataStructures;
 using System;
 using System.Collections.Generic;
+using ExpansionKele.Content.Customs;
 
 
 namespace ExpansionKele.Content.StaryMelee
@@ -25,9 +26,12 @@ namespace ExpansionKele.Content.StaryMelee
         public override bool UseTurn => false;
         public override int ShootSpeed => 10;
 
-        public override void SetStaticDefaults()
+
+        public override void SetDefaults()
         {
-            //ItemID.Sets.ItemsThatAllowRepeatedRightClick[base.Item.type] = true;
+            base.SetDefaults();
+            Item.value = ItemUtils.CalculateValueFromRecipes(this);
+            Item.rare = ItemUtils.CalculateRarityFromRecipes(this);
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)

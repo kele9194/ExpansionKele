@@ -8,7 +8,7 @@ using Terraria.ModLoader;
 
 namespace ExpansionKele.Content.Items.Weapons.Magic
 {
-	public class NightFirefly : ModItem
+	public class NightFirefly : ModItem,IChargeableItem
 	{
 		public override string LocalizationCategory => "Items.Weapons";
 
@@ -79,6 +79,34 @@ namespace ExpansionKele.Content.Items.Weapons.Magic
 		public override void AddRecipes()
 		{
 
+		}
+		public float GetCurrentCharge()
+		{
+			Player player = Main.LocalPlayer;
+			if (player.HasBuff(ModContent.BuffType<Content.Buff.NightFireflyBuff>()))
+			{
+				int buffIndex = -1;
+				for (int i = 0; i < player.buffType.Length; i++)
+				{
+					if (player.buffType[i] == ModContent.BuffType<Content.Buff.NightFireflyBuff>() && player.buffTime[i] > 0)
+					{
+						buffIndex = i;
+						break;
+					}
+				}
+
+				if (buffIndex >= 0)
+				{
+					return player.buffTime[buffIndex]; // 返回buff剩余时间
+				}
+			}
+			return 0f;
+		}
+
+		public float GetMaxCharge()
+		{
+			// NightFireflyBuff的持续时间为600帧
+			return 600f;
 		}
 	}
 

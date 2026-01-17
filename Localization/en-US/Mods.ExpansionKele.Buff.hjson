@@ -129,3 +129,8 @@ CrossFireBuff: {
 	Description: when kill enemies ,increase damage
 	DisplayName: Cross Fire Buff
 }
+
+MushroomSwordMark: {
+	DisplayName: Mushroom Sword Mark
+	Description: Mods.ExpansionKele.Buff.MushroomSwordMark.Description
+}

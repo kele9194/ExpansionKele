@@ -405,3 +405,23 @@ AutoAimingSniperRifle: {
 		'''
 	DisplayName: 自动狙击步枪
 }
+
+SpectreSword: {
+	DisplayName: 幽灵长剑
+	Tooltip:
+		'''
+		手持不使用会积蓄能量，会增大刀光尺寸和伤害
+		右键直接产生巨大的刀光，造成大量伤害
+		'''
+}
+
+ShroomiteSword: {
+	Tooltip:
+		'''
+		挥舞时在玩家周围生成蘑菇，蘑菇在半空中悬浮
+		近战攻击敌人会附加蘑菇标记，对无标记敌人造成额外伤害
+		蘑菇标记的敌人越多(参考充能条)，攻击生成的蘑菇越多
+		悬浮蘑菇会追踪攻击一定距离内被蘑菇标记的敌人
+		'''
+	DisplayName: 蘑菇剑
+}

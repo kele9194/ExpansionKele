@@ -1,3 +1,4 @@
+// ... existing code ...
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
@@ -8,6 +9,7 @@ using System.Collections.Generic;
 using Terraria.Localization;
 using ExpansionKele.Content.Items.Placeables;
 using ExpansionKele.Content.Customs;
+using ExpansionKele.Content.Projectiles.MeleeProj;
 
 namespace ExpansionKele.Content.Items.Weapons.Melee
 {
@@ -35,7 +37,7 @@ namespace ExpansionKele.Content.Items.Weapons.Melee
         public override void SetDefaults()
         {
             //Item.SetNameOverride("望月长剑");
-            Item.damage = ExpansionKele.ATKTool(100,145);
+            Item.damage = ExpansionKele.ATKTool(90,125);
             Item.DamageType = DamageClass.Melee;
             Item.width = 40;
             Item.height = 40;
@@ -49,7 +51,8 @@ namespace ExpansionKele.Content.Items.Weapons.Melee
             Item.autoReuse = true;
             Item.shoot = ModContent.ProjectileType<FullMoonProjectile>();
             Item.shootSpeed = 12f;
-            Item.useTurn = true;
+            Item.shootsEveryUse = true;
+            Item.noMelee = true; // 禁用直接接触伤害，使用弹幕代替
         }
 
         /// <summary>
@@ -66,6 +69,9 @@ namespace ExpansionKele.Content.Items.Weapons.Melee
         /// <returns>是否允许原版弹幕生成</returns>
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
+            float adjustedItemScale = player.GetAdjustedItemScale(Item); // Get the melee scale of the player and item.
+			Projectile.NewProjectile(source, player.MountedCenter, new Vector2(player.direction, 0f), ModContent.ProjectileType<FullMoonSwordProjectile>(), damage, knockback, player.whoAmI, player.direction * player.gravDir, player.itemAnimationMax, adjustedItemScale);
+			NetMessage.SendData(MessageID.PlayerControls, number: player.whoAmI); // Sync the changes in multiplayer.
             // 获取鼠标指向的位置作为目标点
             Vector2 targetPosition = Main.MouseWorld;
             
@@ -78,57 +84,9 @@ namespace ExpansionKele.Content.Items.Weapons.Melee
 
             return false; // 返回false以阻止原版弹幕生成
         }
-
-        /// <summary>
-        /// 修改对NPC的伤害
-        /// 增加15点护甲穿透
-        /// </summary>
-        /// <param name="player">使用物品的玩家</param>
-        /// <param name="target">目标NPC</param>
-        /// <param name="modifiers">伤害修饰符</param>
-        public override void ModifyHitNPC(Player player, NPC target, ref NPC.HitModifiers modifiers)
-        {
-            modifiers.ArmorPenetration += 15; // 可选：增加护甲穿透
-        }
-
-        /// <summary>
-        /// 允许使用物品的副功能（右键）
-        /// </summary>
-        /// <param name="player">使用物品的玩家</param>
-        /// <returns>是否允许使用副功能</returns>
-        public override bool AltFunctionUse(Player player) => true;
-
-        /// <summary>
-        /// 判断物品是否可以使用
-        /// </summary>
-        /// <param name="player">使用物品的玩家</param>
-        /// <returns>是否可以使用</returns>
-        public override bool CanUseItem(Player player) => true;
-
-        /// <summary>
-        /// 物品使用时的处理
-        /// </summary>
-        /// <param name="player">使用物品的玩家</param>
-        /// <returns>是否成功使用</returns>
-        public override bool? UseItem(Player player) => true;
-
-        /// <summary>
-        /// 设置物品握持时的偏移量
-        /// </summary>
-        /// <returns>偏移量向量</returns>
-        public override Vector2? HoldoutOffset() => new Vector2(-2, 0);
-        
-        /// <summary>
-        /// 修改物品的提示信息
-        /// 添加关于弹幕和特殊效果的说明
-        /// </summary>
-        /// <param name="tooltips">提示信息列表</param>
         public override void ModifyTooltips(List<TooltipLine> tooltips)
         {
-            // tooltips.Add(new TooltipLine(Mod, "FullMoonSwordTooltip", 
-            //     Language.GetText("Mods.ExpansionKele.Items.FullMoonSword.Tooltip1").Value));
-            // tooltips.Add(new TooltipLine(Mod, "FullMoonSwordTooltip1", 
-            //     Language.GetText("Mods.ExpansionKele.Items.FullMoonSword.Tooltip2").Value));
+     
         }
         
         /// <summary>

@@ -70,7 +70,7 @@ namespace ExpansionKele.Content.StaryMelee
 		Item.UseSound = SoundID.Item1;
 		Item.autoReuse = true;
         Item.value = ItemUtils.CalculateValueFromRecipes(this);
-        Item.rare = ItemUtils.CalculateRarityFromRecipes(this); 
+        Item.rare = ItemUtils.CalculateRarityFromRecipes(this);
         Item.shoot = ModContent.ProjectileType<ColaProjectile>(); // 射弹类型
         Item.shootSpeed =  10f; // 射弹速度
         Item.crit = constcrit;

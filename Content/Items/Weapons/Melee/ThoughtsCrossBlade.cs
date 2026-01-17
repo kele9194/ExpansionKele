@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework;
 using Terraria.DataStructures;
 using ExpansionKele.Content.Projectiles.MeleeProj;
 using ExpansionKele.Content.Buff;
+using ExpansionKele.Content.Customs;
 
 namespace ExpansionKele.Content.Items.Weapons.Melee
 {
@@ -32,8 +33,8 @@ namespace ExpansionKele.Content.Items.Weapons.Melee
             Item.scale=0.75f;
             Item.UseSound = SoundID.Item1;
             Item.autoReuse = true;
-            Item.value = Item.sellPrice(gold: 1);
-            Item.rare = ItemRarityID.LightRed;
+            Item.value = ItemUtils.CalculateValueFromRecipes(this);
+            Item.rare = ItemUtils.CalculateRarityFromRecipes(this); 
             Item.shoot = ModContent.ProjectileType<ThoughtsCrossBladeProjectile>();
             Item.shootSpeed = 1f; // 速度不重要，因为我们控制方向
         }

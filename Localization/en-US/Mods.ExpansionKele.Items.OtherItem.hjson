@@ -45,7 +45,7 @@ ShadowSilk: {
 
 RedemptionShard: {
 	DisplayName: Redemption Shard
-	Tooltip: ""
+	Tooltip: Using Fade or SelfRedemption to kill enemies will drop it
 }
 
 GolemShard: {

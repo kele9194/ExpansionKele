@@ -44,8 +44,8 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
             Item.useStyle = ItemUseStyleID.Shoot; // 使用样式为射击
             Item.noMelee = true; // 不进行近战攻击
             Item.knockBack = 2f; // 击退
-            Item.value = Item.sellPrice(0, 2, 0, 0); // 价值设为2银币
-            Item.rare = ItemRarityID.Blue; // 稀有度蓝色
+            Item.value = ItemUtils.CalculateValueFromRecipes(this);
+            Item.rare = ItemUtils.CalculateRarityFromRecipes(this); 
             Item.UseSound = SoundID.Item5; // 使用音效
             Item.autoReuse = true; // 自动连发
             

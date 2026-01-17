@@ -68,8 +68,8 @@ namespace ExpansionKele.Content.StaryMelee
             Item.knockBack = KnockBack;
             Item.UseSound = SoundID.Item1;
             Item.autoReuse = AutoReuse;
-            Item.value = Value;
-            Item.rare = Rarity; 
+            Item.value = ItemUtils.CalculateValueFromRecipes(this);
+            Item.rare = ItemUtils.CalculateRarityFromRecipes(this);
             Item.shoot = ModContent.ProjectileType<ColaProjectile>();
             Item.shootSpeed = ShootSpeed;
         }

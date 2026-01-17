@@ -27,8 +27,8 @@ namespace ExpansionKele.Content.Items.Accessories
             //Item.SetNameOverride("奥秘魔晶");
             Item.width = 24;
             Item.height = 24;
-            Item.value = Item.buyPrice(0, 10, 0, 0);
-            Item.rare = ItemRarityID.Pink;
+            Item.value = ItemUtils.CalculateValueFromRecipes(this);
+            Item.rare = ItemUtils.CalculateRarityFromRecipes(this); 
             Item.accessory = true;
         }
 

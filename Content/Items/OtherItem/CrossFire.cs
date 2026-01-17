@@ -1,4 +1,5 @@
 using ExpansionKele.Content.Buff;
+using ExpansionKele.Content.Customs;
 using ExpansionKele.Content.Items.Placeables;
 using Terraria;
 using Terraria.ID;
@@ -17,8 +18,8 @@ namespace ExpansionKele.Content.Items.OtherItem
             Item.height = 60;
             // 删除accessory属性，因为不再作为饰品使用
             // Item.accessory = true;
-            Item.value = Item.buyPrice(0, 10, 0, 0);
-            Item.rare = ItemRarityID.Pink;
+            Item.value = ItemUtils.CalculateValueFromRecipes(this);
+            Item.rare = ItemUtils.CalculateRarityFromRecipes(this); 
             Item.maxStack = 1;
         }
 

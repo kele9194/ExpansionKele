@@ -52,7 +52,7 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
         public override void SetDefaults()
         {
             //Item.SetNameOverride("铁幕加农炮");
-            Item.damage = ExpansionKele.ATKTool(80,100);
+            Item.damage = ExpansionKele.ATKTool(68,84);
             Item.DamageType = DamageClass.Ranged;
             Item.width = 64;
             Item.height = 32;

@@ -3,6 +3,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using System.Collections.Generic;
 using ExpansionKele.Content.Items.Placeables;
+using ExpansionKele.Content.Customs;
 namespace ExpansionKele.Content.Items.Accessories
 {
     public class StarrySummonerEmblem : ModItem
@@ -23,8 +24,8 @@ namespace ExpansionKele.Content.Items.Accessories
             //Item.SetNameOverride("团结星元徽章");
             Item.width = 24;
             Item.height = 24;
-            Item.value = Item.buyPrice(0, 15, 0, 0);
-            Item.rare = ItemRarityID.Yellow;
+            Item.value = ItemUtils.CalculateValueFromRecipes(this);
+            Item.rare = ItemUtils.CalculateRarityFromRecipes(this); 
             Item.accessory = true;
         }
 

@@ -35,8 +35,8 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.noMelee = true;
             Item.knockBack = 4f;
-            Item.value = Item.sellPrice(gold: 5);
-            Item.rare = ItemRarityID.Pink;
+            Item.value = ItemUtils.CalculateValueFromRecipes(this);
+            Item.rare = ItemUtils.CalculateRarityFromRecipes(this); 
             Item.UseSound = ExpansionKele.SniperSound;
             Item.autoReuse = true;
             Item.shoot = ModContent.ProjectileType<AutoAimingSniperBullet>();

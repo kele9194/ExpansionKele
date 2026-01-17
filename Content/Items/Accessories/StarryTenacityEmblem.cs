@@ -25,8 +25,8 @@ namespace ExpansionKele.Content.Items.Accessories
             //Item.SetNameOverride("坚韧星元徽章");
             Item.width = 24;
             Item.height = 24;
-            Item.value = Item.buyPrice(0, 75, 0, 0);
-            Item.rare = ItemRarityID.Cyan;
+            Item.value = ItemUtils.CalculateValueFromRecipes(this);
+            Item.rare = ItemUtils.CalculateRarityFromRecipes(this); 
             Item.accessory = true;
         }
 

@@ -39,11 +39,9 @@ namespace ExpansionKele.Content.Items.OtherItem
 
         public override bool? UseItem(Player player)
         {
-            if (player.whoAmI == Main.myPlayer)
-            {
+
                 // 召唤复仇之影
-                NPC.SpawnOnPlayer(player.whoAmI, ModContent.NPCType<ShadowOfRevenge>());
-            }
+            NPC.SpawnOnPlayer(player.whoAmI, ModContent.NPCType<ShadowOfRevenge>());
             return true;
         }
         
