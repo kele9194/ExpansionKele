@@ -4,12 +4,26 @@ using Terraria.ModLoader;
 using Terraria.ID;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.DataStructures;
+using ReLogic.Content;
 
 namespace ExpansionKele.Content.Bosses.BossKele
 {
     public class BossKeleRotatingLaser : ModProjectile
     {
         public override string LocalizationCategory=>"Bosses.BossKele";
+        private Asset<Texture2D> _cachedTexture;
+        
+        public override void Load()
+        {
+            // 预加载纹理
+            _cachedTexture=ModContent.Request<Texture2D>(Texture);
+        }
+        
+        public override void Unload()
+        {
+            // 可选：清空引用
+            _cachedTexture = null;
+        }
         
         public override void SetStaticDefaults()
         {
@@ -31,7 +45,7 @@ namespace ExpansionKele.Content.Bosses.BossKele
         public override void OnSpawn(IEntitySource source)
         {
             // 使用纹理尺寸设置碰撞箱大小
-            Texture2D texture = ModContent.Request<Texture2D>(Texture).Value;
+            Texture2D texture = _cachedTexture.Value;
             Projectile.width = texture.Width;
             Projectile.height = texture.Height;
         }
@@ -53,7 +67,7 @@ namespace ExpansionKele.Content.Bosses.BossKele
         }
         public override bool PreDraw(ref Color lightColor)
         {
-            Texture2D texture = ModContent.Request<Texture2D>(Texture).Value;
+            Texture2D texture =_cachedTexture.Value;
             Vector2 origin = new Vector2(texture.Width / 2, texture.Height / 2);
             Vector2 position = Projectile.Center - Main.screenPosition;
             

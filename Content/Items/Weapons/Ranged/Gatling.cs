@@ -9,7 +9,7 @@ using Terraria.ModLoader;
 
 namespace ExpansionKele.Content.Items.Weapons.Ranged
 {
-    public class Gatling : ModItem
+    public class Gatling : ModItem, IChargeableItem
     {
         public override string LocalizationCategory => "Items.Weapons";
 
@@ -83,6 +83,17 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
             var modPlayer = player.GetModPlayer<GatlingPlayer>();
             modPlayer.isHoldingGatling = true;
         }
+         public float GetCurrentCharge()
+        {
+            var player = Main.LocalPlayer;
+            var modPlayer = player.GetModPlayer<GatlingPlayer>();
+            return modPlayer.useCounter;
+        }
+
+        public float GetMaxCharge()
+        {
+            return GatlingPlayer.MAX_SPEED_BONUS;
+        }
     }
 
     public class GatlingPlayer : ModPlayer
@@ -96,7 +107,7 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
         // 冷却时间（帧）
         private const int COOLDOWN_TIME = 30; // 半秒左右
         // 最大使用时间减少量
-        private const int MAX_SPEED_BONUS = 20; // 最多快10倍
+        public const int MAX_SPEED_BONUS = 20; // 最多快10倍
 
         public override void PostUpdate()
         {

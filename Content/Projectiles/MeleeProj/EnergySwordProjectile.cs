@@ -40,6 +40,19 @@ namespace ExpansionKele.Content.Projectiles.EnergySword
         protected abstract Color backDarkColor { get; } // 最深蓝色（后部）
         protected abstract Color middleMediumColor { get; } // 中等亮度蓝色（中部）
         protected abstract Color frontLightColor { get; } // 最亮蓝色（前部）
+        private static Asset<Texture2D> _cachedTexture;
+
+        public override void Load()
+        {
+            // 预加载纹理资源
+            _cachedTexture = ModContent.Request<Texture2D>(Texture);
+        }
+
+        public override void Unload()
+        {
+            // 清理资源引用
+            _cachedTexture = null;
+        }
 
         public override void SetStaticDefaults()
         {
@@ -207,7 +220,7 @@ namespace ExpansionKele.Content.Projectiles.EnergySword
         public override bool PreDraw(ref Color lightColor)
         {
             Vector2 position = Projectile.Center - Main.screenPosition;
-            Texture2D texture = TextureAssets.Projectile[Type].Value;
+            Texture2D texture = _cachedTexture.Value;
             Rectangle sourceRectangle = texture.Frame(1, 4);
             Vector2 origin = sourceRectangle.Size() / 2f;
             float scale = Projectile.scale * DrawScaleMultiplier;

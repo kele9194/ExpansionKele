@@ -29,26 +29,15 @@ namespace ExpansionKele.Content.Items.Armors
 
         public override void UpdateEquip(Player player)
         {
-            ExpansionKeleTool.AddDamageBonus(player,0.08f);
-            player.GetAttackSpeed(DamageClass.Melee) += 0.12f;
+            ExpansionKeleTool.MultiplyDamageBonus(player,1.1f);
+            player.GetAttackSpeed(DamageClass.Melee) += 0.15f;
             player.statManaMax2 += 80;
             player.maxMinions += 3;
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)
         {
-            var tooltipData = new Dictionary<string, string>
-            {
-                {"DamageBonus", "乘算增伤增加8%"},
-                {"MeleeSpeed", "近战攻速增加12%"},
-                {"ManaBonus", "法力上限增加80"},
-                {"MinionBonus", "最大召唤栏增加3"}
-            };
 
-            foreach (var kvp in tooltipData)
-            {
-                tooltips.Add(new TooltipLine(Mod, kvp.Key, kvp.Value));
-            }
         }
 
         public override void AddRecipes()

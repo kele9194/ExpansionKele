@@ -8,7 +8,7 @@ using ExpansionKele.Content.Customs;
 
 namespace ExpansionKele.Content.Items.Weapons.Ranged
 {
-    public class SoulCannon : ModItem
+    public class SoulCannon : ModItem, IChargeableItem
     {
         public override string LocalizationCategory => "Items.Weapons";
         public static readonly SoundStyle Charge = new SoundStyle("ExpansionKele/Content/Audio/Charge");
@@ -58,6 +58,41 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
         public override void ModifyTooltips(List<TooltipLine> tooltips)
         {
             
+        }
+
+        float IChargeableItem.GetCurrentCharge()
+        {
+            // 遍历所有活跃的弹幕，找到属于当前玩家的灵魂加农炮弹幕
+            foreach (var projectile in Main.projectile)
+            {
+                if (projectile.active && projectile.type == ModContent.ProjectileType<SoulCannonHoldOut>() &&
+                    projectile.owner == Main.myPlayer)
+                {
+                    if (projectile.ModProjectile is SoulCannonHoldOut holdOut)
+                    {
+                        return holdOut._currentChargingFrames; // 假设SoulCannonHoldOut项目也有CurrentChargingFrames字段
+                    }
+                }
+            }
+            // 如果没有找到活跃的弹幕，则返回0
+            return 0f;
+        }
+
+        float IChargeableItem.GetMaxCharge()
+        {
+            foreach (var projectile in Main.projectile)
+            {
+                if (projectile.active && projectile.type == ModContent.ProjectileType<SoulCannonHoldOut>() &&
+                    projectile.owner == Main.myPlayer)
+                {
+                    if (projectile.ModProjectile is SoulCannonHoldOut holdOut)
+                    {
+                        return holdOut.MaxChargeingFrame; // 假设SoulCannonHoldOut项目也有CurrentChargingFrames字段
+                    }
+                }
+            }
+            // 如果没有找到活跃的弹幕，则返回0
+            return 0f;
         }
 
         public override void AddRecipes()

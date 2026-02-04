@@ -29,26 +29,14 @@ namespace ExpansionKele.Content.Items.Armors
 
         public override void UpdateEquip(Player player)
         {
-            player.GetCritChance(DamageClass.Generic) += 5;
+            player.GetCritChance(DamageClass.Generic) += 6;
             player.ammoCost80 = true;
-            player.GetDamage(DamageClass.Summon) += 0.08f;
-            player.GetAttackSpeed(DamageClass.Melee) += 0.15f;
+            player.GetDamage(DamageClass.Summon) += 0.06f;
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)
         {
-            var tooltipData = new Dictionary<string, string>
-            {
-                {"CritBonus", "暴击率增加5%"},
-                {"AmmoSave", "弹药消耗减少20%"},
-                {"SummonDamage", "召唤伤害增加8%"},
-                {"WhipSpeed", "鞭子攻速增加15%"}
-            };
 
-            foreach (var kvp in tooltipData)
-            {
-                tooltips.Add(new TooltipLine(Mod, kvp.Key, kvp.Value));
-            }
         }
 
         public override void AddRecipes()

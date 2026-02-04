@@ -1,6 +1,7 @@
 using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -15,6 +16,19 @@ namespace ExpansionKele.Content.Projectiles.MeleeProj
 
         public override void SetStaticDefaults()
         {
+        }
+        private static Asset<Texture2D> _cachedTexture;
+
+        public override void Load()
+        {
+            // 预加载纹理资源
+            _cachedTexture = ModContent.Request<Texture2D>(Texture);
+        }
+
+        public override void Unload()
+        {
+            // 清理资源引用
+            _cachedTexture = null;
         }
 
         public override void SetDefaults()
@@ -75,7 +89,7 @@ namespace ExpansionKele.Content.Projectiles.MeleeProj
         public override bool PreDraw(ref Color lightColor)
         {
             // 获取弹丸纹理
-            Texture2D texture = Terraria.GameContent.TextureAssets.Projectile[Projectile.type].Value;
+            Texture2D texture = _cachedTexture.Value;
             
             // 计算绘制原点为中心点
             Vector2 origin = new Vector2(texture.Width / 2, texture.Height / 2);

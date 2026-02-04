@@ -12,7 +12,7 @@ namespace ExpansionKele.Content.Items.Weapons.Melee
     /// Killings Blade 杀戮刀片 - 近战武器
     /// 类似美工刀的短武器，在真近战每次攻击到敌人后会存储刀片，右键可以更快地扔出刀片
     /// </summary>
-    public class KillingsBlade : ModItem
+    public class KillingsBlade : ModItem,IChargeableItem
     {
         public override string LocalizationCategory => "Items.Weapons";
         
@@ -54,7 +54,7 @@ namespace ExpansionKele.Content.Items.Weapons.Melee
                     return true;
                 }
                 else{
-                    CombatText.NewText(player.getRect(), Microsoft.Xna.Framework.Color.Cyan, "NoBlade", true);
+                    //CombatText.NewText(player.getRect(), Microsoft.Xna.Framework.Color.Cyan, "NoBlade", true);
                     return false;
                 }
             }
@@ -75,7 +75,7 @@ namespace ExpansionKele.Content.Items.Weapons.Melee
                     // 投掷刀片造成130%伤害
                     Projectile.NewProjectile(source, position, velocity, ModContent.ProjectileType<KillingsBladeThrownProjectile>(), (int)(damage * 1.3f), knockback, player.whoAmI);
                     // 减少存储的刀片数量
-                    CombatText.NewText(player.getRect(), Microsoft.Xna.Framework.Color.Cyan, "-1", true);
+                    //CombatText.NewText(player.getRect(), Microsoft.Xna.Framework.Color.Cyan, "-1", true);
                     modPlayer.storedBlades--;
                 }
                 return false;
@@ -122,11 +122,11 @@ namespace ExpansionKele.Content.Items.Weapons.Melee
                 if (kbPlayer.storedBlades > KillingsBlade.MaxBladesStored)
                 {
                     kbPlayer.storedBlades = KillingsBlade.MaxBladesStored;
-                    CombatText.NewText(player.getRect(), Microsoft.Xna.Framework.Color.Cyan, "FullBlade", true);
+                    //CombatText.NewText(player.getRect(), Microsoft.Xna.Framework.Color.Cyan, "FullBlade", true);
                 }
                 else{
-                    CombatText.NewText(player.getRect(), Microsoft.Xna.Framework.Color.Cyan, "+1", true);}
-                
+                    //CombatText.NewText(player.getRect(), Microsoft.Xna.Framework.Color.Cyan, "+1", true);}
+                }
                 // 显示视觉效果
                 
             }
@@ -138,7 +138,21 @@ namespace ExpansionKele.Content.Items.Weapons.Melee
         {
             
         }
+
+        // ... existing code ...
+        public float GetCurrentCharge()
+        {
+            Player player = Main.LocalPlayer; // 获取当前本地玩家
+            var kbPlayer = player.GetModPlayer<KillingsBladePlayer>();
+            return kbPlayer.storedBlades;
+        }
+
+        public float GetMaxCharge()
+        {
+            return KillingsBlade.MaxBladesStored;
+        }
     }
+// ... existing code ...
 
     // 玩家额外数据，用于存储刀片数量
     public class KillingsBladePlayer : ModPlayer

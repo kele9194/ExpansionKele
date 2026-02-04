@@ -8,7 +8,7 @@ using ExpansionKele.Content.Customs;
 
 namespace ExpansionKele.Content.Items.Weapons.Ranged
 {
-	public class Fade : ModItem
+	public class Fade : ModItem,IChargeableItem
 	{
         public override string LocalizationCategory => "Items.Weapons";
         private const int MaxAmmoCount = 30;
@@ -121,7 +121,17 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
 				.AddTile(TileID.Anvils)
 				.Register();
 		}
-	}
+
+        public float GetCurrentCharge()
+        {
+            return ammoCount;
+        }
+
+        public float GetMaxCharge()
+        {
+            return MaxAmmoCount;
+        }
+    }
 
 	public class FadePlayer : ModPlayer
 	{

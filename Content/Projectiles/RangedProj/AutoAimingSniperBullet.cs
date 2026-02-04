@@ -4,6 +4,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.Audio;
 using Terraria.ID;
+using ReLogic.Content;
 
 namespace ExpansionKele.Content.Projectiles.RangedProj
 {
@@ -12,6 +13,19 @@ namespace ExpansionKele.Content.Projectiles.RangedProj
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("自动瞄准狙击弹");
+        }
+        private static Asset<Texture2D> _cachedTexture;
+
+        public override void Load()
+        {
+            // 预加载纹理资源
+            _cachedTexture = ModContent.Request<Texture2D>(Texture);
+        }
+
+        public override void Unload()
+        {
+            // 清理资源引用
+            _cachedTexture = null;
         }
 
         public override void SetDefaults()
@@ -59,7 +73,7 @@ namespace ExpansionKele.Content.Projectiles.RangedProj
         public override bool PreDraw(ref Color lightColor)
         {
             // 获取纹理
-            Texture2D texture = ModContent.Request<Texture2D>(Texture).Value;
+            Texture2D texture = _cachedTexture.Value;
             
             Vector2 origin = new Vector2(texture.Width / 2f, texture.Height / 2f);
             Vector2 position = Projectile.Center - Main.screenPosition;

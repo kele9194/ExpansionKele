@@ -52,7 +52,7 @@ namespace ExpansionKele.Content.Projectiles.MeleeProj
             }
             
             // 标记敌人5秒（300帧）
-            target.AddBuff(ModContent.BuffType<Buff.MushroomSwordMark>(), 300);
+            target.AddBuff(ModContent.BuffType<Buff.MushroomSwordMark>(), 600);
         }
 
 

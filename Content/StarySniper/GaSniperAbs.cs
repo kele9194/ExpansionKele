@@ -11,7 +11,7 @@ using ExpansionKele.Content.Customs;
 
 namespace ExpansionKele.Content.StarySniper
 {
-    public abstract class GaSniperAbs : ModItem
+    public abstract class GaSniperAbs : ModItem,IChargeableItem
     {
        
         // 基础属性
@@ -22,8 +22,11 @@ namespace ExpansionKele.Content.StarySniper
         public virtual int UseAnimationTime => UseTime;
         public virtual int Crit { get; }
         public virtual int Rarity { get; }
+        public virtual int Width => 80;
+        public virtual int Height => 31;
         public virtual string ItemName { get; }
         public virtual string introduction { get; }
+        public virtual Vector2 HoldoutOffsetValue => new Vector2(-17f, -2f);
 
         // 右键增强属性
         public virtual float RightClickDamageMultiplier => 2.5f;
@@ -90,7 +93,10 @@ namespace ExpansionKele.Content.StarySniper
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            _focustime = 0;
+            // 重置专注时间，因为射击会中断专注
+            var focusPlayer = player.GetModPlayer<FocusSniperPlayer>();
+            focusPlayer.focusTime = 0;
+            
             // 使用 Projectile.NewProjectile 方法创建新的弹丸
             int projectileType = player.altFunctionUse == 2 ? GetRightClickProjectile() : type;
             // 使用 Projectile.NewProjectile 方法创建新的弹丸
@@ -112,40 +118,43 @@ namespace ExpansionKele.Content.StarySniper
 
         private float _focustime;
         private float _focusbonus;
+        public float actualUseTime;
         
-        public override void ModifyShootStats(Player player, ref Vector2 position, ref Vector2 velocity, ref int type, ref int damage, ref float knockback) 
+         public override void ModifyShootStats(Player player, ref Vector2 position, ref Vector2 velocity, ref int type, ref int damage, ref float knockback) 
         {  
             if (type == ProjectileID.Bullet) 
             {  
                 type = ProjectileID.BulletHighVelocity; // 转换为高速子弹  
             }  
+
+            // 使用FocusSniperPlayer提供的专注加成
+            var focusPlayer = player.GetModPlayer<FocusSniperPlayer>();
+            float focusDamageBonus = focusPlayer.focusBonus;
             
             if (player.velocity == Vector2.Zero)
             {
-                damage = (int)(damage * 1.2f * (1 + _focusbonus));
+                damage = (int)(damage * 1.2f * (1 + focusDamageBonus)); // 静止时额外1.2倍伤害
             }
             else 
             {
-                damage = (int)(damage * (1 + _focusbonus));
+                damage = (int)(damage * (1 + focusDamageBonus)); // 移动时仅专注加成
             }
         }
         
         public override void UpdateInventory(Player player)
         {
-            if(_focustime < 300 && player.HeldItem.type == Item.type)
-            {
-                _focustime++;
-            }
+            // actualUseTime = UseTimeHelper.GetActualUseTime(player, Item);
+            // if(_focustime < 3*actualUseTime && player.HeldItem.type == Item.type)
+            // {
+            //     _focustime++;
+            // }
             
-            _focusbonus = Math.Min(_focustime / Item.useAnimation - 1, 2);
             
-            // 当focusbonus达到最大值2时播放声音
-            if (_focustime == 3 * Item.useAnimation||_focustime ==299)
-            {
-                SoundEngine.PlaySound(SoundID.Item75, player.position);
-            }
+            // _focusbonus = Math.Min(_focustime / actualUseTime-1, 2); // 将专注值的上限设置为3倍实际使用时间
             
-            base.UpdateInventory(player);
+
+            
+            // base.UpdateInventory(player);
         }
         
         // 添加获取当前焦点加成的方法，供派生类使用
@@ -162,21 +171,103 @@ namespace ExpansionKele.Content.StarySniper
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)
         {
-            // // 添加右键功能说明
-            // tooltips.Add(new TooltipLine(Mod, "RightClickAbility", "右键发射带治疗效果的穿甲弹" + 
-            //     (ExpansionKele.calamity != null ? "（附加死亡标记）" : "")));
-            
-            // // 添加专注机制说明
-            // tooltips.Add(new TooltipLine(Mod, "FocusAbility", "专注机制：武器在手中不使用时会积累专注值，增加伤害，满级时有提示音效"));
-            
-            // // 添加辅助瞄准说明
-            // tooltips.Add(new TooltipLine(Mod, "LaserAbility", "拥有镭射激光辅助瞄准（可在模组设置中开关）"));
-            // tooltips.Add(new TooltipLine(Mod, "introduction", introduction));
         }
         
         public override void AddRecipes()
         {
 
+        }
+
+        float IChargeableItem.GetCurrentCharge()
+        {
+            // 在客户端环境中获取当前玩家的专注时间
+            if (Main.netMode != NetmodeID.Server && Main.LocalPlayer.active)
+            {
+                var focusPlayer = Main.LocalPlayer.GetModPlayer<FocusSniperPlayer>();
+                // 检查当前手持的是否是本狙击枪
+                if (Main.LocalPlayer.HeldItem.ModItem == this)
+                {
+                    return focusPlayer.focusTime;
+                }
+            }
+            return 0f;
+        }
+
+        float IChargeableItem.GetMaxCharge()
+        {
+            // 在客户端环境中获取当前玩家的实际使用时间
+            if (Main.netMode != NetmodeID.Server && Main.LocalPlayer.active)
+            {
+                var focusPlayer = Main.LocalPlayer.GetModPlayer<FocusSniperPlayer>();
+                // 检查当前手持的是否是本狙击枪
+                if (Main.LocalPlayer.HeldItem.ModItem == this)
+                {
+                    return 3 * focusPlayer.actualUseTime;
+                }
+            }
+            return 0;
+        }
+        
+    }
+    public class FocusSniperPlayer : ModPlayer
+    {
+        // 当前专注时间
+        public float focusTime = 0;
+        // 专注加成值
+        public float focusBonus = 0;
+        // 当前持有时长武器
+        public bool holdingSniper = false;
+        // 实际使用时间
+        public int actualUseTime = 0;
+
+        public override void ResetEffects()
+        {
+            holdingSniper = false;
+        }
+
+        public override void PostUpdate()
+        {
+            // 获取当前手持的狙击枪
+            if (Player.HeldItem.ModItem is GaSniperAbs sniperItem)
+            {
+                holdingSniper = true;
+                actualUseTime = UseTimeHelper.GetActualUseTime(Player, Player.HeldItem);
+                    focusTime = Math.Min(focusTime + 1, 3 * actualUseTime);
+
+                // 计算专注加成
+                focusBonus = Math.Max(0, focusTime / actualUseTime - 1);
+                focusBonus = Math.Min(focusBonus, 2f); // 最大200%伤害加成
+            }
+            else
+            {
+                // 不持有狙击枪时重置专注
+                holdingSniper = false;
+                focusTime = 0;
+                focusBonus = 0;
+                actualUseTime = 0;
+            }
+        }
+
+        // 静态方法，用于获取专注加成
+        public static float GetFocusBonusForItem(Player player, Item item)
+        {
+            var focusPlayer = player.GetModPlayer<FocusSniperPlayer>();
+            if (player.HeldItem.type == item.type && player.HeldItem.ModItem is GaSniperAbs)
+            {
+                return focusPlayer.focusBonus;
+            }
+            return 0;
+        }
+
+        // 静态方法，用于获取专注时间
+        public static float GetFocusTimeForItem(Player player, Item item)
+        {
+            var focusPlayer = player.GetModPlayer<FocusSniperPlayer>();
+            if (player.HeldItem.type == item.type && player.HeldItem.ModItem is GaSniperAbs)
+            {
+                return focusPlayer.focusTime;
+            }
+            return 0;
         }
     }
 }

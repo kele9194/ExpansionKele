@@ -10,6 +10,7 @@ using Terraria.DataStructures;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.Localization;
+using ReLogic.Content;
 
 namespace ExpansionKele.Content.Items.Weapons.Melee
 {
@@ -101,6 +102,21 @@ namespace ExpansionKele.Content.Items.Weapons.Melee
         // 冲刺击中计数
         private int dashHitCount = 0;
         private List<int> hitNPCs = new List<int>(); // 用于跟踪已经击中的NPC
+        
+        // Asset缓存字段
+        private static Asset<Texture2D> _cachedTexture;
+        
+        public override void Load()
+        {
+            // 预加载纹理
+            _cachedTexture = ModContent.Request<Texture2D>(Texture);
+        }
+        
+        public override void Unload()
+        {
+            // 可选：清空引用
+            _cachedTexture = null;
+        }
 
         public override void SetDefaults()
         {
@@ -126,7 +142,7 @@ namespace ExpansionKele.Content.Items.Weapons.Melee
             Projectile.ai[1] = 0;
             
             // 获取贴图尺寸并计算BaseRadius
-            Texture2D texture = TextureAssets.Projectile[Projectile.type].Value;
+            Texture2D texture = _cachedTexture.Value;
             int textureLength = Math.Max(texture.Width, texture.Height);
             BaseRadius = textureLength * 1.4142f / 2f; // 图片最大尺寸 * sqrt(2) / 2
             
@@ -322,8 +338,8 @@ namespace ExpansionKele.Content.Items.Weapons.Melee
 
         private void TryReflectProjectiles(Player player)
         {
-            // 获取武器纹理尺寸
-            Texture2D texture = ModContent.Request<Texture2D>(Texture).Value;
+            // 获取武器纹理尺寸 - 使用缓存的纹理
+            Texture2D texture = _cachedTexture.Value;
             float weaponRadius = Math.Max(texture.Width, texture.Height) / 2f * Projectile.scale;
             Vector2 weaponCenter = Projectile.Center;
 
@@ -384,7 +400,8 @@ namespace ExpansionKele.Content.Items.Weapons.Melee
 
         public override bool PreDraw(ref Color lightColor)
         {
-            Texture2D texture = ModContent.Request<Texture2D>(Texture).Value;
+            // 使用缓存的纹理
+            Texture2D texture = _cachedTexture.Value;
 
             Vector2 position = Projectile.Center - Main.screenPosition;
             Vector2 origin = new Vector2(texture.Width / 2, texture.Height / 2);
@@ -469,8 +486,17 @@ namespace ExpansionKele.Content.Items.Weapons.Melee
         public float BaseRadius;
         private float rotationSpeed;
         private float currentRotation;
+        
+        // Asset缓存字段 - 为这个单独的抛射体也添加缓存
+        private static Asset<Texture2D> _sharedTexture;
 
         public override string Texture => "ExpansionKele/Content/Items/Weapons/Melee/SolarSpearProjectile";
+
+        // 静态构造函数预加载共享纹理
+        static SolarSpearSpinOnlyProjectile()
+        {
+            _sharedTexture = ModContent.Request<Texture2D>("ExpansionKele/Content/Items/Weapons/Melee/SolarSpearProjectile");
+        }
 
         public override void SetDefaults()
         {
@@ -492,8 +518,8 @@ namespace ExpansionKele.Content.Items.Weapons.Melee
             timer = 0;
             Projectile.ai[1] = 0;
 
-            // 获取贴图尺寸并计算BaseRadius
-            Texture2D texture = TextureAssets.Projectile[Projectile.type].Value;
+            // 获取贴图尺寸并计算BaseRadius - 使用缓存的纹理
+            Texture2D texture = _sharedTexture.Value;
             int textureLength = Math.Max(texture.Width, texture.Height);
             BaseRadius = textureLength * 1.4142f / 2f;
         }
@@ -552,8 +578,8 @@ namespace ExpansionKele.Content.Items.Weapons.Melee
 
         private void TryReflectProjectiles(Player player)
         {
-            // 获取武器纹理尺寸
-            Texture2D texture = ModContent.Request<Texture2D>("ExpansionKele/Content/Items/Weapons/Melee/SolarSpearProjectile").Value;
+            // 获取武器纹理尺寸 - 使用缓存的共享纹理
+            Texture2D texture = _sharedTexture.Value;
             float weaponRadius = Math.Max(texture.Width, texture.Height) / 2f * Projectile.scale;
             Vector2 weaponCenter = Projectile.Center;
 
@@ -614,7 +640,8 @@ namespace ExpansionKele.Content.Items.Weapons.Melee
 
         public override bool PreDraw(ref Color lightColor)
         {
-            Texture2D texture = ModContent.Request<Texture2D>("ExpansionKele/Content/Items/Weapons/Melee/SolarSpearProjectile").Value;
+            // 使用缓存的共享纹理
+            Texture2D texture = _sharedTexture.Value;
 
             Vector2 position = Projectile.Center - Main.screenPosition;
             Vector2 origin = new Vector2(texture.Width / 2, texture.Height / 2);

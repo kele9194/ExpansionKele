@@ -12,3 +12,13 @@ RedemptionArrow: {
 	DisplayName: Redemption Arrow
 	Tooltip: Hit enemies can increase your damage and decrease your taken damage.
 }
+
+ChromiumArrow: {
+	DisplayName: Chromium Arrow
+	Tooltip:
+		'''
+		ignore all defense on enemies 
+		give enemies slicing debuff
+		deal more damage to enemies without this debuff
+		'''
+}

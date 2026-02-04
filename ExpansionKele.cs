@@ -21,6 +21,7 @@ using ExpansionKele.Content.Bosses.ShadowOfRevenge;
 using ExpansionKele.Content.Bosses.BossKele;
 using ExpansionKele.Content.Customs;
 using ExpansionKele.Content.Customs.Commands;
+using ExpansionKele.Content.Projectiles.RangedProj;
 
 
 namespace ExpansionKele

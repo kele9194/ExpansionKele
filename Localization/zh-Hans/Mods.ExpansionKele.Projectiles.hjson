@@ -80,4 +80,8 @@ SpectreSwordProjectile.DisplayName: 幽灵长剑
 ChromiumSwordProjectile.DisplayName: 铬钢剑
 ShroomiteSwordProjectile.DisplayName: 蘑菇剑
 FloatingMushroomProjectile.DisplayName: 悬浮蘑菇
-// FullMoonSwordProjectile.DisplayName: Full Moon Sword Projectile
+FullMoonSwordProjectile.DisplayName: 望月长剑
+ChromiumArrowProjectile.DisplayName: 铬钢箭
+LaserDamageProjectile.DisplayName: 激光切割机
+LaserCutterProjectile.DisplayName: Laser Cutter Projectile
+LaserRangeTexture.DisplayName: Laser Range Texture

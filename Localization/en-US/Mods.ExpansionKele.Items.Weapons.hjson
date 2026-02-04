@@ -444,3 +444,33 @@ ShroomiteSword: {
 		'''
 	DisplayName: Shroomite Sword
 }
+
+ChromiumBow: {
+	Tooltip:
+		'''
+		Fires three arrows in parallel
+		The arrows have 10 armor penetration
+		Penetrating arrows have modified attributes to prevent damage-not-taken
+		'''
+	DisplayName: Chromium Bow
+}
+
+M37Shotgun: {
+	DisplayName: M37 Shotgun
+	Tooltip:
+		'''
+		An upgraded version of the shotgun
+		Left-click fires five spread pellets
+		Right-click fires a slug with higher damage
+		The slug causes additional armor penetration
+		'''
+}
+
+LaserCutter: {
+	Tooltip:
+		'''
+		Experimental weapon that deals high-frequency damage
+		An unfinished weapon
+		'''
+	DisplayName: Laser Cutter
+}

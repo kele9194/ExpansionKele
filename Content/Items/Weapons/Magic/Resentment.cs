@@ -10,7 +10,7 @@ using ExpansionKele.Content.Customs;
 
 namespace ExpansionKele.Content.Items.Weapons.Magic
 {
-    public class Resentment : ModItem
+    public class Resentment : ModItem, IChargeableItem
     {
         private int resentmentTimer = 0;
         public override string LocalizationCategory => "Items.Weapons";
@@ -78,6 +78,18 @@ namespace ExpansionKele.Content.Items.Weapons.Magic
             // 发射自定义弹幕
             int proj=Projectile.NewProjectile(source, position, velocity, ModContent.ProjectileType<ResentmentProjectile>(), damage, knockback, player.whoAmI);
             return false; // 阻止发射默认弹幕
+        }
+
+        float IChargeableItem.GetCurrentCharge()
+        {
+            Player player = Main.LocalPlayer;
+            float lifeLostPercent = 1f - (float)player.statLife / player.statLifeMax2;
+            return lifeLostPercent*100;
+        }
+
+        float IChargeableItem.GetMaxCharge()
+        {
+            return 1f*100;
         }
 
         public override void AddRecipes()

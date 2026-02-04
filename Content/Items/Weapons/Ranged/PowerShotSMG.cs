@@ -16,7 +16,7 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
     /// 随着不断射击，伤害会逐渐提高，最高变为2倍，远程暴击率最高提升20%
     /// 停止射击伤害缓慢降低为原值，切换武器伤害恢复为原值
     /// </summary>
-    public class PowerShotSMG : ModItem
+    public class PowerShotSMG : ModItem, IChargeableItem
     {
         public override string LocalizationCategory => "Items.Weapons";
         // 超载增量
@@ -129,6 +129,25 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
             // {
             //     tooltips.Add(new TooltipLine(Mod, kvp.Key, kvp.Value));
             // }
+        }
+
+        /// <summary>
+        /// 获取当前充能值
+        /// </summary>
+        /// <returns>当前超载值</returns>
+        public float GetCurrentCharge()
+        {
+            var modPlayer = Main.LocalPlayer.GetModPlayer<PowerShotPlayer>();
+            return modPlayer?.overloadCounter ?? 0;
+        }
+
+        /// <summary>
+        /// 获取最大充能值
+        /// </summary>
+        /// <returns>最大超载值</returns>
+        public float GetMaxCharge()
+        {
+            return MAX_OVERLOAD;
         }
     }
 

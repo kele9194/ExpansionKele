@@ -6,6 +6,7 @@ using System;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.DataStructures;
 using ExpansionKele.Content.Buff;
+using ReLogic.Content;
 
 namespace ExpansionKele.Content.Projectiles.MeleeProj
 {
@@ -20,6 +21,19 @@ namespace ExpansionKele.Content.Projectiles.MeleeProj
         private float baseLineWidth = 16; // 更细的线宽
         // 存储初始方向
         private Vector2 initialDirection; // 默认为右上到左下方向
+        private static Asset<Texture2D> _cachedTexture;
+
+        public override void Load()
+        {
+            // 预加载纹理资源
+            _cachedTexture = ModContent.Request<Texture2D>(Texture);
+        }
+
+        public override void Unload()
+        {
+            // 清理资源引用
+            _cachedTexture = null;
+        }
 
         public override void SetDefaults()
         {
@@ -40,7 +54,7 @@ namespace ExpansionKele.Content.Projectiles.MeleeProj
         public override void OnSpawn(IEntitySource source)
         {
             // 获取纹理尺寸
-            Texture2D texture = Terraria.GameContent.TextureAssets.Projectile[Projectile.type].Value;
+            Texture2D texture = _cachedTexture.Value;
             textureWidth = texture.Width;
             textureHeight = texture.Height;
 
@@ -118,7 +132,7 @@ namespace ExpansionKele.Content.Projectiles.MeleeProj
         public override bool PreDraw(ref Color lightColor)
         {
             // 获取纹理
-            Texture2D texture = Terraria.GameContent.TextureAssets.Projectile[Projectile.type].Value;
+            Texture2D texture = _cachedTexture.Value;
 
             // 计算原点
             Vector2 origin = new Vector2(texture.Width / 2, texture.Height / 2);

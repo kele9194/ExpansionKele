@@ -15,7 +15,7 @@ namespace ExpansionKele.Content.Buff
 
         public override void Update(Player player, ref int buffIndex)
         {
-            ExpansionKeleTool.AddDamageBonus(player, 0.06f); // 增加6%伤害
+            ExpansionKeleTool.MultiplyDamageBonus(player, 1.06f); // 增加6%伤害
         }
     }
 }

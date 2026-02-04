@@ -12,44 +12,37 @@ namespace ExpansionKele.Content.StarySniper
 	// This is an example showing how to create a weapon that fires custom ammunition
 	// The most important property is "Item.useAmmo". It tells you which item to use as ammo.
 	// You can see the description of other parameters in the ExampleGun class and at https://github.com/tModLoader/tModLoader/wiki/Item-Class-Documentation
-	public class GaSniperC : ModItem
+	public class GaSniperC : GaSniperAbs, IChargeableItem
 	{
 		public override string LocalizationCategory => "StarySniper";
+		
+		public override int BaseDamage => 165;
+		public override int Width => 80;
+		public override int Height => 31;
+		public override int UseTime => 84;
+		public override Vector2 HoldoutOffsetValue => new Vector2(-17f, -2f);
+		public override string introduction => "该狙击步枪B型号升级版,使用火枪子弹,钨/银子弹时,会转化为高速子弹。";
+
 		public override void SetDefaults() {
-			//Item.SetNameOverride("SG星元狙击步枪-C");
-			Item.width = 80; // The width of item hitbox
-			Item.height = 31; // The height of item hitbox
-
-			Item.autoReuse = true;  // Whether or not you can hold click to automatically use it again.
-			Item.damage = Item.damage = ExpansionKele.ATKTool(165,default);
-			Item.DamageType = DamageClass.Ranged; // What type of damage does this item affect?
-			Item.knockBack = 6f; // Sets the item's knockback. Note that projectiles shot by this weapon will use its and the used ammunition's knockback added together.
-			Item.noMelee = true; // So the item's animation doesn't do damage.
-			Item.shootSpeed = 16f; // The speed of the projectile (measured in pixels per frame.)
-			Item.useAnimation = 84; // The length of the item's use animation in ticks (60 ticks == 1 second.)
-			Item.useTime = 84; // The item's use time in ticks (60 ticks == 1 second.)
-			Item.UseSound = ExpansionKele.SniperSound; // The sound that this item plays when used.
-			Item.useStyle = ItemUseStyleID.Shoot; // How you use the item (swinging, holding out, shoot, etc.)
-			Item.value = ItemUtils.CalculateValueFromRecipes(this);
-            Item.rare = ItemUtils.CalculateRarityFromRecipes(this); 
-			Item.crit=5;
-
-			Item.shoot = ProjectileID.Bullet;
-			//Item.shoot = ModContent.ProjectileType<ExplosiveBullet>();
-			//Item.shoot = ModContent.ProjectileType<Projectiles.YourBulletProjectile>(); // 替换为你的弹丸类型  
-            //Item.useAmmo = ModContent.ItemType<YourCustomAmmo>(); // 替换为你自定义的弹药类型  
-			Item.useAmmo = AmmoID.Bullet;
-			
-			// Custom ammo and shooting homing projectiles
-			////Item.shoot = ModContent.ProjectileType<Projectiles.ExampleHomingProjectile>();
-			////Item.useAmmo = ModContent.ItemType<ExampleCustomAmmo>(); // Restrict the type of ammo the weapon can use, so that the weapon cannot use other ammos
+			base.SetDefaults();
 		}
+        
+        public override bool AltFunctionUse(Player player)
+        {
+            return false;
+        }
+        
+        public override void SetStaticDefaults()
+        {
+            base.SetStaticDefaults();
+            ItemID.Sets.ItemsThatAllowRepeatedRightClick[base.Item.type] = false;
+        }
 
 		// Please see Content/ExampleRecipes.cs for a detailed explanation of recipe creation.
 		public override void AddRecipes()  
 	{  
-    // 创建 GaSniperA 武器的合成配方  
-    Recipe recipe = Recipe.Create(ModContent.ItemType<GaSniperC>()); // 替换为 GaSniperA 的类型  
+    // 创建 GaSniperC 武器的合成配方  
+    Recipe recipe = Recipe.Create(ModContent.ItemType<GaSniperC>()); // 替换为 GaSniperC 的类型  
 	recipe.AddIngredient(ModContent.ItemType<GaSniperB>(), 1);////group用group,Ingredient用Ingredient
 	recipe.AddIngredient(ItemID.HellstoneBar, 7);
 	recipe.AddIngredient(ItemID.Bone, 7);
@@ -59,16 +52,10 @@ namespace ExpansionKele.Content.StarySniper
 	
 	  // 此方法可以调整武器在玩家手中的位置。调整这些值直到与图形效果匹配。  
         public override Vector2? HoldoutOffset() {  
-            return new Vector2(-17f, -2f); // 持有偏移量。  
+            return HoldoutOffsetValue; // 持有偏移量。  
         }  
 		public override void ModifyTooltips(System.Collections.Generic.List<TooltipLine> tooltips) {  
-            // 添加自定义的 tooltip  
-            TooltipLine line = new TooltipLine(Mod, "GaSniperCTooltip", "该狙击步枪B型号升级版,使用火枪子弹,钨/银子弹时,会转化为高速子弹。");  
-            tooltips.Add(line);  
-			tooltips.Add(new TooltipLine(Mod, "FocusAbility", "专注机制：武器在手中不使用时会积累专注值，增加伤害，满级时有提示音效"));
-            
-            // 添加辅助瞄准说明
-            tooltips.Add(new TooltipLine(Mod, "LaserAbility", "拥有镭射激光辅助瞄准（可在模组设置中开关）"));
+            base.ModifyTooltips(tooltips);
         }  
 
         // 修改发射统计数据的方法。  
@@ -80,43 +67,7 @@ namespace ExpansionKele.Content.StarySniper
        // } 
 	   public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-			focustime=0;
-			return true;
+			return base.Shoot(player, source, position, velocity, type, damage, knockback);
 		}
-	   private float focustime;
-        private float focusbonus;
-	   public override void ModifyShootStats(Player player, ref Vector2 position, ref Vector2 velocity, ref int type, ref int damage, ref float knockback) {  
-            // 检查当前使用的弹药类型  
-            // 如果弹药是火枪子弹、钨子弹或银子弹，转换为高速子弹  
-            if (type == ProjectileID.Bullet ) {  
-                type = ProjectileID.BulletHighVelocity; // 转换为高速子弹  
-            }  
-            if (player.velocity == Vector2.Zero)
-            {
-                damage=(int)(damage*1.2*(1+focusbonus));
-            }
-            else 
-            {
-                damage=(int)(damage*(1+focusbonus));
-            }
-	   }
-       public override void UpdateInventory(Player player)
-        {
-            
-            if(focustime<300&&player.HeldItem.type==Item.type){
-                focustime++;
-            }
-            focusbonus=Math.Min(focustime/Item.useAnimation-1,2);
-            if (focustime == 3 * Item.useAnimation||focustime ==299)
-            {
-                // 播放Item75声音效果
-                SoundEngine.PlaySound(SoundID.Item75, player.position);
-            }
-
-            
-            base.UpdateInventory(player);
-            // 检查玩家是否站在不动
-            
-        }
 	}
 }

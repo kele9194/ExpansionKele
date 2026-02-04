@@ -10,7 +10,7 @@ using ExpansionKele.Content.Items.OtherItem;
 
 namespace ExpansionKele.Content.Items.Weapons.Ranged
 {
-    public class SeitaadBallista : ModItem
+    public class SeitaadBallista : ModItem,IChargeableItem
     {
         // EMP弹丸冷却计时器
         private int empCooldown = 0;
@@ -86,6 +86,16 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
 
         public override void ModifyTooltips(System.Collections.Generic.List<TooltipLine> tooltips)
         {
+        }
+
+        public float GetCurrentCharge()
+        {
+            return empCooldown;
+        }
+
+        public float GetMaxCharge()
+        {
+            return EMP_COOLDOWN_TIME * Item.useTime;
         }
     }
 }

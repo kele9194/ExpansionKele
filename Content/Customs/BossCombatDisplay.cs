@@ -60,7 +60,7 @@ namespace ExpansionKele.Content.Customs
             // 防止重复消息：检查是否与上一条消息相同
             lock (_lockObject)
             {
-                if (_lastMessage == message && (DateTimeOffset.UtcNow.ToUnixTimeMilliseconds() - _lastMessageTimestamp) < 2000) // 2.45f秒内不重复发送
+                if (_lastMessage == message && (DateTimeOffset.UtcNow.ToUnixTimeMilliseconds() - _lastMessageTimestamp) < 500000) // 2.45f秒内不重复发送
                 {
                     return; // 如果消息相同且时间间隔小于1秒，则不发送
                 }

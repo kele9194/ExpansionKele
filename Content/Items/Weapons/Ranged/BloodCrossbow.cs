@@ -8,7 +8,7 @@ using System;
 
 namespace ExpansionKele.Content.Items.Weapons.Ranged
 {
-    public class BloodCrossbow : ModItem
+    public class BloodCrossbow : ModItem,IChargeableItem
     {
         // 添加蓄力层数变量
         private int chargeLevel = 0;
@@ -145,6 +145,16 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
                 .AddIngredient(ItemID.TissueSample, 6) // 6个组织样本
                 .AddTile(TileID.Anvils) // 在铁砧制作
                 .Register();
+        }
+
+        public float GetCurrentCharge()
+        {
+            return chargeLevel;
+        }
+
+        public float GetMaxCharge()
+        {
+            return maxChargeLevel;
         }
     }
 }

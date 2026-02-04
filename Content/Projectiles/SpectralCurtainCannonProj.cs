@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
 using ExpansionKele.Content.Customs;
+using ReLogic.Content;
 
 namespace ExpansionKele.Content.Projectiles
 {
@@ -62,6 +63,19 @@ public class SpectralCurtainCannonProj : ModProjectile
 
     public class SpectralCurtainCannonExplosion : ModProjectile
     {
+        private static Asset<Texture2D> _cachedTexture;
+
+        public override void Load()
+        {
+            // 预加载纹理资源
+            _cachedTexture = ModContent.Request<Texture2D>(Texture);
+        }
+
+        public override void Unload()
+        {
+            // 清理资源引用
+            _cachedTexture = null;
+        }
         public override void SetDefaults()
         {
             Projectile.width = 205; // 较小的爆炸范围
@@ -123,7 +137,7 @@ public class SpectralCurtainCannonProj : ModProjectile
             Color color = Color.Blue * (alpha / 255f);
             
             // 获取默认纹理
-            Texture2D texture = Terraria.GameContent.TextureAssets.Projectile[Projectile.type].Value;
+            Texture2D texture = _cachedTexture.Value;
             Main.EntitySpriteDraw(texture, Projectile.Center - Main.screenPosition, null, color, 0f, new Vector2(texture.Width / 2, texture.Height / 2), Projectile.scale, SpriteEffects.None, 0f);
             return false;
         }

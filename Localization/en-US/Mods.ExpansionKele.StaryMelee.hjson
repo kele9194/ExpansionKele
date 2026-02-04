@@ -112,3 +112,8 @@ StarySword: {
 	Tooltip: " the origin verion of the stary sword"
 	DisplayName: StarySword
 }
+
+StarySwordSP: {
+	Tooltip: ""
+	DisplayName: Stary Sword S P
+}

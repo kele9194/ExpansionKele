@@ -42,9 +42,9 @@ namespace ExpansionKele.Content.Items.Armors
 
         public override void UpdateEquip(Player player)
         {
-            ExpansionKeleTool.AddDamageBonus(player,0.04f);
-            player.GetDamage(DamageClass.Ranged) += 0.04f;
-            player.manaCost -= 0.14f;
+            ExpansionKeleTool.MultiplyDamageBonus(player,1.05f);
+            player.GetDamage(DamageClass.Generic) += 0.08f;
+            player.manaCost -= 0.15f;
             player.whipRangeMultiplier+=0.25f;
         }
 
@@ -58,18 +58,7 @@ namespace ExpansionKele.Content.Items.Armors
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)
         {
-            var tooltipData = new Dictionary<string, string>
-            {
-                {"DamageBonus", "乘算增伤增加4%"},
-                {"CritBonus", "远程暴击率增加5%"},
-                {"ManaCostReduction", "法力消耗降低14%"},
-                {"WhipRange", "鞭子范围增加25%"}
-            };
 
-            foreach (var kvp in tooltipData)
-            {
-                tooltips.Add(new TooltipLine(Mod, kvp.Key, kvp.Value));
-            }
         }
         public override void UpdateArmorSet(Player player)
         {
@@ -214,8 +203,7 @@ public class FullMoonArmorProj : ModProjectile
         // ... existing code ...
 public override void OnSpawn(IEntitySource source)
         {
-            // 设置固定伤害为30点心灵终结伤害
-            Projectile.damage = 30;
+            Projectile.originalDamage=Projectile.damage;
         }
 // ... existing code ...
 

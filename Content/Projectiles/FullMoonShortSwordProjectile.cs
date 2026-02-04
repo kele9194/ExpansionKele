@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using Terraria;
 using Terraria.Enums;
 using Terraria.GameContent;
@@ -24,6 +25,19 @@ namespace ExpansionKele.Content.Projectiles
 		public int Timer {
 			get => (int)Projectile.ai[0];
 			set => Projectile.ai[0] = value;
+		}
+		private static Asset<Texture2D> _cachedTexture;
+
+		public override void Load()
+		{
+			// 预加载纹理资源
+			_cachedTexture = ModContent.Request<Texture2D>(Texture);
+		}
+
+		public override void Unload()
+		{
+			// 清理资源引用
+			_cachedTexture = null;
 		}
 
 		public override void SetDefaults() {
@@ -78,7 +92,7 @@ namespace ExpansionKele.Content.Projectiles
 
 		private void SetVisualOffsets() {
 			// 32 is the sprite size (here both width and height equal)
-            Texture2D texture = TextureAssets.Projectile[Projectile.type].Value;
+            Texture2D texture = _cachedTexture.Value;
 			int HalfSpriteWidth = texture.Width / 2;
 			int HalfSpriteHeight = texture.Height / 2;
 

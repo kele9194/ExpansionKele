@@ -1,6 +1,7 @@
 using ExpansionKele.Content.Items.Weapons.Ranged;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using Terraria;
 using Terraria.ModLoader;
 
@@ -8,7 +9,19 @@ namespace ExpansionKele.Content.Projectiles.RangedProj
 {
     public class DotZeroFiveSniperCrosshair : ModProjectile
     {
-        
+        private static Asset<Texture2D> _cachedTexture;
+
+        public override void Load()
+        {
+            // 预加载纹理资源
+            _cachedTexture = ModContent.Request<Texture2D>(Texture);
+        }
+
+        public override void Unload()
+        {
+            // 清理资源引用
+            _cachedTexture = null;
+        }
         public override void SetDefaults()
         {
             Projectile.width = 32;
@@ -41,7 +54,7 @@ namespace ExpansionKele.Content.Projectiles.RangedProj
         public override bool PreDraw(ref Color lightColor)
         {
             // 获取纹理
-            Texture2D texture = ModContent.Request<Texture2D>(Texture).Value;
+            Texture2D texture =_cachedTexture.Value;
             
             // 计算缩放后的尺寸 (默认2倍大小)
             float scaleMultiplier = 2f;

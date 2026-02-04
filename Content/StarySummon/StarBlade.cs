@@ -123,7 +123,7 @@
 
 //     public override void PostDraw(Color lightColor)
 // {
-//     Texture2D texture = ModContent.Request<Texture2D>("ExpansionKele/Content/Summon/StarBladeGlowProjectile").Value;
+    // //Texture2D texture = ModContent.Request<Texture2D>("ExpansionKele/Content/Summon/StarBladeGlowProjectile").Value;
 //     Vector2 drawOrigin = new Vector2(texture.Width, texture.Height) / 2f;
 //     Main.EntitySpriteDraw(texture, Projectile.Center - Main.screenPosition, null, Color.White * 0.75f, Projectile.rotation, drawOrigin, Projectile.scale, SpriteEffects.None, 0);
 // }

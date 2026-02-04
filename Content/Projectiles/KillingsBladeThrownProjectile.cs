@@ -6,6 +6,7 @@ using Terraria.DataStructures;
 using Terraria.GameContent;
 using Terraria.ID;
 using System;
+using ReLogic.Content;
 
 namespace ExpansionKele.Content.Projectiles
 {
@@ -41,6 +42,19 @@ namespace ExpansionKele.Content.Projectiles
         private int _elapsedFrames = 0;
 // ... existing code ...
 // ... existing code ...
+        private static Asset<Texture2D> _cachedTexture;
+
+        public override void Load()
+        {
+            // 预加载纹理资源
+            _cachedTexture = ModContent.Request<Texture2D>(Texture);
+        }
+
+        public override void Unload()
+        {
+            // 清理资源引用
+            _cachedTexture = null;
+        }
         
         public override void SetStaticDefaults()
         {
@@ -65,7 +79,7 @@ namespace ExpansionKele.Content.Projectiles
         public override void OnSpawn(IEntitySource source)
         {
             // 获取纹理尺寸并设置碰撞箱
-            Texture2D texture = TextureAssets.Projectile[Projectile.type].Value;
+            Texture2D texture = _cachedTexture.Value;
             Projectile.width = texture.Width;
             Projectile.height = texture.Height;
             

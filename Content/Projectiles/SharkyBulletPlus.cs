@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria.Audio;
 using Terraria.GameContent;
+using ReLogic.Content;
 //using Terraria.ID;
 //using Terraria.ModLoader;
 
@@ -16,6 +17,19 @@ namespace ExpansionKele.Content.Projectiles
 {       
     public class SharkyBulletPlus : ModProjectile
     {
+        private static Asset<Texture2D> _cachedTexture;
+
+        public override void Load()
+        {
+            // 预加载纹理资源
+            _cachedTexture = ModContent.Request<Texture2D>(Texture);
+        }
+
+        public override void Unload()
+        {
+            // 清理资源引用
+            _cachedTexture = null;
+        }
         public override void SetStaticDefaults() {
 			ProjectileID.Sets.TrailCacheLength[Projectile.type] = 30; // The length of old position to be recorded
 			ProjectileID.Sets.TrailingMode[Projectile.type] = 0; // The recording mode
@@ -48,7 +62,7 @@ public override bool OnTileCollide(Vector2 oldVelocity)
             return false;
         }
 public override bool PreDraw(ref Color lightColor) {
-    Texture2D texture = TextureAssets.Projectile[Type].Value;
+    Texture2D texture = _cachedTexture.Value;
 
     // Redraw the projectile with the color not influenced by light
     Vector2 drawOrigin = new Vector2(texture.Width * 0.5f, Projectile.height * 0.5f);

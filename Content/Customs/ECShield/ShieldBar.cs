@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using ReLogic.Graphics;
 using System.Collections.Generic;
 using Terraria;
@@ -18,6 +19,11 @@ internal class PlayerAboveUIElement : UIElement
     private Vector2 _dragOffset;
     private bool _isDragging;
     private static Vector2 _position = new Vector2(-1, -1); // 使用(-1, -1)表示使用默认位置
+    
+    // 添加Asset缓存字段
+    private static Asset<Texture2D> _defenseTexture;
+    private static Asset<Texture2D> _magicPixelTexture;
+
 
     public PlayerAboveUIElement(int playerIndex = -1)
     {
@@ -38,6 +44,13 @@ internal class PlayerAboveUIElement : UIElement
             Left.Set(_position.X, 0f);
             Top.Set(_position.Y, 0f);
         }
+    }
+
+    // 在类加载时预加载纹理
+    static PlayerAboveUIElement()
+    {
+        _defenseTexture = ModContent.Request<Texture2D>("ExpansionKele/Content/Customs/ECShield/Defense");
+        _magicPixelTexture = TextureAssets.MagicPixel;
     }
 
     public override void Update(GameTime gameTime)
@@ -90,7 +103,7 @@ internal class PlayerAboveUIElement : UIElement
     }
 
     // ... existing code ...
-    protected override void DrawSelf(SpriteBatch spriteBatch)
+        protected override void DrawSelf(SpriteBatch spriteBatch)
     {
         int BaseWidth = 100; // 修改为100
         int BaseHeight = 18; // 修改为30
@@ -100,7 +113,7 @@ internal class PlayerAboveUIElement : UIElement
 
         // 获取玩家的ECShieldSystem组件
         ECShieldSystem ecShield = player.GetModPlayer<ECShieldSystem>();
-        if(ecShield.ShieldActive){
+        if(ecShield.ShieldActive && !player.dead){ // 添加检查玩家是否死亡
 
         // 根据是否被拖动来决定位置
         Vector2 screenPos;
@@ -115,21 +128,17 @@ internal class PlayerAboveUIElement : UIElement
             screenPos = new Vector2(Left.Pixels, Top.Pixels);
         }
 
-        // 使用默认纹理绘制一个简单的图像并放大10倍
-        // ... existing code ...
-        // 使用默认纹理绘制一个简单的图像并放大10倍
-        // ... existing code ...
-        // 使用默认纹理绘制一个简单的图像并放大10倍
-        Texture2D texture = ModContent.Request<Texture2D>("ExpansionKele/Content/Customs/ECShield/Defense").Value;
-        
+        // 使用缓存的纹理 - 这里是关键改进！
+        Texture2D defenseTexture = _defenseTexture.Value;
+        Texture2D magicPixelTexture = _magicPixelTexture.Value;
 
         spriteBatch.Draw(
-            texture,
+            defenseTexture,
             screenPos,
             null,
             Color.Blue, // 使用黄色以便于看到
             0f,
-            new Vector2(texture.Width/2, texture.Height/2), // 原点设置为纹理的中心底部
+            new Vector2(defenseTexture.Width/2, defenseTexture.Height/2), // 原点设置为纹理的中心底部
             0.75f, // 放大2倍
             SpriteEffects.None,
             0f
@@ -144,22 +153,22 @@ internal class PlayerAboveUIElement : UIElement
         int filledWidth = (int)(fillRatio * barWidth); // 已填充的宽度
 
         // 绘制进度条背景
-        Rectangle barBackground = new Rectangle((int)screenPos.X +texture.Width/2, (int)screenPos.Y - barHeight/2 , barWidth, barHeight);
-        spriteBatch.Draw(TextureAssets.MagicPixel.Value, barBackground, Color.DarkGray);
+        Rectangle barBackground = new Rectangle((int)screenPos.X + defenseTexture.Width/2, (int)screenPos.Y - barHeight/2 , barWidth, barHeight);
+        spriteBatch.Draw(magicPixelTexture, barBackground, Color.DarkGray);
 
         // 绘制进度条填充部分
         if(filledWidth > 0)
         {
-            Rectangle barFill = new Rectangle((int)screenPos.X +texture.Width/2, (int)screenPos.Y - barHeight/2 , filledWidth, barHeight);
+            Rectangle barFill = new Rectangle((int)screenPos.X + defenseTexture.Width/2, (int)screenPos.Y - barHeight/2 , filledWidth, barHeight);
             // 根据填充比例计算颜色，从红色(0,1,0)到绿色(0,255,0)，使用Lerp函数插值
             Color fillColor = new Color((byte)(255 * (1 - fillRatio)), (byte)(255 * fillRatio), 0);
-            spriteBatch.Draw(TextureAssets.MagicPixel.Value, barFill, fillColor);
+            spriteBatch.Draw(magicPixelTexture, barFill, fillColor);
         }
 
         string shieldText = $"{ecShield.CurrentShield:F0} / {ecShield.MaxShield:F0}"; // 修改为整数格式
         Vector2 textSize = FontAssets.MouseText.Value.MeasureString(shieldText);
         Vector2 textPosition = new Vector2(
-            (int)screenPos.X + texture.Width / 2 + barWidth / 2 - textSize.X / 2, // 水平居中
+            (int)screenPos.X + defenseTexture.Width / 2 + barWidth / 2 - textSize.X / 2, // 水平居中
             (int)screenPos.Y - barHeight / 2 // 在进度条上方0像素
         );
 
@@ -168,7 +177,7 @@ internal class PlayerAboveUIElement : UIElement
         // 绘制主文字
         spriteBatch.DrawString(FontAssets.MouseText.Value, shieldText, textPosition, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
         
-        }
+        } // 结束if条件块
         
     }
 

@@ -1,4 +1,6 @@
-这个模组仅为娱乐，开发者仅为本人，并且仍然在完善中，致力于让许多奇思妙想实现于游戏模组中，
+这个模组仅为娱乐，开发者仅为本人，并且仍然在完善中
+大概每1-2周提供一个完善的版本
+致力于让许多奇思妙想实现于游戏模组中
 和灾厄模组游玩时会有部分重写以适配灾厄数值环境。
 
 目前该模组拥有以下系列：
@@ -10,10 +12,13 @@
 近40种其他类型武器，6个其他类型饰品，3种锭，1个套装，两个初步boss。
 此外该模组无现有bossAI重写，因此允许在创建世界后加入。
 如果有其他任何想法或建议欢迎留言。
+QQ：2893795217
 
 
 This mod is developed purely for entertainment, developed by me alone, trying to achieve some imagination in ths mod and still under development. 
 When playing with the Calamity mod, some content will be adjusted to fit Calamity's numerical environment.
+
+new completed versions will be released every 1-2 weeks
 
 Currently, this mod includes the following series:
 - Stary Sword series, Stary Sniper Rifle series, and Stary Staff series - a total of 30 Stary weapons
@@ -24,5 +29,6 @@ Additionally, there are:
 - Nearly 40 other types of weapons, 6 accessories, 3 ingots, 1 armor set, and 2 initial bosses
 This mod does not rewrite existing boss AI, so it allows joining after creating the mod
 If you have any ideas or suggestions，feel free to leave a comment.
+QQ：2893795217
 
 

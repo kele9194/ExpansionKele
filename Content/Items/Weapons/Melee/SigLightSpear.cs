@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using Terraria.Audio;
 using Terraria.Localization;
 using ExpansionKele.Content.Items.Placeables;
+using ReLogic.Content;
 
 namespace ExpansionKele.Content.Items.Weapons.Melee
 {
@@ -114,6 +115,20 @@ namespace ExpansionKele.Content.Items.Weapons.Melee
         
         // 冲刺击中计数
         private List<int> hitNPCs = new List<int>(); // 用于跟踪已经击中的NPC
+        private Asset<Texture2D> _cachedTexture;
+        
+        public override void Load()
+        {
+            // 预加载纹理
+            _cachedTexture=ModContent.Request<Texture2D>(Texture);
+
+        }
+        
+        public override void Unload()
+        {
+            // 可选：清空引用
+            _cachedTexture = null;
+        }
         
         /// <summary>
         /// 设置弹幕的基础属性
@@ -140,7 +155,7 @@ namespace ExpansionKele.Content.Items.Weapons.Melee
         public override void OnSpawn(IEntitySource source)
         {
             // 获取贴图尺寸并计算BaseRadius
-            Texture2D texture = ModContent.Request<Texture2D>(Texture).Value;
+            Texture2D texture = _cachedTexture.Value;
             int textureLength = Math.Max(texture.Width, texture.Height);
             BaseRadius = textureLength * 1.4142f / 2f; // 图片最大尺寸 * sqrt(2) / 2
             
@@ -319,7 +334,7 @@ namespace ExpansionKele.Content.Items.Weapons.Melee
         public override bool PreDraw(ref Color lightColor)
         {
             Player player = Main.player[Projectile.owner];
-            Texture2D texture = ModContent.Request<Texture2D>(Texture).Value;
+            Texture2D texture = _cachedTexture.Value;
 
             Vector2 position = Projectile.Center - Main.screenPosition;
             Vector2 origin = new Vector2(texture.Width / 2, texture.Height / 2);

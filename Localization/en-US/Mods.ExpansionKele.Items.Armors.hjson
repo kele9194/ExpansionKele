@@ -1,8 +1,8 @@
 MoonLeggings: {
 	Tooltip:
 		'''
-		+5% increased crit chance and 20% chance to save ammo
-		8% increased summon damage and 15% increased summon speed
+		6% increased crit chance and 20% chance to save ammo
+		6% increased summon damage 
 		'''
 	DisplayName: Moon Leggings
 }
@@ -10,8 +10,8 @@ MoonLeggings: {
 MoonHelmet: {
 	Tooltip:
 		'''
-		+4% special damage multiplier and 5% increased Ranged crit chance 
-		14% reduced mana cost and 25% increased whip range
+		damage*1.05 and 8% increased damage
+		15% reduced mana cost and 25% increased whip range
 		'''
 	DisplayName: Moon Helmet
 	SetBonus:
@@ -36,7 +36,7 @@ MoonHelmet: {
 MoonBreastplate: {
 	Tooltip:
 		'''
-		+8% special damage multiplier and 12% increased melee speed
+		damage*1.1 and 15% increased melee speed
 		80 increased max mana and 3 increased max minions number
 		'''
 	DisplayName: Moon Breastplate

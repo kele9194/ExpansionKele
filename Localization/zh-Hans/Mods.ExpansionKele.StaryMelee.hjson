@@ -112,3 +112,8 @@ StarySword: {
 	Tooltip: 星元剑的原始版本
 	DisplayName: 星元剑
 }
+
+StarySwordSP: {
+	// Tooltip: ""
+	// DisplayName: Stary Sword S P
+}

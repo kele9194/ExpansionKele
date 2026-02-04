@@ -1,1 +1,5 @@
-
+ItemChargeUIText:
+	'''
+	This bar is a charge indicator for certain weapons, displaying weapon charge properties
+	Right-click to drag this charge bar
+	'''

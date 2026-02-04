@@ -33,7 +33,7 @@ NeutronDecay: {
 }
 
 FullMoonBonusBuff: {
-	Description: 增加{0}%伤害(特殊间隔乘数)
+	Description: 增加{0}%伤害(特殊伤害乘数)
 	DisplayName: 满月增益
 }
 
@@ -131,6 +131,6 @@ CrossFireBuff: {
 }
 
 MushroomSwordMark: {
-	// DisplayName: Mushroom Sword Mark
-	// Description: Mods.ExpansionKele.Buff.MushroomSwordMark.Description
+	DisplayName: 蘑菇标记
+	Description: 悬浮蘑菇来袭
 }

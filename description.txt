@@ -41,6 +41,25 @@ v1.3.4(2025.1.15)
 修改铬钢剑为能量剑形式
 调整了满月战士徽章和星元勇气徽章部分效果
 
+v1.3.5
+修改望月长剑为能量剑形式
+修改部分武器伤害
+为几乎所有物品提供了较为合理的价格
+修复了许多bug
+
+v1.3.6.1
+完善充能条机制
+为大量武器展示充能条属性
+
+v1.3.7
+新增铬钢弓，M37霰弹枪，激光切割机，铬钢箭
+
+v1.3.8
+对追踪算法进行优化，现在更容易锁定重要目标如boss,而非其他目标
+对贴图逻辑进行优化，减少内存消耗
+重置望月法杖
+增强望月套
+
 This mod is developed purely for entertainment, developed by me alone, trying to achieve some imagination in ths mod and still under development. 
 When playing with the Calamity mod, some content will be adjusted to fit Calamity's numerical environment.
 
@@ -81,14 +100,28 @@ v1.3.3
 Added ECshield System
 Weakened IronWillShield, IronOathShield, and adjusted ChromiumShield
 
-
-v1.3.4(2025.1.15)
+v1.3.4(2026.1.15)
 Added Shroomite Sword and Spectre sword
 Added weapon charge bar, allowing some weapon charge bar to be displayed
 Modified Chrome Sword to energy sword form
 Adjusted effects of Moon Warrior Emblem and Star Warrior Emblem
 
 v1.3.5
+Modified Full Moon Sword to energy sword form
+Adjusted damages of some weapons
+for almost all items, provided a more reasonable price
+fix many bugs
 
+v1.3.6.1
+Improve the charge bar system
+display charge bar properties for many weapons
 
+v1.3.7
+Added Chromium Bow, M37 Shotgun, Laser Cutter, Chromium Arrow
+
+v1.3.8
+Optimized the tracking algorithm to make it easier to lock onto important targets such as bosses rather than other targets.
+Optimized the texture logic to reduce memory consumption.
+Reset the FullMoon Staff.
+Enhanced the FullMoon armor set.
 

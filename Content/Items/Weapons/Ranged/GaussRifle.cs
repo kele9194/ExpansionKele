@@ -9,7 +9,7 @@ using ExpansionKele.Content.Customs;
 
 namespace ExpansionKele.Content.Items.Weapons.Ranged
 {
-    public class GaussRifle : ModItem
+    public class GaussRifle : ModItem,IChargeableItem
     {
         // 弹药计数
         private const int MaxAmmoCount = 5;
@@ -78,7 +78,7 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
                 Item.UseSound = SoundID.Item40;
                 if (ammoCount == 0)
                 {
-                    CombatText.NewText(player.getRect(), Color.Cyan, "NoAmmo", true);
+                    //CombatText.NewText(player.getRect(), Color.Cyan, "NoAmmo", true);
                     return false;
                 }
                 return ammoCount >0;
@@ -97,7 +97,7 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
                 ammoCount = MaxAmmoCount;
                 // 更新伤害到初始状态
                 Item.damage = MaxDamage;
-                CombatText.NewText(player.getRect(), Color.Cyan, $"{ammoCount}/{MaxAmmoCount}", true);
+                //CombatText.NewText(player.getRect(), Color.Cyan, $"{ammoCount}/{MaxAmmoCount}", true);
                 // 播放装填音效
                 Terraria.Audio.SoundEngine.PlaySound(SoundID.MaxMana, player.position);
                 return false;
@@ -109,7 +109,7 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
             
             // 减少弹药数量
             ammoCount--;
-            CombatText.NewText(player.getRect(), Color.Cyan, $"{ammoCount}/{MaxAmmoCount}", true);
+            //CombatText.NewText(player.getRect(), Color.Cyan, $"{ammoCount}/{MaxAmmoCount}", true);
             
             // 更新伤害
             Item.damage = (int)(MaxDamage * System.Math.Pow(0.8, MaxAmmoCount - ammoCount));
@@ -130,6 +130,16 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
             recipe.AddIngredient(ItemID.SoulofFlight, 4);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();
+        }
+
+        public float GetCurrentCharge()
+        {
+            return ammoCount;
+        }
+
+        public float GetMaxCharge()
+        {
+            return MaxAmmoCount;
         }
     }
 }

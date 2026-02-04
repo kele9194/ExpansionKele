@@ -8,7 +8,7 @@ using Terraria.DataStructures;
 
 namespace ExpansionKele.Content.Items.Weapons.Ranged
 {
-    public class ShadowCrossbow : ModItem
+    public class ShadowCrossbow : ModItem,IChargeableItem
     {
         // 添加蓄力层数变量
         private int chargeLevel = 0;
@@ -143,6 +143,16 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
                 .AddIngredient(ItemID.DemoniteBar, 5) // 一把木弩
                 .AddTile(TileID.Anvils) // 在铁砧制作
                 .Register();
+        }
+
+        public float GetCurrentCharge()
+        {
+            return chargeLevel;
+        }
+
+        public float GetMaxCharge()
+        {
+            return maxChargeLevel;
         }
     }
 

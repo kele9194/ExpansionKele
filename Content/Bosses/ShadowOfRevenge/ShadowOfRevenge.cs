@@ -13,6 +13,7 @@ using Microsoft.Xna.Framework.Graphics;
 using ExpansionKele.Content.Customs;
 using ExpansionKele.Content.Items.Placeables;
 using Terraria.Localization;
+using ReLogic.Content;
 
 namespace ExpansionKele.Content.Bosses.ShadowOfRevenge
 {
@@ -22,6 +23,20 @@ namespace ExpansionKele.Content.Bosses.ShadowOfRevenge
     {
         public override string LocalizationCategory => "Bosses.ShadowOfRevenge";
         public static LocalizedText SpawnCondition { get; private set; }
+        public static string texturePath = $"ExpansionKele/Content/Bosses/ShadowOfRevenge/ShadowOfRevengeMoon";
+        private Asset<Texture2D> _cachedTextureMoon;
+        
+        public override void Load()
+        {
+            // 预加载纹理
+            _cachedTextureMoon=ModContent.Request<Texture2D>(texturePath);
+        }
+        
+        public override void Unload()
+        {
+            // 可选：清空引用
+            _cachedTextureMoon = null;
+        }
 
         // 定义Boss的攻击类型枚举（暂时留空，后续添加）
         public enum ShadowOfRevengeAttackType
@@ -701,11 +716,9 @@ namespace ExpansionKele.Content.Bosses.ShadowOfRevenge
 // ... existing code ...
 
         #endregion
-                        public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
+        public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            // 获取月光环贴图
-        string texturePath = $"ExpansionKele/Content/Bosses/ShadowOfRevenge/ShadowOfRevengeMoon";
-        Texture2D moonRingTexture = ModContent.Request<Texture2D>(texturePath).Value;
+        Texture2D moonRingTexture = _cachedTextureMoon.Value;
             
             // 每帧增加2度旋转角度
             moonRingRotation += MathHelper.ToRadians(2f);

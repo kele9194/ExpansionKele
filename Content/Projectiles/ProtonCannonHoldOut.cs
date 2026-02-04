@@ -9,20 +9,28 @@ using System;
 using static Terraria.Player;
 using Terraria.ID;
 using Terraria.DataStructures;
+using ReLogic.Content;
 namespace ExpansionKele.Content.Projectiles
 {
     public class ProtonCannonHoldOut : ModProjectile
     {
+        // ... existing code ...
         private Player owner;
         private bool _isShooting = false; // 引入状态变量来管理发射状态
         private float _currentChargingFrames; // 引入私有字段
 
         private float MaxChargeingFrame = 360;
 
+        public float CurrentChargingFrames => _currentChargingFrames;
+        public float MaxChargeingFrames=>MaxChargeingFrame;
+
+        public static float MaxChargeFrameValue => 360f;
+
         private int _shootCounter; // 引入发射计数器
         private int _bulletCount; // 引入子弹计数器
         private const int MaxshootingBullet = 6; // 定义最大发射子弹数
         private const int ShootingInterval = 10; // 定义发射间隔
+// ... existing code ...
 
         private const float xOffset = -3;
 
@@ -47,7 +55,19 @@ private bool _isPlayingChargeSound = false; // 新增变量来管理音效播放
 private bool _hasPlayedMaxChargeSound = false; // 新增变量
 
         public override string Texture => "ExpansionKele/Content/Projectiles/ProtonCannonHoldOut"; // 确保纹理资源正确
+        private static Asset<Texture2D> _cachedTexture;
 
+        public override void Load()
+        {
+            // 预加载纹理资源
+            _cachedTexture = ModContent.Request<Texture2D>(Texture);
+        }
+
+        public override void Unload()
+        {
+            // 清理资源引用
+            _cachedTexture = null;
+        }
 public override void OnSpawn(IEntitySource source)
 	{
 		OffsetLengthFromArm = MaxOffsetLengthFromArm;
@@ -199,7 +219,7 @@ public override void OnSpawn(IEntitySource source)
 
         public override bool PreDraw(ref Color lightColor)
         {
-            Texture2D texture = TextureAssets.Projectile[Type].Value;
+            Texture2D texture = _cachedTexture.Value;
             Vector2 drawPosition = Projectile.Center - Main.screenPosition;
             float drawRotation = Projectile.rotation + ((Projectile.spriteDirection == -1) ? MathHelper.Pi : 0f);
             Vector2 origin = texture.Size() * 0.5f;

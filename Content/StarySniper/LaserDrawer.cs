@@ -3,6 +3,7 @@ using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
+using ReLogic.Content;
 
 namespace ExpansionKele.Content.StarySniper
 {
@@ -64,6 +65,20 @@ namespace ExpansionKele.Content.StarySniper
 
     public class NoDamageLaserProjectile : ModProjectile
     {
+        private static Asset<Texture2D> _cachedTexture;
+        public override string Texture => "ExpansionKele/Content/StarySniper/SniperLaser";
+
+        public override void Load()
+        {
+            // 预加载纹理资源
+            _cachedTexture = ModContent.Request<Texture2D>(Texture);
+        }
+
+        public override void Unload()
+        {
+            // 清理资源引用
+            _cachedTexture = null;
+        }
         public override void SetDefaults()
         {
             Projectile.width = 4;
@@ -85,7 +100,7 @@ namespace ExpansionKele.Content.StarySniper
         public override bool PreDraw(ref Color lightColor)
         {
             // 使用 Main.spriteBatch 绘制激光效果
-            Texture2D texture = ModContent.Request<Texture2D>("ExpansionKele/Content/StarySniper/SniperLaser").Value;
+            Texture2D texture = _cachedTexture.Value;
             Vector2 origin = new Vector2(0, 0);
             float rotation = Projectile.velocity.ToRotation();
             float length = Projectile.velocity.Length() * 5f; // 调整激光长度

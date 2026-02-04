@@ -12,3 +12,13 @@ RedemptionArrow: {
 	DisplayName: 救赎箭
 	Tooltip: 多次击中将不断增加你的伤害，减少你受到的伤害
 }
+
+ChromiumArrow: {
+	DisplayName: 铬钢箭
+	Tooltip:
+		'''
+		忽视敌人所有防御
+		对敌人造成切割buff
+		对没有切割buff的敌人造成额外伤害
+		'''
+}

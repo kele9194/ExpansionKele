@@ -6,10 +6,24 @@ using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
 using static Terraria.NPC;
 using Terraria.DataStructures;
+using ReLogic.Content;
 namespace ExpansionKele.Content.Projectiles
 { 
 public class IronCurtainCannonLaser : ModProjectile
 {
+    private static Asset<Texture2D> _cachedTexture;
+
+    public override void Load()
+    {
+        // 预加载纹理资源
+        _cachedTexture = ModContent.Request<Texture2D>(Texture);
+    }
+
+    public override void Unload()
+    {
+        // 清理资源引用
+        _cachedTexture = null;
+    }
     public override void SetDefaults()
     {
         Projectile.width = 16;
@@ -42,8 +56,7 @@ public class IronCurtainCannonLaser : ModProjectile
     }
     public override bool PreDraw(ref Color lightColor)
         {
-            // 绘制红色脉动光圈
-       Texture2D texture = Terraria.GameContent.TextureAssets.Projectile[Projectile.type].Value;
+       Texture2D texture = _cachedTexture.Value;
         // 计算绘制位置
         Vector2 drawOrigin = new Vector2(texture.Width * 0.5f, texture.Height * 0.5f);
         Vector2 drawPos = Projectile.Center - Main.screenPosition;

@@ -12,6 +12,7 @@ using Terraria.DataStructures;
 using System.Collections.Generic;
 using System.Linq;
 using ExpansionKele.Content.Customs;
+using ReLogic.Content;
 
 namespace ExpansionKele.Content.Projectiles
 {
@@ -19,9 +20,9 @@ namespace ExpansionKele.Content.Projectiles
     {
         private Player owner;
         private bool _isShooting = false;
-        private float _currentChargingFrames = 0f;
+        public float _currentChargingFrames = 0f;
 
-        private float MaxChargeingFrame = 360;
+        public float MaxChargeingFrame = 360;
 
         private int _shootCounter;
         private int _bulletCount;
@@ -47,6 +48,19 @@ namespace ExpansionKele.Content.Projectiles
         private bool _hasPlayedMaxChargeSound = false;
 
         public override string Texture => "ExpansionKele/Content/Projectiles/SoulCannonHoldOut";
+        private static Asset<Texture2D> _cachedTexture;
+
+        public override void Load()
+        {
+            // 预加载纹理资源
+            _cachedTexture = ModContent.Request<Texture2D>(Texture);
+        }
+
+        public override void Unload()
+        {
+            // 清理资源引用
+            _cachedTexture = null;
+        }
 
         public override void OnSpawn(IEntitySource source)
         {
@@ -177,7 +191,7 @@ namespace ExpansionKele.Content.Projectiles
 
         public override bool PreDraw(ref Color lightColor)
         {
-            Texture2D texture = TextureAssets.Projectile[Type].Value;
+            Texture2D texture = _cachedTexture.Value;
             Vector2 drawPosition = Projectile.Center - Main.screenPosition;
             float drawRotation = Projectile.rotation + ((Projectile.spriteDirection == -1) ? MathHelper.Pi : 0f);
             Vector2 origin = texture.Size() * 0.5f;
@@ -208,90 +222,111 @@ namespace ExpansionKele.Content.Projectiles
     }
 
     public class SoulCannonProjectile : ModProjectile
+{
+    private int frameCounter;
+    private int currentFrame;
+    private const int frameCount = 3; // 3帧动画
+    private const int frameDelay = 5;  // 每5帧切换一次动画
+    
+    // 使用Asset<Texture2D>数组来存储所有动画帧
+    private static Asset<Texture2D>[] _animationFrames;
+
+    public override void Load()
     {
-        private int frameCounter;
-        private int currentFrame;
-        private const int frameCount = 3; // 3帧动画
-        private const int frameDelay = 5;  // 每5帧切换一次动画
-
-        public override void SetDefaults()
+        // 预加载所有动画帧纹理
+        _animationFrames = new Asset<Texture2D>[frameCount];
+        for (int i = 0; i < frameCount; i++)
         {
-            Projectile.width = 20;
-            Projectile.height = 20;
-            Projectile.friendly = true;
-            Projectile.DamageType = DamageClass.Ranged;
-            Projectile.penetrate = 1; // 多穿透效果
-            Projectile.timeLeft = 600;
-            Projectile.tileCollide = true;
-            Projectile.usesLocalNPCImmunity = true;
-            Projectile.localNPCHitCooldown = 5; // 5的局部无敌帧
-        }
-
-        public override void AI()
-        {
-            // 添加追踪AI
-            ProjectileHelper.FindAndMoveTowardsTarget(Projectile, 30f, 640f, 10f);
-            
-            // 旋转效果
-            Projectile.rotation = Projectile.velocity.ToRotation() + MathHelper.PiOver2;
-            
-            // 动画逻辑
-            frameCounter++;
-            if (frameCounter >= frameDelay)
-            {
-                frameCounter = 0;
-                currentFrame++;
-                if (currentFrame >= frameCount)
-                {
-                    currentFrame = 0;
-                }
-            }
-        }
-
-        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
-        {
-            target.immune[Projectile.owner] = 0;
-        }
-
-        public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
-        {
-            // 计算64像素范围内的敌人数
-            float searchRadius = 64f;
-            int enemyCount = 0;
-            
-            foreach (NPC npc in Main.npc)
-            {
-                if (npc.active && !npc.friendly && !npc.dontTakeDamage && npc.lifeMax > 5 && Vector2.Distance(Projectile.Center, npc.Center) <= searchRadius)
-                {
-                    enemyCount++;
-                }
-            }
-            
-            // 每多存在一个生物额外造成12.5%伤害，最高提升50%
-            float damageMultiplier = 1f + Math.Min(enemyCount * 0.125f, 0.5f);
-            modifiers.FinalDamage *= damageMultiplier;
-        }
-
-        public override bool PreDraw(ref Color lightColor)
-        {
-            // 使用特定帧绘制投射物
-            string texturePath = "ExpansionKele/Content/Projectiles/SoulCannonProjAsset/SoulCannonProjectile";
-            if (currentFrame >= 0)
-            {
-                texturePath += "_" + (currentFrame+1); // 从SoulCannonProjectile_1.png开始
-            }
-            
-            Texture2D texture = ModContent.Request<Texture2D>(texturePath).Value;
-            Vector2 drawPosition = Projectile.Center - Main.screenPosition;
-            Rectangle frame = texture.Frame(1, 1, 0, 0);
-            Vector2 origin = frame.Size() / 2f;
-            Color drawColor = Projectile.GetAlpha(lightColor);
-            
-            Main.EntitySpriteDraw(texture, drawPosition, frame, drawColor, Projectile.rotation, origin, Projectile.scale, SpriteEffects.None, 0);
-            
-            return false;
+            string texturePath = $"ExpansionKele/Content/Projectiles/SoulCannonProjAsset/SoulCannonProjectile_{i + 1}";
+            _animationFrames[i] = ModContent.Request<Texture2D>(texturePath);
         }
     }
+
+    public override void Unload()
+    {
+        // 清理所有纹理资源引用
+        _animationFrames = null;
+    }
+
+    public override void SetDefaults()
+    {
+        Projectile.width = 20;
+        Projectile.height = 20;
+        Projectile.friendly = true;
+        Projectile.DamageType = DamageClass.Ranged;
+        Projectile.penetrate = 1;
+        Projectile.timeLeft = 600;
+        Projectile.tileCollide = true;
+        Projectile.usesLocalNPCImmunity = true;
+        Projectile.localNPCHitCooldown = 5;
+    }
+
+    public override void AI()
+    {
+        // 添加追踪AI
+        ProjectileHelper.FindAndMoveTowardsTarget(Projectile, 30f, 640f, 10f);
+        
+        // 旋转效果
+        Projectile.rotation = Projectile.velocity.ToRotation() + MathHelper.PiOver2;
+        
+        // 动画逻辑
+        frameCounter++;
+        if (frameCounter >= frameDelay)
+        {
+            frameCounter = 0;
+            currentFrame++;
+            if (currentFrame >= frameCount)
+            {
+                currentFrame = 0;
+            }
+        }
+    }
+
+    public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
+    {
+        target.immune[Projectile.owner] = 0;
+    }
+
+    public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
+    {
+        // 计算64像素范围内的敌人数
+        float searchRadius = 64f;
+        int enemyCount = 0;
+        
+        foreach (NPC npc in Main.npc)
+        {
+            if (npc.active && !npc.friendly && !npc.dontTakeDamage && npc.lifeMax > 5 && Vector2.Distance(Projectile.Center, npc.Center) <= searchRadius)
+            {
+                enemyCount++;
+            }
+        }
+        
+        // 每多存在一个生物额外造成12.5%伤害，最高提升50%
+        float damageMultiplier = 1f + Math.Min(enemyCount * 0.125f, 0.5f);
+        modifiers.FinalDamage *= damageMultiplier;
+    }
+
+    public override bool PreDraw(ref Color lightColor)
+    {
+        // 使用预加载的动画帧纹理
+        if (_animationFrames == null || currentFrame < 0 || currentFrame >= frameCount)
+            return false;
+
+        Asset<Texture2D> frameAsset = _animationFrames[currentFrame];
+        if (frameAsset?.Value == null)
+            return false;
+
+        Texture2D texture = frameAsset.Value;
+        Vector2 drawPosition = Projectile.Center - Main.screenPosition;
+        Rectangle frame = texture.Frame(1, 1, 0, 0);
+        Vector2 origin = frame.Size() / 2f;
+        Color drawColor = Projectile.GetAlpha(lightColor);
+        
+        Main.EntitySpriteDraw(texture, drawPosition, frame, drawColor, Projectile.rotation, origin, Projectile.scale, SpriteEffects.None, 0);
+        
+        return false;
+    }
+}
 
     public static class SoulCannon
     {

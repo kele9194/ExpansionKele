@@ -425,3 +425,34 @@ ShroomiteSword: {
 		'''
 	DisplayName: 蘑菇剑
 }
+
+ChromiumBow: {
+	Tooltip:
+		'''
+		发射并排的三发箭矢
+		箭矢会附加10点盔甲穿透
+		穿透性箭矢会修改属性防止骗伤
+		'''
+	DisplayName: 铬钢弓
+}
+
+M37Shotgun: {
+	DisplayName: M37霰弹枪
+	Tooltip:
+		'''
+		霰弹枪的升级版
+		左键发射五发散布的弹丸
+		右键发射伤害更高的独头弹
+		独头弹造成额外盔甲穿透
+		'''
+}
+
+LaserCutter: {
+	Tooltip:
+		'''
+		实验性武器，造成高频伤害
+		一把并未完成的武器
+		作者碎碎念：做的破防了
+		'''
+	DisplayName: 激光切割机
+}

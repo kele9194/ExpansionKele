@@ -8,7 +8,7 @@ using System;
 
 namespace ExpansionKele.Content.Items.Weapons.Ranged
 {
-    public class WoodenCrossbow : ModItem
+    public class WoodenCrossbow : ModItem,IChargeableItem
     {
         // 添加蓄力层数变量
         private int chargeLevel = 0;
@@ -141,6 +141,16 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
                 .AddIngredient(ItemID.Wood, 12) // 12个木材
                 .AddTile(TileID.WorkBenches) // 在工作台制作
                 .Register();
+        }
+
+        public float GetCurrentCharge()
+        {
+            return chargeLevel;
+        }
+
+        public float GetMaxCharge()
+        {
+            return maxChargeLevel;
         }
     }
 }

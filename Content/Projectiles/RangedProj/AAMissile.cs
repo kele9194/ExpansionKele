@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using ExpansionKele.Content.Customs;
 
-namespace ExpansionKele.Content.Projectiles
+namespace ExpansionKele.Content.Projectiles.RangedProj
 {
     public class AAMissile : ModProjectile
     {

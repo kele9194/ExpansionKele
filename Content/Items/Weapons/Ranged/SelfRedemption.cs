@@ -11,7 +11,7 @@ using ExpansionKele.Content.Items.OtherItem;
 
 namespace ExpansionKele.Content.Items.Weapons.Ranged
 {
-	public class SelfRedemption : ModItem
+	public class SelfRedemption : ModItem,IChargeableItem
 	{
         public override string LocalizationCategory => "Items.Weapons";
         private const int MaxAmmoCount = 40;
@@ -76,7 +76,7 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
                 Item.UseSound = SoundID.Item11; // 恢复使用音效
 				if (ammoCount == 0)
 				{
-					CombatText.NewText(player.getRect(), Color.Cyan, "NoAmmo", true);
+					//CombatText.NewText(player.getRect(), Color.Cyan, "NoAmmo", true);
 					return false;
 				}
 				return ammoCount > 0;
@@ -97,7 +97,7 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
 				// 装填弹药
 				ammoCount = MaxAmmoCount;
     
-				CombatText.NewText(player.getRect(), Color.Cyan, $"{ammoCount}/{MaxAmmoCount}", true);
+				//CombatText.NewText(player.getRect(), Color.Cyan, $"{ammoCount}/{MaxAmmoCount}", true);
 				Terraria.Audio.SoundEngine.PlaySound(ExpansionKele.FadeReloadSound, player.position);
 				return false;
 			}
@@ -108,7 +108,7 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
 			// 减少弹药数量
 			ammoCount--;
 			if(ammoCount%5==0){
-				CombatText.NewText(player.getRect(), Color.Cyan, $"{ammoCount}/{MaxAmmoCount}", true);
+				//CombatText.NewText(player.getRect(), Color.Cyan, $"{ammoCount}/{MaxAmmoCount}", true);
                 }
 			
 			return false; // 阻止默认弹幕生成
@@ -127,8 +127,17 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
 				.AddTile(TileID.LunarCraftingStation) // 远古操纵机
 				.Register();
 		}
-		
-	}
+
+        public float GetCurrentCharge()
+        {
+            return ammoCount;
+        }
+
+        public float GetMaxCharge()
+        {
+            return MaxAmmoCount;
+        }
+    }
 
 	public class SelfRedemptionPlayer : ModPlayer
 	{

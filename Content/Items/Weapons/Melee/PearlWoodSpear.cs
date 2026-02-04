@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using ExpansionKele.Content.Customs;
 using Terraria.DataStructures;
+using ReLogic.Content;
 
 namespace ExpansionKele.Content.Items.Weapons.Melee
 {
@@ -59,6 +60,20 @@ namespace ExpansionKele.Content.Items.Weapons.Melee
         public float BaseRadius;
         public float distanceFromPlayerAll = 20f;
         private const float PROJECTILE_REFLECT_HEAL_PERCENT = 0.015f; // 每次反弹恢复2%最大生命值
+        private Asset<Texture2D> _cachedTexture;
+        
+        public override void Load()
+        {
+            // 预加载纹理
+            _cachedTexture=ModContent.Request<Texture2D>(Texture);
+
+        }
+        
+        public override void Unload()
+        {
+            // 可选：清空引用
+            _cachedTexture = null;
+        }
         public override void SetDefaults()
         {
             Projectile.width = 128;
@@ -76,7 +91,7 @@ namespace ExpansionKele.Content.Items.Weapons.Melee
         public override void OnSpawn(IEntitySource source)
         {
             // 获取贴图尺寸并计算BaseRadius
-            Texture2D texture = ModContent.Request<Texture2D>(Texture).Value;
+            Texture2D texture = _cachedTexture.Value;
             int textureLength = Math.Max(texture.Width, texture.Height);
             BaseRadius = textureLength * 1.4142f / 2f+distanceFromPlayerAll*1.4142f; // 图片最大尺寸 * sqrt(2) / 2
             
@@ -131,7 +146,7 @@ namespace ExpansionKele.Content.Items.Weapons.Melee
         private void TryReflectProjectiles(Player player)
         {
             // 获取武器纹理尺寸
-            Texture2D texture = ModContent.Request<Texture2D>(Texture).Value;
+            Texture2D texture = _cachedTexture.Value;
             float weaponRadius = Math.Max(texture.Width, texture.Height) / 2f * Projectile.scale;
             Vector2 weaponCenter = Projectile.Center;
             
@@ -192,7 +207,7 @@ namespace ExpansionKele.Content.Items.Weapons.Melee
 
         public override bool PreDraw(ref Color lightColor)
         {
-            Texture2D texture = ModContent.Request<Texture2D>(Texture).Value;
+            Texture2D texture = _cachedTexture.Value;
 
             Vector2 position = Projectile.Center - Main.screenPosition;
             Vector2 origin = new Vector2(texture.Width / 2, texture.Height / 2);

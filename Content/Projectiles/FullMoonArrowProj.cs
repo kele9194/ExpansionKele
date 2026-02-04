@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
@@ -30,6 +31,19 @@ public class FullMoonArrowProj : ModProjectile
     private List<int> _hitNPCs = new List<int>();
     private int _penetrateCount = 0;
     private int _lifeTimer = 0;
+    private static Asset<Texture2D> _cachedTexture;
+
+    public override void Load()
+    {
+        // 预加载纹理资源
+        _cachedTexture = ModContent.Request<Texture2D>(Texture);
+    }
+
+    public override void Unload()
+    {
+        // 清理资源引用
+        _cachedTexture = null;
+    }
     
     public override void SetStaticDefaults()
     {
@@ -190,7 +204,7 @@ public class FullMoonArrowProj : ModProjectile
     public override bool PreDraw(ref Color lightColor)
 {
     // 获取箭矢纹理
-    Texture2D texture = TextureAssets.Projectile[Projectile.type].Value;
+    Texture2D texture = _cachedTexture.Value;
     Vector2 drawOrigin = new Vector2(texture.Width * 0.5f, Projectile.height * 0.5f);
 
     // 判断当前状态，调整颜色透明度

@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using Terraria;
 using Terraria.ModLoader;
 
@@ -7,6 +8,19 @@ namespace ExpansionKele.Content.Projectiles.RangedProj
 {
     public class EMPWave : ModProjectile
     {
+        private static Asset<Texture2D> _cachedTexture;
+
+        public override void Load()
+        {
+            // 预加载纹理资源
+            _cachedTexture = ModContent.Request<Texture2D>(Texture);
+        }
+
+        public override void Unload()
+        {
+            // 清理资源引用
+            _cachedTexture = null;
+        }
         private const int AnimationDuration = 20; // 动画持续时间（帧）
         
         public override void SetDefaults()
@@ -62,7 +76,7 @@ namespace ExpansionKele.Content.Projectiles.RangedProj
         public override bool PreDraw(ref Color lightColor)
         {
             // 使用贴图绘制EMP波效果
-            Texture2D texture = ModContent.Request<Texture2D>(Texture).Value;
+            Texture2D texture = _cachedTexture.Value;
             Vector2 drawPos = Projectile.Center - Main.screenPosition;
             Color color = Color.White * (1f - (Projectile.alpha / 255f)); // 根据alpha值调整透明度
             Vector2 origin = new Vector2(texture.Width / 2, texture.Height / 2);

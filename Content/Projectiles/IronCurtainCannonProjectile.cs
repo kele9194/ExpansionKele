@@ -7,11 +7,13 @@ using System.Collections.Generic;
 using static Terraria.NPC;
 using Terraria.DataStructures;
 using Terraria.Audio;
+using ReLogic.Content;
 namespace ExpansionKele.Content.Projectiles
 { 
 
 public class IronCurtainCannonProjectile : ModProjectile
     {
+        
         public override void SetDefaults()
         {
             Projectile.width = 16;
@@ -51,6 +53,19 @@ public class IronCurtainCannonProjectile : ModProjectile
     }
         public class IronCurtainCannonExplosion : ModProjectile
     {
+        private static Asset<Texture2D> _cachedTexture;
+
+        public override void Load()
+        {
+            // 预加载纹理资源
+            _cachedTexture = ModContent.Request<Texture2D>(Texture);
+        }
+
+        public override void Unload()
+        {
+            // 清理资源引用
+            _cachedTexture = null;
+        }
         public override void SetDefaults()
         {
             Projectile.width = 256;
@@ -99,7 +114,7 @@ public class IronCurtainCannonProjectile : ModProjectile
         public override bool PreDraw(ref Color lightColor)
         {
             // 绘制红色脉动光圈
-            Texture2D texture = Terraria.GameContent.TextureAssets.Projectile[Projectile.type].Value;
+            Texture2D texture = _cachedTexture.Value;
             // 计算透明度，从240开始逐渐变为0
             int alpha = (int)(240 * (Projectile.timeLeft / 60f));
             Color color = Color.Red * (alpha / 255f);

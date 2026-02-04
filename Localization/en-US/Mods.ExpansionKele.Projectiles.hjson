@@ -81,3 +81,7 @@ ChromiumSwordProjectile.DisplayName: Chromium Sword Projectile
 ShroomiteSwordProjectile.DisplayName: Shroomite Sword Projectile
 FloatingMushroomProjectile.DisplayName: Floating Mushroom Projectile
 FullMoonSwordProjectile.DisplayName: Full Moon Sword Projectile
+ChromiumArrowProjectile.DisplayName: Chromium Arrow Projectile
+LaserDamageProjectile.DisplayName: Laser Damage Projectile
+LaserCutterProjectile.DisplayName: Laser Cutter Projectile
+LaserRangeTexture.DisplayName: Laser Range Texture

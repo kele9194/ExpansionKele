@@ -5,6 +5,7 @@ using ExpansionKele.Content.Items.Weapons.Melee; // 添加对新Player类的引�
 using ExpansionKele.Global;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.GameContent;
@@ -43,6 +44,19 @@ namespace ExpansionKele.Content.Projectiles.MeleeProj
         // 新增：定义挥舞角度的常量
         private float SwingAngleMultiplier = 1f; // 可以调整这个值来改变挥舞角度，例如1.5f会增加50%的角度
         
+        private static Asset<Texture2D> _cachedTexture;
+
+        public override void Load()
+        {
+            // 预加载纹理资源
+            _cachedTexture = ModContent.Request<Texture2D>(Texture);
+        }
+
+        public override void Unload()
+        {
+            // 清理资源引用
+            _cachedTexture = null;
+        }
         
         public override void SetStaticDefaults()
         {
@@ -247,7 +261,7 @@ namespace ExpansionKele.Content.Projectiles.MeleeProj
         public override bool PreDraw(ref Color lightColor)
         {
             Vector2 position = Projectile.Center - Main.screenPosition;
-            Texture2D texture = TextureAssets.Projectile[Type].Value;
+            Texture2D texture = _cachedTexture.Value;
             Rectangle sourceRectangle = texture.Frame(1, 4);
             Vector2 origin = sourceRectangle.Size() / 2f;
             float scale = Projectile.scale * DrawScaleMultiplier;

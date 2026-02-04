@@ -7,16 +7,31 @@ using Terraria.ModLoader;
 using Terraria.GameContent;
 using Terraria.DataStructures;
 using System;
+using ReLogic.Content; // 添加这个using语句
 
 namespace ExpansionKele.Content.Projectiles
 {
     public class ColaProjectileLower : ModProjectile
     {
-        public static Color  ColaColor = new Color(214, 123, 44);
-        public override string Texture => "ExpansionKele/Content/Projectiles/ColaProjectileLower"; // Use texture of item as projectile texture
+        public static readonly Color ColaColor = new Color(214, 123, 44);
+        public override string Texture => "ExpansionKele/Content/Projectiles/ColaProjectileLower";
+        
+        // 添加Asset<Texture2D>字段进行优化
+        private static Asset<Texture2D> _cachedTexture;
+
+        public override void Load()
+        {
+            // 预加载纹理资源
+            _cachedTexture = ModContent.Request<Texture2D>(Texture);
+        }
+
+        public override void Unload()
+        {
+            // 清理资源引用
+            _cachedTexture = null;
+        }
 
         private Player Owner => Main.player[Projectile.owner];
-        //private float baseDamage;
 
         public override void SetStaticDefaults()
         {
@@ -25,41 +40,34 @@ namespace ExpansionKele.Content.Projectiles
 
         public override void SetDefaults()
         {
-            Projectile.width = 10; // Hitbox width of projectile
-            Projectile.height = 10; // Hitbox height of projectile
-            Projectile.friendly = true; // Projectile hits enemies
-            Projectile.timeLeft = 200; // Time it takes for projectile to expire
-            Projectile.penetrate = -1; // Projectile penetrates infinitely
-            Projectile.tileCollide = true; // Projectile collides with tiles
-            Projectile.DamageType = DamageClass.Melee; // Projectile is a melee projectile
+            Projectile.width = 10;
+            Projectile.height = 10;
+            Projectile.friendly = true;
+            Projectile.timeLeft = 200;
+            Projectile.penetrate = -1;
+            Projectile.tileCollide = true;
+            Projectile.DamageType = DamageClass.Melee;
             AIType = ProjectileID.Bullet;
-            Projectile.extraUpdates=3;
+            Projectile.extraUpdates = 3;
         }
 
         public override void OnSpawn(IEntitySource source)
         {
-            // Set the projectile's velocity towards the mouse cursor
             Vector2 target = Main.MouseWorld - Projectile.Center;
             target.Normalize();
-            target *= 12f; // Speed of the projectile
+            target *= 12f;
             Projectile.velocity = target;
-
-            // Get the base damage of the StarySword
-            // ModItem starySword = ModContent.GetInstance<StarySword>();
-            // baseDamage = starySword.Item.damage*(1+starySword.Item.damageGenericUp) * 1.25f;
-            Projectile.damage = (int)(Projectile.damage*1.25);
+            Projectile.damage = (int)(Projectile.damage * 1.25);
         }
 
         public override void AI()
         {
-            // Kill the projectile if the player dies or gets crowd controlled
             if (!Owner.active || Owner.dead || Owner.noItems || Owner.CCed)
             {
                 Projectile.Kill();
                 return;
             }
 
-            // Dust trail effect
             Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Smoke, Projectile.velocity.X * 0.25f, Projectile.velocity.Y * 0.25f, 0, ColaColor, 1f);
             if (Projectile.velocity != Vector2.Zero)
             {
@@ -69,16 +77,13 @@ namespace ExpansionKele.Content.Projectiles
 
         public override bool OnTileCollide(Vector2 oldVelocity)
         {
-            // Play sound on collision
             SoundEngine.PlaySound(SoundID.Item10, Projectile.position);
 
-            // If the projectile hits the left or right side of the tile, reverse the X velocity
             if (Math.Abs(Projectile.velocity.X - oldVelocity.X) > float.Epsilon)
             {
                 Projectile.velocity.X = -oldVelocity.X;
             }
 
-            // If the projectile hits the top or bottom side of the tile, reverse the Y velocity
             if (Math.Abs(Projectile.velocity.Y - oldVelocity.Y) > float.Epsilon)
             {
                 Projectile.velocity.Y = -oldVelocity.Y;
@@ -89,74 +94,29 @@ namespace ExpansionKele.Content.Projectiles
 
         public override bool PreDraw(ref Color lightColor)
         {
-            Texture2D texture = TextureAssets.Projectile[Type].Value;
-            Main.spriteBatch.Draw(texture, Projectile.Center - Main.screenPosition, null, lightColor, Projectile.rotation, new Vector2(texture.Width / 2, texture.Height / 2), Projectile.scale, SpriteEffects.None, 0);
-
-            // Since we are doing a custom draw, prevent it from normally drawing
-            return false;
+            // 使用预加载的纹理资源
+            if (_cachedTexture?.Value != null)
+            {
+                Texture2D texture = _cachedTexture.Value;
+                Main.spriteBatch.Draw(
+                    texture, 
+                    Projectile.Center - Main.screenPosition, 
+                    null, 
+                    lightColor, 
+                    Projectile.rotation, 
+                    new Vector2(texture.Width / 2, texture.Height / 2), 
+                    Projectile.scale, 
+                    SpriteEffects.None, 
+                    0
+                );
+                return false;
+            }
+            return true;
         }
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            // Calculate explosion damage as 82% of the projectile's damage
-            // if(ExpansionKele.calamity!=null)
-            // {
-            //     target.AddBuff(ExpansionKele.calamity.Find<ModBuff>("MarkedforDeath").Type, 100);
-            // }
             target.immune[Projectile.owner] = 4;
-            // int explosionDamage = (int)(Projectile.damage * 0.82);
-
-            // Create an explosion effect
-            // Terraria.Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Vector2.Zero, Mod.Find<ModProjectile>("ColaExplosion").Type, explosionDamage, Projectile.knockBack, Projectile.owner);
-
-            // // Play explosion sound
-            // SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
-
-            
         }
-
-    //     public class ColaExplosion : ModProjectile
-    // {
-    //     public override string Texture => "ExpansionKele/Content/Projectile/ColaExplosion"; // Use appropriate texture for explosion
-
-    //     public override void SetDefaults()
-    //     {
-    //         Projectile.width = 20; // Width of the explosion
-    //         Projectile.height = 20; // Height of the explosion
-    //         Projectile.friendly = true; // Explosion hits enemies
-    //         Projectile.hostile = false; // Explosion does not hit players
-    //         Projectile.penetrate = -1; // Explosion penetrates infinitely
-    //         Projectile.tileCollide = false; // Explosion does not collide with tiles
-    //         Projectile.timeLeft = 100; // Time it takes for explosion to disappear
-    //         //搞不懂，后面还有Projectile.alpha += 10;在60，10和30，5时额外两次，60，5为4次，30，10为额外0次
-    //         Projectile.DamageType = DamageClass.Melee; // Explosion is a melee projectile
-            
-    //     }
-
-    //     public override void AI()
-    //     {
-    //         // Dust effect for explosion
-    //         for (int i = 0; i < 3; i++)
-    //         {
-    //             Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Smoke, Main.rand.NextFloat(-2f, 2f), Main.rand.NextFloat(-2f, 2f), 0, default(Color), 1f);
-    //         }
-
-    //         // Fade out the explosion over time
-    //         Projectile.alpha += 40;
-    //         if (Projectile.alpha >= 255)
-    //         {
-    //             Projectile.Kill();
-    //         }
-    //     }
-        
-
-    //     public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
-    //     {
-    //         // Additional effects on hit can be added here if needed
-    //         target.immune[Projectile.owner] = 4;
-            
-    //     }
-    // }
-}
-
     }
+}

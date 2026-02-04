@@ -1,3 +1,4 @@
+// ... existing code ...
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
@@ -12,7 +13,7 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
     /// 质子加农炮 - 一种远程蓄力武器
     /// 具有充能和射击音效，使用特殊的持握弹幕
     /// </summary>
-    public class ProtonCannon : ModItem
+    public class ProtonCannon : ModItem, IChargeableItem
     {
         
         
@@ -94,6 +95,48 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
         public override void HoldItem(Player player)
         {
             //player.mouseInterface = true;
+        }
+
+        /// <summary>
+        /// 获取当前充能值
+        /// </summary>
+        /// <returns>当前充能值</returns>
+        float IChargeableItem.GetCurrentCharge()
+        {
+            // 遍历所有活跃的弹幕，找到属于当前玩家的质子加农炮弹幕
+            foreach (var projectile in Main.projectile)
+            {
+                if (projectile.active && projectile.type == ModContent.ProjectileType<ProtonCannonHoldOut>() &&
+                    projectile.owner == Main.myPlayer)
+                {
+                    if (projectile.ModProjectile is ProtonCannonHoldOut holdOut)
+                    {
+                        return holdOut.CurrentChargingFrames;
+                    }
+                }
+            }
+            // 如果没有找到活跃的弹幕，则返回0
+            return 0f;
+        }
+
+        /// <summary>
+        /// 获取最大充能值
+        /// </summary>
+        /// <returns>最大充能值</returns>
+        float IChargeableItem.GetMaxCharge()
+        {
+            foreach (var projectile in Main.projectile)
+            {
+                if (projectile.active && projectile.type == ModContent.ProjectileType<ProtonCannonHoldOut>() &&
+                    projectile.owner == Main.myPlayer)
+                {
+                    if (projectile.ModProjectile is ProtonCannonHoldOut holdOut)
+                    {
+                        return holdOut.MaxChargeingFrames;
+                    }
+                }
+            }
+            return 0;
         }
         
         /// <summary>
