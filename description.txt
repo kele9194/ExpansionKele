@@ -60,6 +60,15 @@ v1.3.8
 重置望月法杖
 增强望月套
 
+v1.3.9
+修复充能条和护盾条可以在多人模式中正确显示
+修复并削弱了生命光之翼的效果
+为神圣心盾，钢铁誓约之盾，星元心之徽章提供buff效果
+合并了神圣心盾合钢铁誓约之盾的铁幕效果
+修复了追踪算法部分存在的问题
+修复部分多人模式下的错误问题
+修复了贴图优化后出现的部分问题
+
 This mod is developed purely for entertainment, developed by me alone, trying to achieve some imagination in ths mod and still under development. 
 When playing with the Calamity mod, some content will be adjusted to fit Calamity's numerical environment.
 

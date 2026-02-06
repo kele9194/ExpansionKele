@@ -3,6 +3,7 @@ using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.Net;
 using ExpansionKele.Content.Projectiles;
 using ExpansionKele.Content.Customs;
 
@@ -53,6 +54,53 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
 			// 允许右键使用
 			return true;
 		}
+        
+        public override bool? UseItem(Player player)
+        {
+            // 检查是否可以使用武器（在所有模式下都进行检查）
+            bool canUse = true;
+            
+            // 右键装填检查
+            if (player.altFunctionUse == 2)
+            {
+                if (ammoCount >= MaxAmmoCount)
+                {
+                    canUse = false;
+                    CombatText.NewText(player.getRect(), Color.Cyan, "Ammo Full", true);
+                }
+            }
+            else
+            {
+                // 左键射击检查
+                if (ammoCount <= 0)
+                {
+                    canUse = false;
+                    CombatText.NewText(player.getRect(), Color.Cyan, "NoAmmo", true);
+                }
+            }
+            
+            // 如果不能使用，完全阻止使用动作
+            if (!canUse)
+            {
+                // 重置使用计时器
+                player.itemTime = 0;
+                player.itemAnimation = 0;
+                
+                // 在网络模式下发送同步消息
+                if (Main.netMode != NetmodeID.SinglePlayer)
+                {
+                    // 发送玩家控制状态更新
+                    NetMessage.SendData(MessageID.SyncPlayer, -1, -1, null, player.whoAmI);
+                    // 发送玩家状态更新
+                    NetMessage.SendData(MessageID.PlayerControls, -1, -1, null, player.whoAmI, 0f, 0f, 0f, 0);
+                }
+                
+                return false;
+            }
+            
+            return null; // 让游戏继续处理正常的使用逻辑
+        }
+
         public override bool CanUseItem(Player player)
 		{
 			// 右键装填

@@ -30,6 +30,9 @@ namespace ExpansionKele.Content.Projectiles
             Projectile.ignoreWater = true;
             Projectile.tileCollide = true;
             Projectile.extraUpdates = 1;
+            Projectile.usesLocalNPCImmunity = true;
+            Projectile.localNPCHitCooldown = 20;
+            Projectile.netUpdate = true;
         }
 
         public override void AI()

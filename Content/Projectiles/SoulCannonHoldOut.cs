@@ -79,6 +79,9 @@ namespace ExpansionKele.Content.Projectiles
             Projectile.timeLeft = 7200;
             Projectile.velocity = Vector2.Zero;
             Projectile.knockBack = 8f;
+            // 初始化AI数组用于存储鼠标位置
+            Projectile.ai[0] = 0f; // 鼠标X坐标
+            Projectile.ai[1] = 0f; // 鼠标Y坐标
         }
 
         public override void AI()
@@ -89,6 +92,18 @@ namespace ExpansionKele.Content.Projectiles
             {
                 return;
             }
+
+            // 只在拥有者的客户端更新鼠标位置
+            if (Main.myPlayer == Projectile.owner)
+            {
+                Vector2 mousePosition = Main.MouseWorld;
+                Projectile.ai[0] = mousePosition.X;
+                Projectile.ai[1] = mousePosition.Y;
+                Projectile.netUpdate = true; // 强制网络同步
+            }
+
+            // 使用同步的鼠标位置
+            Vector2 targetMousePosition = new Vector2(Projectile.ai[0], Projectile.ai[1]);
 
             if (!owner.CantUseHoldout())
             {
@@ -129,7 +144,7 @@ namespace ExpansionKele.Content.Projectiles
 
             Player player = Main.player[Projectile.owner];
             Vector2 armPosition = player.RotatedRelativePoint(player.MountedCenter, reverseRotation: true);
-            Vector2 ownerToMouse = Main.MouseWorld - armPosition;
+            Vector2 ownerToMouse = targetMousePosition - armPosition; // 使用同步的鼠标位置
             float holdoutDirection = Projectile.velocity.ToRotation();
             float proximityLookingUpwards = Vector2.Dot(ownerToMouse.SafeNormalize(Vector2.Zero), -Vector2.UnitY * player.gravDir);
             int direction = MathF.Sign(ownerToMouse.X);
@@ -162,7 +177,7 @@ namespace ExpansionKele.Content.Projectiles
                     }
                     else
                     {
-                        ShootProjectile(owner);
+                        ShootProjectile(owner, targetMousePosition); // 传递同步的鼠标位置
                         _bulletCount--;
                         _shootCounter = ShootingInterval;
                     }
@@ -175,9 +190,9 @@ namespace ExpansionKele.Content.Projectiles
             }
         }
 
-        private void ShootProjectile(Player owner)
+        private void ShootProjectile(Player owner, Vector2 targetMousePosition)
         {
-            Vector2 shootVelocity = Main.MouseWorld - owner.RotatedRelativePoint(owner.MountedCenter, reverseRotation: true);
+            Vector2 shootVelocity = targetMousePosition - owner.RotatedRelativePoint(owner.MountedCenter, reverseRotation: true); // 使用同步的鼠标位置
             shootVelocity = shootVelocity.SafeNormalize(Vector2.UnitY) * 36f;
 
             int damage = (int)(Projectile.damage * ChargingMultiplier(_currentChargingFrames, owner, MaxChargeingFrame));
@@ -221,7 +236,7 @@ namespace ExpansionKele.Content.Projectiles
         }
     }
 
-    public class SoulCannonProjectile : ModProjectile
+        public class SoulCannonProjectile : ModProjectile
 {
     private int frameCounter;
     private int currentFrame;
@@ -256,15 +271,22 @@ namespace ExpansionKele.Content.Projectiles
         Projectile.DamageType = DamageClass.Ranged;
         Projectile.penetrate = 1;
         Projectile.timeLeft = 600;
-        Projectile.tileCollide = true;
+        Projectile.tileCollide = false; // 修改：不与地形碰撞，类似AAMissile
         Projectile.usesLocalNPCImmunity = true;
-        Projectile.localNPCHitCooldown = 5;
+        Projectile.localNPCHitCooldown = 10; // 修改：增加无敌帧时间
+        Projectile.ignoreWater = true; // 修改：忽略水体
+        Projectile.netUpdate = true;
     }
 
     public override void AI()
     {
-        // 添加追踪AI
-        ProjectileHelper.FindAndMoveTowardsTarget(Projectile, 30f, 640f, 10f);
+        // 添加追踪AI - 使用带鼠标位置参数的版本，类似AAMissile
+        float maxTrackingDistance = Data.maxTrackingDistance; // 640f
+        float speed = 30f;
+        float turnResistance = 10f;
+        Vector2 mousePosition = Main.MouseWorld;
+        
+        ProjectileHelper.FindAndMoveTowardsTarget(Projectile, speed, maxTrackingDistance, turnResistance, mousePosition);
         
         // 旋转效果
         Projectile.rotation = Projectile.velocity.ToRotation() + MathHelper.PiOver2;
@@ -280,11 +302,31 @@ namespace ExpansionKele.Content.Projectiles
                 currentFrame = 0;
             }
         }
+        if (Projectile.alpha < 255) // 只有在非透明状态下才检测
+        {
+            for (int i = 0; i < Main.maxNPCs; i++)
+            {
+                NPC npc = Main.npc[i];
+                if (npc.active && !npc.friendly && !npc.dontTakeDamage && npc.lifeMax > 5)
+                {
+                    Rectangle npcHitbox = npc.getRect();
+                    Rectangle projHitbox = Projectile.getRect();
+                    
+                    if (projHitbox.Intersects(npcHitbox))
+                    {
+                        // 命中处理
+                        Projectile.alpha = 255; // 设置为完全透明
+                        Projectile.Kill(); // 销毁弹幕
+                    }
+                }
+            }
+        }
     }
 
     public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
     {
-        target.immune[Projectile.owner] = 0;
+        // 在AI处处理这些逻辑
+        target.immune[Projectile.owner] = 2; // 设置10帧免疫时间
     }
 
     public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)

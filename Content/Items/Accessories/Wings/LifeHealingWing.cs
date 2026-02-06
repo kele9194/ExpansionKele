@@ -13,9 +13,8 @@ namespace ExpansionKele.Content.Items.Accessories.Wings
 	{
         public override string LocalizationCategory => "Items.Accessories.Wings";
         public float healAmountPlayer = 0.03f;
-        public float healAmountTeammate = 0.015f;
-
         public int HealInterval = 250;
+        
         public override void SetStaticDefaults() {
 			// 这些翅膀使用类似于天使翅膀的数值
 			// 飞行时间: 160 ticks = 2.67 秒
@@ -32,39 +31,9 @@ namespace ExpansionKele.Content.Items.Accessories.Wings
 			Item.accessory = true;
 		}
 
+		// 修改UpdateAccessory方法，只设置标志位，不在这里执行治疗逻辑
 		public override void UpdateAccessory(Player player, bool hideVisual) {
             player.GetModPlayer<LifeHealingWingPlayer>().hasLifeHealingWings = true;
-			// 每秒恢复玩家1%的生命值 (60 ticks = 1秒)
-			if (++player.GetModPlayer<LifeHealingWingPlayer>().playerHealTimer >= HealInterval) {
-				player.GetModPlayer<LifeHealingWingPlayer>().playerHealTimer = 0;
-				int healAmount = (int)(player.statLifeMax2 * healAmountPlayer);
-				if (healAmount > 0) {
-					player.Heal(healAmount);
-					// 添加治疗效果的视觉反馈
-					if (Main.netMode == NetmodeID.Server) {
-						NetMessage.SendData(MessageID.SpiritHeal, -1, -1, null, player.whoAmI, healAmount);
-					}
-				}
-			}
-
-			// 为队友恢复生命值
-			foreach (Player teammate in Main.player) {
-				// 检查玩家是否有效且不是当前玩家
-				if (teammate.active && teammate.whoAmI != player.whoAmI && teammate.team == player.team && teammate.team != 0) {
-					// 每秒恢复队友0.5%的生命值
-					if (++teammate.GetModPlayer<LifeHealingWingPlayer>().teammateHealTimer >=HealInterval) {
-						teammate.GetModPlayer<LifeHealingWingPlayer>().teammateHealTimer = 0;
-						int healAmount = (int)(teammate.statLifeMax2 * healAmountTeammate);
-						if (healAmount > 0) {
-							teammate.Heal(healAmount);
-							// 添加治疗效果的视觉反馈
-							if (Main.netMode == NetmodeID.Server) {
-								NetMessage.SendData(MessageID.SpiritHeal, -1, -1, null, teammate.whoAmI, healAmount);
-							}
-						}
-					}
-				}
-			}
             player.noFallDmg = true;
 		}
 
@@ -90,18 +59,40 @@ namespace ExpansionKele.Content.Items.Accessories.Wings
 	public class LifeHealingWingPlayer : ModPlayer
 	{
 		public int playerHealTimer = 0;
-		public int teammateHealTimer = 0;
         public bool hasLifeHealingWings = false;
 
 		public override void ResetEffects() {
 			hasLifeHealingWings = false;
 		}
+        
         public override void PostUpdate()
         {
+            // 只有当装备了生命治疗之翼时才进行处理
             if (!hasLifeHealingWings)
             {
                 playerHealTimer = 0;
-                teammateHealTimer = 0;
+                return;
+            }
+
+            // 只在单人游戏或服务器端执行实际的治疗逻辑，避免多人模式下重复执行
+            if (Main.netMode == NetmodeID.SinglePlayer || Main.netMode == NetmodeID.Server)
+            {
+                // 处理玩家自身治疗
+                if (++playerHealTimer >= 250)
+                {
+                    playerHealTimer = 0;
+                    int healAmount = (int)(Player.statLifeMax2 * 0.03f);
+                    
+                    // 只在玩家生命值未满时进行治疗
+                    
+                        Player.Heal(healAmount);
+                        
+                        // 在服务器模式下发送网络消息同步治疗效果
+                        if (Main.netMode == NetmodeID.Server)
+                        {
+                            NetMessage.SendData(MessageID.SpiritHeal, -1, -1, null, Player.whoAmI, healAmount);
+                        }
+                }
             }
         }
     }

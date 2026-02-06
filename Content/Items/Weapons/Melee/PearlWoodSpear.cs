@@ -60,7 +60,7 @@ namespace ExpansionKele.Content.Items.Weapons.Melee
         public float BaseRadius;
         public float distanceFromPlayerAll = 20f;
         private const float PROJECTILE_REFLECT_HEAL_PERCENT = 0.015f; // 每次反弹恢复2%最大生命值
-        private Asset<Texture2D> _cachedTexture;
+        private static Asset<Texture2D> _cachedTexture;
         
         public override void Load()
         {

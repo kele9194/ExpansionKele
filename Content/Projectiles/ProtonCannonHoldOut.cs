@@ -85,6 +85,9 @@ public override void OnSpawn(IEntitySource source)
             Projectile.velocity = Vector2.Zero; // 初始化速度为零
             //Projectile.damage = 50; // 设置伤害
             Projectile.knockBack = 8f; // 设置击退力
+            // 初始化AI数组用于存储鼠标位置
+            Projectile.ai[0] = 0f; // 鼠标X坐标
+            Projectile.ai[1] = 0f; // 鼠标Y坐标
         }
 
         public override void AI()
@@ -96,6 +99,18 @@ public override void OnSpawn(IEntitySource source)
                 //Main.NewText("Owner is null!");
                 return;
             }
+
+            // 只在拥有者的客户端更新鼠标位置
+            if (Main.myPlayer == Projectile.owner)
+            {
+                Vector2 mousePosition = Main.MouseWorld;
+                Projectile.ai[0] = mousePosition.X;
+                Projectile.ai[1] = mousePosition.Y;
+                Projectile.netUpdate = true; // 强制网络同步
+            }
+
+            // 使用同步的鼠标位置
+            Vector2 targetMousePosition = new Vector2(Projectile.ai[0], Projectile.ai[1]);
 
             //Main.NewText($"{!owner.CantUseHoldout()}");
             // 更新蓄力帧数
@@ -147,7 +162,7 @@ public override void OnSpawn(IEntitySource source)
 
             Player player = Main.player[Projectile.owner];
             Vector2 armPosition = player.RotatedRelativePoint(player.MountedCenter, reverseRotation: true);
-            Vector2 ownerToMouse = Main.MouseWorld - armPosition;
+            Vector2 ownerToMouse = targetMousePosition - armPosition; // 使用同步的鼠标位置
             float holdoutDirection = Projectile.velocity.ToRotation();
             float proximityLookingUpwards = Vector2.Dot(ownerToMouse.SafeNormalize(Vector2.Zero), -Vector2.UnitY * player.gravDir);
             int direction = MathF.Sign(ownerToMouse.X);
@@ -182,7 +197,7 @@ public override void OnSpawn(IEntitySource source)
                     }
                     else
                     {
-                    ShootProjectile(owner);
+                    ShootProjectile(owner, targetMousePosition); // 传递同步的鼠标位置
                     _bulletCount--;
                     _shootCounter=ShootingInterval;
                     
@@ -198,10 +213,10 @@ public override void OnSpawn(IEntitySource source)
             
         }
 
-        private void ShootProjectile(Player owner)
+        private void ShootProjectile(Player owner, Vector2 targetMousePosition)
         {
             
-                Vector2 shootVelocity = Main.MouseWorld - owner.RotatedRelativePoint(owner.MountedCenter, reverseRotation: true); // 使用内置的 Main.MouseWorld 替代 Calamity().mouseWorld
+                Vector2 shootVelocity = targetMousePosition - owner.RotatedRelativePoint(owner.MountedCenter, reverseRotation: true); // 使用同步的鼠标位置
                 shootVelocity = shootVelocity.SafeNormalize(Vector2.UnitY) * 36f;
 
                 int damage = (int)(Projectile.damage * ChargingMultiplier(_currentChargingFrames, owner, MaxChargeingFrame)); // 确保每次发射的子弹都具有蓄力加成后的伤害
@@ -217,6 +232,7 @@ public override void OnSpawn(IEntitySource source)
                
         }
 
+        // ... existing code ...
         public override bool PreDraw(ref Color lightColor)
         {
             Texture2D texture = _cachedTexture.Value;
@@ -225,15 +241,17 @@ public override void OnSpawn(IEntitySource source)
             Vector2 origin = texture.Size() * 0.5f;
             SpriteEffects effects = (SpriteEffects)((Projectile.spriteDirection * owner.gravDir == -1f) ? SpriteEffects.FlipHorizontally : SpriteEffects.None);
 
+
             if (!owner.CantUseHoldout())
             {
-                float rumble = MathHelper.Clamp(_currentChargingFrames, 0f, ProtonCannon.FullChargeFrames);
+                float rumble = MathHelper.Clamp(_currentChargingFrames, 0f, SoulCannon.FullChargeFrames);
                 drawPosition += Main.rand.NextVector2Circular(rumble / 30f, rumble / 30f);
             }
 
             Main.EntitySpriteDraw(texture, drawPosition, null, Projectile.GetAlpha(lightColor), drawRotation, origin, Projectile.scale * owner.gravDir, effects);
             return false;
         }
+// ... existing code ...
          public static float ChargingMultiplier(float Counter, Player player,float maxChargeCounter)
         {
             // 计算蓄力倍率
@@ -299,7 +317,5 @@ public override void OnSpawn(IEntitySource source)
 		}
 		return true;
 	}
-    
-   
     }
 }

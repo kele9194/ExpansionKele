@@ -24,7 +24,7 @@ namespace ExpansionKele.Content.Bosses.ShadowOfRevenge
         public override string LocalizationCategory => "Bosses.ShadowOfRevenge";
         public static LocalizedText SpawnCondition { get; private set; }
         public static string texturePath = $"ExpansionKele/Content/Bosses/ShadowOfRevenge/ShadowOfRevengeMoon";
-        private Asset<Texture2D> _cachedTextureMoon;
+        private static Asset<Texture2D> _cachedTextureMoon;
         
         public override void Load()
         {

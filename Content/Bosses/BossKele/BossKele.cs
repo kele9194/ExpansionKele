@@ -138,6 +138,13 @@ private float orbitRotation;
             writer.Write(Phase);
             writer.Write7BitEncodedInt(Timer);
             writer.Write7BitEncodedInt(SubTimer);
+            // 同步轨道参数
+            writer.Write(baseOrbitDistance);
+            writer.Write(orbitAngleOffset);
+            writer.Write(orbitDirection);
+            writer.Write(orbitSpeed);
+            writer.Write(orbitEccentricity);
+            writer.Write(orbitRotation);
         }
         // 网络数据同步 - 接收额外AI信息
         public override void ReceiveExtraAI(BinaryReader reader)
@@ -146,14 +153,35 @@ private float orbitRotation;
             Phase = reader.ReadSingle();
             Timer = reader.Read7BitEncodedInt();
             SubTimer = reader.Read7BitEncodedInt();
+            // 接收轨道参数
+            baseOrbitDistance = reader.ReadSingle();
+            orbitAngleOffset = reader.ReadSingle();
+            orbitDirection = reader.ReadSingle();
+            orbitSpeed = reader.ReadSingle();
+            orbitEccentricity = reader.ReadSingle();
+            orbitRotation = reader.ReadSingle();
         }
-        // 当NPC生成时调用
+        // 当NPC生成时调用 - 修复网络初始化问题
         public override void OnSpawn(IEntitySource source)
 {
-    if (!Main.dedServ && (Main.netMode == NetmodeID.SinglePlayer || Main.myPlayer == NPC.target))
+    // 在所有网络模式下都进行初始化
+    if (Main.netMode != NetmodeID.MultiplayerClient)
     {
         Timer = 0;
         AttackIndex = (int)BossKeleAttackType.Phase1Intro;
+        
+        // 初始化轨道参数
+        if (NPC.target >= 0 && NPC.target < Main.maxPlayers)
+        {
+            Player target = Main.player[NPC.target];
+            if (target != null && target.active)
+            {
+                InitializeRandomOrbit(target);
+            }
+        }
+        
+        // 触发网络同步
+        NPC.netUpdate = true;
     }
 }
 
@@ -164,16 +192,20 @@ public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo)
         {
             calamity.Call("SetDefenseDamageNPC", NPC, true);
         }
+        
+        // 触发网络同步
+        NPC.netUpdate = true;
     }
 public override void AI()
 {
-    Player target = Main.player[NPC.target]; // 获取目标玩家
-
-    if (AllPlayersDead())
+    // 修复目标玩家检测逻辑
+    Player target = GetValidTarget();
+    
+    if (target == null || AllPlayersDead())
     {
         Timer++; // 启动倒计时
 
-        if (Timer >= 240) // 等待10秒（60帧/秒 * 10秒 = 600帧）
+        if (Timer >= 240) // 等待4秒（60帧/秒 * 4秒 = 240帧）
         {
             NPC.active = false; // 移除Boss
         }
@@ -181,18 +213,9 @@ public override void AI()
         return; // 跳过其他AI逻辑
     }
 
-    // 如果目标无效或死亡，尝试重新锁定
-    if (!target.active || target.dead)
-    {
-        NPC.TargetClosest(true);
-        target = Main.player[NPC.target];
-        if (!target.active || target.dead)
-        {
-            NPC.velocity.Y -= 0.04f; // 缓慢上升
-            return;
-        }
-    }
-
+    // 更新NPC的目标索引以确保网络同步
+    NPC.target = target.whoAmI;
+    
     Timer++; // 主计时器递增
 
     // 控制初始无敌状态持续5帧
@@ -200,20 +223,28 @@ public override void AI()
     {
         NPC.dontTakeDamage = false; // 关闭无敌状态
         
-        // 初始化随机轨道参数
-        InitializeRandomOrbit(target);
+        // 初始化随机轨道参数（仅在服务器端执行）
+        if (Main.netMode != NetmodeID.MultiplayerClient)
+        {
+            InitializeRandomOrbit(target);
+            NPC.netUpdate = true; // 触发网络同步
+        }
     }
 
     // 每600帧重新选择最近的玩家并可能改变轨道参数
     if (Timer % 600 == 0)
     {
-        NPC.TargetClosest(true);
-        target = Main.player[NPC.target];
-        
-        // 有可能改变轨道参数
-        if (Main.rand.NextBool(3)) // 1/3概率改变轨道距离
+        target = GetValidTarget(); // 重新获取有效目标
+        if (target != null)
         {
-            InitializeRandomOrbit(target);
+            NPC.target = target.whoAmI; // 更新目标索引
+            
+            // 有可能改变轨道参数（仅在服务器端执行）
+            if (Main.netMode != NetmodeID.MultiplayerClient && Main.rand.NextBool(3)) // 1/3概率改变轨道距离
+            {
+                InitializeRandomOrbit(target);
+                NPC.netUpdate = true; // 触发网络同步
+            }
         }
     }
 
@@ -225,29 +256,42 @@ public override void AI()
                 SoundEngine.PlaySound(SoundID.Roar, NPC.Center); // 播放咆哮音效
 
             if (Timer >= 120)
+            {
                 ChooseNextAttack(); // 120帧后选择下一个攻击阶段
+                NPC.netUpdate = true; // 触发网络同步
+            }
 
             break;
 
         case BossKeleAttackType.ColorfulOrbAttack:
             if (Timer % 30 == 0)
+            {
                 SpawnColorfulOrbs(target.Center); // 每30帧发射彩色球形弹幕
+                NPC.netUpdate = true; // 触发网络同步
+            }
 
             if (Timer >= 180)
+            {
                 ChooseNextAttack(); // 180帧后选择下一个攻击阶段
+                NPC.netUpdate = true; // 触发网络同步
+            }
 
             break;
 
         case BossKeleAttackType.RedLaserWarning:
             if (Timer == 1)
+            {
                 //DrawLaserWarningLine(NPC.Center, target.Center, Color.Red);
                 PrepareRedLaser(target); // 初始化红色激光预警
+                NPC.netUpdate = true; // 触发网络同步
+            }
 
             if (Timer >= 120)
             {
                 PrepareRedLaser(target); // 发射红色激光
                 //DrawLaserWarningLine(NPC.Center, target.Center, Color.Red);
                 ChooseNextAttack(); // 120帧后选择下一个攻击阶段
+                NPC.netUpdate = true; // 触发网络同步
             }
 
             break;
@@ -257,10 +301,16 @@ public override void AI()
                 SoundEngine.PlaySound(SoundID.Item12, NPC.Center); // 播放准备音效
 
             if (Timer <= 300)
+            {
                 RotateLasers(1.5f); // 每帧旋转1.5度，持续300帧
+                NPC.netUpdate = true; // 触发网络同步
+            }
 
             if (Timer >= 360)
+            {
                 ChooseNextAttack(); // 360帧后选择下一个攻击阶段
+                NPC.netUpdate = true; // 触发网络同步
+            }
 
             break;
 
@@ -286,6 +336,7 @@ public override void AI()
                 // 开始冲刺
                 Vector2 chargeDirection = (target.Center - NPC.Center).SafeNormalize(Vector2.Zero);
                 NPC.velocity = chargeDirection * 20f; // 快速冲向玩家
+                NPC.netUpdate = true; // 触发网络同步
             }
             else if (Timer > 60 && Timer < 90)
             {
@@ -297,6 +348,7 @@ public override void AI()
             {
                 // 结束冲刺，恢复正常移动
                 ChooseNextAttack();
+                NPC.netUpdate = true; // 触发网络同步
             }
             
             break;
@@ -304,25 +356,74 @@ public override void AI()
     
     // 调用独立的移动逻辑
     HandleMovement(target);
+    
+    // 定期触发网络同步以确保数据一致性
+    if (Timer % 60 == 0) // 每秒同步一次
+    {
+        NPC.netUpdate = true;
+    }
+}
+
+// 新增方法：获取有效的目标玩家
+private Player GetValidTarget()
+{
+    Player target = Main.player[NPC.target];
+    
+    // 检查当前目标是否有效
+    if (target != null && target.active && !target.dead)
+    {
+        return target;
+    }
+    
+    // 如果当前目标无效，寻找最近的有效玩家（仅在服务器端执行）
+    if (Main.netMode != NetmodeID.MultiplayerClient)
+    {
+        Player nearestPlayer = null;
+        float minDistance = float.MaxValue;
+        
+        for (int i = 0; i < Main.maxPlayers; i++)
+        {
+            Player player = Main.player[i];
+            if (player != null && player.active && !player.dead)
+            {
+                float distance = Vector2.Distance(NPC.Center, player.Center);
+                if (distance < minDistance)
+                {
+                    minDistance = distance;
+                    nearestPlayer = player;
+                }
+            }
+        }
+        
+        return nearestPlayer;
+    }
+    
+    // 客户端等待服务器同步目标
+    return null;
 }
 
 // 新增方法：检查所有玩家是否死亡
 private bool AllPlayersDead()
-{
-    for (int i = 0; i < Main.maxPlayers; i++)
-    {
-        Player player = Main.player[i];
-        if (player != null && player.active && !player.dead)
         {
-            return false; // 至少有一个玩家还活着
+            for (int i = 0; i < Main.maxPlayers; i++)
+            {
+                Player player = Main.player[i];
+                // 如果有任何一个玩家处于活跃且未死亡状态，则返回false
+                if (player.active && !player.dead)
+                {
+                    return false;
+                }
+            }
+            // 所有玩家都已死亡或不活跃
+            return true;
         }
-    }
-    return true; // 所有玩家都死亡
-}
 
-// 初始化随机轨道参数
+// 初始化随机轨道参数 - 仅在服务器端执行
 private void InitializeRandomOrbit(Player target)
 {
+    if (Main.netMode == NetmodeID.MultiplayerClient)
+        return; // 客户端不执行随机数生成
+    
     // 随机基础轨道距离（200-300像素）
     baseOrbitDistance = Main.rand.NextFloat(250f, 350f);
     
@@ -348,14 +449,18 @@ private void HandleMovement(Player target)
     float maxDistance = 600f; // 最大距离阈值
     if (Vector2.Distance(NPC.Center, target.Center) > maxDistance)
     {
-        // 随机生成160像素范围内的偏移量
-        float randomAngle = Main.rand.NextFloat(0f, MathHelper.TwoPi);
-        float teleportDistance = 160f; // 固定瞬移距离
-        
-        // 计算目标位置
-        Vector2 teleportPosition = target.Center + new Vector2((float)Math.Cos(randomAngle), (float)Math.Sin(randomAngle)) * teleportDistance;
-        NPC.position = teleportPosition - new Vector2(NPC.width / 2, NPC.height / 2); // 瞬移至玩家附近的随机方向
-        NPC.velocity = Vector2.Zero; // 停止移动
+        // 随机生成160像素范围内的偏移量（仅在服务器端执行）
+        if (Main.netMode != NetmodeID.MultiplayerClient)
+        {
+            float randomAngle = Main.rand.NextFloat(0f, MathHelper.TwoPi);
+            float teleportDistance = 160f; // 固定瞬移距离
+            
+            // 计算目标位置
+            Vector2 teleportPosition = target.Center + new Vector2((float)Math.Cos(randomAngle), (float)Math.Sin(randomAngle)) * teleportDistance;
+            NPC.position = teleportPosition - new Vector2(NPC.width / 2, NPC.height / 2); // 瞬移至玩家附近的随机方向
+            NPC.velocity = Vector2.Zero; // 停止移动
+            NPC.netUpdate = true; // 触发网络同步
+        }
     }
     // 计算椭圆轨道
     float angle = orbitAngleOffset + orbitDirection * orbitSpeed * Timer;
@@ -370,9 +475,12 @@ private void HandleMovement(Player target)
     
 }
 
-// 随机选择下一个攻击阶段
+// 随机选择下一个攻击阶段 - 仅在服务器端执行
 private void ChooseNextAttack()
 {
+    if (Main.netMode == NetmodeID.MultiplayerClient)
+        return; // 客户端不执行随机选择
+    
     int[] possibleAttacks = { 
         (int)BossKeleAttackType.ColorfulOrbAttack, 
         (int)BossKeleAttackType.RedLaserWarning, 
@@ -385,6 +493,10 @@ private void ChooseNextAttack()
 
 private void SpawnColorfulOrbs(Vector2 targetPos)
 {
+    // 弹幕生成在服务器端执行
+    if (Main.netMode == NetmodeID.MultiplayerClient)
+        return;
+        
     for (int i = 0; i < 4; i++)
     {
         Vector2 velocity = (targetPos - NPC.Center).SafeNormalize(Vector2.Zero) * 10f; // 计算朝向目标的速度
@@ -406,6 +518,10 @@ private void SpawnColorfulOrbs(Vector2 targetPos)
 // 发射红色激光攻击
 private void PrepareRedLaser(Player target)
 {
+    // 激光生成在服务器端执行
+    if (Main.netMode == NetmodeID.MultiplayerClient)
+        return;
+        
     // 计算从Boss到玩家的归一化方向向量
     Vector2 direction = (target.Center - NPC.Center).SafeNormalize(Vector2.Zero);
 
@@ -433,6 +549,10 @@ private void PrepareRedLaser(Player target)
 // 旋转激光攻击逻辑
 private void RotateLasers(float rotationSpeed)
 {
+    // 激光生成在服务器端执行
+    if (Main.netMode == NetmodeID.MultiplayerClient)
+        return;
+        
     // 每隔一定帧发射一道激光
     if (Timer % 30 == 0)
     {
@@ -491,6 +611,12 @@ private void RotateLasers(float rotationSpeed)
         {
             // 标记BossKele已被击败
             DownedBossKele.downedBossKele = true;
+            
+            // 在多人模式下同步击败状态
+            if (Main.netMode == NetmodeID.Server)
+            {
+                NetMessage.SendData(MessageID.WorldData);
+            }
         }
     }
 }

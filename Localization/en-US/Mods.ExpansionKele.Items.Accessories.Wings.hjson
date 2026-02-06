@@ -5,7 +5,7 @@ LifeHealingWings: {
 		Horizontal flight speed: 8.00
 		Acceleration multiplier: 2.00
 		Immune to fall damage
-		Heals percentage of life for wearer and teammates while equipped
+		Heals percentage of life for wearer while equipped
 		'''
 	DisplayName: Life Healing Wings
 }

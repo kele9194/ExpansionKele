@@ -134,3 +134,18 @@ MushroomSwordMark: {
 	DisplayName: Mushroom Sword Mark
 	Description: flaoting mushroom attacking
 }
+
+StarryHeartEmblemCooldown: {
+	DisplayName: Starry Heart Emblem Cooldown
+	Description: Revival effect is on cooldown
+}
+
+IronOathShieldCooldown: {
+	Description: Iron curtain cooldown
+	DisplayName: Iron Oath Shield Cooldown
+}
+
+HallowHeartShieldCooldown: {
+	Description: Iron curtain cooldown
+	DisplayName: Hallow Heart Shield Cooldown
+}

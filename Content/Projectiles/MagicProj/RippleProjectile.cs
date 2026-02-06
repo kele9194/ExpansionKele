@@ -23,6 +23,9 @@ namespace ExpansionKele.Content.Projectiles.MagicProj
             Projectile.light = 0.5f;
             Projectile.ignoreWater = true;
             Projectile.extraUpdates = 1;
+            Projectile.usesLocalNPCImmunity = true;
+            Projectile.localNPCHitCooldown = 20;
+            Projectile.netUpdate = true;
         }
 
         // ... existing code ...

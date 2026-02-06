@@ -17,21 +17,22 @@ namespace ExpansionKele.Content.Customs
             NPC target = FindOptimalTarget(projectile.Center, maxTrackingDistance, bossPriority, projectile);
             if (target != null)
             {
-                // 使用更精确的角度追踪
-                float currentSpeed = projectile.velocity.Length();
-                float targetAngle = projectile.AngleTo(target.Center);
-                
-                // 动态调整转向速度 - 距离越远转向越快
-                float distanceRatio = Vector2.Distance(projectile.Center, target.Center) / maxTrackingDistance;
-                float turnSpeed = MathHelper.Lerp(MathHelper.ToRadians(1f), MathHelper.ToRadians(5f), 1f - distanceRatio);
-                
-                projectile.velocity = projectile.velocity.ToRotation().AngleTowards(targetAngle, turnSpeed).ToRotationVector2() * currentSpeed;
-                projectile.rotation = projectile.velocity.ToRotation();
+                Vector2 direction = target.Center - projectile.Center;
+                float distance = direction.Length();
+                direction.Normalize();
+
+                // 平滑追踪目标
+                projectile.velocity = (projectile.velocity * (turnResistance - 1) + direction * speed) / turnResistance;
+
+                // 更新导弹的方向
+                projectile.rotation = projectile.velocity.ToRotation() + MathHelper.PiOver2;
             }
             else
             {
-                projectile.rotation = projectile.velocity.ToRotation();
+                // 如果没有找到目标，导弹继续沿当前方向飞行
+                projectile.rotation = projectile.velocity.ToRotation() + MathHelper.PiOver2;
             }
+
         }
 
         /// <summary>
@@ -43,17 +44,22 @@ namespace ExpansionKele.Content.Customs
             
             if (target != null)
             {
-                float currentSpeed = projectile.velocity.Length();
-                float targetAngle = projectile.AngleTo(target.Center);
-                float turnSpeed = MathHelper.ToRadians(3f);
-                
-                projectile.velocity = projectile.velocity.ToRotation().AngleTowards(targetAngle, turnSpeed).ToRotationVector2() * currentSpeed;
-                projectile.rotation = projectile.velocity.ToRotation();
+                Vector2 direction = target.Center - projectile.Center;
+                float distance = direction.Length();
+                direction.Normalize();
+
+                // 平滑追踪目标
+                projectile.velocity = (projectile.velocity * (turnResistance - 1) + direction * speed) / turnResistance;
+
+                // 更新导弹的方向
+                projectile.rotation = projectile.velocity.ToRotation() + MathHelper.PiOver2;
             }
             else
             {
-                projectile.rotation = projectile.velocity.ToRotation();
+                // 如果没有找到目标，导弹继续沿当前方向飞行
+                projectile.rotation = projectile.velocity.ToRotation() + MathHelper.PiOver2;
             }
+
         }
 
         /// <summary>

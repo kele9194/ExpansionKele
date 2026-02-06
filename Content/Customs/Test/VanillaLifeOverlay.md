@@ -15,7 +15,7 @@ namespace ExampleMod.Common.UI.ResourceOverlay
 		private Dictionary<string, Asset<Texture2D>> vanillaAssetCache = new();
 
 		// These fields are used to cache the result of ModContent.Request<Texture2D>()
-		private Asset<Texture2D> heartTexture, fancyPanelTexture, barsFillingTexture, barsPanelTexture;
+		private static Asset<Texture2D> heartTexture, fancyPanelTexture, barsFillingTexture, barsPanelTexture;
 
 		public override void PostDrawResource(ResourceOverlayDrawContext context) {
 			Asset<Texture2D> asset = context.texture;

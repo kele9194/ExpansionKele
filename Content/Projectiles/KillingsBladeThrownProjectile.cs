@@ -73,6 +73,8 @@ namespace ExpansionKele.Content.Projectiles
             Projectile.light = 0.5f;
             Projectile.ignoreWater = true;
             Projectile.tileCollide = false;
+            Projectile.usesLocalNPCImmunity = true;
+            Projectile.localNPCHitCooldown = 30;
         }
         
         // ... existing code ...
@@ -90,6 +92,7 @@ namespace ExpansionKele.Content.Projectiles
             // 初始旋转角度为发射角度
             _rotationAngle = _initialAngle;
             _elapsedFrames = 0; // 初始化计数器
+            Projectile.netUpdate = true;
         }
 
         // ... existing code ...
@@ -116,6 +119,7 @@ namespace ExpansionKele.Content.Projectiles
             Vector2 movement = _initialAngle.ToRotationVector2() * INITIAL_MOVEMENT_SPEED * decelerationFactor;
             _centerPosition += movement;
             Projectile.Center = _centerPosition;
+            Projectile.netUpdate = true;
         }
 // ... existing code ...
 // ... existing code ...

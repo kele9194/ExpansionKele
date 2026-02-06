@@ -112,10 +112,9 @@ namespace ExpansionKele.Content.Items.Weapons.Melee
         private bool isDashing = false;
         // 标记冲刺是否被阻挡
         private bool dashBlocked = false;
-        
         // 冲刺击中计数
         private List<int> hitNPCs = new List<int>(); // 用于跟踪已经击中的NPC
-        private Asset<Texture2D> _cachedTexture;
+        private static Asset<Texture2D> _cachedTexture;
         
         public override void Load()
         {

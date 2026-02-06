@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using ExpansionKele.Content.Buff;
 using ExpansionKele.Content.Customs;
 using ExpansionKele.Content.Items.Placeables;
 using Terraria;
@@ -150,6 +151,7 @@ public class StarryLifeEmblemPlayer : ModPlayer
             }
         }
 
+        // ... existing code ...
         public override void PreUpdate()
         {
             // 只有佩戴StarryHeartEmblem时才更新冷却计时器
@@ -161,10 +163,24 @@ public class StarryLifeEmblemPlayer : ModPlayer
                     fatalCooldownTimer--;
                     if(fatalCooldownTimer == 0){
                         Terraria.Audio.SoundEngine.PlaySound(SoundID.Item4, Player.position);
+                        // 冷却结束时移除buff
+                        Player.ClearBuff(ModContent.BuffType<StarryHeartEmblemCooldown>());
                     }
                 }
+                // 如果冷却计时器为0但是还有buff，清理掉buff
+                else if (Player.HasBuff(ModContent.BuffType<StarryHeartEmblemCooldown>()))
+                {
+                    Player.ClearBuff(ModContent.BuffType<StarryHeartEmblemCooldown>());
+                }
+            }
+            // 如果没有装备饰品但是有buff，清理掉buff
+            else if (Player.HasBuff(ModContent.BuffType<StarryHeartEmblemCooldown>()))
+            {
+                Player.ClearBuff(ModContent.BuffType<StarryHeartEmblemCooldown>());
+                fatalCooldownTimer = 0;
             }
         }
+// ... existing code ...
 
         // ... existing code ...
         public override bool PreKill(double damage, int hitDirection, bool pvp, ref bool playSound, ref bool genDust, ref PlayerDeathReason damageSource)
@@ -191,6 +207,9 @@ public class StarryLifeEmblemPlayer : ModPlayer
                         // 重置冷却时间
                         fatalCooldownTimer = StarryHeartEmblem.FatalCooldown;
                         
+                        // 应用冷却buff
+                        Player.AddBuff(ModContent.BuffType<StarryHeartEmblemCooldown>(), StarryHeartEmblem.FatalCooldown);
+                        
                         // 取消死亡
                         playSound = false;
                         genDust = false;
@@ -204,6 +223,7 @@ public class StarryLifeEmblemPlayer : ModPlayer
             // 允许正常死亡流程
             return true;
         }
+// ... existing code ...
 
         public override void OnHurt(Player.HurtInfo info)
         {
@@ -212,7 +232,7 @@ public class StarryLifeEmblemPlayer : ModPlayer
             {
                 // 每次受到伤害都会回复受到伤害10%的回复量，并且将生命再生时间+300
                 int damageToHeal = (int)(info.Damage * StarryHeartEmblem.DamageHealPercent);
-                Main.NewText(damageToHeal);
+                // Main.NewText(damageToHeal);
                 if (damageToHeal > 0)
                 {
                     Player.Heal(damageToHeal);

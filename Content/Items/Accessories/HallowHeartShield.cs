@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework;
 using Terraria.ID;
 using Terraria.ModLoader;
 using ExpansionKele.Content.Customs;
+using ExpansionKele.Content.Buff;
 
 namespace ExpansionKele.Content.Items.Accessories
 {
@@ -59,22 +60,7 @@ namespace ExpansionKele.Content.Items.Accessories
             player.moveSpeed += SpeedBonus * lifeReducedIn3PercentSteps;
             //Main.NewText($"Defense:{player.statDefense},endurance:{player.endurance},SpeedBonus:{player.moveSpeed}");
 
-            if (counter < MaxCounter)
-    {
-        counter++;
-    }
-    else
-    {
-        counter = 0;
-    }
-
-    // 最后120ticks时设置玩家为无敌状态
-    if (counter >= (MaxCounter-ImmuneCounter))
-    {
-        player.immune = true;
-        player.immuneTime = 0; // 确保无敌效果持续
-    }
-    
+            player.GetModPlayer<HallowHeartShieldPlayer>().hasHallowHeartShield = true;
             
         }
        // ... existing code ...
@@ -112,4 +98,67 @@ namespace ExpansionKele.Content.Items.Accessories
         
         
     }
+
+    // ... existing code ...
+public class HallowHeartShieldPlayer : ModPlayer
+{
+    private int shieldCounter = 0;
+    private const int MAX_COUNTER = 1200;
+    private const int IMMUNE_DURATION = 180;
+    public bool hasHallowHeartShield = false;
+
+    public override void ResetEffects()
+    {
+        hasHallowHeartShield = false;
+    }
+
+    public override void PreUpdate()
+    {
+        if (hasHallowHeartShield)
+        {
+            // 更新计数器
+            if (shieldCounter < MAX_COUNTER)
+            {
+                shieldCounter++;
+            }
+            else
+            {
+                shieldCounter = 0;
+            }
+
+            // 管理无敌状态和buff
+            if (shieldCounter >= (MAX_COUNTER - IMMUNE_DURATION))
+            {
+                // 激活无敌期间
+                Player.immune = true;
+                Player.immuneTime = 2;
+                
+                // 移除冷却buff（因为正在无敌）
+                if (Player.HasBuff(ModContent.BuffType<HallowHeartShieldCooldown>()))
+                {
+                    Player.ClearBuff(ModContent.BuffType<HallowHeartShieldCooldown>());
+                }
+            }
+            else
+            {
+                // 冷却期间，应用冷却buff
+                int remainingCooldown = MAX_COUNTER - IMMUNE_DURATION - shieldCounter;
+                if (remainingCooldown > 0 && !Player.HasBuff(ModContent.BuffType<HallowHeartShieldCooldown>()))
+                {
+                    Player.AddBuff(ModContent.BuffType<HallowHeartShieldCooldown>(), remainingCooldown);
+                }
+            }
+        }
+        else
+        {
+            // 没有装备盾牌时清理状态
+            shieldCounter = 0;
+            if (Player.HasBuff(ModContent.BuffType<HallowHeartShieldCooldown>()))
+            {
+                Player.ClearBuff(ModContent.BuffType<HallowHeartShieldCooldown>());
+            }
+        }
+    }
+}
+// ... existing code ...
 }

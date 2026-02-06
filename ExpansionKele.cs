@@ -81,7 +81,7 @@ namespace ExpansionKele
                 calamity = null;
             }
 
-            StarKeyBind = KeybindLoader.RegisterKeybind(this, "StarBonusBuff", Keys.F);
+            StarKeyBind = KeybindLoader.RegisterKeybind(this, "StarSetBonusBuff", Keys.F);
             sniperLaserTexture = ModContent.Request<Texture2D>("ExpansionKele/Content/StarySniper/SniperLaser").Value;
             TrackingKeyBind = KeybindLoader.RegisterKeybind(this, "TrackingLocator", Keys.Y);
             AutoAimingKeyBind = KeybindLoader.RegisterKeybind(this, "AutoAiming", "MouseRight");

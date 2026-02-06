@@ -17,17 +17,15 @@ namespace ExpansionKele.Content.Customs
         float GetCurrentCharge();
         float GetMaxCharge();
     }
-    // ... existing code ...
+
     internal class ItemChargeBarElement : UIElement
     {
-        private int _playerIndex;
         private Vector2 _dragOffset;
         private bool _isDragging;
         private static Vector2 _position = new Vector2(-1, -1); // 使用(-1, -1)表示使用默认位置
 
-        public ItemChargeBarElement(int playerIndex = -1)
+        public ItemChargeBarElement()
         {
-            this._playerIndex = playerIndex == -1 ? Main.myPlayer : playerIndex;
             Width.Set(50f, 0f);  // 宽度改为50
             Height.Set(10f, 0f); // 高度改为10
             
@@ -49,7 +47,7 @@ namespace ExpansionKele.Content.Customs
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
-            Player player = _playerIndex == -1 ? Main.LocalPlayer : Main.player[_playerIndex];
+            Player player = Main.LocalPlayer;
             if (player == null || player.active == false)
                 return;
 
@@ -109,7 +107,7 @@ namespace ExpansionKele.Content.Customs
         {
             int BarWidth = 50;   // 宽度改为50
             int BarHeight = 10;  // 高度改为10
-            Player player = _playerIndex == -1 ? Main.LocalPlayer : Main.player[_playerIndex];
+            Player player = Main.LocalPlayer;
             if (player == null || player.active == false)
                 return;
 
@@ -117,9 +115,7 @@ namespace ExpansionKele.Content.Customs
             float currentCharge = GetCurrentCharge(player);
             float maxCharge = GetMaxCharge(player);
             
-            // ... existing code ...
             if(maxCharge > 0){
-
                 // 根据是否被拖动来决定位置
                 Vector2 screenPos;
                 if (_position.X == -1 && _position.Y == -1)
@@ -137,13 +133,10 @@ namespace ExpansionKele.Content.Customs
                 float fillRatio = maxCharge > 0 ? currentCharge / maxCharge : 0f;
                 int filledWidth = (int)(fillRatio * BarWidth); // 已填充的宽度
 
-                // ... existing code ...
                 // 绘制进度条背景
                 Rectangle barBackground = new Rectangle((int)screenPos.X - BarWidth/2, (int)screenPos.Y, BarWidth, BarHeight);
                 spriteBatch.Draw(TextureAssets.MagicPixel.Value, barBackground, Color.DarkGray * 0.5f); // 添加透明度
 
-                // 绘制进度条填充部分（绿色代表充能）
-                // ... existing code ...
                 // 绘制进度条填充部分（绿色代表充能）
                 if(filledWidth > 0)
                 {
@@ -159,15 +152,10 @@ namespace ExpansionKele.Content.Customs
                     Color fillColor = new Color(0, (byte)(100 + 155 * fillRatio), 0, 180); // 第四个参数是alpha通道，控制透明度
                     spriteBatch.Draw(TextureAssets.MagicPixel.Value, barFill, fillColor * 0.6f); // 添加透明度
                 }
-// ... existing code ...
 
                 // 绘制边框
                 Utils.DrawBorderString(spriteBatch, "", screenPos, Color.White * 0.7f, 1f); // 添加透明度
-// ... existing code ...
                 
-                // ... existing code ...
-                // 绘制充能数值文本
-                // ... existing code ...
                 // 绘制充能数值文本
                 string chargeText = $"{currentCharge:F0} / {maxCharge:F0}";
                 Vector2 textSize = FontAssets.MouseText.Value.MeasureString(chargeText);
@@ -181,8 +169,8 @@ namespace ExpansionKele.Content.Customs
                 // 绘制主文字，根据充能状态改变颜色：0/max为红色，max/max为绿色
                 Color textColor = currentCharge <= 0 ? Color.Red : (currentCharge >= maxCharge ? Color.Green : Color.White);
                 spriteBatch.DrawString(FontAssets.MouseText.Value, chargeText, textPosition, textColor, 0f, Vector2.Zero, 0.7f, SpriteEffects.None, 0f);
-// ... existing code ...
             }
+            
             // 使用统一的位置进行拖动和悬停检测
             Vector2 currentPos = new Vector2(Left.Pixels, Top.Pixels);
             // 如果没有设置自定义位置，则使用相对玩家的位置
@@ -217,12 +205,8 @@ namespace ExpansionKele.Content.Customs
                     UICommon.TooltipMouseText(Language.GetTextValue("Mods.ExpansionKele.Customs.ItemChargeUIText"));
                 }
             }
-// ... existing code ...
         }
-// ... existing code ...
 
-        // 预留方法：获取当前充能值，后续可以根据实际需求修改
-        // ... existing code ...
         // 预留方法：获取当前充能值，后续可以根据实际需求修改
         private float GetCurrentCharge(Player player)
         {
@@ -247,11 +231,7 @@ namespace ExpansionKele.Content.Customs
             return 0f;
         }
     }
-// ... existing code ...
-// ... existing code ...
 
-    // UI状态，管理显示在玩家手持物品旁的充能条UI元素
-    // ... existing code ...
     // UI状态，管理显示在玩家手持物品旁的充能条UI元素
     internal class ItemChargeBarState : UIState
     {
@@ -260,7 +240,7 @@ namespace ExpansionKele.Content.Customs
         public override void OnInitialize()
         {
             // 只为本地玩家创建充能条元素
-            itemChargeBarElement = new ItemChargeBarElement(Main.myPlayer);
+            itemChargeBarElement = new ItemChargeBarElement();
             Append(itemChargeBarElement);
         }
 
@@ -314,4 +294,3 @@ namespace ExpansionKele.Content.Customs
         }
     }
 }
-// ... existing code ...

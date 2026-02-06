@@ -46,6 +46,7 @@ namespace ExpansionKele.Content.Projectiles.MeleeProj
             Projectile.extraUpdates = 1;
             Projectile.usesLocalNPCImmunity = true;
             Projectile.localNPCHitCooldown = 12;
+            Projectile.netUpdate = true;
             
             // 不受重力影响
             Projectile.aiStyle = -1;

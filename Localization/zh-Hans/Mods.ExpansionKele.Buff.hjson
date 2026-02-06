@@ -134,3 +134,18 @@ MushroomSwordMark: {
 	DisplayName: 蘑菇标记
 	Description: 悬浮蘑菇来袭
 }
+
+StarryHeartEmblemCooldown: {
+	DisplayName: 星元心之徽章复活冷却
+	Description: 复活效果正在冷却
+}
+
+IronOathShieldCooldown: {
+	Description: 铁幕效果冷却
+	DisplayName: 神圣心盾铁幕效果冷却
+}
+
+HallowHeartShieldCooldown: {
+	Description: 铁幕效果冷却
+	DisplayName: 神圣心盾铁幕效果冷却
+}

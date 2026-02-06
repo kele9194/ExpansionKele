@@ -11,175 +11,170 @@ using Terraria.UI;
 namespace ExpansionKele.Content.Customs.ECShield
 {
     // 自定义UI元素，显示在玩家上方
-    // ... existing code ...
-// ... existing code ...
-internal class PlayerAboveUIElement : UIElement
-{
-    private int _playerIndex;
-    private Vector2 _dragOffset;
-    private bool _isDragging;
-    private static Vector2 _position = new Vector2(-1, -1); // 使用(-1, -1)表示使用默认位置
-    
-    // 添加Asset缓存字段
-    private static Asset<Texture2D> _defenseTexture;
-    private static Asset<Texture2D> _magicPixelTexture;
-
-
-    public PlayerAboveUIElement(int playerIndex = -1)
+    internal class PlayerAboveUIElement : UIElement
     {
-        this._playerIndex = playerIndex == -1 ? Main.myPlayer : playerIndex;
-        Width.Set(100f, 0f);
-        Height.Set(30f, 0f);
+        private Vector2 _dragOffset;
+        private bool _isDragging;
+        private static Vector2 _position = new Vector2(-1, -1); // 使用(-1, -1)表示使用默认位置
         
-        // 如果位置是默认值，则使用原来的位置
-        if (_position.X == -1 && _position.Y == -1)
-        {
-            // 设置为默认位置（基于玩家位置的偏移）
-            Left.Set(0f, 0f);
-            Top.Set(0f, 0f);
-        }
-        else
-        {
-            // 使用之前保存的位置
-            Left.Set(_position.X, 0f);
-            Top.Set(_position.Y, 0f);
-        }
-    }
+        // 添加Asset缓存字段
+        private static Asset<Texture2D> _defenseTexture;
+        private static Asset<Texture2D> _magicPixelTexture;
 
-    // 在类加载时预加载纹理
-    static PlayerAboveUIElement()
-    {
-        _defenseTexture = ModContent.Request<Texture2D>("ExpansionKele/Content/Customs/ECShield/Defense");
-        _magicPixelTexture = TextureAssets.MagicPixel;
-    }
 
-    public override void Update(GameTime gameTime)
-    {
-        base.Update(gameTime);
-        Player player = _playerIndex == -1 ? Main.LocalPlayer : Main.player[_playerIndex];
-        if (player == null || player.active == false)
-            return;
-
-        // 如果在拖动状态中，使用鼠标位置作为参考
-        if (_isDragging)
+        public PlayerAboveUIElement()
         {
-            Vector2 mousePos = new Vector2(Main.mouseX, Main.mouseY);
-            if (_isDragging)
+            Width.Set(100f, 0f);
+            Height.Set(30f, 0f);
+            
+            // 如果位置是默认值，则使用原来的位置
+            if (_position.X == -1 && _position.Y == -1)
             {
-                _position = mousePos - _dragOffset;
+                // 设置为默认位置（基于玩家位置的偏移）
+                Left.Set(0f, 0f);
+                Top.Set(0f, 0f);
+            }
+            else
+            {
+                // 使用之前保存的位置
                 Left.Set(_position.X, 0f);
                 Top.Set(_position.Y, 0f);
             }
         }
-        else
+
+        // 在类加载时预加载纹理
+        static PlayerAboveUIElement()
         {
-            // 当不在拖动状态时，更新位置为相对于玩家的原始位置
+            _defenseTexture = ModContent.Request<Texture2D>("ExpansionKele/Content/Customs/ECShield/Defense");
+            _magicPixelTexture = TextureAssets.MagicPixel;
+        }
+
+        public override void Update(GameTime gameTime)
+        {
+            base.Update(gameTime);
+            Player player = Main.LocalPlayer;
+            if (player == null || player.active == false)
+                return;
+
+            // 如果在拖动状态中，使用鼠标位置作为参考
+            if (_isDragging)
+            {
+                Vector2 mousePos = new Vector2(Main.mouseX, Main.mouseY);
+                if (_isDragging)
+                {
+                    _position = mousePos - _dragOffset;
+                    Left.Set(_position.X, 0f);
+                    Top.Set(_position.Y, 0f);
+                }
+            }
+            else
+            {
+                // 当不在拖动状态时，更新位置为相对于玩家的原始位置
+                if (_position.X == -1 && _position.Y == -1)
+                {
+                    // 保持原始的相对位置
+                    Vector2 originalPos = player.Center - Main.screenPosition + new Vector2(-100, -85);
+                    Left.Set(originalPos.X, 0f);
+                    Top.Set(originalPos.Y, 0f);
+                }
+            }
+
+            // 获取当前UI元素的屏幕位置用于碰撞检测
+            Vector2 currentPos = new Vector2(Left.Pixels, Top.Pixels);
+            Rectangle hitbox = new Rectangle((int)(currentPos.X), (int)(currentPos.Y), (int)Width.Pixels, (int)Height.Pixels);
+            Vector2 mousePosForHitbox = new Vector2(Main.mouseX, Main.mouseY);
+
+            if (Main.mouseRight && hitbox.Contains((int)mousePosForHitbox.X, (int)mousePosForHitbox.Y))
+            {
+                if (!_isDragging)
+                {
+                    _isDragging = true;
+                    _dragOffset = mousePosForHitbox - currentPos;
+                }
+            }
+            else if (_isDragging && !Main.mouseRight)
+            {
+                _isDragging = false;
+            }
+        }
+
+        protected override void DrawSelf(SpriteBatch spriteBatch)
+        {
+            int BaseWidth = 100; // 修改为100
+            int BaseHeight = 18; // 修改为30
+            Player player = Main.LocalPlayer;
+            if (player == null || player.active == false)
+                return;
+
+            // 获取玩家的ECShieldSystem组件
+            ECShieldSystem ecShield = player.GetModPlayer<ECShieldSystem>();
+            if(ecShield.ShieldActive && !player.dead){ // 添加检查玩家是否死亡
+
+            // 根据是否被拖动来决定位置
+            Vector2 screenPos;
             if (_position.X == -1 && _position.Y == -1)
             {
-                // 保持原始的相对位置
-                Vector2 originalPos = player.Center - Main.screenPosition + new Vector2(-100, -85);
-                Left.Set(originalPos.X, 0f);
-                Top.Set(originalPos.Y, 0f);
+                // 使用原始的相对于玩家的位置
+                screenPos = player.Center - Main.screenPosition + new Vector2(-100 - BaseWidth/2, -85 - BaseHeight/2);
             }
-        }
-
-        // 获取当前UI元素的屏幕位置用于碰撞检测
-        Vector2 currentPos = new Vector2(Left.Pixels, Top.Pixels);
-        Rectangle hitbox = new Rectangle((int)(currentPos.X), (int)(currentPos.Y), (int)Width.Pixels, (int)Height.Pixels);
-        Vector2 mousePosForHitbox = new Vector2(Main.mouseX, Main.mouseY);
-
-        if (Main.mouseRight && hitbox.Contains((int)mousePosForHitbox.X, (int)mousePosForHitbox.Y))
-        {
-            if (!_isDragging)
+            else
             {
-                _isDragging = true;
-                _dragOffset = mousePosForHitbox - currentPos;
+                // 使用拖动后的位置
+                screenPos = new Vector2(Left.Pixels, Top.Pixels);
             }
+
+            // 使用缓存的纹理 - 这里是关键改进！
+            Texture2D defenseTexture = _defenseTexture.Value;
+            Texture2D magicPixelTexture = _magicPixelTexture.Value;
+
+            spriteBatch.Draw(
+                defenseTexture,
+                screenPos,
+                null,
+                Color.Blue, // 使用黄色以便于看到
+                0f,
+                new Vector2(defenseTexture.Width/2, defenseTexture.Height/2), // 原点设置为纹理的中心底部
+                0.75f, // 放大2倍
+                SpriteEffects.None,
+                0f
+            );
+
+            // 计算进度条填充宽度（根据护盾值计算填充比例）
+            int barWidth = BaseWidth; // 进度条总宽度
+            int barHeight = BaseHeight; // 进度条高度
+            
+            // 修复整数除法问题，使用浮点数计算
+            float fillRatio = ecShield.MaxShield > 0 ? ecShield.CurrentShield / ecShield.MaxShield : 0f;
+            int filledWidth = (int)(fillRatio * barWidth); // 已填充的宽度
+
+            // 绘制进度条背景
+            Rectangle barBackground = new Rectangle((int)screenPos.X + defenseTexture.Width/2, (int)screenPos.Y - barHeight/2 , barWidth, barHeight);
+            spriteBatch.Draw(magicPixelTexture, barBackground, Color.DarkGray);
+
+            // 绘制进度条填充部分
+            if(filledWidth > 0)
+            {
+                Rectangle barFill = new Rectangle((int)screenPos.X + defenseTexture.Width/2, (int)screenPos.Y - barHeight/2 , filledWidth, barHeight);
+                // 根据填充比例计算颜色，从红色(0,1,0)到绿色(0,255,0)，使用Lerp函数插值
+                Color fillColor = new Color((byte)(255 * (1 - fillRatio)), (byte)(255 * fillRatio), 0);
+                spriteBatch.Draw(magicPixelTexture, barFill, fillColor);
+            }
+
+            string shieldText = $"{ecShield.CurrentShield:F0} / {ecShield.MaxShield:F0}"; // 修改为整数格式
+            Vector2 textSize = FontAssets.MouseText.Value.MeasureString(shieldText);
+            Vector2 textPosition = new Vector2(
+                (int)screenPos.X + defenseTexture.Width / 2 + barWidth / 2 - textSize.X / 2, // 水平居中
+                (int)screenPos.Y - barHeight / 2 // 在进度条上方0像素
+            );
+
+            // 绘制文字阴影以提高可读性
+            spriteBatch.DrawString(FontAssets.MouseText.Value, shieldText, textPosition + new Vector2(1, 1), Color.Black, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+            // 绘制主文字
+            spriteBatch.DrawString(FontAssets.MouseText.Value, shieldText, textPosition, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+            
+            } // 结束if条件块
+            
         }
-        else if (_isDragging && !Main.mouseRight)
-        {
-            _isDragging = false;
-        }
-    }
-
-    // ... existing code ...
-        protected override void DrawSelf(SpriteBatch spriteBatch)
-    {
-        int BaseWidth = 100; // 修改为100
-        int BaseHeight = 18; // 修改为30
-        Player player = _playerIndex == -1 ? Main.LocalPlayer : Main.player[_playerIndex];
-        if (player == null || player.active == false)
-            return;
-
-        // 获取玩家的ECShieldSystem组件
-        ECShieldSystem ecShield = player.GetModPlayer<ECShieldSystem>();
-        if(ecShield.ShieldActive && !player.dead){ // 添加检查玩家是否死亡
-
-        // 根据是否被拖动来决定位置
-        Vector2 screenPos;
-        if (_position.X == -1 && _position.Y == -1)
-        {
-            // 使用原始的相对于玩家的位置
-            screenPos = player.Center - Main.screenPosition + new Vector2(-100 - BaseWidth/2, -85 - BaseHeight/2);
-        }
-        else
-        {
-            // 使用拖动后的位置
-            screenPos = new Vector2(Left.Pixels, Top.Pixels);
-        }
-
-        // 使用缓存的纹理 - 这里是关键改进！
-        Texture2D defenseTexture = _defenseTexture.Value;
-        Texture2D magicPixelTexture = _magicPixelTexture.Value;
-
-        spriteBatch.Draw(
-            defenseTexture,
-            screenPos,
-            null,
-            Color.Blue, // 使用黄色以便于看到
-            0f,
-            new Vector2(defenseTexture.Width/2, defenseTexture.Height/2), // 原点设置为纹理的中心底部
-            0.75f, // 放大2倍
-            SpriteEffects.None,
-            0f
-        );
-
-        // 计算进度条填充宽度（根据护盾值计算填充比例）
-        int barWidth = BaseWidth; // 进度条总宽度
-        int barHeight = BaseHeight; // 进度条高度
-        
-        // 修复整数除法问题，使用浮点数计算
-        float fillRatio = ecShield.MaxShield > 0 ? ecShield.CurrentShield / ecShield.MaxShield : 0f;
-        int filledWidth = (int)(fillRatio * barWidth); // 已填充的宽度
-
-        // 绘制进度条背景
-        Rectangle barBackground = new Rectangle((int)screenPos.X + defenseTexture.Width/2, (int)screenPos.Y - barHeight/2 , barWidth, barHeight);
-        spriteBatch.Draw(magicPixelTexture, barBackground, Color.DarkGray);
-
-        // 绘制进度条填充部分
-        if(filledWidth > 0)
-        {
-            Rectangle barFill = new Rectangle((int)screenPos.X + defenseTexture.Width/2, (int)screenPos.Y - barHeight/2 , filledWidth, barHeight);
-            // 根据填充比例计算颜色，从红色(0,1,0)到绿色(0,255,0)，使用Lerp函数插值
-            Color fillColor = new Color((byte)(255 * (1 - fillRatio)), (byte)(255 * fillRatio), 0);
-            spriteBatch.Draw(magicPixelTexture, barFill, fillColor);
-        }
-
-        string shieldText = $"{ecShield.CurrentShield:F0} / {ecShield.MaxShield:F0}"; // 修改为整数格式
-        Vector2 textSize = FontAssets.MouseText.Value.MeasureString(shieldText);
-        Vector2 textPosition = new Vector2(
-            (int)screenPos.X + defenseTexture.Width / 2 + barWidth / 2 - textSize.X / 2, // 水平居中
-            (int)screenPos.Y - barHeight / 2 // 在进度条上方0像素
-        );
-
-        // 绘制文字阴影以提高可读性
-        spriteBatch.DrawString(FontAssets.MouseText.Value, shieldText, textPosition + new Vector2(1, 1), Color.Black, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
-        // 绘制主文字
-        spriteBatch.DrawString(FontAssets.MouseText.Value, shieldText, textPosition, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
-        
-        } // 结束if条件块
-        
-    }
 
     }
 

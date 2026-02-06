@@ -4,6 +4,7 @@ using Terraria.ModLoader;
 using System.Collections.Generic;
 using ExpansionKele.Content.Customs;
 using ExpansionKele.Content.Items.Placeables;
+using ExpansionKele.Content.Buff;
 
 namespace ExpansionKele.Content.Items.Accessories
 {
@@ -42,7 +43,7 @@ namespace ExpansionKele.Content.Items.Accessories
             player.statLifeMax2 +=LifeMaxBonus;
 
             var ironWillShieldPlayer=player.GetModPlayer<IronWillShieldPlayer>();
-            ironWillShieldPlayer.SetTimers(30*60,2*60,0.3f);
+            ironWillShieldPlayer.SetTimers(30*60,2*60,0.25f);
             ironWillShieldPlayer.UpdateIronWillShield();
 
 
@@ -62,21 +63,7 @@ namespace ExpansionKele.Content.Items.Accessories
             player.moveSpeed += SpeedBonus * lifeReducedIn3PercentSteps;
             //Main.NewText($"Defense:{player.statDefense},endurance:{player.endurance},SpeedBonus:{player.moveSpeed}");
 
-            if (counter < MaxCounter)
-    {
-        counter++;
-    }
-    else
-    {
-        counter = 0;
-    }
-
-    // 最后120ticks时设置玩家为无敌状态
-    if (counter >= (MaxCounter-ImmuneCounter))
-    {
-        player.immune = true;
-        player.immuneTime = 0; // 确保无敌效果持续
-    }
+            player.GetModPlayer<HallowHeartShieldPlayer>().hasHallowHeartShield = true;
     
         }
 
@@ -111,4 +98,7 @@ namespace ExpansionKele.Content.Items.Accessories
                 .Register();
         }
     }
+    // ... existing code ...
+
+// ... existing code ...
 }

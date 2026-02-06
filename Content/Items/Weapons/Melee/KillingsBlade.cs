@@ -65,7 +65,7 @@ namespace ExpansionKele.Content.Items.Weapons.Melee
             }
         }
 
-        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+                public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             var modPlayer = player.GetModPlayer<KillingsBladePlayer>();
             
@@ -73,10 +73,29 @@ namespace ExpansionKele.Content.Items.Weapons.Melee
                 // 右键投掷刀片
                 if (modPlayer.storedBlades > 0) {
                     // 投掷刀片造成130%伤害
-                    Projectile.NewProjectile(source, position, velocity, ModContent.ProjectileType<KillingsBladeThrownProjectile>(), (int)(damage * 1.3f), knockback, player.whoAmI);
+                     Projectile.NewProjectile(source, position, velocity, ModContent.ProjectileType<KillingsBladeThrownProjectile>(), (int)(damage * 1.3f), knockback, player.whoAmI);
+                    
+                    // 在多人模式下同步投射物创建
+                    if (Main.netMode != NetmodeID.SinglePlayer)
+                    {
+                        // 获取刚创建的投射物并发送同步消息
+                        int projIndex = Projectile.GetByUUID(player.whoAmI, Projectile.GetNextSlot() - 1);
+                        if (projIndex >= 0 && projIndex < Main.maxProjectiles)
+                        {
+                            Projectile projectile = Main.projectile[projIndex];
+                            NetMessage.SendData(MessageID.SyncProjectile, -1, -1, null, projectile.identity);
+                        }
+                    }
+                    
                     // 减少存储的刀片数量
                     //CombatText.NewText(player.getRect(), Microsoft.Xna.Framework.Color.Cyan, "-1", true);
                     modPlayer.storedBlades--;
+                    
+                    // 同步玩家状态变化到其他客户端
+                    if (Main.netMode == NetmodeID.MultiplayerClient)
+                    {
+                        NetMessage.SendData(MessageID.PlayerControls, -1, -1, null, player.whoAmI);
+                    }
                 }
                 return false;
             }

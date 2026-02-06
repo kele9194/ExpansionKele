@@ -49,6 +49,9 @@ namespace ExpansionKele.Content.Projectiles.RangedProj
             Projectile.ignoreWater = true;
             Projectile.hide = true;
             Projectile.timeLeft = 2;
+            // 初始化AI数组用于存储鼠标位置
+            Projectile.ai[0] = 0f; // 鼠标X坐标
+            Projectile.ai[1] = 0f; // 鼠标Y坐标
         }
 
         public override void AI()
@@ -66,9 +69,20 @@ namespace ExpansionKele.Content.Projectiles.RangedProj
             player.itemTime = 2;
             player.itemAnimation = 2;
             
+            // 只在拥有者的客户端更新鼠标位置
+            if (Main.myPlayer == Projectile.owner)
+            {
+                Vector2 mousePosition = Main.MouseWorld;
+                Projectile.ai[0] = mousePosition.X;
+                Projectile.ai[1] = mousePosition.Y;
+                Projectile.netUpdate = true; // 强制网络同步
+            }
+            
+            // 使用同步的鼠标位置
+            Vector2 targetMousePosition = new Vector2(Projectile.ai[0], Projectile.ai[1]);
+            
             // 设置玩家朝向
-            Vector2 mousePosition = Main.MouseWorld;
-            Vector2 diff = mousePosition - player.Center;
+            Vector2 diff = targetMousePosition - player.Center;
             if (diff.X < 0)
             {
                 player.direction = -1;
@@ -152,6 +166,7 @@ namespace ExpansionKele.Content.Projectiles.RangedProj
                         if (Main.projectile[damageProj].active)
                         {
                             Main.projectile[damageProj].Center = hitPosition;
+                            Main.projectile[damageProj].netUpdate = true; // 添加网络同步
                         }
                         
                         // 减少击中特效的粒子数量
@@ -192,8 +207,6 @@ namespace ExpansionKele.Content.Projectiles.RangedProj
             return closestPoint;
         }
 
-        // ... existing code ...
-        // ... existing code ...
         private void CreateLaserVisual(Vector2 start, Vector2 end, Color color, float width, Player player)
         {
             // 在激光路径上创建尘埃效果，模拟激光视觉
@@ -226,8 +239,6 @@ namespace ExpansionKele.Content.Projectiles.RangedProj
                 }
             }
         }
-// ... existing code ...
-// ... existing code ...
 
         public override bool PreDraw(ref Color lightColor)
         {
