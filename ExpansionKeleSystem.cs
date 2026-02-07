@@ -59,7 +59,7 @@ namespace ExpansionKele
             recipe.Register();
 
             Recipe recipeI = Recipe.Create(ItemID.Bezoar); 
-            recipeI.AddIngredient(ExpansionKele.calamity.Find<ModItem>("MurkyPaste").Type, 3);      
+            //recipeI.AddIngredient(ExpansionKele.calamity.Find<ModItem>("MurkyPaste").Type, 3);      
             recipeI.AddIngredient(ItemID.Stinger, 5);      
             recipeI.AddTile(TileID.Anvils);         
             recipeI.Register();

@@ -1,25 +1,18 @@
-<Project Sdk="Microsoft.NET.Sdk">  
+<Project Sdk="Microsoft.NET.Sdk">
 
-	<!-- Import tModLoader mod properties -->  
-	<Import Project="..\tModLoader.targets" />  
+	<!-- Import tModLoader mod properties -->
+	<Import Project="..\tModLoader.targets" />
 
-	<!-- General -->  
+	<!-- General -->
 
-  <PropertyGroup>
-    <OutputType>Library</OutputType>
-    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
-    <PublishSingleFile>false</PublishSingleFile>
-    <SelfContained>false</SelfContained>
-		<RootNamespace>ExpansionKele</RootNamespace>  
-		<AssemblyName>ExpansionKele</AssemblyName>  
-	</PropertyGroup>  
+	<PropertyGroup>
+		<OutputType>Library</OutputType>
+		<RuntimeIdentifier>win-x64</RuntimeIdentifier>
+		<PublishSingleFile>false</PublishSingleFile>
+		<SelfContained>false</SelfContained>
+		<RootNamespace>ExpansionKele</RootNamespace>
+		<AssemblyName>ExpansionKele</AssemblyName>
+	</PropertyGroup>
 
-	<!-- References -->
-	<ItemGroup>  
-		<Reference Include="tModLoader">  
-			<HintPath>..\tModLoader103\tModLoader.dll</HintPath>  
-		</Reference>  
-		<!-- 如果有需要，您可以添加其他引用，例如 Terraria.dll -->  
-	</ItemGroup>  
 
 </Project>

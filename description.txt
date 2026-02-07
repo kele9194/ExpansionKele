@@ -66,8 +66,9 @@ v1.3.9
 为神圣心盾，钢铁誓约之盾，星元心之徽章提供buff效果
 合并了神圣心盾合钢铁誓约之盾的铁幕效果
 修复了追踪算法部分存在的问题
-修复部分多人模式下的错误问题
+修复部分武器多人模式下的错误问题
 修复了贴图优化后出现的部分问题
+紧急修复灾厄更新导致报错的情况
 
 This mod is developed purely for entertainment, developed by me alone, trying to achieve some imagination in ths mod and still under development. 
 When playing with the Calamity mod, some content will be adjusted to fit Calamity's numerical environment.
@@ -134,3 +135,12 @@ Optimized the texture logic to reduce memory consumption.
 Reset the FullMoon Staff.
 Enhanced the FullMoon armor set.
 
+v1.3.9
+Fixed charge bar and shield bar to display correctly in multiplayer mode
+Fixed and nerfed the effect of Life Light Wings
+Added buff effects for Holy Heart Shield, Iron Oath Shield, and Stellar Heart Emblem
+Merged the iron curtain effects of Holy Heart Shield and Iron Oath Shield
+Fixed issues with tracking algorithm
+Fixed errors with some weapons in multiplayer mode
+Fixed some issues that appeared after texture optimization
+Emergency fix for errors caused by Calamity updates
