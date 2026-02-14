@@ -7,6 +7,7 @@ using ExpansionKele.Content.Projectiles;
 using System.Collections.Generic;
 using ExpansionKele.Content.Items.Placeables;
 using ExpansionKele.Content.Customs;
+using ExpansionKele.Content.Projectiles.MeleeProj;
 
 namespace ExpansionKele.Content.Items.Weapons.Melee
 {

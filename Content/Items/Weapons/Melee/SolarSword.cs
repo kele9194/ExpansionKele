@@ -17,7 +17,7 @@ namespace ExpansionKele.Content.Items.Weapons.Melee
             // 基本属性设置
             Item.width = 140;
             Item.height = 140;
-            Item.damage = 400;
+            Item.damage = ExpansionKele.ATKTool(300,400);
             Item.useTime = 35;
             Item.useAnimation = 35;
             Item.useStyle = ItemUseStyleID.Swing;

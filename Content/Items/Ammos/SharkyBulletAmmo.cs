@@ -1,5 +1,6 @@
 using ExpansionKele.Content.Customs;
 using ExpansionKele.Content.Projectiles;
+using ExpansionKele.Content.Projectiles.RangedProj;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;

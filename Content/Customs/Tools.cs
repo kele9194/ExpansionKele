@@ -86,8 +86,14 @@ namespace ExpansionKele.Content.Customs
             return calculatedValue > 0 ? calculatedValue : 1;
         }
 
-        public static int CalculateRarityFromRecipes(ModItem item, int defaultRarity = Terraria.ID.ItemRarityID.Green)
+                public static int CalculateRarityFromRecipes(ModItem item, int defaultRarity = Terraria.ID.ItemRarityID.Green, ModItem referenceItem = null)
         {
+            // 如果指定了参考物品，直接返回该物品的稀有度
+            if (referenceItem != null)
+            {
+                return referenceItem.Item.rare;
+            }
+
             var recipes = new List<Recipe>();
             
             // 遍历所有配方，找出结果为此物品的配方

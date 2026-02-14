@@ -2,3 +2,13 @@ FullMoonPickAxe: {
 	Tooltip: 很快的工具
 	DisplayName: 望月镐斧
 }
+
+ChromiumHamaxe: {
+	Tooltip: ""
+	DisplayName: 铬钢锤斧
+}
+
+ChromiumPickaxe: {
+	Tooltip: ""
+	DisplayName: 铬钢镐
+}

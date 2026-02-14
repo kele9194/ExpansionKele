@@ -6,6 +6,7 @@ using ExpansionKele.Content.Projectiles;
 using Terraria.DataStructures;
 using Microsoft.Xna.Framework;
 using ExpansionKele.Content.Customs;
+using ExpansionKele.Content.Projectiles.MeleeProj;
 
 namespace ExpansionKele.Content.Items.Weapons.Melee
 {

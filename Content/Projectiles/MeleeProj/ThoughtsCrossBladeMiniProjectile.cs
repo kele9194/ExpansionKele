@@ -49,9 +49,16 @@ namespace ExpansionKele.Content.Projectiles.MeleeProj
             Projectile.timeLeft = 20;
             Projectile.usesLocalNPCImmunity = true;
             Projectile.localNPCHitCooldown = -1;
+            Projectile.netUpdate = true;
         }
 
         public override void OnSpawn(IEntitySource source)
+        {
+            
+        }
+        //要同步全部放AI
+        
+        public override void AI()
         {
             // 获取纹理尺寸
             Texture2D texture = _cachedTexture.Value;
@@ -83,10 +90,6 @@ namespace ExpansionKele.Content.Projectiles.MeleeProj
             Projectile.scale = Projectile.ai[1];
             // 更新textureLength以匹配scale
             textureLength *= Projectile.scale;
-        }
-
-        public override void AI()
-        {
             Player player = Main.player[Projectile.owner];
 
             // 基本设置 - 移除了 player.ChangeDir(Projectile.direction)

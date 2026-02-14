@@ -50,11 +50,19 @@ namespace ExpansionKele.Content.Projectiles.MeleeProj
             Projectile.scale=1f;
             Projectile.usesLocalNPCImmunity = true;
             Projectile.localNPCHitCooldown = -1;
+            Projectile.netUpdate = true;
         }
 
         // ... existing code ...
                 // ... existing code ...
         public override void OnSpawn(IEntitySource source)
+        {
+            
+        }
+
+        // ... existing code ...
+
+        public override void AI()
         {
             // 获取纹理尺寸
             Texture2D texture = _cachedTexture.Value;
@@ -81,12 +89,6 @@ namespace ExpansionKele.Content.Projectiles.MeleeProj
             initialDirection.Normalize();
             // 同时设置Projectile.rotation用于绘制
             Projectile.rotation = radians;
-        }
-
-        // ... existing code ...
-
-        public override void AI()
-        {
             Player player = Main.player[Projectile.owner];
             
             // 基本设置 - 移除了 player.ChangeDir(Projectile.direction)

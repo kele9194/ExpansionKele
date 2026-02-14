@@ -30,7 +30,7 @@ namespace ExpansionKele.Content.Projectiles.MagicProj
 
         // ... existing code ...
         // ... existing code ...
-        public override void AI()
+                public override void AI()
         {
             // 添加水弹特效
             if (Main.rand.NextBool(3))
@@ -46,10 +46,19 @@ namespace ExpansionKele.Content.Projectiles.MagicProj
                 Projectile.rotation = Projectile.velocity.ToRotation() + MathHelper.PiOver2;
             }
 
+            // 在服务器端或单人游戏中初始化ai数组
+            if (Main.myPlayer == Projectile.owner && Projectile.ai[0] == 0 && Projectile.ai[1] == 0)
+            {
+                Vector2 mousePosition = Main.MouseWorld;
+                Projectile.ai[0] = mousePosition.X;
+                Projectile.ai[1] = mousePosition.Y;
+                Projectile.netUpdate = true;
+            }
+
             // 获取玩家到鼠标的方向矢量A
             Player player = Main.player[Projectile.owner];
-            Vector2 mousePosition = Main.MouseWorld;
-            Vector2 playerToMouse = mousePosition - player.Center;
+            Vector2 targetPosition = new Vector2(Projectile.ai[0], Projectile.ai[1]); // 修改变量名避免冲突
+            Vector2 playerToMouse = targetPosition - player.Center;
             
             // 确保方向矢量不为零
             if (playerToMouse != Vector2.Zero)
@@ -77,8 +86,6 @@ namespace ExpansionKele.Content.Projectiles.MagicProj
                 }
             }
         }
-// ... existing code ...
-                //
 
         public override void OnKill(int timeLeft)
         {

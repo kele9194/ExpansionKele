@@ -7,6 +7,7 @@ using Terraria.DataStructures;
 using Terraria.Localization;
 using ExpansionKele.Content.Items.Weapons.Ranged;
 using ExpansionKele.Content.Customs;
+using ExpansionKele.Content.Projectiles.RangedProj;
 
 namespace ExpansionKele.Content.Items.Weapons.Ranged
 {
@@ -67,11 +68,11 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
             
             // 发射第一个追踪导弹（+12.5度）
             Vector2 velocity1 = velocity.RotatedBy(angleOffset);
-            Projectile.NewProjectile(source, position, velocity1, ModContent.ProjectileType<Projectiles.VortexHomingProjectile>(), damage, knockback, player.whoAmI);
+            Projectile.NewProjectile(source, position, velocity1, ModContent.ProjectileType<VortexHomingProjectile>(), damage, knockback, player.whoAmI);
 
             // 发射第二个追踪导弹（-12.5度）
             Vector2 velocity2 = velocity.RotatedBy(-angleOffset);
-            Projectile.NewProjectile(source, position, velocity2, ModContent.ProjectileType<Projectiles.VortexHomingProjectile>(), damage, knockback, player.whoAmI);
+            Projectile.NewProjectile(source, position, velocity2, ModContent.ProjectileType<VortexHomingProjectile>(), damage, knockback, player.whoAmI);
 
             return false; // 返回false以防止默认射击行为
         }

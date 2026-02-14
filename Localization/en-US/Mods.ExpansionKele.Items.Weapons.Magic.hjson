@@ -1,1 +1,9 @@
-
+EnhancedSpaceGun: {
+	Tooltip:
+		'''
+		Fires reinforced lasers that can bounce
+		Hit or bounce generates splitting lasers
+		Splitting lasers can also bounce
+		'''
+	DisplayName: Enhanced Space Gun
+}

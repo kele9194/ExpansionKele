@@ -1,1 +1,8 @@
-
+SpaceFunnel: {
+	Tooltip:
+		'''
+		Summons a funnel that fires lasers
+		Lasers inflict Cursed Inferno debuff
+		'''
+	DisplayName: Space Funnel
+}

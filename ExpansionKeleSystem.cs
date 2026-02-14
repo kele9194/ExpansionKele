@@ -11,6 +11,11 @@ namespace ExpansionKele
         
         public override void AddRecipes()
         {
+            Recipe.Create(ItemID.PaperAirplaneA,200)
+                .AddIngredient(ItemID.RichMahogany, 1)
+                .AddTile(TileID.WorkBenches)
+                .Register();
+
             Recipe.Create(ItemID.WormScarf)
                 .AddIngredient(ItemID.Silk, 10)
                 .AddIngredient(ItemID.ShadowScale, 5)

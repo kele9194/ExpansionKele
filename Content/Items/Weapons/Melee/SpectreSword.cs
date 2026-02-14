@@ -19,7 +19,8 @@ namespace ExpansionKele.Content.Items.Weapons.Melee
         public override string LocalizationCategory => "Items.Weapons";
         public override void SetStaticDefaults()
         {
-            ItemID.Sets.ItemsThatAllowRepeatedRightClick[Item.type] = true;
+            // 删除右键重复点击设置
+            // ItemID.Sets.ItemsThatAllowRepeatedRightClick[Item.type] = true;
         }
 
         public override void SetDefaults()
@@ -42,22 +43,16 @@ namespace ExpansionKele.Content.Items.Weapons.Melee
             Item.noMelee = true; // Disable direct contact damage since we'll use projectile
         }
         
-// ... existing code ...
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             // 获取蓄力玩家组件并应用蓄力效果
             SpectreSwordPlayer swordPlayer = player.GetModPlayer<SpectreSwordPlayer>();
             float adjustedItemScale;
             int enhancedDamage;
-            if(player.altFunctionUse == 2){
-                adjustedItemScale = player.GetAdjustedItemScale(Item) * SpectreSwordPlayer.MAX_CHARGE;
-                enhancedDamage = (int)(damage * SpectreSwordPlayer.MAX_DAMAGE_CHARGE);
-            }
-            else{
-            // 使用蓄力值增强伤害和大小
-                adjustedItemScale = player.GetAdjustedItemScale(Item) * swordPlayer.spectreSwordCharge;
-                enhancedDamage = (int)(damage * swordPlayer.spectreSwordDamageCharge);
-            }
+            
+            // 删除右键特殊逻辑，只保留普通蓄力逻辑
+            adjustedItemScale = player.GetAdjustedItemScale(Item) * swordPlayer.spectreSwordCharge;
+            enhancedDamage = (int)(damage * swordPlayer.spectreSwordDamageCharge);
             
             Projectile.NewProjectile(source, player.MountedCenter, new Vector2(player.direction, 0f), type, enhancedDamage, knockback, player.whoAmI, player.direction * player.gravDir, Item.useAnimation, adjustedItemScale);
             NetMessage.SendData(MessageID.PlayerControls, number: player.whoAmI);
@@ -67,27 +62,14 @@ namespace ExpansionKele.Content.Items.Weapons.Melee
 
             return false; // Return false to prevent default projectile spawning
         }
-        // ... existing code ...
-        public override bool CanUseItem(Player player)
-        {
-            if (player.altFunctionUse == 2) // 检测是否正在使用技能
-            {
-                Item.useAnimation = 20*6;
-                Item.useTime = 20*6;
-                return true; // 禁用技能
-            }
-            else
-            {
-                Item.useAnimation = 20;
-                Item.useTime = 20;
-                return true; // 允许使用武器
-            }
-        }
 
+        // 删除 AltFunctionUse 方法，完全禁用右键功能
+        /*
         public override bool AltFunctionUse(Player player)
         {
-            return true;
+            return false;
         }
+        */
 
         public override void AddRecipes()
         {
@@ -114,9 +96,6 @@ namespace ExpansionKele.Content.Items.Weapons.Melee
     }
     
     
-// ... existing code ...
-
-// ... existing code ...
     public class SpectreSwordPlayer : ModPlayer
     {
         // 光谱剑蓄力相关参数
@@ -125,7 +104,7 @@ namespace ExpansionKele.Content.Items.Weapons.Melee
         public bool isSpectreSwordCharging = false;     // 是否正在蓄力状态
         public int swordChargeTime = 0;                 // 剑蓄力时间计数器
 
-        // 最大蓄力值
+        // 保留最大蓄力值常量
         public const float MAX_CHARGE = 3.6f;
         public const float MAX_DAMAGE_CHARGE = 3.6f;
         
@@ -187,5 +166,4 @@ namespace ExpansionKele.Content.Items.Weapons.Melee
             swordChargeTime = 0;
         }
     }
-// ... existing code ...
 }

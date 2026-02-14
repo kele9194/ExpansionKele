@@ -29,8 +29,8 @@ namespace ExpansionKele.Content.Items.Tools
             Item.DamageType = DamageClass.Melee;  // 近战伤害类型
             Item.width = 40;                     // 物品宽度
             Item.height = 40;                    // 物品高度
-            Item.useTime = 13;                   // 使用时间（tick）
-            Item.useAnimation = 13;              // 动画持续时间
+            Item.useTime = 7;                   // 使用时间（tick）
+            Item.useAnimation = 20;              // 动画持续时间
             Item.useStyle = ItemUseStyleID.Swing; // 挥舞动作
             Item.knockBack = 6;                 // 击退值
             Item.value = ItemUtils.CalculateValueFromRecipes(this);              // 卖出价格

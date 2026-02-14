@@ -1,1 +1,8 @@
-
+TangDynastySaber: {
+	Tooltip:
+		'''
+		Melee blade hits enemies to accumulate sword energy. 
+		When energy is zero, firing sword energy deals 0.5x damage
+		'''
+	DisplayName: Tang Dynasty Saber
+}

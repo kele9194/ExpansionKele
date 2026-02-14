@@ -1,1 +1,8 @@
-
+SpaceFunnel: {
+	Tooltip:
+		'''
+		召唤可以发射激光的浮游炮
+		激光附加诅咒焰减益
+		'''
+	DisplayName: 太空浮游炮
+}

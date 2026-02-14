@@ -15,7 +15,6 @@ namespace ExpansionKele.Content.Items.Weapons.Melee
         
         public override void SetStaticDefaults()
         {
-            ItemID.Sets.ItemsThatAllowRepeatedRightClick[Item.type] = true;
         }
 
         public override void SetDefaults()

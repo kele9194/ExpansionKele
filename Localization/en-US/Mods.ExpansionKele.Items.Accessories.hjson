@@ -96,7 +96,6 @@ StarryHeartEmblem: {
 		when health is below 20%,heal 1 HP every 0.33 seconds
 		when hit ,player will be healed and set higher life regen time 
 		when hit to death ,you will get 1 second of invincibility.and be healed to 20% max life(cooldown:60 seconds)
-		this accessory now have some bugs to fix.
 		when multiple "MoonXXXXEmblem" are equipped
 		Only the first equipped "MoonXXXXEmblem" is effective 
 		'''

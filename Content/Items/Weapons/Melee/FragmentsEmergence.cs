@@ -1,5 +1,6 @@
 using ExpansionKele.Content.Customs;
 using ExpansionKele.Content.Projectiles;
+using ExpansionKele.Content.Projectiles.MeleeProj;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;

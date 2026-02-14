@@ -33,21 +33,6 @@ namespace ExpansionKele.Content.Buff
 
         public override void ResetEffects(NPC npc)
         {
-            // 每帧减少减益时间
-            if (frostShatterTimes.ContainsKey(npc.whoAmI))
-            {
-                frostShatterTimes[npc.whoAmI]--;
-                if (frostShatterTimes[npc.whoAmI] <= 0)
-                {
-                    // 移除减益时恢复原始防御力
-                    if (originalDefenses.ContainsKey(npc.whoAmI))
-                    {
-                        npc.defense = originalDefenses[npc.whoAmI];
-                        originalDefenses.Remove(npc.whoAmI);
-                    }
-                    frostShatterTimes.Remove(npc.whoAmI);
-                }
-            }
         }
 
         // 修改被物品击中时的效果
@@ -72,21 +57,6 @@ namespace ExpansionKele.Content.Buff
             }
         }
 
-        public override void UpdateLifeRegen(NPC npc, ref int damage)
-        {
-            // 应用防御减少效果
-            if (frostShatterTimes.TryGetValue(npc.whoAmI, out int time))
-            {
-                // 如果这是第一次应用减益，保存原始防御值
-                if (!originalDefenses.ContainsKey(npc.whoAmI))
-                {
-                    originalDefenses[npc.whoAmI] = npc.defense;
-                }
-                
-                // 减少50%防御力
-                npc.defense = Math.Max(1, originalDefenses[npc.whoAmI] / 2);
-            }
-        }
 
         // 添加减益时间的方法
         public void AddFrostShatterTime(NPC npc, int timeToAdd)

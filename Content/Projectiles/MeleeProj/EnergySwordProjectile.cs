@@ -8,7 +8,7 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace ExpansionKele.Content.Projectiles.EnergySword
+namespace ExpansionKele.Content.Projectiles.MeleeProj
 {
     public abstract class EnergySwordProjectile : ModProjectile
     {
@@ -40,7 +40,7 @@ namespace ExpansionKele.Content.Projectiles.EnergySword
         protected abstract Color backDarkColor { get; } // 最深蓝色（后部）
         protected abstract Color middleMediumColor { get; } // 中等亮度蓝色（中部）
         protected abstract Color frontLightColor { get; } // 最亮蓝色（前部）
-        private static Asset<Texture2D> _cachedTexture;
+        public static Asset<Texture2D> _cachedTexture;
 
         public override void Load()
         {

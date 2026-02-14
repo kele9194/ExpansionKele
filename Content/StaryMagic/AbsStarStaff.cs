@@ -7,6 +7,7 @@ using System;
 using ExpansionKele.Content.Projectiles;
 using ExpansionKele.Content.Buff;
 using ExpansionKele.Content.Customs;
+using ExpansionKele.Content.Projectiles.MagicProj;
 
 namespace ExpansionKele.Content.StaryMagic
 {

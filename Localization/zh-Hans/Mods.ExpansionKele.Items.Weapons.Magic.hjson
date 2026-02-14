@@ -1,1 +1,9 @@
-
+EnhancedSpaceGun: {
+	Tooltip:
+		'''
+		发射可反弹的强化激光
+		激光命中或反弹可以生成分裂激光
+		分裂激光也能反弹
+		'''
+	DisplayName: 强化太空枪
+}

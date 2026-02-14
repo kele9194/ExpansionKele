@@ -1,0 +1,8 @@
+BurningPaperAirPlane: {
+	Tooltip:
+		'''
+		轻音乐主题(Once)
+		扔出一个带破晓减益的纸飞机
+		'''
+	DisplayName: 燃烧的纸飞机
+}

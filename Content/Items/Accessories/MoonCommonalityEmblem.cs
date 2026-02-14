@@ -134,7 +134,7 @@ namespace ExpansionKele.Content.Items.Accessories
             if (HasCommonalityEmblem)
             {
                 var damageMultiPlayer = Player.GetModPlayer<ExpansionKeleDamageMulti>();
-                damageMultiPlayer.AddMultiplicativeDamageBonus(CommonalityDamageBonus);
+                damageMultiPlayer.MultiplyMultiplicativeDamageBonus(1+CommonalityDamageBonus);
                 
                 // 增加暴击率
                 Player.GetCritChance<GenericDamageClass>() += CommonalityCriticalBonus;
@@ -148,7 +148,7 @@ namespace ExpansionKele.Content.Items.Accessories
                 
                 // 增加自定义减伤
                 var reductionPlayer = Player.GetModPlayer<CustomDamageReductionPlayer>();
-                reductionPlayer.AddCustomDamageReduction(CommonalityDamageReduction);
+                reductionPlayer.MulticustomDamageReduction(1-CommonalityDamageReduction);
             }
             
             // 应用满月复仇者徽章的效果

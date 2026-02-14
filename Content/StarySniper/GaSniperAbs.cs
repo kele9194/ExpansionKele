@@ -8,6 +8,7 @@ using System;
 using Terraria.Audio;
 using System.Collections.Generic;
 using ExpansionKele.Content.Customs;
+using ExpansionKele.Content.Projectiles.RangedProj;
 
 namespace ExpansionKele.Content.StarySniper
 {

@@ -38,6 +38,7 @@ namespace ExpansionKele.Content.Bosses.BossKele
 
         public override void ModifyItemLoot(ItemLoot itemLoot)
         {
+            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<TangDynastySaber>(), 4, 1, 1));
             // 添加 30-40 个星元锭
             itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<StarryBar>(), 1, 30, 40));
             

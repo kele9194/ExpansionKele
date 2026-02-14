@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
 using ExpansionKele.Content.Customs;
 using ExpansionKele.Content.Projectiles;
+using ExpansionKele.Content.Projectiles.RangedProj;
 
 namespace ExpansionKele.Content.Items.Weapons.Ranged
 {

@@ -149,3 +149,8 @@ HallowHeartShieldCooldown: {
 	Description: Iron curtain cooldown
 	DisplayName: Hallow Heart Shield Cooldown
 }
+
+SpaceFunnelMinionBuff: {
+	Description: Mods.ExpansionKele.Buff.SpaceFunnelMinionBuff.Description
+	DisplayName: Space Funnel Minion Buff
+}

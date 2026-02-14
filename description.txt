@@ -70,6 +70,17 @@ v1.3.9
 修复了贴图优化后出现的部分问题
 紧急修复灾厄更新导致报错的情况
 
+v1.4.0
+进一步修复了部分武器的多人模式展示错误
+修改了部分武器和武器说明
+
+v1.4.1
+新增武器：太空浮游炮，强化太空枪，燃烧纸飞机
+
+v1.4.2
+新增铬钢镐，铬钢锤斧，修正的部分工具的使用时间和工具时间
+新增武器唐横刀
+
 This mod is developed purely for entertainment, developed by me alone, trying to achieve some imagination in ths mod and still under development. 
 When playing with the Calamity mod, some content will be adjusted to fit Calamity's numerical environment.
 
@@ -144,3 +155,15 @@ Fixed issues with tracking algorithm
 Fixed errors with some weapons in multiplayer mode
 Fixed some issues that appeared after texture optimization
 Emergency fix for errors caused by Calamity updates
+
+v1.4.0
+Further fixed multiplayer display errors for some weapons
+Modified some weapons and weapon descriptions
+
+v1.4.1
+Added weapons: Space Funnel, Enhanced Space Gun, Burning Paper Plane
+
+v1.4.2
+Added chromium steel pickaxe, chromium steel hammer-axe
+Corrected usage time and tool speed for some tools. 
+Added weapon Tang Dynasty Saber

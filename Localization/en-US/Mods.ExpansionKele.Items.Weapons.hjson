@@ -145,7 +145,8 @@ FrostRayGun: {
 		'''
 		Fires a frost ray that inflicts the Frost Shatter debuff on hit enemies.
 		Each hit extends the debuff duration by 1s, up to 60s.
-		The Frost Shatter debuff reduces target's defense by 50% and increases damage taken, up to 300%.
+		The Frost Shatter debuff increases damage taken, up to 300%.
+		WARN: the debuff is independent to players due to the code reduction.
 		'''
 }
 
@@ -427,11 +428,7 @@ AutoAimingSniperRifle: {
 
 SpectreSword: {
 	DisplayName: Spectre Sword
-	Tooltip:
-		'''
-		Holding without using accumulates energy, increasing blade size and damage
-		Right-click directly produces a large blade, causing directly larger damage
-		'''
+	Tooltip: Holding without using accumulates energy, increasing blade size and damage
 }
 
 ShroomiteSword: {
@@ -473,4 +470,9 @@ LaserCutter: {
 		An unfinished weapon
 		'''
 	DisplayName: Laser Cutter
+}
+
+SpaceFunnel: {
+	Tooltip: ""
+	DisplayName: Space Funnel
 }

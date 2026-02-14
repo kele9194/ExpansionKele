@@ -2,3 +2,13 @@ FullMoonPickAxe: {
 	Tooltip: Fast tool
 	DisplayName: Full Moon Pick Axe
 }
+
+ChromiumHamaxe: {
+	Tooltip: ""
+	DisplayName: Chromium Hamaxe
+}
+
+ChromiumPickaxe: {
+	Tooltip: ""
+	DisplayName: Chromium Pickaxe
+}

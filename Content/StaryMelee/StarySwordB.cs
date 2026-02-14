@@ -6,6 +6,7 @@ using ExpansionKele.Content.Projectiles;
 using ExpansionKele.Content.Buff;
 using Terraria.DataStructures;
 using ExpansionKele.Content.Customs;
+using ExpansionKele.Content.Projectiles.MeleeProj;
 
 
 

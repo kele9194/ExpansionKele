@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using ExpansionKele.Content.Buff;
 using Terraria.Localization;
 using ExpansionKele.Content.Customs;
+using ExpansionKele.Content.Projectiles.GenericProj;
 
 namespace ExpansionKele.Content.Items.Weapons.Generic
 {

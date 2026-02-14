@@ -26,7 +26,7 @@ namespace ExpansionKele.Content.Projectiles.RangedProj
         public override void AI()
     {
         // 定义最大追踪距离
-        float maxTrackingDistance = Data.maxTrackingDistance; // 你可以根据需要调整这个值
+        float maxTrackingDistance = 640f; // 你可以根据需要调整这个值
 
         // 定义追踪速度和平滑度
         float speed = 30f;

@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using Terraria.Localization;
 using ExpansionKele.Content.Items.Placeables;
 using ExpansionKele.Content.Customs;
+using ExpansionKele.Content.Projectiles.RangedProj;
 
 namespace ExpansionKele.Content.Items.Weapons.Ranged
 {

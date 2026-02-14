@@ -5,6 +5,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using ExpansionKele.Content.Projectiles;
 using ExpansionKele.Content.Customs;
+using ExpansionKele.Content.Projectiles.MeleeProj;
 
 namespace ExpansionKele.Content.Items.Weapons.Melee
 {

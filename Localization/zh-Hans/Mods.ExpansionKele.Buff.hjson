@@ -149,3 +149,8 @@ HallowHeartShieldCooldown: {
 	Description: 铁幕效果冷却
 	DisplayName: 神圣心盾铁幕效果冷却
 }
+
+SpaceFunnelMinionBuff: {
+	// Description: Mods.ExpansionKele.Buff.SpaceFunnelMinionBuff.Description
+	// DisplayName: Space Funnel Minion Buff
+}

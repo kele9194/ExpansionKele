@@ -145,7 +145,8 @@ FrostRayGun: {
 		'''
 		发射霜冻射线，对命中的敌人施加霜碎减益。
 		每次命中都会延长减益持续时间1秒，最长60秒。
-		霜碎减益降低目标50%防御力并增加所受伤害，最高可达300%。
+		霜碎减益并增加所受伤害，最高可达300%。
+		霜碎减益受代码限制，每个玩家增伤效果是独立的。
 		'''
 }
 
@@ -408,11 +409,7 @@ AutoAimingSniperRifle: {
 
 SpectreSword: {
 	DisplayName: 幽灵长剑
-	Tooltip:
-		'''
-		手持不使用会积蓄能量，会增大刀光尺寸和伤害
-		右键直接产生巨大的刀光，造成大量伤害
-		'''
+	Tooltip: 手持不使用会积蓄能量，会增大刀光尺寸和伤害
 }
 
 ShroomiteSword: {
@@ -455,4 +452,9 @@ LaserCutter: {
 		作者碎碎念：做的破防了
 		'''
 	DisplayName: 激光切割机
+}
+
+SpaceFunnel: {
+	// Tooltip: ""
+	// DisplayName: Space Funnel
 }

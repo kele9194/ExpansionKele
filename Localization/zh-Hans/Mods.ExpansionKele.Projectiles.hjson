@@ -85,3 +85,11 @@ ChromiumArrowProjectile.DisplayName: 铬钢箭
 LaserDamageProjectile.DisplayName: 激光切割机
 LaserCutterProjectile.DisplayName: Laser Cutter Projectile
 LaserRangeTexture.DisplayName: Laser Range Texture
+FullMoonExplosion.DisplayName: 望月爆炸
+EnhancedLaserSplitProjectile.DisplayName: 激光束
+EnhancedLaserProjectile.DisplayName: 分裂激光束
+// SpaceFunnelMinion.DisplayName: Space Funnel Minion
+// SpaceFunnelBeam.DisplayName: Space Funnel Beam
+// BurningPaperAirPlaneProjectile.DisplayName: Burning Paper Air Plane Projectile
+// TangDynastySwordProjectile.DisplayName: Tang Dynasty Sword Projectile
+// TangDynastySwordEnergyProjectile.DisplayName: Tang Dynasty Sword Energy Projectile

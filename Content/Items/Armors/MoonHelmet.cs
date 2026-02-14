@@ -148,7 +148,7 @@ public override void ModifyShootStats(Item item, ref Vector2 position, ref Vecto
                     Projectile.NewProjectile(
                         Player.GetSource_ItemUse(item),
                         position,
-                        velocity * 1.5f, // 稍微降低速度
+                        velocity * 0.5f, // 稍微降低速度
                         ModContent.ProjectileType<FullMoonArmorProj>(),
                         30, // 30点伤害
                         knockback,
@@ -195,7 +195,7 @@ public class FullMoonArmorProj : ModProjectile
             Projectile.tileCollide = false;         // 不与地形碰撞
             Projectile.ignoreWater = true;          // 忽略水体阻挡
             Projectile.light = 1f;                  // 发光强度
-            Projectile.extraUpdates = 0;            // 每帧只更新一次
+            Projectile.extraUpdates = 3;            // 每帧只更新一次
             Projectile.usesLocalNPCImmunity = true; // 使用本地无敌帧系统
             Projectile.localNPCHitCooldown = 5;     // 击中 NPC 后冷却 5 帧再可击中下一个
         }

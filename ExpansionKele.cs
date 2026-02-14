@@ -22,6 +22,9 @@ using ExpansionKele.Content.Bosses.BossKele;
 using ExpansionKele.Content.Customs;
 using ExpansionKele.Content.Customs.Commands;
 using ExpansionKele.Content.Projectiles.RangedProj;
+using ExpansionKele.Content.Projectiles.MeleeProj;
+using ExpansionKele.Content.Projectiles.MagicProj;
+using ExpansionKele.Content.Projectiles.GenericProj;
 
 
 namespace ExpansionKele

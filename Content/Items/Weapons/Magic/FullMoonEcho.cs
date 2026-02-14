@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using ExpansionKele.Content.Items.Placeables;
 using ExpansionKele.Commons;
 using ExpansionKele.Content.Customs;
+using ExpansionKele.Content.Projectiles.MagicProj;
 
 namespace ExpansionKele.Content.Items.Weapons.Magic
 {

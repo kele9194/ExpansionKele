@@ -1,7 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
-using ExpansionKele.Content.Projectiles.EnergySword;
+using ExpansionKele.Content.Projectiles.MeleeProj;
 using System;
 using ExpansionKele.Content.Items.Weapons.Melee;
 

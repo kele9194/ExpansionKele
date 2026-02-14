@@ -2,6 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
+using ExpansionKele.Content.Projectiles.GenericProj; // 添加抛射体命名空间引用
 
 namespace ExpansionKele.Content.Buff
 {
@@ -31,16 +32,17 @@ namespace ExpansionKele.Content.Buff
                     // 计算爆炸伤害（武器当前伤害的12倍）
                     int explosionDamage = (int)(player.GetWeaponDamage(player.HeldItem) * 12f);
 
-                    // 创建爆炸效果
-                    CombatText.NewText(npc.Hitbox, Color.LightBlue, "满月爆炸!", false, true);
 
-                    // 对NPC造成伤害
-                    NPC.HitInfo hitInfo = new NPC.HitInfo();
-                    hitInfo.Damage = explosionDamage;
-                    hitInfo.Knockback = 0;
-                    hitInfo.HitDirection = 0;
-                    hitInfo.Crit = false;
-                    npc.StrikeNPC(hitInfo, true, true);
+                    // 生成FullMoonExplosion抛射体，伤害直接就是12倍武器伤害
+                    Projectile.NewProjectile(
+                        npc.GetSource_FromAI(), // 伤害来源
+                        npc.Center, // 抛射体生成位置
+                        Vector2.Zero, // 初始速度为0
+                        ModContent.ProjectileType<FullMoonExplosion>(), // 抛射体类型
+                        explosionDamage, // 伤害值（12倍武器伤害）
+                        0f, // 击退
+                        player.whoAmI // 所有者
+                    );
                 }
             }
 

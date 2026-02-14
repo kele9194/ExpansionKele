@@ -7,6 +7,7 @@ using ExpansionKele.Content.Projectiles;
 using Terraria.Localization;
 using Terraria.GameContent.ItemDropRules;
 using ExpansionKele.Content.Customs;
+using ExpansionKele.Content.Projectiles.MagicProj;
 
 namespace ExpansionKele.Content.Items.Weapons.Magic
 {

@@ -1,1 +1,4 @@
-
+TangDynastySaber: {
+	Tooltip: 近战剑刃命中敌人会积蓄剑气能量，无能量下发射剑气伤害变为0.5倍
+	DisplayName: 唐横刀
+}

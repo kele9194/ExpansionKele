@@ -5,6 +5,7 @@ using Terraria.ModLoader;
 using System.Collections.Generic;
 using ExpansionKele.Content.Projectiles;
 using ExpansionKele.Content.Buff;
+using ExpansionKele.Content.Projectiles.MagicProj;
 
 namespace ExpansionKele.Content.StaryMagic
 {

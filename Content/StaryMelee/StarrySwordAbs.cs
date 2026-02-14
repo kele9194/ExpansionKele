@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using ExpansionKele.Content.Customs;
 using ExpansionKele.Commons;
+using ExpansionKele.Content.Projectiles.MeleeProj;
 
 namespace ExpansionKele.Content.StaryMelee
 {

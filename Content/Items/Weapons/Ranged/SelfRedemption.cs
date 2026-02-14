@@ -8,6 +8,7 @@ using ExpansionKele.Content.Customs;
 using ExpansionKele.Content.Items.Weapons.Magic;
 using ExpansionKele.Content.Items.Placeables;
 using ExpansionKele.Content.Items.OtherItem;
+using ExpansionKele.Content.Projectiles.RangedProj;
 
 namespace ExpansionKele.Content.Items.Weapons.Ranged
 {
