@@ -6,3 +6,14 @@ SpaceFunnel: {
 		'''
 	DisplayName: 太空浮游炮
 }
+
+GoldenWeaverNeedle: {
+	Tooltip:
+		'''
+		可造成挥舞伤害（召唤伤害）
+		挥舞时召唤一支金针
+		只允许一根金针存在
+		金针伤害受玩家是否手持金织之针，最大召唤栏，空余召唤栏影响
+		'''
+	DisplayName: 金织之针
+}

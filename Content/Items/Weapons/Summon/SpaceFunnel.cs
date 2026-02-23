@@ -45,7 +45,7 @@ namespace ExpansionKele.Content.Items.Weapons.Summon
             Item.rare = ItemUtils.CalculateRarityFromRecipes(this);                       // 稀有度
             Item.UseSound = SoundID.Item44;                      // 使用音效
             Item.shoot = ModContent.ProjectileType<SpaceFunnelMinion>(); // 发射浮游炮弹幕
-            Item.mana = 8;                                       // 消耗法力值
+            Item.mana = 0;                                       // 消耗魔力值
             Item.autoReuse = true;                               // 自动重用，允许连续召唤
             Item.buffType = ModContent.BuffType<SpaceFunnelMinionBuff>(); // 对应的Buff
         }

@@ -1,20 +1,20 @@
 StarryBar: {
-	Tooltip: ""
+	Tooltip: ---汇集希望与力量的三色锭
 	DisplayName: 星元锭
 }
 
 SigwutBar: {
-	Tooltip: ""
+	Tooltip: ---一种神奇的可以用于转化属性的锭
 	DisplayName: 赛格锭
 }
 
 FullMoonOre: {
-	Tooltip: ""
+	Tooltip: ---汇集力量与复仇能量的矿石
 	DisplayName: 望月矿
 }
 
 FullMoonBar: {
-	Tooltip: ""
+	Tooltip: ---带有月亮元素的矿锭
 	DisplayName: 望月锭
 }
 
@@ -22,7 +22,7 @@ FullMoonOreTile.MapEntry: 望月矿
 
 ChromiumBar: {
 	DisplayName: 铬钢锭
-	Tooltip: ""
+	Tooltip: ---进可攻，退可守
 }
 
 ChromiumOre: {
@@ -32,9 +32,9 @@ ChromiumOre: {
 
 ChromiumOreTile.MapEntry: 铬矿
 ChromiumBarTile.MapEntry: 铬钢锭
-// PsionicOreTile.MapEntry: Mods.ExpansionKele.Items.Placeables.PsionicOreTile.MapEntry
+PsionicOreTile.MapEntry: Psionic Ore
 
 PsionicOre: {
-	// DisplayName: Psionic Ore
-	// Tooltip: ""
+	DisplayName: 幽能矿
+	Tooltip: ---暂时废弃的矿石，可能会重见天日
 }

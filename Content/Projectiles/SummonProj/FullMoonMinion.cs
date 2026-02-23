@@ -3,6 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using System;
+using ExpansionKele.Content.Buff;
 
 namespace ExpansionKele.Content.Projectiles.SummonProj
 {
@@ -38,7 +39,7 @@ namespace ExpansionKele.Content.Projectiles.SummonProj
             Projectile.DamageType = DamageClass.Summon; // 明确指定伤害类型
             Projectile.minionSlots = 1f; // 每个月亮占用1个召唤栏
             Projectile.penetrate = -1; // 无限穿透
-            Projectile.timeLeft = 18000; // 存在时间
+            Projectile.timeLeft = 360; // 存在时间
             Projectile.ignoreWater = true; // 忽略水
             Projectile.usesLocalNPCImmunity = true; // 使用本地NPC无敌帧
             Projectile.localNPCHitCooldown = 30; // 本地NPC击中冷却（局部无敌帧）
@@ -83,11 +84,11 @@ namespace ExpansionKele.Content.Projectiles.SummonProj
         {
             if (owner.dead || !owner.active)
             {
-                owner.ClearBuff(ModContent.BuffType<Content.Buff.FullMoonMinionBuff>());
+                owner.ClearBuff(ModContent.BuffType<FullMoonMinionBuff>());
                 return false;
             }
 
-            if (owner.HasBuff(ModContent.BuffType<Content.Buff.FullMoonMinionBuff>()))
+            if (owner.HasBuff(ModContent.BuffType<FullMoonMinionBuff>()))
             {
                 Projectile.timeLeft = 2; // 保持活跃
             }

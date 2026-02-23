@@ -1,10 +1,10 @@
 Wrench: {
-	Tooltip: 允许自动使用手持物品（放在背包中发挥作用）
+	Tooltip: 允许自动使用手持物品（放在背包收藏中发挥作用）
 	DisplayName: 扳手
 }
 
 WoodDemonInstrument: {
-	Tooltip: 魔力病时间减少（放在背包中发挥作用）
+	Tooltip: 魔力病时间减少（放在背包中收藏发挥作用）
 	DisplayName: 木魔仪
 }
 
@@ -45,7 +45,11 @@ ShadowSilk: {
 
 RedemptionShard: {
 	DisplayName: 救赎碎片
-	Tooltip: ""
+	Tooltip:
+		'''
+		由黯淡和自我救赎在击杀敌人后掉落
+		---救赎之道就在其中
+		'''
 }
 
 GolemShard: {
@@ -109,4 +113,11 @@ CrossFire: {
 BalanceScale: {
 	Tooltip: 展示倍率，但暂时不起作用
 	DisplayName: 平衡天平
+}
+
+DeathOfPlace: {
+	DisplayName: 死亡之地
+	Tooltip: 左键点击切换死亡之地模式：开启后玩家和所有NPC有90%概率免疫伤害到1点
+	ModeEnabled: 死亡之地模式已启用
+	ModeDisabled: 死亡之地模式已禁用
 }

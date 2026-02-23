@@ -45,6 +45,12 @@ namespace ExpansionKele.Content.Items.OtherItem
             int CooldownTimer= starryLifeEmblemPlayer.fatalCooldownTimer;
 
             var fullMoonAmuletPlayer = player.GetModPlayer<FullMoonAmuletPlayer>();
+
+            // 获取starburn护盾信息
+            var starBurnPlayer = player.GetModPlayer<StarBurnPlayer>();
+            float currentShield = starBurnPlayer.temporaryShield;
+            float maxShield = starBurnPlayer.maxTemporaryShield;
+            bool hasStarBurn = starBurnPlayer.hasStarBurn;
             
             // 添加乘算增伤提示信息
             tooltips.Add(new TooltipLine(Mod, "MultiplicativeDamage", $"乘算增伤: {(multiplicativeDamage - 1f) * 100:F2}%"));
@@ -64,6 +70,15 @@ namespace ExpansionKele.Content.Items.OtherItem
                 cooldownInfo += $"\n第{i + 1}段: {fullMoonAmuletPlayer.healthSegmentCooldown[i]} ticks";
             }
             tooltips.Add(new TooltipLine(Mod, "FullMoonAmuletCooldown", cooldownInfo));
+
+            if (hasStarBurn)
+            {
+                tooltips.Add(new TooltipLine(Mod, "StarBurnShield", $"[c/FFA500:星燃护盾:] {currentShield:F1}/{maxShield:F1} ({(maxShield > 0 ? currentShield / maxShield * 100 : 0):F1}%)"));
+            }
+            else
+            {
+                tooltips.Add(new TooltipLine(Mod, "StarBurnShield", $"[c/808080:星燃护盾: 未装备]"));
+            }
         }
 // ... existing code ...
     }

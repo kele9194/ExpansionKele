@@ -6,3 +6,15 @@ SpaceFunnel: {
 		'''
 	DisplayName: Space Funnel
 }
+
+GoldenWeaverNeedle: {
+	Tooltip:
+		'''
+		Can deal swinging damage (summon damage)
+		Swinging summons a golden needle
+		Only one golden needle can exist
+		Golden needle damage is affected by whether the player is holding the Golden Weaver Needle
+		maximum minion slots of the player, and available minion slots of the player.
+		'''
+	DisplayName: Golden Weaver Needle
+}

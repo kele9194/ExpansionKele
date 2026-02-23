@@ -7,3 +7,14 @@ EnhancedSpaceGun: {
 		'''
 	DisplayName: Enhanced Space Gun
 }
+
+AnaxaMagicTrick: {
+	DisplayName: Magic Trick
+	Tooltip:
+		'''
+		Fires a magic bullet
+		Magic bullets will track nearby enemies when hitting an enemy
+		Higher damage with more enemies hit
+		Inflicts random some of debuffs
+		'''
+}

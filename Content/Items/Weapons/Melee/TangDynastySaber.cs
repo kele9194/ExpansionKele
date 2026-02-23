@@ -79,7 +79,7 @@ namespace ExpansionKele.Content.Items.Weapons.Melee
         damage/2,
         knockback,
         player.whoAmI,
-        0,           // ai[0]: 生命周期计时器（会在AI中使用）
+        1,           // ai[0]: 生命周期计时器（会在AI中使用）
         180,         // ai[1]: 总生命周期（帧数）
         adjustedItemScale);  // ai[2]: 缩放系数
     }

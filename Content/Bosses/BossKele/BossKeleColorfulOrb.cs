@@ -40,6 +40,7 @@ namespace ExpansionKele.Content.Bosses.BossKele
             Projectile.timeLeft = 300;
             Projectile.aiStyle = -1;
             Projectile.scale = 1f;
+            Projectile.hostile = true;//设置为true对玩家和友好NPC造成伤害
             
             // 设置碰撞箱大小
             Projectile.width = 16;

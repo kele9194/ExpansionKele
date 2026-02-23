@@ -73,7 +73,7 @@ CocoaBuff: {
 }
 
 BlueStarBuff: {
-	Description: 增加{0}点法力恢复并减少{1}%法力消耗
+	Description: 增加{0}点魔力恢复并减少{1}%魔力消耗
 	DisplayName: 蓝星增益
 }
 
@@ -151,6 +151,11 @@ HallowHeartShieldCooldown: {
 }
 
 SpaceFunnelMinionBuff: {
-	// Description: Mods.ExpansionKele.Buff.SpaceFunnelMinionBuff.Description
-	// DisplayName: Space Funnel Minion Buff
+	Description: 太空浮游炮准备就绪
+	DisplayName: 太空浮游炮
+}
+
+GoldenWeaverMinionBuff: {
+	Description: 金针准备就绪
+	DisplayName: 金锦之针
 }

@@ -31,7 +31,7 @@ namespace ExpansionKele.Content.Projectiles.SummonProj
             Projectile.hostile = false; // 非敌对
             Projectile.DamageType = DamageClass.Summon; // 召唤伤害类型
             Projectile.penetrate = 3; // 无限穿透
-            Projectile.timeLeft = 180; // 存在时间：3秒
+            Projectile.timeLeft = 360; // 存在时间：3秒
             Projectile.ignoreWater = true; // 忽略水
             Projectile.tileCollide = false; // 不与物块碰撞
             Projectile.extraUpdates = 2; // 额外更新次数

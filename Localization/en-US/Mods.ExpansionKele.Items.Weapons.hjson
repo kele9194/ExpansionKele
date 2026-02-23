@@ -95,7 +95,7 @@ NeutronGun: {
 	Tooltip:
 		'''
 		Fires a neutron beam that inflicts the Neutron Decay debuff
-		dealing {0}% of the enemy's maximum life as damage every 2 seconds
+		dealing 0.5% of the enemy's maximum life as damage every 2 seconds
 		'''
 	DisplayName: Neutron Gun
 }
@@ -106,7 +106,6 @@ IronCurtainCannon: {
 		'''
 		Left-click to fire an iron curtain particle cannon shell
 		which creates a continuous damage iron curtain circle upon hitting blocks or enemies
-		Right-click to fire an iron curtain laser.
 		'''
 }
 
@@ -156,7 +155,7 @@ CodeChaos: {
 		Switches between melee, ranged, magic, and summon damage on each use, gaining 4x class damage and critical chance buffs
 		Damage fluctuates between 0.5x and 2x, attack speed fluctuates between 0.75x and 1.25x
 		Critical damage multiplier fluctuates between 0.75x and 1.25x, critical chance fluctuates between 0.75x and 1.25x
-		In melee mode, the blade deals additional 3x true damage, magic mode consumes 10 mana, summon mode still cannot crit
+		In melee mode, the blade deals additional 3x true damage, summon mode still cannot crit
 		An extremely chaotic and random weapon that randomly fires various projectiles from this mod
 		Author's ramble: Why isn't there a ModifyAttackSpeed?
 		'''
@@ -352,8 +351,7 @@ WoodenCrossbow: {
 	DisplayName: Wooden Crossbow
 	Tooltip:
 		'''
-		Right-click to draw the bow, left-click to fire and clear draw levels
-		Left-click is only allowed when draw level is greater than or equal to 1
+		left-click to to draw the bow and fire
 		The more draw levels, the faster damage increases, 
 		arrow speed increases more, and arrow armor penetration increases more
 		Additionally applies 1x base arrow damage
@@ -364,8 +362,7 @@ ShadowCrossbow: {
 	DisplayName: Shadow Crossbow
 	Tooltip:
 		'''
-		Right-click to draw the bow, left-click to fire and clear draw levels
-		Left-click is only allowed when draw level is greater than or equal to 1
+		left-click to to draw the bow and fire
 		The more draw levels, the faster damage increases, 
 		arrow speed increases more, and arrow armor penetration increases more
 		Additionally applies 1x base arrow damage
@@ -377,8 +374,7 @@ BloodCrossbow: {
 	DisplayName: Blood Crossbow
 	Tooltip:
 		'''
-		Right-click to draw the bow, left-click to fire and clear draw levels
-		Left-click is only allowed when draw level is greater than or equal to 1
+		left-click to to draw the bow and fire
 		The more draw levels, the faster damage increases, 
 		arrow speed increases more, and arrow armor penetration increases more
 		Additionally applies 1x base arrow damage

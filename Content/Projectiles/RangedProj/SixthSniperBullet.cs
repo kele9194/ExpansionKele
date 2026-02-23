@@ -38,7 +38,7 @@ namespace ExpansionKele.Content.Projectiles.RangedProj
             Projectile.timeLeft = 120;
             Projectile.DamageType = DamageClass.Ranged;
             Projectile.ignoreWater = true;
-            Projectile.tileCollide = true;
+            Projectile.tileCollide = false;
             Projectile.usesLocalNPCImmunity = true;
             Projectile.localNPCHitCooldown = -1;
         }

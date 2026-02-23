@@ -33,7 +33,7 @@ namespace ExpansionKele.Content.Items.Weapons.Magic
             Item.autoReuse = true; // 自动连发
             Item.shoot = ModContent.ProjectileType<RippleProjectile>(); // 发射水弹
             Item.shootSpeed = 8f; // 射弹速度
-            Item.mana = 8; // 消耗8点法力值
+            Item.mana = 8; // 消耗8点魔力值
         }
 
         public override void AddRecipes()

@@ -13,6 +13,10 @@ CocoaLiquor: {
 }
 
 ChocolateBar: {
-	Tooltip: 很满足增益和可可增益
+	Tooltip:
+		'''
+		很满足增益和可可增益
+		---比可可更好吃！
+		'''
 	DisplayName: 巧克力棒
 }

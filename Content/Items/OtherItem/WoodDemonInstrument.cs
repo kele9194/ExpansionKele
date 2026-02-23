@@ -39,10 +39,12 @@ namespace ExpansionKele.Content.Items.OtherItem
         // 持续监控背包中的物品
         public override void UpdateInventory(Player player)
         {
-            // 设置玩家的魔力花效果字段
+            if (Item.favorited)
+            {
             player.manaFlower = true;
 
             PlayerUtils.ReduceManaSicknessDuration(player);
+            }
             
 
         }

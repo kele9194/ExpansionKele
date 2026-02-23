@@ -108,7 +108,7 @@ public class SolarRelicPlayer : ModPlayer
                     else
                     {
                         // 使用原版击杀逻辑
-                        target.StrikeNPC(new NPC.HitInfo() { Damage = trueDamage, HitDirection = 0, Knockback = 0f, Crit = false ,InstantKill=true}, false);
+                        target.StrikeInstantKill();
                     }
 // ... existing code ...
                 }

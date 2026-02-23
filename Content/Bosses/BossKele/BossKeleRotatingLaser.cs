@@ -44,6 +44,7 @@ namespace ExpansionKele.Content.Bosses.BossKele
             Projectile.tileCollide = false; // 穿透物块
             Projectile.knockBack = 6f; // 击退力度
             Projectile.extraUpdates = 1; // 增加更新频率
+            Projectile.hostile = true;
         }
 
         public override void OnHitPlayer(Player target, Player.HurtInfo info)

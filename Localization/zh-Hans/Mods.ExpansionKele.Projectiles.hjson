@@ -50,7 +50,6 @@ NoMoreRovingProjectile.DisplayName: 不再漫游
 ResentmentProjectile.DisplayName: 怨憎
 FadeProjectile.DisplayName: 黯淡
 SelfRedemptionProjectile.DisplayName: 自我救赎
-MagicProj.NightFireflyProjectile.DisplayName: 夜萤火
 RedemptionBulletProjectile.DisplayName: 救赎弹
 RedemptionArrowProjectile.DisplayName: 救赎箭
 RippleProjectile.DisplayName: 荡漾之水
@@ -88,8 +87,8 @@ LaserRangeTexture.DisplayName: Laser Range Texture
 FullMoonExplosion.DisplayName: 望月爆炸
 EnhancedLaserSplitProjectile.DisplayName: 激光束
 EnhancedLaserProjectile.DisplayName: 分裂激光束
-// SpaceFunnelMinion.DisplayName: Space Funnel Minion
-// SpaceFunnelBeam.DisplayName: Space Funnel Beam
-// BurningPaperAirPlaneProjectile.DisplayName: Burning Paper Air Plane Projectile
-// TangDynastySwordProjectile.DisplayName: Tang Dynasty Sword Projectile
-// TangDynastySwordEnergyProjectile.DisplayName: Tang Dynasty Sword Energy Projectile
+SpaceFunnelMinion.DisplayName: Space Funnel Minion
+SpaceFunnelBeam.DisplayName: 太空浮游炮激光
+BurningPaperAirPlaneProjectile.DisplayName: 燃烧纸飞机
+TangDynastySwordProjectile.DisplayName: 唐横刀
+TangDynastySwordEnergyProjectile.DisplayName: 唐横刀剑气

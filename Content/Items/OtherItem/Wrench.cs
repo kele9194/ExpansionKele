@@ -30,8 +30,11 @@ namespace ExpansionKele.Content.Items.OtherItem
 
         // 静态方法用于检查并修改手持物品的 autoUse 状态
         public override void UpdateInventory(Player player)
-    {
+    { 
+        if (Item.favorited)
+        {
         CheckAndFixAutoUse(player);
+        }
     }
 
     public static void CheckAndFixAutoUse(Player player)

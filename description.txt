@@ -81,6 +81,13 @@ v1.4.2
 新增铬钢镐，铬钢锤斧，修正的部分工具的使用时间和工具时间
 新增武器唐横刀
 
+v1.4.3
+新增武器魔术技巧，金锦之针
+新增饰品星灼
+增加了武器混编代码的使用抛射物种类
+修改了部分武器的本地化说明
+
+
 This mod is developed purely for entertainment, developed by me alone, trying to achieve some imagination in ths mod and still under development. 
 When playing with the Calamity mod, some content will be adjusted to fit Calamity's numerical environment.
 
@@ -167,3 +174,9 @@ v1.4.2
 Added chromium steel pickaxe, chromium steel hammer-axe
 Corrected usage time and tool speed for some tools. 
 Added weapon Tang Dynasty Saber
+
+v1.4.3
+Added weapon Anaxa Magic Trick, Golden Brocade Needle
+Added accessory Starburn
+Increased the types of projectiles used in weapon CodeChaos
+Modified localization descriptions for some weapons

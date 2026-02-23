@@ -403,3 +403,15 @@ SlowSpeedGlove: {
 		tips:In Calamity ,the decreased stealth regen will be partly increases stealth attack damage
 		'''
 }
+
+StarBurn: {
+	DisplayName: Star Burn
+	Tooltip:
+		'''
+		Continuously consumes health when equipped
+		Health is converted to shield proportionally
+		Stop burning health when shield is full or player has only 10% health
+		Shield will prioritize blocking damage
+		Provide 5%-20% pre-defense damage reduction based on player's health and shield
+		'''
+}

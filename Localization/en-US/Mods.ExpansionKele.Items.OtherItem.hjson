@@ -1,10 +1,10 @@
 Wrench: {
-	Tooltip: allow autouse item you hold(put it in your bag to function)
+	Tooltip: allow autouse item you hold(put it in your bag and Favor it to function)
 	DisplayName: Wrench
 }
 
 WoodDemonInstrument: {
-	Tooltip: manasickness time decrease(put it in your bag to function)
+	Tooltip: manasickness time decrease(put it in your bag and Favor it to function)
 	DisplayName: Wood Demon Instrument
 }
 
@@ -113,4 +113,11 @@ CrossFire: {
 BalanceScale: {
 	Tooltip: show multipliers,but not work now
 	DisplayName: Balance Scale
+}
+
+DeathOfPlace: {
+	DisplayName: Death Of Place
+	Tooltip: Left-click to toggle Death Of Place mode: When enabled, players and all NPCs have a 90% chance to be immune to damage to 1
+	ModeEnabled: Death Of Place mode enabled
+	ModeDisabled: Death Of Place mode disabled
 }

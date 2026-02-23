@@ -65,7 +65,7 @@ public class ECShieldSystem : ModPlayer
 
         private ShieldStateManagement _stateManagement;
 
-        public int UnknownMultiplier = 2;
+        public static int UnknownMultiplier = 2;
 
         public ECShieldSystem()
         {
@@ -123,7 +123,7 @@ public class ECShieldSystem : ModPlayer
         /// 判定这些通过HurtModifier=>HurtInfo
         
 
-                public override void ModifyHitByProjectile(Projectile proj, ref Player.HurtModifiers modifiers)
+        public override void ModifyHitByProjectile(Projectile proj, ref Player.HurtModifiers modifiers)
         {
             float Projectilemodifier = UnknownMultiplier*Main.GameModeInfo.EnemyDamageMultiplier;
             float incomingDamage = proj.damage*Projectilemodifier;
@@ -200,7 +200,7 @@ public class ECShieldSystem : ModPlayer
                 
                 // 给予30帧无敌时间
                 Player.immune = true;
-                Player.immuneTime = 10;
+                Player.immuneTime = 20;
                 
                 return true; // 完全闪避成功
             }

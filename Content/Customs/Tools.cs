@@ -134,7 +134,7 @@ namespace ExpansionKele.Content.Customs
     {
         foreach (var item in items)
         {
-            if (item != null && item.type > 0)
+            if (item != null && item.type > ItemID.None)
                 yield return (item, item.stack);
         }
     }

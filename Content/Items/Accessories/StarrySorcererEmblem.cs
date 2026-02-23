@@ -13,7 +13,7 @@ namespace ExpansionKele.Content.Items.Accessories
         // 定义常量
         private const float MagicDamageBonus = 0.15f; // +15%魔法伤害
         private const float MagicCritBonus = 0.06f;
-        private const float ManaBonus = 150f; // +150法力上限
+        private const float ManaBonus = 150f; // +150魔力上限
         private const float ManaCostReduction = 0.25f; // -25%蓝耗
         private const float PotionEffectIncrease = 0.30f; // 喝药效果增加30%
         private const float DamageToManaRatio = 1.8f; // 每1%额外魔法伤害增加1.8最大蓝量
@@ -51,7 +51,7 @@ namespace ExpansionKele.Content.Items.Accessories
             
             player.GetCritChance(DamageClass.Magic) += MagicCritBonus*100;
             
-            // +150法力上限
+            // +150魔力上限
             player.statManaMax2 += (int)ManaBonus;
             
             // -25%蓝耗
@@ -98,7 +98,7 @@ namespace ExpansionKele.Content.Items.Accessories
                 {
                     {"StarrySorcererEmblemDamage", $"[c/00FF00:+{MagicDamageBonus * 100}%魔法伤害]"},
                     {"StarrySorcererEmblemCrit", $"[c/00FF00:+{MagicCritBonus * 100}%魔法暴击]"},
-                    {"StarrySorcererEmblemMana", $"[c/00FF00:+{ManaBonus}法力上限]"},
+                    {"StarrySorcererEmblemMana", $"[c/00FF00:+{ManaBonus}魔力上限]"},
                     {"StarrySorcererEmblemCost", $"[c/00FF00:-{ManaCostReduction * 100}%蓝耗]"},
                     {"StarrySorcererEmblemAuto", "[c/00FF00:允许自动喝蓝]"},
                     {"StarrySorcererEmblemLowMana", $"[c/00FF00:蓝量越低魔法伤害越高，最多+{MaxLowManaDamageBonus * 100}%]"},

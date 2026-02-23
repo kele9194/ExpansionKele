@@ -25,6 +25,7 @@ using ExpansionKele.Content.Projectiles.RangedProj;
 using ExpansionKele.Content.Projectiles.MeleeProj;
 using ExpansionKele.Content.Projectiles.MagicProj;
 using ExpansionKele.Content.Projectiles.GenericProj;
+using ExpansionKele.Commons;
 
 
 namespace ExpansionKele
@@ -37,7 +38,7 @@ namespace ExpansionKele
 
         public static ModKeybind AutoAimingKeyBind{ get; private set; }
         public static object Content { get; internal set; }
-        public static int[] projectileTypes;
+        // public static int[] projectileTypes;
 
         public static SoundStyle SniperSound = new SoundStyle("ExpansionKele/Content/Audio/SniperSound")
         {
@@ -88,35 +89,40 @@ namespace ExpansionKele
             sniperLaserTexture = ModContent.Request<Texture2D>("ExpansionKele/Content/StarySniper/SniperLaser").Value;
             TrackingKeyBind = KeybindLoader.RegisterKeybind(this, "TrackingLocator", Keys.Y);
             AutoAimingKeyBind = KeybindLoader.RegisterKeybind(this, "AutoAiming", "MouseRight");
+
+            ProjectileClassificationManager.InitializeProjectileClassifications();
+            
+            // 输出分类统计信息到日志
+            Logger.Info($"抛射体分类统计: {ProjectileClassificationManager.GetClassificationStatistics()}");
             
             
-            projectileTypes = new int[]
-            {
-                ModContent.ProjectileType<AAMissile>(),
-                ModContent.ProjectileType<ColaProjectile>(),
-                ModContent.ProjectileType<ColaProjectileLower>(),
-                //ModContent.ProjectileType<FrostRayProjectile>(),
-                ModContent.ProjectileType<FullMoonArrowProj>(),
-                ModContent.ProjectileType<FullMoonEchoProj>(),
-                ModContent.ProjectileType<FullMoonProjectile>(),
-                ModContent.ProjectileType<IronCurtainCannonLaser>(),
-                ModContent.ProjectileType<IronCurtainCannonProjectile>(),
-                ModContent.ProjectileType<LifePercentageProjectile>(),
-                ModContent.ProjectileType<MagicBlueProjectile>(),
-                ModContent.ProjectileType<MagicCyanProjectile>(),
-                ModContent.ProjectileType<MagicPurpleProjectile>(),
-                ModContent.ProjectileType<MagicRedProjectile>(),
-                ModContent.ProjectileType<MagicStarProjectile>(),
-                ModContent.ProjectileType<NeutronProjectile>(),
-                //ModContent.ProjectileType<ProtonCannonHoldOut>(),
-                ModContent.ProjectileType<SharkyBullet>(),
-                ModContent.ProjectileType<SharkyBulletPlus>(),
-                //ModContent.ProjectileType<SoulCannonHoldOut>(),
-                ModContent.ProjectileType<SpectralCurtainCannonProj>(),
-                ModContent.ProjectileType<StingerProjectile>(),
-                ModContent.ProjectileType<VortexMainProjectile>()
-                //以后可以继续完善
-            };
+            // projectileTypes = new int[]
+            // {
+            //     ModContent.ProjectileType<AAMissile>(),
+            //     ModContent.ProjectileType<ColaProjectile>(),
+            //     ModContent.ProjectileType<ColaProjectileLower>(),
+            //     //ModContent.ProjectileType<FrostRayProjectile>(),
+            //     ModContent.ProjectileType<FullMoonArrowProj>(),
+            //     ModContent.ProjectileType<FullMoonEchoProj>(),
+            //     ModContent.ProjectileType<FullMoonProjectile>(),
+            //     ModContent.ProjectileType<IronCurtainCannonLaser>(),
+            //     ModContent.ProjectileType<IronCurtainCannonProjectile>(),
+            //     ModContent.ProjectileType<LifePercentageProjectile>(),
+            //     ModContent.ProjectileType<MagicBlueProjectile>(),
+            //     ModContent.ProjectileType<MagicCyanProjectile>(),
+            //     ModContent.ProjectileType<MagicPurpleProjectile>(),
+            //     ModContent.ProjectileType<MagicRedProjectile>(),
+            //     ModContent.ProjectileType<MagicStarProjectile>(),
+            //     ModContent.ProjectileType<NeutronProjectile>(),
+            //     //ModContent.ProjectileType<ProtonCannonHoldOut>(),
+            //     ModContent.ProjectileType<SharkyBullet>(),
+            //     ModContent.ProjectileType<SharkyBulletPlus>(),
+            //     //ModContent.ProjectileType<SoulCannonHoldOut>(),
+            //     ModContent.ProjectileType<SpectralCurtainCannonProj>(),
+            //     ModContent.ProjectileType<StingerProjectile>(),
+            //     ModContent.ProjectileType<VortexMainProjectile>()
+            //     //以后可以继续完善
+            // };
             
 
             

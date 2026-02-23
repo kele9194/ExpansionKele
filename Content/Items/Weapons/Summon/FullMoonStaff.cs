@@ -45,7 +45,7 @@ namespace ExpansionKele.Content.Items.Weapons.Summon
             Item.rare = ItemUtils.CalculateRarityFromRecipes(this);                       // 稀有度：粉红
             Item.UseSound = SoundID.Item44;                      // 使用音效
             Item.shoot = ModContent.ProjectileType<FullMoonMinion>(); // 直接发射月亮弹幕
-            Item.mana = 10;                                      // 消耗法力值
+            Item.mana = 0;                                      // 消耗魔力值
             Item.autoReuse = true;                               // 自动重用，允许连续召唤
             Item.buffType = ModContent.BuffType<FullMoonMinionBuff>(); // 对应的Buff
         }

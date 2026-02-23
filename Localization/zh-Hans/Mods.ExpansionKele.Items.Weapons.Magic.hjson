@@ -7,3 +7,15 @@ EnhancedSpaceGun: {
 		'''
 	DisplayName: 强化太空枪
 }
+
+AnaxaMagicTrick: {
+	DisplayName: 魔术技巧
+	Tooltip:
+		'''
+		发射一发魔法子弹
+		魔法子弹命中敌人会追踪附近的敌人
+		击中敌人数量越多伤害越高
+		造成指定的随机减益
+
+		'''
+}

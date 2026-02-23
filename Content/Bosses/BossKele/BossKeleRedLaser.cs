@@ -45,6 +45,7 @@ namespace ExpansionKele.Content.Bosses.BossKele
             Projectile.height = 8;
             Projectile.knockBack = 8f; // 击退力度
             Projectile.extraUpdates = 2; // 增加更新频率使移动更平滑
+            Projectile.hostile = true;
         }
 
         public override void OnHitPlayer(Player target, Player.HurtInfo info)

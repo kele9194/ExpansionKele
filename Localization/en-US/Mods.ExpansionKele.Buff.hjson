@@ -151,6 +151,11 @@ HallowHeartShieldCooldown: {
 }
 
 SpaceFunnelMinionBuff: {
-	Description: Mods.ExpansionKele.Buff.SpaceFunnelMinionBuff.Description
+	Description: Space Funnels Ready
 	DisplayName: Space Funnel Minion Buff
+}
+
+GoldenWeaverMinionBuff: {
+	Description: MGolden Brocade Ready
+	DisplayName: Golden Brocade Minion Buff
 }

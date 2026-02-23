@@ -54,7 +54,7 @@ namespace ExpansionKele.Content.Projectiles.SummonProj
             Projectile.DamageType = DamageClass.Summon; // 明确指定伤害类型
             Projectile.minionSlots = 1f; // 每个浮游炮占用1个召唤栏
             Projectile.penetrate = -1; // 无限穿透
-            Projectile.timeLeft = 18000; // 存在时间
+            Projectile.timeLeft = 360; // 存在时间
             Projectile.ignoreWater = true; // 忽略水
             Projectile.usesLocalNPCImmunity = true; // 使用本地NPC无敌帧
             Projectile.localNPCHitCooldown = 20; // 本地NPC击中冷却

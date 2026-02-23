@@ -26,6 +26,7 @@ namespace ExpansionKele.Content.Items.OtherItem
             Item.value = Item.buyPrice(0, 0, 50, 0);
             Item.rare = ItemRarityID.White;
             Item.useStyle = ItemUseStyleID.None;
+            Item.maxStack=1;
             Item.useTime = 10;
             Item.useAnimation = 15;
         }
