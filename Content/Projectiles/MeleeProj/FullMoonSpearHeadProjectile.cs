@@ -29,7 +29,7 @@ namespace ExpansionKele.Content.Projectiles.MeleeProj
 			Projectile.rotation = Projectile.velocity.ToRotation() + MathHelper.PiOver4+2*MathHelper.PiOver4; // 加上PiOver4来补偿贴图初始角度
 			
 			// 每15帧发射两个追踪弹幕
-			if (Projectile.timeLeft % 10 == 0) {
+			if (Projectile.timeLeft % 12 == 0) {
 				// 计算垂直于飞行方向的两个方向
 				Vector2 perpendicular = Vector2.Normalize(Projectile.velocity).RotatedBy(MathHelper.PiOver2);
 				
@@ -41,7 +41,7 @@ namespace ExpansionKele.Content.Projectiles.MeleeProj
 					spawnPos1, 
 					velocity1, 
 					ModContent.ProjectileType<FullMoonSpearMoonProjectile>(), 
-					(int)(Projectile.damage *0.75f), 
+					(int)(Projectile.damage *0.5f), 
 					Projectile.knockBack / 2, 
 					Projectile.owner
 				);
@@ -54,7 +54,7 @@ namespace ExpansionKele.Content.Projectiles.MeleeProj
 					spawnPos2, 
 					velocity2, 
 					ModContent.ProjectileType<FullMoonSpearMoonProjectile>(), 
-					(int)(Projectile.damage *0.75f), 
+					(int)(Projectile.damage *0.5f), 
 					Projectile.knockBack / 2, 
 					Projectile.owner
 				);

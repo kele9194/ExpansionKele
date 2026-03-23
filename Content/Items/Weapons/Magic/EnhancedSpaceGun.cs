@@ -19,7 +19,7 @@ namespace ExpansionKele.Content.Items.Weapons.Magic
 			Item.CloneDefaults(ItemID.SpaceGun);
 
 			// 修改特定属性以适应我们的强化版本
-			Item.damage = ExpansionKele.ATKTool(46,57); // 设置伤害为45点（原版太空枪是30点）
+			Item.damage = ExpansionKele.ATKTool(42,54); // 设置伤害为45点（原版太空枪是30点）
 			Item.DamageType = DamageClass.Magic; // 确保是法师职业伤害
 			
 			// 修改弹幕类型为我们自定义的强化激光弹幕
@@ -44,7 +44,7 @@ namespace ExpansionKele.Content.Items.Weapons.Magic
 			CreateRecipe()
 				.AddIngredient(ItemID.SpaceGun)
 				.AddIngredient(ItemID.CrystalShard, 10)
-				.AddTile(TileID.MythrilAnvil)
+				.AddTile(TileID.Anvils)
 				.Register();
 		}
 	}

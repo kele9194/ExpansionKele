@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace ExpansionKele.Content.Customs
@@ -206,6 +207,7 @@ namespace ExpansionKele.Content.Customs
             }
         }
 
+        // ... existing code ...
         // 应用伤害加成
         public override void ModifyWeaponDamage(Item item, ref StatModifier damage)
         {
@@ -215,6 +217,20 @@ namespace ExpansionKele.Content.Customs
                 damage *= increase; // 乘算加成
             }
         }
+         /// <summary>
+        /// 修改弹幕击中 NPC 时的伤害
+        /// 特别处理召唤物弹幕的乘算伤害加成
+        /// 解决 ModifyWeaponDamage 无法为召唤武器的弹幕提供伤害的问题
+        /// </summary>
+        /// <param name="proj">击中 NPC 的弹幕</param>
+        /// <param name="target">被击中的 NPC</param>
+        /// <param name="modifiers">伤害修饰符引用</param>
+        public override void ModifyHitNPCWithProj(Projectile proj, NPC target, ref NPC.HitModifiers modifiers)
+        {
+            float increase = AssistanceEffectManager.GetTotalDamageIncrease();
+            SummonDamageHelper.ApplyMultiplicativeBonusToSummon(proj, ref modifiers, increase);
+        }
+// ... existing code ...
 
         // 应用伤害减免
         public override void ModifyHurt(ref Player.HurtModifiers modifiers)

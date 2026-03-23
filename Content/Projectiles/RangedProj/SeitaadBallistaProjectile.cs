@@ -75,6 +75,8 @@ namespace ExpansionKele.Content.Projectiles.RangedProj
             Projectile.aiStyle = -1; // 不使用默认AI
         }
 
+ // ... existing code ...
+
         public override void AI()
         {
             // 添加发光粒子效果
@@ -97,30 +99,30 @@ namespace ExpansionKele.Content.Projectiles.RangedProj
                 Projectile.rotation = Projectile.velocity.ToRotation() + MathHelper.PiOver2;
             }
 
-            if (Projectile.ai[0] == 0)
-            {
-                // 获取弹幕所属玩家的暴击率
-                Player player = Main.player[Projectile.owner];
-                int critChance = 0;
-                if (Projectile.DamageType == DamageClass.Melee) {
-                    critChance = player.GetWeaponCrit(player.HeldItem);
-                } else if (Projectile.DamageType == DamageClass.Ranged) {
-                    critChance = player.GetWeaponCrit(player.HeldItem);
-                } else if (Projectile.DamageType == DamageClass.Magic) {
-                    critChance = player.GetWeaponCrit(player.HeldItem);
-                } else if (Projectile.DamageType == DamageClass.Throwing) {
-                    critChance = player.GetWeaponCrit(player.HeldItem);
-                }
-                
-                // 将暴击率转换为伤害加成 (例如: 10%暴击率提供10%伤害加成)
-                float damageMultiplier = 1f + (critChance / 100f);
-                Projectile.damage = (int)(Projectile.damage * damageMultiplier);
-                
-                // 标记已处理过伤害加成
-                Projectile.ai[0] = 1;
-            }
+            // Deleted:if (Projectile.ai[0] == 0)
+            // Deleted:{
+            // Deleted:    // 获取弹幕所属玩家的暴击率
+            // Deleted:    Player player = Main.player[Projectile.owner];
+            // Deleted:    int critChance = 0;
+            // Deleted:    if (Projectile.DamageType == DamageClass.Melee) {
+            // Deleted:        critChance = player.GetWeaponCrit(player.HeldItem);
+            // Deleted:    } else if (Projectile.DamageType == DamageClass.Ranged) {
+            // Deleted:        critChance = player.GetWeaponCrit(player.HeldItem);
+            // Deleted:    } else if (Projectile.DamageType == DamageClass.Magic) {
+            // Deleted:        critChance = player.GetWeaponCrit(player.HeldItem);
+            // Deleted:    } else if (Projectile.DamageType == DamageClass.Throwing) {
+            // Deleted:        critChance = player.GetWeaponCrit(player.HeldItem);
+            // Deleted:    }
+            // Deleted:    
+            // Deleted:    // 将暴击率转换为伤害加成 (例如：10% 暴击率提供 10% 伤害加成)
+            // Deleted:    float damageMultiplier = 1f + (critChance / 100f);
+            // Deleted:    Projectile.damage = (int)(Projectile.damage * damageMultiplier);
+            // Deleted:    
+            // Deleted:    // 标记已处理过伤害加成
+            // Deleted:    Projectile.ai[0] = 1;
+            // Deleted:}
             
-            // 发射后30帧触发电流释放
+            // 发射后 30 帧触发电流释放
             if (Projectile.timeLeft <= TIME_LEFT - ELECTRICITY_TRIGGER_TIME)
             {
                 ReleaseElectricity();
@@ -128,8 +130,7 @@ namespace ExpansionKele.Content.Projectiles.RangedProj
         }
 
         
-        // ... existing code ...
-        // ... existing code ...
+// ... existing code ...
         private void ReleaseElectricity()
         {
             List<NPC> targets = new List<NPC>();
@@ -148,24 +149,24 @@ namespace ExpansionKele.Content.Projectiles.RangedProj
                 }
             }
             
-            // 随机选择最多3个目标
+            // 随机选择最多 3 个目标
             while (targets.Count > MAX_TARGETS)
             {
                 targets.RemoveAt(Main.rand.Next(targets.Count));
             }
             
-            // 获取弹幕所属玩家的暴击率
-            Player player = Main.player[Projectile.owner];
-            int critChance = 0;
-            if (Projectile.DamageType == DamageClass.Melee) {
-                critChance = player.GetWeaponCrit(player.HeldItem);
-            } else if (Projectile.DamageType == DamageClass.Ranged) {
-                critChance = player.GetWeaponCrit(player.HeldItem);
-            } else if (Projectile.DamageType == DamageClass.Magic) {
-                critChance = player.GetWeaponCrit(player.HeldItem);
-            } else if (Projectile.DamageType == DamageClass.Throwing) {
-                critChance = player.GetWeaponCrit(player.HeldItem);
-            }
+            // Deleted:// 获取弹幕所属玩家的暴击率
+            // Deleted:Player player = Main.player[Projectile.owner];
+            // Deleted:int critChance = 0;
+            // Deleted:if (Projectile.DamageType == DamageClass.Melee) {
+            // Deleted:    critChance = player.GetWeaponCrit(player.HeldItem);
+            // Deleted:} else if (Projectile.DamageType == DamageClass.Ranged) {
+            // Deleted:    critChance = player.GetWeaponCrit(player.HeldItem);
+            // Deleted:} else if (Projectile.DamageType == DamageClass.Magic) {
+            // Deleted:    critChance = player.GetWeaponCrit(player.HeldItem);
+            // Deleted:} else if (Projectile.DamageType == DamageClass.Throwing) {
+            // Deleted:    critChance = player.GetWeaponCrit(player.HeldItem);
+            // Deleted:}
             
             if (targets.Count > 0)
             {
@@ -200,13 +201,13 @@ namespace ExpansionKele.Content.Projectiles.RangedProj
                                                 Projectile.damage, 
                                                 0f, 
                                                 Projectile.owner);
-                        CreateLightningBeam(Projectile.Center, target.Center, critChance, direction);
+                        CreateLightningBeam(Projectile.Center, target.Center, direction);
                     }
                     
                     // 发射指向目标周围随机位置的额外闪电
                     for (int i = 0; i < EXTRA_BEAMS_PER_TARGET; i++)
                     {
-                        // 在目标周围100像素半径内随机生成位置
+                        // 在目标周围 100 像素半径内随机生成位置
                         Vector2 randomOffset = Vector2.UnitX.RotatedByRandom(MathHelper.TwoPi) * Main.rand.NextFloat(RANDOM_TARGET_RADIUS);
                         Vector2 randomEndPos = target.Center + randomOffset;
                         Projectile.NewProjectile(Projectile.GetSource_FromThis(), 
@@ -215,7 +216,7 @@ namespace ExpansionKele.Content.Projectiles.RangedProj
                                                 Projectile.damage, 
                                                 0f, 
                                                 Projectile.owner);
-                        CreateLightningBeam(Projectile.Center, randomEndPos, critChance, Vector2.Normalize(randomEndPos - Projectile.Center));
+                        CreateLightningBeam(Projectile.Center, randomEndPos, Vector2.Normalize(randomEndPos - Projectile.Center));
                     }
                 }
             }
@@ -227,7 +228,7 @@ namespace ExpansionKele.Content.Projectiles.RangedProj
                     // 随机方向
                     Vector2 randomDirection = Vector2.UnitX.RotatedByRandom(MathHelper.TwoPi);
                     Vector2 endPos = Projectile.Center + randomDirection * Main.rand.NextFloat(TARGET_RANGE * MIN_RANDOM_RANGE_FACTOR, TARGET_RANGE * MAX_RANDOM_RANGE_FACTOR);
-                    CreateLightningBeam(Projectile.Center, endPos, critChance, randomDirection);
+                    CreateLightningBeam(Projectile.Center, endPos, randomDirection);
                 }
             }
             
@@ -247,7 +248,7 @@ namespace ExpansionKele.Content.Projectiles.RangedProj
         }
         
         // 创建闪电束的通用方法
-        private void CreateLightningBeam(Vector2 start, Vector2 end, int critChance, Vector2 generalDirection)
+        private void CreateLightningBeam(Vector2 start, Vector2 end, Vector2 generalDirection)
         {
             // 计算距离和方向
             Vector2 direction = end - start;
@@ -305,47 +306,9 @@ namespace ExpansionKele.Content.Projectiles.RangedProj
                 }
             }
             
-            // // 检查是否有敌人在闪电路径附近
-            // for (int i = 0; i < Main.maxNPCs; i++)
-            // {
-            //     NPC npc = Main.npc[i];
-            //     if (npc.active && !npc.friendly && !npc.dontTakeDamage)
-            //     {
-            //         // 检查NPC是否在闪电路径点附近
-            //         foreach (Vector2 point in lightningPoints)
-            //         {
-            //             float distToLightning = Vector2.Distance(npc.Center, point);
-            //             if (distToLightning <= ENEMY_DETECTION_RANGE) // 20像素范围内的敌人受到伤害
-            //             {
-            //                 // 判断是否暴击
-            //                 bool isCrit = Main.rand.Next(1, 101) <= critChance;
-                            
-            //                 // 对目标造成伤害（武器伤害的40%）
-            //                 int electricDamage = (int)(Projectile.damage * DAMAGE_PERCENTAGE);
-            //                 // 暴击时不再增加伤害，而是让目标速度归零
-                            
-            //                 NPC.HitInfo hitInfo = new NPC.HitInfo()
-            //                 {
-            //                     DamageType = DamageClass.Ranged,
-            //                     Damage = electricDamage,
-            //                     Knockback = 0,
-            //                     HitDirection = (int)Math.Sign(generalDirection.X),
-            //                     Crit = isCrit
-            //                 };
-            //                 npc.StrikeNPC(hitInfo);
-                            
-            //                 // 如果暴击，使目标速度归零
-            //                 if (isCrit)
-            //                 {
-            //                     npc.velocity *= 0;
-            //                 }
-                            
-            //                 break; // 每道闪电只伤害一个敌人
-            //             }
-            //         }
-            //     }
-            // }
+        
         }
+// ... existing code ...
 // ... existing code ...
 
         public override bool OnTileCollide(Vector2 oldVelocity)

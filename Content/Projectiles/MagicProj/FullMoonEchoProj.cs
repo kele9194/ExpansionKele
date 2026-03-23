@@ -37,6 +37,9 @@ namespace ExpansionKele.Content.Projectiles.MagicProj
         /// <summary>返回阶段造成的伤害比例（默认为 60%）</summary>
         private const float ReturningDamageMultiplier = 0.6f;
 
+        /// <summary>前进阶段结束时的伤害比例（默认为 60%）</summary>
+        private const float ForwardFinalDamageMultiplier = 0.6f;
+
         /// <summary>忽视敌人防御值（默认为 20 点）</summary>
         private const int IgnoreDefenseValue = 20;
 
@@ -84,7 +87,7 @@ namespace ExpansionKele.Content.Projectiles.MagicProj
             Projectile.ignoreWater = true;
             Projectile.tileCollide = false; // 不与地形碰撞
             Projectile.DamageType = DamageClass.Magic;
-            Projectile.extraUpdates = 0;
+            Projectile.extraUpdates = 1;
             Projectile.usesLocalNPCImmunity = true;  // 使用本地无敌帧系统
             Projectile.localNPCHitCooldown = 20;
 
@@ -208,6 +211,11 @@ namespace ExpansionKele.Content.Projectiles.MagicProj
             }
             else
             {
+                // 前进阶段：根据减速进度计算伤害比例（从 1.0 到 0.6）
+                float progress = (600 - Projectile.timeLeft) / (float)DecelerationDuration;
+                if (progress > 1f) progress = 1f;
+                float damageMultiplier = MathHelper.Lerp(1f, ForwardFinalDamageMultiplier, progress);
+                modifiers.SourceDamage *= damageMultiplier;
                 modifiers.ArmorPenetration += IgnoreDefenseValue;
             }
         }

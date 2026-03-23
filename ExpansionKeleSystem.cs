@@ -45,9 +45,15 @@ namespace ExpansionKele
                 .AddTile(TileID.Furnaces)
                 .Register();
 
+            Recipe.Create(ItemID.MeteoriteBar)
+                .AddIngredient(ItemID.HellstoneBar, 1)
+                .AddIngredient(ItemID.FallenStar, 1)
+                .AddTile(TileID.Furnaces)
+                .Register();
+
             // 蘑菇锤炼机由叶绿锭，灵气*2和蘑菇*15在秘银砧合成
             Recipe.Create(ItemID.Autohammer)
-                .AddIngredient(ItemID.ChlorophyteBar, 1)
+                .AddIngredient(ItemID.SpectreBar, 2)
                 .AddIngredient(ItemID.GlowingMushroom, 15)
                 .AddIngredient(ItemID.SoulofLight, 2)
                 .AddTile(TileID.MythrilAnvil)

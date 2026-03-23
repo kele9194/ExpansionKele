@@ -19,8 +19,8 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
         
         public override string LocalizationCategory => "Items.Weapons";
 
-        private const int reloadTime = 8;
-        private const int AmmoTime=44;
+        private const int reloadTime = 15;
+        private const int AmmoTime=55;
 
         
 

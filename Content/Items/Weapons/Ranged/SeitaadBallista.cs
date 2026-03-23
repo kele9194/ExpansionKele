@@ -26,7 +26,7 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
         public override void SetDefaults()
         {
             // 基本属性设置
-            Item.damage = ExpansionKele.ATKTool(90,120); // 修改为80点伤害
+            Item.damage = ExpansionKele.ATKTool(30,40); // 修改为80点伤害
             Item.useTime = 30;
             Item.useAnimation = 30;
             Item.useStyle = ItemUseStyleID.Shoot;

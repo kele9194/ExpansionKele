@@ -4,14 +4,29 @@ using Terraria.ModLoader;
 using System.Collections.Generic;
 using ExpansionKele.Content.Customs;
 using ExpansionKele.Content.Items.Placeables;
+using Terraria.Localization;
 
 namespace ExpansionKele.Content.Items.Accessories
 {
-    public class AttackSpeedBooster : ModItem
+    // ... existing code ...
+public class AttackSpeedBooster : ModItem
+{
+     public static float AttackSpeedBoostSpeed = 1.5f;// 50% 使用时间减少
+    public static float AttackSpeedBoostDamage = 0.75f;// 0.75 倍基础乘算增伤
+    public static float StealthGenMultiplier = 1.55f;
+    public override string LocalizationCategory => "Items.Accessories";
+    public override LocalizedText Tooltip => base.Tooltip.WithFormatArgs(
+        (AttackSpeedBoostSpeed * 100).ToString("F1"),
+        (AttackSpeedBoostDamage * 100).ToString("F1"),
+        ((AttackSpeedBoostSpeed * AttackSpeedBoostDamage) * 100).ToString("F1")
+    );
+
+    public override void SetStaticDefaults()
     {
-        public static float AttackSpeedBoostSpeed = 1.5f;// 50% 使用时间减少
-        public static float AttackSpeedBoostDamage = 0.75f;// 0.75 倍基础乘算增伤
-        public override string LocalizationCategory => "Items.Accessories";
+        // 不需要手动获取 Tooltip，tModLoader 会自动从 .hjson 文件加载
+    }
+
+
 
         public override void SetDefaults()
         {
@@ -32,29 +47,32 @@ namespace ExpansionKele.Content.Items.Accessories
             // 为装备此饰品的玩家添加修饰器
             player.GetModPlayer<AttackSpeedBoosterPlayer>().AttackSpeedBoosterEquipped = true;
             player.GetModPlayer<AttackSpeedBoosterPlayer>().attackSpeedBoosterMultiplier = AttackSpeedBoostSpeed;
-            ExpansionKeleTool.MultiplyDamageBonus(player, AttackSpeedBoostDamage);
-        }
+            
+            var modPlayer = player.GetModPlayer<AttackSpeedBoosterPlayer>();
+            
+            // 对所有武器应用基础伤害加成（包括召唤武器）
+            
+            
+            // 对非召唤武器或鞭子，应用攻速加成对应的伤害乘区
 
-        // ... existing code ...
+            ExpansionKeleTool.MultiplyDamageBonus(player, AttackSpeedBoostDamage);
+            
+            // 增加 Calamity 模组的 StealthGen 值（只对盗贼武器生效）
+            ReflectionHelper.SetStealthGenStandstill(player, ReflectionHelper.GetStealthGenStandstill(player) * StealthGenMultiplier);
+            ReflectionHelper.SetStealthGenMoving(player, ReflectionHelper.GetStealthGenMoving(player) * StealthGenMultiplier);
+        }
         // ... existing code ...
         public override void ModifyTooltips(List<TooltipLine> tooltips)
         {
-            if (ModContent.GetInstance<ExpansionKeleConfig>().EnableDetailedTooltips)
-            {
-                tooltips.Add(new TooltipLine(Mod, "DetailedInfo", "[c/00FF00:详细信息:]"));
-                var tooltipData = new Dictionary<string, string>
-                {
-                    {"AttackSpeedBoostSpeed", $"[c/00FF00:攻击速度增加 {(AttackSpeedBoostSpeed-1)*100}%]"},
-                    {"AttackSpeedBoostDamage", $"[c/00FF00:伤害增加 {(AttackSpeedBoostDamage*100):F0}%]"}
-                };
-
-                foreach (var kvp in tooltipData)
-                {
-                    tooltips.Add(new TooltipLine(Mod, kvp.Key, kvp.Value));
-                }
+            
+            // 如果有灾厄模组，添加灾厄效果的 Tooltip
+            if(ExpansionKele.calamity != null){
+                string calamityTooltipText = Language.GetTextValue($"Mods.{Mod.Name}.Items.Accessories.AttackSpeedBooster.TooltipsWithCalamity",
+                    (StealthGenMultiplier * 100).ToString("F1")
+                );
+                tooltips.Add(new TooltipLine(Mod, "CalamityEffect", calamityTooltipText));
             }
         }
-// ... existing code ...
 // ... existing code ...
 
         public override void AddRecipes()
@@ -85,9 +103,63 @@ namespace ExpansionKele.Content.Items.Accessories
         {
             return attackSpeedBoosterMultiplier;
         }
-        return 1f;
+        else
+        {
+            return 1f;
+        }
     }
-// ... existing code ...
+
+
+        public override void ModifyHitNPCWithProj(Projectile proj, NPC target, ref NPC.HitModifiers modifiers)
+    {
+        if (!AttackSpeedBoosterEquipped)
+        {
+            return;
+        }
+
+        // 检查是否为召唤物弹幕且不是鞭子
+        if (proj.DamageType == DamageClass.Summon && !ProjectileID.Sets.IsAWhip[proj.type])
+        {
+            // 对于非鞭子的召唤武器，应用 1.5*0.75 倍乘算加成
+            float combinedMultiplier = AttackSpeedBooster.AttackSpeedBoostSpeed;
+            SummonDamageHelper.ApplyMultiplicativeBonusToSummon(proj, ref modifiers, combinedMultiplier);
+        }
+    }
         
+    }
+    public class AttackSpeedBoosterGlobalItem : GlobalItem
+    {
+        public override void ModifyWeaponDamage(Item item, Player player, ref StatModifier damage)
+        {
+            if (player.GetModPlayer<AttackSpeedBoosterPlayer>().AttackSpeedBoosterEquipped)
+            {
+                 if (item.DamageType == DamageClass.Summon)
+                {
+                    int shootType = item.shoot;
+                    if ( !ProjectileID.Sets.IsAWhip[shootType])
+                    {
+                        damage*=AttackSpeedBooster.AttackSpeedBoostSpeed;
+                    }
+                }
+            }
+            return;
+           
+        }
+        public override float UseSpeedMultiplier(Item item, Player player)
+        {
+            if (player.GetModPlayer<AttackSpeedBoosterPlayer>().AttackSpeedBoosterEquipped)
+            {
+                 if (item.DamageType == DamageClass.Summon)
+                {
+                    int shootType = item.shoot;
+                    if ( !ProjectileID.Sets.IsAWhip[shootType])
+                    {
+                        return 1/AttackSpeedBooster.AttackSpeedBoostSpeed;
+                    }
+                }
+            }
+            return 1;
+           
+        }
     }
 }

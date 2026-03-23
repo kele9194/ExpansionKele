@@ -29,7 +29,8 @@ namespace ExpansionKele.Content.Items.Tiles
 
 		public override void PostUpdateWorld() {
 			// 检查是否已经生成过矿石
-			if (DownedShadowOfRevengeBoss.downedShadowOfRevenge && !oreGenerated) {
+			var bossSystem = ModContent.GetInstance<DownedShadowOfRevengeBoss>();
+			if (bossSystem.downedShadowOfRevenge && !oreGenerated) {
 				var fullMoonOreSystem = ModContent.GetInstance<FullMoonOreSystem>();
 				fullMoonOreSystem.BlessWorldWithFullMoonOre();
 				oreGenerated = true;

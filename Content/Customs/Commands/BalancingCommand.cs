@@ -207,6 +207,20 @@ namespace ExpansionKele.Content.Customs.Commands
         }
     }
 
+    public class BalancingPlayer : ModPlayer
+    {
+        public override void ModifyHitNPCWithProj(Projectile proj, NPC target, ref NPC.HitModifiers modifiers)
+        {
+            // 使用工具类应用全局伤害倍率到召唤物弹幕
+            SummonDamageHelper.ApplyGlobalMultiplierToSummon(
+                proj, 
+                ref modifiers, 
+                BalancingSystem.GlobalDamageMultiplier,
+                ExpansionKeleConfig.Instance.EnableGlobalDamageMultiplierModification
+            );
+        }
+    }
+
     public enum BalancingMessageType : byte
     {
         SyncGlobalMultiplier

@@ -35,7 +35,7 @@ v1.3.3
 新增护盾机制
 削弱钢铁意志之盾，钢铁誓约之盾，调整铬钢盾
 
-v1.3.4(2025.1.15)
+v1.3.4(2026.1.15)
 新增蘑菇剑，幽灵长剑
 新增武器充能条，部分武器充能伤害可以显示
 修改铬钢剑为能量剑形式
@@ -87,6 +87,60 @@ v1.4.3
 增加了武器混编代码的使用抛射物种类
 修改了部分武器的本地化说明
 
+v1.4.4.X
+新增所有该模组的锭在击败对应boss后可以从部分特定匣中获取的机制
+修复星元增益会限制玩家生命值不受饰品增益的bug
+紧急修复星元头盔A无法穿戴的bug
+
+v1.4.5
+重大bug修复：
+解决了可可原液不被认为是治疗药水的bug
+修复了所有乘算增伤无法应用在召唤物的bug
+修复了太空浮游炮的错误合成配方
+修复复仇之影boss战中弹幕存在时间过长的bug
+修复在世纪之花前就可以获得自动锤炼机的配方错误
+新增可以显示部分玩家属性的测试仪器
+修复了星元剑I可以在拜月邪教徒前获得的bug
+修复了原定体精添加但实际没有的狱石锭转为陨石锭的配方的bug
+
+其他bug修复：
+修复星元套装套装增益中的本地化错误
+禁止了未完工的boss战结束信息打印
+解决武器燃烧纸飞机的动画问题
+增加了星元法杖系列右键可使用的提示，并修复了其英文本地化的一处疏漏
+
+增强：
+增加星灼血量转化为护盾转化比例
+增强星元智慧徽章的耗蓝伤害加成由加算改为乘算
+解决了太空浮游炮激光速度过慢无法击中敌人的问题
+增加了电流弩和其上位的伤害
+略微增强了望月长剑的弹幕
+略微增强了M37散弹枪伤害
+大幅增加了05式狙击枪伤害，判定范围和伤害判定时间
+大幅增加了唐横刀的伤害，弹幕速度
+
+削弱：
+削弱了燃烧纸飞机的减益时间
+增加了高斯步枪的使用时间和装填时间
+削弱了望月长矛的衍生弹幕的伤害和生成数量
+删除了赛泰隆电弩错误将暴击率转化为伤害的逻辑
+削弱了灵魂质子炮
+念心十字斩获取时期由花后改成石巨人后
+大幅削弱了自动狙击步枪的伤害
+削弱了怨憎的回血量
+
+调整：
+削弱了强化太空枪并将时期前移
+将满月法师徽章的耗蓝伤害加成由加算20%变为1.15倍
+大幅增加望月回响的伤害，但是其弹幕在前进时会随着时间减少伤害,修复其本地化文本
+修改了攻速手套和缓速手套对召唤物的增伤倍率，修改了装备后在灾厄模组中潜伏攻击的冷却以体现其特点
+赛泰隆电弩电流暴击只能造成30%减速，但是其EMP波现在具有10%伤害
+
+v1.4.5.X
+紧急更新：
+修复了错误代码导致所有治疗药水冷却时间降为30s的bug
+调整了可可原液的恢复效果（100血，1分钟可可增益，60s冷却）
+修复了攻速手套和缓速手套对非鞭子类召唤武器伤害和攻速显示错误的bug
 
 This mod is developed purely for entertainment, developed by me alone, trying to achieve some imagination in ths mod and still under development. 
 When playing with the Calamity mod, some content will be adjusted to fit Calamity's numerical environment.
@@ -180,3 +234,60 @@ Added weapon Anaxa Magic Trick, Golden Brocade Needle
 Added accessory Starburn
 Increased the types of projectiles used in weapon CodeChaos
 Modified localization descriptions for some weapons
+
+v1.4.4.X
+Added mechanic where all bars in this mod can be obtained 
+from certain specific crates after defeating the corresponding boss.
+Fixed bug where Starry buff would limit player's maximum life 
+and prevent accessories from providing health bonuses.
+Emergency fix: Star Helmet A cannot be equipped bug
+
+v1.4.5
+Major bug fixes:
+Fixed bug where Cocoa Liquor was not recognized as a healing potion
+Fixed bug where all multiplicative damage bonuses could not be applied to summons
+Fixed incorrect crafting recipe for Space Funnel
+Fixed issue where projectiles lasted too long during Shadow of Revenge boss fight
+Fixed recipe error that allowed Auto Hammer to be obtained before Plantera
+Added testing instrument that can display some player stats
+Fixed bug where Stary Sword-I could be obtained before Lunar Cultist
+Fixed missing recipe that converts Hellstone Bars to Meteorite Bars (originally intended but not implemented)
+
+Other bug fixes:
+Fixed localization error in Stary Armor set bonus
+Disabled unfinished boss defeat message printing
+Fixed animation issue with Burning Paper Plane weapon
+Added hint that Stary Staff series can be right-clicked to use, and fixed one localization oversight in English
+
+Buffs:
+Increased conversion ratio of Starburn health to shield
+Changed Stary Sorcerer Emblem's mana damage bonus from additive to multiplicative
+Fixed issue where Space Funnel laser was too slow to hit enemies
+Increased damage of Electric Ballista and its upgrade
+Slightly increased the damage of Full Moon Sword projectile
+Slightly increased M37 Shotgun damage
+Greatly increased DotZeroFive Sniper Rifle damage, hitbox size, and damage judgment time
+Greatly increased Tang Dynasty Saber damage and projectile speed
+
+Nerfs:
+Reduced Burning Paper Plane debuff duration
+Increased Gauss Rifle use time and reload time
+Reduced damage and spawn count of Full Moon Spear's spawned projectiles
+Removed incorrect logic that converted critical strike chance to damage for Seitaad Ballista
+Nerfed Soul Proton Cannon
+Changed Mind Cross Blade acquisition from post-Plantera to post-Golem
+Greatly reduced Auto Sniper Rifle damage
+Reduced Resentment healing amount
+
+Adjustments:
+Nerfed Enhanced Space Gun and moved its progression timing earlier
+Changed Full Moon Mage Emblem's mana damage bonus from +20% additive to 1.15x multiplier
+Greatly increased Full Moon Echo damage, but its projectile now deals reduced damage over time as it travels; fixed its localization text
+Modified Bash Glove and Slow Glove summon damage multipliers, adjusted their stealth attack cooldown when equipped in Calamity mod to better reflect their characteristics
+Seitaad Ballista electric current critical hits now only cause 30% slow, but its EMP wave now deals 10% damage
+
+v1.4.5.X
+Emergency Update:
+Fixed a bug where erroneous code caused all healing potion cooldown times to be reduced to 30s
+Adjusted the restoration effect of Cocoa Liquor (100 HP, 1 minute Cocoa buff, 60s cooldown)
+Fixed a bug where attack speed gloves and slowing gloves displayed incorrect damage and attack speed for non-whip summon weapons.

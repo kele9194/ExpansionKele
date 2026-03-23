@@ -4,11 +4,7 @@ RapidBashPotion: {
 }
 
 CocoaLiquor: {
-	Tooltip:
-		'''
-		30 seconds of Potionsickness
-		get CocoaBuff 30 seconds
-		'''
+	Tooltip: get CocoaBuff 60 seconds
 	DisplayName: Cocoa Liquor
 }
 

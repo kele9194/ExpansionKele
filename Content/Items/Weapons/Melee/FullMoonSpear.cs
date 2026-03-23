@@ -33,7 +33,7 @@ namespace ExpansionKele.Content.Items.Weapons.Melee
 			Item.autoReuse = true; // 自动重复使用
 
 			// 武器属性
-			Item.damage = ExpansionKele.ATKTool(72, 92); // 伤害
+			Item.damage = ExpansionKele.ATKTool(75, 95); // 伤害
 			Item.knockBack = 6.5f; // 击退
 			Item.noUseGraphic = true; // 使用时不显示物品图形
 			Item.DamageType = DamageClass.Melee; // 伤害类型为近战

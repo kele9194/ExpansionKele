@@ -121,3 +121,12 @@ DeathOfPlace: {
 	ModeEnabled: 死亡之地模式已启用
 	ModeDisabled: 死亡之地模式已禁用
 }
+
+// ... existing code ...
+TestLocatorCopy: {
+	Tooltip: 提供本模组部分属性的仪器
+	DisplayName: 测试仪器
+	MultiplicativeDamageText: 乘算增伤(特殊伤害乘数)：{0}%
+	PreDefenseCombinedText: 防御前减伤倍率：{0}%
+	PostDefenseText: 防御后减伤倍率：{0}%
+}

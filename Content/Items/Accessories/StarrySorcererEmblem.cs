@@ -35,6 +35,7 @@ namespace ExpansionKele.Content.Items.Accessories
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
             ExpansionKelePlayer modPlayer = player.GetModPlayer<ExpansionKelePlayer>();
+            ExpansionKeleDamageMulti modDamageMulti = player.GetModPlayer<ExpansionKeleDamageMulti>();
             
             // 检查当前玩家是否已经有星元徽章生效，且不是自己
             if (modPlayer.activeStarryEmblemType != -1 && 
@@ -83,7 +84,7 @@ namespace ExpansionKele.Content.Items.Accessories
             {
                 float manaRatio = (float)player.statMana / player.statManaMax2;
                 float damageBonus = (1 - manaRatio) * MaxLowManaDamageBonus;
-                player.GetDamage(DamageClass.Magic) += damageBonus;
+                modDamageMulti.MultiplyMultiplicativeDamageBonus(1+damageBonus);
             }
             PlayerUtils.ReduceManaSicknessDuration(player);
         }

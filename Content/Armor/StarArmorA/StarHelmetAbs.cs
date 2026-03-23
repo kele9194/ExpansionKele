@@ -8,9 +8,11 @@ using System.Reflection;
 using Microsoft.Xna.Framework;
 using System.Threading;
 using System.IO;
+using ExpansionKele.Content.Customs;
 
 namespace ExpansionKele.Content.Armor.StarArmorA
 {
+    
     // 抽象基类，用于星元盔甲头盔
     [AutoloadEquip(EquipType.Head)]
     public abstract class StarHelmetAbs : ModItem
@@ -33,15 +35,15 @@ namespace ExpansionKele.Content.Armor.StarArmorA
 
         public override void SetStaticDefaults()
         {
-            SetBonusText = this.GetLocalization("SetBonus");
-            SetBonusTextWithCalamity = this.GetLocalization("SetBonusWithCalamity").WithFormatArgs(RogueCritChance, RogueStealthMax * 100);
+            // SetBonusText = this.GetLocalization("SetBonus");
+            // SetBonusTextWithCalamity = this.GetLocalization("SetBonusWithCalamity").WithFormatArgs(RogueCritChance, RogueStealthMax * 100);
         }
 
         public override void SetDefaults()
         {
             Item.width = 18; // Width of the item
             Item.height = 18; // Height of the item
-            Item.value = Item.sellPrice(gold: 1); // How many coins the item is worth
+            Item.value = Item.sellPrice(gold: 1);
             Item.rare = ItemRarityID.Green; // The rarity of the item
             Item.defense = HelmetDefense; // The amount of defense the item will give when equipped
         }
@@ -57,10 +59,13 @@ namespace ExpansionKele.Content.Armor.StarArmorA
         // UpdateArmorSet allows you to give set bonuses to the armor.
         public override void UpdateArmorSet(Player player)
         {
-            player.setBonus = SetBonusText.Value;
+            LocalizedText setBonusText = this.GetLocalization("SetBonus");
+            LocalizedText setBonusTextWithCalamity = this.GetLocalization("SetBonusWithCalamity").WithFormatArgs(RogueCritChance, RogueStealthMax * 100);
+            
+            player.setBonus = setBonusText.Value;
             if (ExpansionKele.calamity != null)
             {
-                player.setBonus = SetBonusTextWithCalamity.Value;
+                player.setBonus = setBonusTextWithCalamity.Value;
                 player.GetCritChance<ThrowingDamageClass>() += RogueCritChance;
                 ReflectionHelper.ApplyRogueStealth(player, RogueStealthMax);
             }
@@ -72,6 +77,7 @@ namespace ExpansionKele.Content.Armor.StarArmorA
             float damageBoost = (1 / (lifePercentage + A)) - (1 / (1 + A));
             player.GetDamage<GenericDamageClass>() += damageBoost;
         }
+
 
         public override void UpdateEquip(Player player)
         {

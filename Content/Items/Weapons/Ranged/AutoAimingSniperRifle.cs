@@ -28,7 +28,7 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
         {
             Item.width = 64;
             Item.height = 32;
-            Item.damage = ExpansionKele.ATKTool(3000,4500);
+            Item.damage = ExpansionKele.ATKTool(1600,2400);
             Item.DamageType = DamageClass.Ranged;
             Item.useTime = 180;
             Item.useAnimation = 180;

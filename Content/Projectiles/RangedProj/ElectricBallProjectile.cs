@@ -83,19 +83,7 @@ namespace ExpansionKele.Content.Projectiles.RangedProj
             {
                 targets.RemoveAt(Main.rand.Next(targets.Count));
             }
-            
-            // 获取弹幕所属玩家的暴击率
-            Player player = Main.player[Projectile.owner];
-            int critChance = 0;
-            if (Projectile.DamageType == DamageClass.Melee) {
-                critChance = player.GetWeaponCrit(player.HeldItem);
-            } else if (Projectile.DamageType == DamageClass.Ranged) {
-                critChance = player.GetWeaponCrit(player.HeldItem);
-            } else if (Projectile.DamageType == DamageClass.Magic) {
-                critChance = player.GetWeaponCrit(player.HeldItem);
-            } else if (Projectile.DamageType == DamageClass.Throwing) {
-                critChance = player.GetWeaponCrit(player.HeldItem);
-            }
+        
             
             if (targets.Count > 0)
             {

@@ -60,7 +60,7 @@ StarrySorcererEmblem: {
 		150 increased max mana and 25% reduced mana cost
 		15% increased magic damage ,6% increased magic crit chance 
 		allow auto use mana potion when needed
-		the lower your mana,the higher your damage,max to 20% increased magic damage
+		the lower your mana,the higher your damage,max to 1.2x damage
 		1.8 increased max mana and 0.1% reduced mana cost every 1% extra magic damage
 		the bonus of reduced mana cost according to your mana is limited to 30%
 		mana sickness time and effect are decreased 
@@ -188,7 +188,7 @@ MoonSorcererEmblem: {
 		60 increased max mana and 2 increased mana regen
 		15% increased magic damage and 10% reduced mana cost
 		allow auto use mana potion when needed
-		the lower your mana,the higher your damage,max to 20% increased magic damage
+		the lower your mana,the higher your damage,max to 1.15x damage
 		1.8 increased max mana and 0.1% reduced mana cost every 1% extra magic damage
 		the bonus of reduced mana cost according to your mana is limited to 30%
 		when multiple "MoonXXXXEmblem" are equipped
@@ -287,13 +287,19 @@ HallowHeartShield: {
 AttackSpeedBooster: {
 	Tooltip:
 		'''
-		150% base attack speed multiplier for the player
-		player's damage will be 75% of the origin
-		accessories slots take effect in order;
-		if both attack speed gloves and slow speed gloves are equipped
-		only the first one in the inventory will take effect.
+		Player's base attack speed multiplier is {0}%
+		Player's damage is {1}% of original
+		Summon weapons (excluding whips) do not change attack speed and provide {2}% damage
+		Accessory slots take effect in order; 
+		if both Attack Speed Glove and Slow Speed Glove are equipped,
+		only the first one takes effect
 		'''
 	DisplayName: Attack Speed Glove
+	TooltipsWithCalamity:
+		'''
+		Calamity adaptation: Stealth regen speed increased to {0}% of original
+		Tip: Increasing stealth regen speed will partially reduce player's stealth damage bonus
+		'''
 }
 
 ArmorPiercingNecklace: {
@@ -352,7 +358,7 @@ IronOathShield: {
 FullMoonAmulet: {
 	Tooltip:
 		'''
-		25% multiplicative damage reduction
+		105% multiplicative damage reduction
 		+5 armor penetration
 		Divides your health bar into three equal segments
 		taken damage will be restricted to one health segment,
@@ -390,17 +396,16 @@ PainKiller: {
 SlowSpeedGlove: {
 	Tooltip:
 		'''
-		70% base attack speed multiplier for the player
-		player's damage will be 165% of the origin
-		accessories slots take effect in order;
-		if both attack speed gloves and slow speed gloves are equipped
-		only the first one in the accessory slots will take effect.
+		Player has {0}% base attack speed multiplier
+		Player's damage is {1}% of original
+		Summon weapons (excluding whips) do not change attack speed and provide {2}% damage
+		Accessory slots take effect in order; if both Attack Speed Gloves and Slow Speed Gloves are equipped, only the first one takes effect
 		'''
 	DisplayName: Slow Speed Glove
 	TooltipsWithCalamity:
 		'''
-		Calamity adaptation:Decrease stealth regen by 45%
-		tips:In Calamity ,the decreased stealth regen will be partly increases stealth attack damage
+		Calamity adaptation: Stealth regen speed reduced to {0}%
+		Tip: Reducing stealth regen speed will partially increase player's stealth damage bonus
 		'''
 }
 

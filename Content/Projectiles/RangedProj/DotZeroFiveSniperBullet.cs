@@ -26,12 +26,12 @@ namespace ExpansionKele.Content.Projectiles.RangedProj
         }
         public override void SetDefaults()
         {
-            Projectile.width = 48;
-            Projectile.height = 48;
+            Projectile.width = 60;
+            Projectile.height = 60;
             Projectile.friendly = true;
             Projectile.hostile = false;
             Projectile.penetrate = -1; // 无限穿透
-            Projectile.timeLeft = 10;
+            Projectile.timeLeft = 20;
             Projectile.DamageType = DamageClass.Ranged;
             Projectile.ignoreWater = true;
             Projectile.tileCollide = false;
@@ -71,7 +71,7 @@ namespace ExpansionKele.Content.Projectiles.RangedProj
             Texture2D texture = _cachedTexture.Value;
             
             // 计算缩放后的尺寸 (默认2倍大小)
-            float scaleMultiplier = 4f;
+            float scaleMultiplier = 5f;
             Vector2 origin = new Vector2(texture.Width / 2f, texture.Height / 2f);
             Vector2 position = Projectile.Center - Main.screenPosition;
             

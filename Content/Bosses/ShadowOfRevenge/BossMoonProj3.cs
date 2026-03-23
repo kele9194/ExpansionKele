@@ -28,7 +28,7 @@ namespace ExpansionKele.Content.Bosses.ShadowOfRevenge
             Projectile.aiStyle = -1;
             Projectile.hostile = true;
             Projectile.penetrate = -1;
-            Projectile.timeLeft = 3600;
+            Projectile.timeLeft = 240;
             Projectile.ignoreWater = true;
             Projectile.tileCollide = false;
         }

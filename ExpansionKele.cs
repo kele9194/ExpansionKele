@@ -145,6 +145,7 @@ namespace ExpansionKele
         // ... existing code ...
                 public override void PostSetupContent()
         {
+            var downedShadowOfRevengeBoss = ModContent.GetInstance<DownedShadowOfRevengeBoss>();
             // 注册Boss到BossChecklist (v2.0.0+ 版本)
             if (ModLoader.HasMod("BossChecklist"))
             {
@@ -156,7 +157,7 @@ namespace ExpansionKele
                     this,
                     "ShadowOfRevenge",
                     9f,
-                    (Func<bool>)(() => DownedShadowOfRevengeBoss.downedShadowOfRevenge),
+                    (Func<bool>)(() => downedShadowOfRevengeBoss.downedShadowOfRevenge),
                     ModContent.NPCType<ShadowOfRevenge>(),
                     new Dictionary<string, object>() {
                         ["spawnItems"] = ModContent.ItemType<Content.Items.OtherItem.ShadowSilk>(),
@@ -164,14 +165,14 @@ namespace ExpansionKele
                         
                     }
                 );
-                
+                var downedBossKele = ModContent.GetInstance<DownedBossKele>();
                 // 注册BossKele
                 bossChecklist.Call(
                     "LogBoss",
                     this,
                     "BossKele",
                     18.5f,
-                    (Func<bool>)(() =>DownedBossKele.downedBossKele),
+                    (Func<bool>)(() =>downedBossKele.downedBossKele),
                     ModContent.NPCType<BossKele>(),
                     new Dictionary<string, object>() {
                         ["spawnItems"] = ModContent.ItemType<Content.Items.OtherItem.LunarKele>(),

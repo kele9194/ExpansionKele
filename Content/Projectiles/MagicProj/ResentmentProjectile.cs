@@ -46,14 +46,16 @@ namespace ExpansionKele.Content.Projectiles.MagicProj
             }
         }
 
+        // ... existing code ...
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
             Player player = Main.player[Projectile.owner];
             
-            // 弹幕命中敌人恢复20点生命值，但每发弹幕只会触发一次
             if (!hasHealed)
             {
-                player.Heal(16);
+                float missingHealthRatio = 1f - (float)player.statLife / player.statLifeMax2;
+                int healAmount = 8 + (int)(missingHealthRatio * 8+0.5f);
+                player.Heal(healAmount);
                 hasHealed = true;
             }
             
@@ -65,6 +67,7 @@ namespace ExpansionKele.Content.Projectiles.MagicProj
                 dust.velocity *= 2f;
             }
         }
+// ... existing code ...
 
         public override void OnKill(int timeLeft)
         {

@@ -1,3 +1,4 @@
+using ExpansionKele.Content.Customs.Commands;
 using Terraria;
 using Terraria.ModLoader;
 
@@ -30,4 +31,19 @@ namespace ExpansionKele.Content.Customs
             }
         }
     }
+    public class HandHeldBalancePlayer : ModPlayer
+    {
+        public override void ModifyHitNPCWithProj(Projectile proj, NPC target, ref NPC.HitModifiers modifiers)
+        {
+            // 使用工具类应用全局伤害倍率到召唤物弹幕
+            SummonDamageHelper.ApplyGlobalMultiplierToSummon(
+                proj, 
+                ref modifiers, 
+                HandHeldSystem.VanillaDamageMultiplier,
+                true
+            );
+        }
+    }
+
+    
 }

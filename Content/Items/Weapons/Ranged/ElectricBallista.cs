@@ -22,7 +22,7 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
         public override void SetDefaults()
         {
             // 基本属性设置
-            Item.damage = ExpansionKele.ATKTool(45,65);
+            Item.damage = ExpansionKele.ATKTool(16,21);
             Item.useTime = 30;
             Item.useAnimation = 30;
             Item.useStyle = ItemUseStyleID.Shoot;

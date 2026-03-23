@@ -20,7 +20,7 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
 
         public override void SetDefaults()
         {
-            Item.damage = ExpansionKele.ATKTool(40,46);               // 伤害25
+            Item.damage = ExpansionKele.ATKTool(46,54);               // 伤害25
             Item.DamageType = DamageClass.Ranged;   // 远程伤害类型
             Item.width = 60;                        // 物品宽度
             Item.height = 24;
@@ -84,7 +84,7 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
             else // 右键：独头弹模式
             {
                 // 应用伤害和击退修正
-                int adjustedDamage = (int)(damage * 4f); // 400% 伤害
+                int adjustedDamage = (int)(damage * 4.5f); // 450% 伤害
                 float adjustedKnockback = knockback * 3f; // 3倍击退
                 
                 // 创建带修正的弹丸，使用相同的弹丸类型但通过ai0参数标记为独头弹模式

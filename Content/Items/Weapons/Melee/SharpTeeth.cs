@@ -21,7 +21,7 @@ namespace ExpansionKele.Content.Items.Weapons.Melee
 
         public override void SetDefaults()
         {
-            Item.damage = ExpansionKele.ATKTool(18,22); //20,24                // 20点伤害
+            Item.damage = ExpansionKele.ATKTool(12,15); //20,24                // 20点伤害
             Item.DamageType = DamageClass.Melee; // 近战伤害类型
             Item.width = 30;                  // 物品宽度
             Item.height = 30;                 // 物品高度

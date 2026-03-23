@@ -9,7 +9,8 @@ namespace ExpansionKele.Content.Bosses.ShadowOfRevenge
 {
 	public class DownedShadowOfRevengeBoss : ModSystem
 	{
-		public static bool downedShadowOfRevenge = false;
+		// 实例属性，不再是静态的
+		public bool downedShadowOfRevenge = false;
 
 		public override void OnWorldLoad() {
 			downedShadowOfRevenge = false;

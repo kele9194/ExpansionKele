@@ -609,8 +609,9 @@ private void RotateLasers(float rotationSpeed)
 
         public override void OnKill()
         {
+            var downedBossKele = ModContent.GetInstance<DownedBossKele>();
             // 标记BossKele已被击败
-            DownedBossKele.downedBossKele = true;
+            downedBossKele.downedBossKele = true;
             
             // 在多人模式下同步击败状态
             if (Main.netMode == NetmodeID.Server)

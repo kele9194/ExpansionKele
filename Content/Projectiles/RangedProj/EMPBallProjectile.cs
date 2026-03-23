@@ -86,7 +86,7 @@ namespace ExpansionKele.Content.Projectiles.RangedProj
                     Projectile.Center, 
                     Vector2.Zero, 
                     ModContent.ProjectileType<EMPWave>(), 
-                    0, // EMP波不造成伤害
+                    Projectile.damage, // EMP波造成1伤害
                     0, 
                     Projectile.owner
                 );

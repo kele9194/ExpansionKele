@@ -6,6 +6,7 @@ using Terraria.DataStructures;
 using ExpansionKele.Content.Projectiles.MeleeProj;
 using ExpansionKele.Content.Buff;
 using ExpansionKele.Content.Customs;
+using ExpansionKele.Content.Items.OtherItem;
 
 namespace ExpansionKele.Content.Items.Weapons.Melee
 {
@@ -70,6 +71,7 @@ namespace ExpansionKele.Content.Items.Weapons.Melee
                 .AddIngredient(ModContent.ItemType<ChromiumSword>(),1)    
                 .AddIngredient(ItemID.SoulofMight, 5)
                 .AddIngredient(ItemID.Ectoplasm, 3)
+                .AddIngredient(ModContent.ItemType<GolemShard>(), 5)
                 .AddTile(TileID.MythrilAnvil)
                 .Register();
         }

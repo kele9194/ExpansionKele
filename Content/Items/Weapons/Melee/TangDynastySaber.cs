@@ -23,7 +23,7 @@ namespace ExpansionKele.Content.Items.Weapons.Melee
 
         public override void SetDefaults()
         {
-            Item.damage = ExpansionKele.ATKTool(170,210);                    // 基础伤害
+            Item.damage = ExpansionKele.ATKTool(240,290);                    // 基础伤害
             Item.DamageType = DamageClass.Melee; // 近战伤害类型
             Item.width = 40;                     // 物品宽度
             Item.height = 40;                    // 物品高度
@@ -76,7 +76,7 @@ namespace ExpansionKele.Content.Items.Weapons.Melee
         position,
         shootDirection, // 使用准确的方向向量
         ModContent.ProjectileType<TangDynastySwordEnergyProjectile>(),
-        damage/2,
+        (int)(damage*0.6f),
         knockback,
         player.whoAmI,
         1,           // ai[0]: 生命周期计时器（会在AI中使用）

@@ -121,3 +121,12 @@ DeathOfPlace: {
 	ModeEnabled: Death Of Place mode enabled
 	ModeDisabled: Death Of Place mode disabled
 }
+
+// ... existing code ...
+TestLocatorCopy: {
+	Tooltip: A device that provides some properties from this mod
+	DisplayName: Test Locator
+	MultiplicativeDamageText: Multiplicative Damage Bonus: {0}%
+	PreDefenseCombinedText: Pre-Defense Damage Reduction Multiplier: {0}%
+	PostDefenseText: Post-Defense Damage Reduction Multiplier: {0}%
+}

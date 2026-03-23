@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
@@ -47,6 +48,19 @@ namespace ExpansionKele.Content.Customs
                     player.buffTime[buffIndex] = 0;
                 }
             }
+        }
+
+        /// <summary>
+        /// 根据小数部分的概率返回上界或下界
+        /// </summary>
+        /// <param name="value">输入的小数值（格式为 a+b，其中 a 为整数，b 为小数部分）</param>
+        /// <returns>以 b 的概率返回上界，否则返回下界</returns>
+        public static int ProbabilisticRound(float value)
+        {
+            int floor = (int)MathF.Floor(value);
+            float decimalPart = value - floor;
+            
+            return Main.rand.NextFloat() < decimalPart ? floor + 1 : floor;
         }
         
     }

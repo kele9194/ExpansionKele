@@ -4,11 +4,7 @@ RapidBashPotion: {
 }
 
 CocoaLiquor: {
-	Tooltip:
-		'''
-		30秒药水疾病
-		获得可可增益30秒
-		'''
+	Tooltip: 获得可可增益60秒
 	DisplayName: 可可原液
 }
 

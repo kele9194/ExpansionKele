@@ -46,7 +46,6 @@ namespace ExpansionKele.Content.Projectiles.RangedProj
 
         public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
         {
-            modifiers.FinalDamage*=0.4f;
             modifiers.DefenseEffectiveness *= 0f; // 忽视防御
         }
 
@@ -62,7 +61,7 @@ namespace ExpansionKele.Content.Projectiles.RangedProj
             // 只有在暴击时才将目标速度归零
             if (hit.Crit)
             {
-                target.velocity *= 0;
+                target.velocity *= 0.7f;
             }
         }
 

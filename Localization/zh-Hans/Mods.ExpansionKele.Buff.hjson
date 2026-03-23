@@ -55,7 +55,7 @@ FrostShatterDebuff: {
 CyanStarBuff: {
 	Description:
 		'''
-		增加{0}点防御力和{1}%乘法防御力
+		增加{0}点防御力和{1}%乘算防御力
 		增加{2}点生命恢复
 		增加{3}%移动速度
 		'''

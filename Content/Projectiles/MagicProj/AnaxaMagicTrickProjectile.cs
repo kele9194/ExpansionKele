@@ -389,7 +389,11 @@ namespace ExpansionKele.Content.Projectiles.MagicProj
 		}
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            Projectile.damage=(int)(Projectile.damage*1.1f);
+            // 如果击中未标记的敌人（未在此弹幕的击中列表中），则伤害增加 30%
+            if (!hitNPCs.Contains(target.whoAmI))
+            {
+                Projectile.damage = (int)(Projectile.damage * 1.3f);
+            }
             // 应用随机减益效果
             ApplyRandomDebuff(target);
         }

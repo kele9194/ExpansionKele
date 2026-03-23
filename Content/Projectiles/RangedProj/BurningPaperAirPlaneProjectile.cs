@@ -30,16 +30,25 @@ namespace ExpansionKele.Content.Projectiles.RangedProj
 			// This can be done by modifying projectile.penetrate
 			//Projectile.penetrate += 3;
 		}
+        // ... existing code ...
         public override void AI() {
 
         if(Main.rand.NextBool(5)){
             int dustIndex = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Smoke, Main.rand.NextFloat(-2f, 2f), Main.rand.NextFloat(-2f, 2f), 0, Color.Gray, 1f);
             Main.dust[dustIndex].noGravity = true;
         }	
+
+        if (Projectile.velocity.X > 0) {
+            Projectile.spriteDirection = -1;
+		}
+        //  else if (Projectile.velocity.X < 0) {
+        //     Projectile.spriteDirection = 1;
+        // }
         
         base.AI();
         // Projectile.rotation = Projectile.velocity.ToRotation();
         }
+// ... existing code ...
 		
 
 		// While there are several different ways to change how our projectile could behave differently, lets make it so
@@ -56,7 +65,7 @@ namespace ExpansionKele.Content.Projectiles.RangedProj
 		}
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(BuffID.Daybreak, 360);
+            target.AddBuff(BuffID.Daybreak, 240);
         }
     }
 }

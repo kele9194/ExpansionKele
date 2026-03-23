@@ -42,21 +42,12 @@ namespace ExpansionKele.Content.Projectiles.MeleeProj
             Projectile.light = 1f;                   // 发光强度
             Projectile.extraUpdates = 0;             // 每帧只更新一次
             Projectile.usesLocalNPCImmunity = true;  // 使用本地无敌帧系统
-            Projectile.localNPCHitCooldown = 5;      // 击中 NPC 后冷却 5 帧再可击中下一个
+            Projectile.localNPCHitCooldown = 20;      // 击中 NPC 后冷却 5 帧再可击中下一个
         }
 
         public override void OnSpawn(IEntitySource source)
         {
-            Player player = Main.player[Projectile.owner];
-            if (player != null && !player.dead)
-            {
-                // 获取玩家当前武器的基础伤害，并应用近战总加成
-                float baseMeleeDamage = player.HeldItem.damage;
-                float totalMeleeDamage = player.GetTotalDamage(DamageClass.Melee).ApplyTo(baseMeleeDamage);
 
-                // 设置弹幕伤害为玩家近战伤害的 41%
-                Projectile.damage = (int)(totalMeleeDamage * 0.82f);
-            }
         }
 
         public override void AI()

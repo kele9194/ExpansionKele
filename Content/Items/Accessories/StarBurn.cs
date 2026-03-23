@@ -14,7 +14,7 @@ namespace ExpansionKele.Content.Items.Accessories
         
         // 常量定义
         public const int HealthLossInterval = 4; // 每4帧损失1点血量
-        public const float ShieldConversionRate = 0.8f; // 1:1转换比率
+        public const float ShieldConversionRate = 1f; // 1:1转换比率
         public const float ShieldCapPercentage = 0.5f; // 临时盾牌上限为最大生命值的50%
         public const float LowHealthThreshold = 0.1f; // 10%血量阈值
 

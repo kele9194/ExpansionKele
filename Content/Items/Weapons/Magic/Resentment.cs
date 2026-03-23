@@ -54,7 +54,7 @@ namespace ExpansionKele.Content.Items.Weapons.Magic
                 if (player.statLife <= 0)
                 {
                     // 当玩家血量降到0或以下时，触发死亡，使用本地化的死亡原因
-                    player.KillMe(PlayerDeathReason.ByCustomReason(DeathReason.Format(player.name)), 9999, 0);
+                    player.KillMe(PlayerDeathReason.ByCustomReason(DeathReason.ToNetworkText(player.name)), 9999, 0);
                 }
                 resentmentTimer = 0; // 重置计时器
             }

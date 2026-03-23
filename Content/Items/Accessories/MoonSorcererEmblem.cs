@@ -20,7 +20,7 @@ namespace ExpansionKele.Content.Items.Accessories
         private const float DamageToManaRatio = 1.5f; // 每1%额外魔法伤害增加1.5最大蓝量
         private const float DamageToCostReduction = 0.001f; // 每1%额外魔法伤害减少0.1%蓝耗
         private const float MaxCostReduction = 0.30f; // 蓝耗最多减少30%
-         private const float MaxLowManaDamageBonus = 0.20f; // 低蓝量时最高增加10%魔法伤害
+         private const float MaxLowManaDamageBonus = 0.15f; // 低蓝量时最高增加10%魔法伤害
 
         public override void SetDefaults()
         {
@@ -35,6 +35,7 @@ namespace ExpansionKele.Content.Items.Accessories
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
             ExpansionKelePlayer modPlayer = player.GetModPlayer<ExpansionKelePlayer>();
+            ExpansionKeleDamageMulti modDamageMulti = player.GetModPlayer<ExpansionKeleDamageMulti>();
             
             // 检查当前玩家是否已经有星元徽章生效，且不是自己
             if (modPlayer.activeMoonEmblemType != -1 && 
@@ -79,7 +80,7 @@ namespace ExpansionKele.Content.Items.Accessories
             {
                 float manaRatio = (float)player.statMana / player.statManaMax2;
                 float damageBonus = (1 - manaRatio) * MaxLowManaDamageBonus;
-                player.GetDamage(DamageClass.Magic) += damageBonus;
+                modDamageMulti.MultiplyMultiplicativeDamageBonus(1+damageBonus);
             }
         }
 

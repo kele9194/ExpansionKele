@@ -6,6 +6,7 @@ using ExpansionKele.Content.Buff;
 using System.Collections.Generic;
 using System.Reflection;
 using Microsoft.Xna.Framework;
+using ExpansionKele.Content.Customs;
 
 namespace ExpansionKele.Content.Armor.StarArmorA
 {
@@ -15,6 +16,12 @@ namespace ExpansionKele.Content.Armor.StarArmorA
 	{
 		public override int Index => 4; // E 对应索引 4
 		public static string setNameOverride = "星元头盔E";
+		public override void SetDefaults()
+        {
+            base.SetDefaults();
+            Item.value = ItemUtils.CalculateValueFromRecipes(this);
+            Item.rare = ItemUtils.CalculateRarityFromRecipes(this);
+        }
 
 		protected override int GetBodyType()
 		{

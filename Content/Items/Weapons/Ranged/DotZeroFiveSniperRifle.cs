@@ -23,7 +23,7 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
         {
             Item.width = 64;
             Item.height = 32;
-            Item.damage = ExpansionKele.ATKTool(1000,1200); // 伤害500
+            Item.damage = ExpansionKele.ATKTool(2000,2400); // 伤害500
             Item.DamageType = DamageClass.Ranged;
             Item.useTime = 50; // 使用时间180
             Item.useAnimation =50;

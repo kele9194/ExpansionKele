@@ -11,7 +11,8 @@ namespace ExpansionKele.Content.Projectiles.SummonProj
     public class GoldenWeaverMinion : ModProjectile
     {
         public override string LocalizationCategory => "Projectiles.SummonProj";
-        // AI状态枚举
+        
+        // AI 状态枚举
         private enum AttackState
         {
             Idle,           // 空闲状态（悬浮）
@@ -23,11 +24,13 @@ namespace ExpansionKele.Content.Projectiles.SummonProj
         // 常量定义
         private const float DETECTION_RANGE = 600f;     // 目标检测范围
         private const float IDLE_HEIGHT = 50f;          // 空闲时距离玩家头顶的高度
-        private const float DASH_SPEED = 25f;           // 提升冲刺速度（原15f）
+        private const float DASH_SPEED = 25f;           // 提升冲刺速度（原 15f）
         private const float SEEK_SPEED = 12f;           // 寻找新目标速度
-        private const int DASH_DURATION = 45;           // 延长冲刺持续时间（原30）
-        private const int COOLDOWN_DURATION = 45;       // 缩短攻击冷却时间（原60）
+        private const int BASE_DASH_DURATION = 45;      // 基础冲刺持续时间
+        private const int MAX_DASH_DURATION = 90;       // 最大冲刺持续时间
+        private const int COOLDOWN_DURATION = 45;       // 缩短攻击冷却时间（原 60）
         private const float MAX_DASH_DISTANCE = 800f;   // 最大冲刺距离
+        private const int MAX_CONSECUTIVE_DASHES = 3;   // 最大连续冲刺次数
 
         // 状态变量
         private AttackState currentState = AttackState.Idle;
@@ -37,13 +40,14 @@ namespace ExpansionKele.Content.Projectiles.SummonProj
         private int stateTimer = 0;                     // 状态计时器
         private int cooldownTimer = 0;                  // 冷却计时器
         private Vector2 startPosition = Vector2.Zero;   // 冲刺起始位置
+        private int consecutiveDashes = 0;              // 连续冲刺计数
 
         public override void SetStaticDefaults()
         {
             // 设置为仆从类型
             Main.projPet[Projectile.type] = true;
             
-            // 设置弹幕ID集合
+            // 设置弹幕 ID 集合
             ProjectileID.Sets.MinionSacrificable[Projectile.type] = true; // 不可被牺牲（永久存在）
             ProjectileID.Sets.CultistIsResistantTo[Projectile.type] = true; // 对邪教徒有抗性
             ProjectileID.Sets.MinionTargettingFeature[Projectile.type] = true; // 支持右键锁定目标
@@ -61,8 +65,8 @@ namespace ExpansionKele.Content.Projectiles.SummonProj
             Projectile.penetrate = -1; // 无限穿透
             Projectile.timeLeft = 360; // 存在时间（虽然会自动续期）
             Projectile.ignoreWater = true; // 忽略水
-            Projectile.usesLocalNPCImmunity = true; // 使用本地NPC无敌帧
-            Projectile.localNPCHitCooldown = 20; // 本地NPC击中冷却
+            Projectile.usesLocalNPCImmunity = true; // 使用本地 NPC 无敌帧
+            Projectile.localNPCHitCooldown = 20; // 本地 NPC 击中冷却
         }
 
         public override bool? CanCutTiles()
@@ -91,7 +95,6 @@ namespace ExpansionKele.Content.Projectiles.SummonProj
                 return;
             }
             
-
             // 更新冷却计时器
             if (cooldownTimer > 0)
             {
@@ -162,8 +165,9 @@ namespace ExpansionKele.Content.Projectiles.SummonProj
                 {
                     // 切换到冲刺准备状态
                     currentState = AttackState.Charging;
-                    stateTimer = 15; // 0.25秒准备时间
+                    stateTimer = 15; // 0.25 秒准备时间
                     startPosition = Projectile.Center;
+                    consecutiveDashes = 0; // 重置连续冲刺计数
                 }
             }
 
@@ -175,19 +179,31 @@ namespace ExpansionKele.Content.Projectiles.SummonProj
         {
             stateTimer--;
             
-            // 在准备期间微微震动
+            // 在准备期间微微震动，并持续更新目标位置
             Projectile.velocity = Main.rand.NextVector2Circular(1f, 1f);
+            
+            // 实时更新冲刺方向，追踪移动中的目标
+            if (targetNPC != null && targetNPC.active)
+            {
+                dashDirection = (targetNPC.Center - Projectile.Center);
+                dashDirection.Normalize();
+                Projectile.rotation = dashDirection.ToRotation() + MathHelper.PiOver4;
+            }
             
             if (stateTimer <= 0)
             {
                 // 开始冲刺
                 currentState = AttackState.Dashing;
-                stateTimer = DASH_DURATION;
                 
-                // 计算冲刺方向
+                // 动态计算冲刺持续时间
+                int calculatedDuration = CalculateDashDuration();
+                stateTimer = Math.Min(calculatedDuration, MAX_DASH_DURATION);
+                
+                // 计算最终冲刺方向
                 dashDirection = (targetNPC.Center - Projectile.Center);
                 dashDirection.Normalize();
                 Projectile.velocity = dashDirection * DASH_SPEED;
+                startPosition = Projectile.Center;
             }
 
             // 设置旋转角度指向目标
@@ -197,12 +213,42 @@ namespace ExpansionKele.Content.Projectiles.SummonProj
             }
         }
 
-                private void HandleDashingState()
+        private void HandleDashingState()
         {
             stateTimer--;
             
-            // 保持冲刺速度
-            Projectile.velocity = dashDirection * DASH_SPEED;
+            // 在冲刺过程中持续追踪目标，动态调整方向
+            if (targetNPC != null && targetNPC.active && !targetNPC.dontTakeDamage)
+            {
+                // 计算到目标的预测位置
+                Vector2 predictedTargetPos = PredictTargetPosition(targetNPC, DASH_SPEED);
+                Vector2 newDashDirection = (predictedTargetPos - Projectile.Center);
+                
+                // 平滑转向新方向，避免过于灵敏的转向
+                float turnSpeed = 0.3f; // 转向速度，值越大转向越快
+                newDashDirection.Normalize();
+                dashDirection.Normalize();
+                dashDirection = Vector2.Lerp(dashDirection, newDashDirection, turnSpeed);
+                dashDirection.Normalize();
+                
+                // 更新冲刺速度方向
+                Projectile.velocity = dashDirection * DASH_SPEED;
+                
+                // 更新旋转角度
+                Projectile.rotation = dashDirection.ToRotation() + MathHelper.PiOver4;
+                
+                // 检查是否应该继续追击
+                float distanceToTarget = Vector2.Distance(Projectile.Center, targetNPC.Center);
+                float estimatedTimeToCatch = distanceToTarget / DASH_SPEED;
+                
+                // 如果剩余时间不足以追上目标且还可以连续冲刺，则延长冲刺
+                if (stateTimer < estimatedTimeToCatch * 60 && 
+                    consecutiveDashes < MAX_CONSECUTIVE_DASHES &&
+                    distanceToTarget > 100f)
+                {
+                    stateTimer++; // 保持剩余时间不减少
+                }
+            }
             
             // 检查是否到达最大距离
             float distanceTraveled = Vector2.Distance(startPosition, Projectile.Center);
@@ -220,12 +266,22 @@ namespace ExpansionKele.Content.Projectiles.SummonProj
                     currentState = AttackState.Seeking;
                     stateTimer = 30;
                     cooldownTimer = COOLDOWN_DURATION; // 使用完整冷却时间
+                    consecutiveDashes = 0; // 重置连续冲刺计数
+                }
+                else if (targetNPC != null && targetNPC.active && consecutiveDashes < MAX_CONSECUTIVE_DASHES)
+                {
+                    // 目标还活着且可以继续追击，发起新一轮冲刺
+                    currentState = AttackState.Charging;
+                    stateTimer = 10; // 快速充能
+                    consecutiveDashes++;
+                    startPosition = Projectile.Center;
                 }
                 else
                 {
                     // 没有新目标，返回玩家身边
                     currentState = AttackState.Idle;
                     Projectile.velocity *= 0.3f;
+                    consecutiveDashes = 0; // 重置连续冲刺计数
                 }
             }
             // 如果击中目标但还没完成冲刺，则继续冲刺
@@ -234,6 +290,7 @@ namespace ExpansionKele.Content.Projectiles.SummonProj
                 // 击中目标后短暂延迟再寻找新目标
                 stateTimer = 10; // 强制剩余时间
                 cooldownTimer = COOLDOWN_DURATION;
+                consecutiveDashes = 0; // 重置连续冲刺计数
             }
 
             // 设置旋转角度
@@ -323,6 +380,77 @@ namespace ExpansionKele.Content.Projectiles.SummonProj
                 return projRect.Intersects(npcRect);
             }
             return false;
+        }
+
+        /// <summary>
+        /// 根据目标速度和距离动态计算所需的冲刺持续时间
+        /// </summary>
+        /// <returns>计算出的冲刺持续时间（帧数）</returns>
+        private int CalculateDashDuration()
+        {
+            if (targetNPC == null || !targetNPC.active)
+            {
+                return BASE_DASH_DURATION;
+            }
+
+            // 计算到目标的距离
+            float distanceToTarget = Vector2.Distance(Projectile.Center, targetNPC.Center);
+            
+            // 估算目标的平均速度
+            float targetSpeed = targetNPC.velocity.Length();
+            
+            // 计算相对速度（我们的速度减去目标速度）
+            float relativeSpeed = DASH_SPEED - targetSpeed;
+            
+            // 如果相对速度太慢，使用最大持续时间
+            if (relativeSpeed <= 0)
+            {
+                return MAX_DASH_DURATION;
+            }
+            
+            // 计算追上目标所需的时间（秒）
+            float timeNeeded = distanceToTarget / relativeSpeed;
+            
+            // 转换为帧数（60 FPS），并添加安全系数 1.5
+            int framesNeeded = (int)(timeNeeded * 60 * 1.5f);
+            
+            // 限制在合理范围内
+            return (int)MathHelper.Clamp(framesNeeded, BASE_DASH_DURATION, MAX_DASH_DURATION);
+        }
+
+        /// <summary>
+        /// 预测目标的未来位置，用于提前瞄准移动中的敌人
+        /// </summary>
+        /// <param name="target">目标 NPC</param>
+        /// <param name="projectileSpeed">弹幕速度</param>
+        /// <returns>预测的目标位置</returns>
+        private Vector2 PredictTargetPosition(NPC target, float projectileSpeed)
+        {
+            if (target == null || !target.active)
+            {
+                return target?.Center ?? Projectile.Center;
+            }
+
+            // 计算到目标的向量
+            Vector2 toTarget = target.Center - Projectile.Center;
+            float distanceToTarget = toTarget.Length();
+            
+            // 估算到达目标所需的时间
+            float timeToImpact = distanceToTarget / projectileSpeed;
+            
+            // 根据目标当前速度预测未来位置
+            Vector2 predictedPosition = target.Center + target.velocity * timeToImpact;
+            
+            // 如果目标正在高速移动，添加额外的提前量
+            if (target.velocity.Length() > 5f)
+            {
+                float extraLead = target.velocity.Length() * 0.5f;
+                Vector2 normalizedVelocity = target.velocity;
+                normalizedVelocity.Normalize();
+                predictedPosition += normalizedVelocity * extraLead;
+            }
+            
+            return predictedPosition;
         }
 
         private void Visuals()

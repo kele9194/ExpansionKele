@@ -60,9 +60,10 @@ namespace ExpansionKele.Content.StaryMelee
         {
             // 创建 GaSniperA 武器的合成配方  
             Recipe recipe = Recipe.Create(ModContent.ItemType<StarySwordI>()); // 替换为 GaSniperD 的类型  
-            recipe.AddIngredient(ItemID.MartianConduitPlating, 161);//神圣锭*7
+            recipe.AddIngredient(ItemID.MartianConduitPlating, 161);
             recipe.AddIngredient(ModContent.ItemType<StarySwordH>(), 1);
-            recipe.AddTile(TileID.MythrilAnvil);
+            recipe.AddIngredient(ItemID.FragmentSolar,2);
+            recipe.AddTile(TileID.LunarCraftingStation);
             recipe.Register();
         }
     }

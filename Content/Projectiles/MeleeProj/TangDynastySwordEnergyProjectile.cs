@@ -23,7 +23,7 @@ namespace ExpansionKele.Content.Projectiles.MeleeProj{
             Projectile.tileCollide=false;
             Projectile.penetrate = -1; // 剑气穿透2个目标
             Projectile.timeLeft = 180; // 存活1秒
-            Projectile.extraUpdates = 1; // 更平滑的运动
+            Projectile.extraUpdates = 2; // 更平滑的运动
             Projectile.usesLocalNPCImmunity=true;
             Projectile.localNPCHitCooldown=30;
         }

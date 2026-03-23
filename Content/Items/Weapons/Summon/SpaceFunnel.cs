@@ -75,7 +75,7 @@ namespace ExpansionKele.Content.Items.Weapons.Summon
         public override void AddRecipes()
         {
             CreateRecipe()
-                .AddIngredient(ItemID.SpaceGun, 8)
+                .AddIngredient(ItemID.SpaceGun, 1)
                 .AddIngredient(ItemID.SoulofFlight, 5)
                 .AddIngredient(ItemID.CursedFlame,5)
                 .AddTile(TileID.Anvils)

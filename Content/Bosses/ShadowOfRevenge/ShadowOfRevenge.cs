@@ -185,8 +185,9 @@ namespace ExpansionKele.Content.Bosses.ShadowOfRevenge
         }
         public override void OnKill()
         {
+            var downedShadowOfRevengeBoss = ModContent.GetInstance<DownedShadowOfRevengeBoss>();
             // 标记Shadow of Revenge Boss已被击败
-            DownedShadowOfRevengeBoss.downedShadowOfRevenge = true;
+            downedShadowOfRevengeBoss.downedShadowOfRevenge = true;
         }
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)

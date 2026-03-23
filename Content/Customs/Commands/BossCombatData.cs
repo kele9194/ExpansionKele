@@ -158,7 +158,7 @@ namespace ExpansionKele.Content.Customs.Commands
                 RecordBossCombatData(CombatResultType.PlayerDefeat);
 
                 // 显示Boss战信息
-                BossCombatDisplay.DisplayBossCombatInfo(currentBossNPCType, combatStartTime, trackedBoss, playerCountAtStart, CombatResultType.PlayerDefeat);
+                //BossCombatDisplay.DisplayBossCombatInfo(currentBossNPCType, combatStartTime, trackedBoss, playerCountAtStart, CombatResultType.PlayerDefeat);
 
                 // 设置标志，防止重复记录
                 combatResultRecorded = true;
@@ -174,7 +174,7 @@ namespace ExpansionKele.Content.Customs.Commands
                 RecordBossCombatData(CombatResultType.BossDisappeared);
 
                 // 显示Boss战信息
-                BossCombatDisplay.DisplayBossCombatInfo(currentBossNPCType, combatStartTime, trackedBoss, playerCountAtStart, CombatResultType.BossDisappeared);
+                //BossCombatDisplay.DisplayBossCombatInfo(currentBossNPCType, combatStartTime, trackedBoss, playerCountAtStart, CombatResultType.BossDisappeared);
 
                 // 设置标志，防止重复记录
                 combatResultRecorded = true;
@@ -200,7 +200,7 @@ namespace ExpansionKele.Content.Customs.Commands
                 RecordBossCombatData(CombatResultType.BossDefeated);
 
                 // 显示Boss战信息
-                BossCombatDisplay.DisplayBossCombatInfo(currentBossNPCType, combatStartTime, trackedBoss, playerCountAtStart, CombatResultType.BossDefeated);
+                //BossCombatDisplay.DisplayBossCombatInfo(currentBossNPCType, combatStartTime, trackedBoss, playerCountAtStart, CombatResultType.BossDefeated);
 
                 // 设置标志，防止重复记录
                 combatResultRecorded = true;

@@ -72,6 +72,11 @@ namespace ExpansionKele.Content.Projectiles.RangedProj
                 }
             }
         }
+        public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
+        {
+            modifiers.FinalDamage*=0.1f;
+            modifiers.DefenseEffectiveness *= 0f;
+        }
 
         public override bool PreDraw(ref Color lightColor)
         {

@@ -46,7 +46,6 @@ namespace ExpansionKele.Content.Projectiles.RangedProj
 
         public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
         {
-            modifiers.FinalDamage*=0.3f;
             modifiers.DefenseEffectiveness *= 0f; // 忽视防御
         }
 

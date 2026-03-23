@@ -19,6 +19,8 @@ namespace ExpansionKele.Content.Projectiles.SummonProj
             // DisplayName.SetDefault("空间光束");
             
             // 设置为召唤物射击物
+            ProjectileID.Sets.TrailingMode[Projectile.type] =0;
+            ProjectileID.Sets.TrailCacheLength[Projectile.type] = 20;
             ProjectileID.Sets.MinionShot[Projectile.type] = true;
         }
 
@@ -34,7 +36,7 @@ namespace ExpansionKele.Content.Projectiles.SummonProj
             Projectile.timeLeft = 360; // 存在时间：3秒
             Projectile.ignoreWater = true; // 忽略水
             Projectile.tileCollide = false; // 不与物块碰撞
-            Projectile.extraUpdates = 2; // 额外更新次数
+            Projectile.extraUpdates = 30; // 额外更新次数
             Projectile.usesLocalNPCImmunity = true; // 使用本地NPC无敌帧
             Projectile.localNPCHitCooldown = 15; // 本地NPC击中冷却
             Projectile.scale = 1.2f; // 稍大的尺寸

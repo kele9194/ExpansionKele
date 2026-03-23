@@ -122,7 +122,10 @@ FullMoonEcho: {
 	DisplayName: Full Moon Echo
 	Tooltip:
 		'''
-		Fires three skewed full moons that slow down and return after a period of time, but damage becomes 60% of original
+		Fires three skewed full moons that slow down and slowly decrease damage 
+		and return after a period of time
+		damage becomes 60% of original
+		20 armor penetration
 		The alternation of blood moon and blue moon, representing death and silence
 		'''
 }
@@ -351,7 +354,7 @@ WoodenCrossbow: {
 	DisplayName: Wooden Crossbow
 	Tooltip:
 		'''
-		left-click to to draw the bow and fire
+		left-click to fire
 		The more draw levels, the faster damage increases, 
 		arrow speed increases more, and arrow armor penetration increases more
 		Additionally applies 1x base arrow damage
@@ -362,7 +365,7 @@ ShadowCrossbow: {
 	DisplayName: Shadow Crossbow
 	Tooltip:
 		'''
-		left-click to to draw the bow and fire
+		left-click to fire
 		The more draw levels, the faster damage increases, 
 		arrow speed increases more, and arrow armor penetration increases more
 		Additionally applies 1x base arrow damage
@@ -374,7 +377,7 @@ BloodCrossbow: {
 	DisplayName: Blood Crossbow
 	Tooltip:
 		'''
-		left-click to to draw the bow and fire
+		left-click to fire
 		The more draw levels, the faster damage increases, 
 		arrow speed increases more, and arrow armor penetration increases more
 		Additionally applies 1x base arrow damage

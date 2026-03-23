@@ -5,7 +5,8 @@ namespace ExpansionKele.Content.Bosses.BossKele
 {
 	public class DownedBossKele : ModSystem
 	{
-		public static bool downedBossKele = false;
+		// 实例属性，不再是静态的
+		public bool downedBossKele = false;
 
 		public override void OnWorldLoad() {
 			downedBossKele = false;

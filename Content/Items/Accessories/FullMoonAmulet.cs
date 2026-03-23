@@ -25,7 +25,7 @@ namespace ExpansionKele.Content.Items.Accessories
         {
             var damageplayer=player.GetModPlayer<ExpansionKeleDamageMulti>();
             // 乘算增伤 -25% (应该是+25%吧？因为-25%是减伤)
-            damageplayer.MultiplyMultiplicativeDamageBonus(0.75f);
+            damageplayer.MultiplyMultiplicativeDamageBonus(1.05f);
             // +5穿甲
             player.GetArmorPenetration(DamageClass.Generic) += 5;
             
