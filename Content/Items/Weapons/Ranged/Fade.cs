@@ -7,6 +7,7 @@ using Terraria.Net;
 using ExpansionKele.Content.Projectiles;
 using ExpansionKele.Content.Customs;
 using ExpansionKele.Content.Projectiles.RangedProj;
+using ExpansionKele.Content.Buff;
 
 namespace ExpansionKele.Content.Items.Weapons.Ranged
 {
@@ -29,7 +30,7 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
 
 		public override void SetDefaults() {
 			// 基本属性设置
-			Item.damage = ExpansionKele.ATKTool(130,160); // 伤害45
+			Item.damage = ExpansionKele.ATKTool(140,180); // 伤害45
 			Item.DamageType = DamageClass.Ranged; // 远程伤害
 			Item.width = 32;
 			Item.height = 32;
@@ -129,8 +130,7 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
 		}
 		public override void HoldItem(Player player) {
 
-			var fadePlayer = player.GetModPlayer<FadePlayer>();
-			fadePlayer.isHoldingFade = true;
+
 		}
 
 		
@@ -184,76 +184,16 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
 
 	public class FadePlayer : ModPlayer
 	{
-		public bool isHoldingFade = false;
-		public override void ResetEffects()
-		{
-			isHoldingFade = false;
-		}
-	}
 
-	public class HitEffectPlayer : ModPlayer
-    {
-        // 受击后效果相关变量
-        public bool hitEffectActive = false;
-        public int hitEffectTimer = 0;
-        public const int HitEffectDuration = 240; // 持续240帧 (4秒)
-
-        public override void ResetEffects()
+        
+        public override void PostHurt(Player.HurtInfo info)
         {
-            // 每帧重置效果
-        }
-
-        public override void ModifyHurt(ref Player.HurtModifiers modifiers)
-		{
-			base.ModifyHurt(ref modifiers);
-
-			// 只有当玩家手持Fade武器时才激活效果
-			var fadePlayer = Player.GetModPlayer<FadePlayer>();
-			if (fadePlayer.isHoldingFade && !hitEffectActive)
-			{
-				hitEffectActive = true;
-				hitEffectTimer = HitEffectDuration;
-			}
-
-			// 如果受击效果激活，则减少20%防御前减伤
-			if (hitEffectActive && fadePlayer.isHoldingFade)
-			{
-				modifiers.IncomingDamageMultiplier*=1.2f; // 减少20%防御前减伤
-				Terraria.Audio.SoundEngine.PlaySound(SoundID.Item29, Player.position);
-			}
-		}
-
-        public override void PreUpdate()
-        {
-            // 更新计时器
-            if (hitEffectActive)
+			if (Player.HeldItem?.type == ModContent.ItemType<Fade>())
             {
-                hitEffectTimer--;
-                if (hitEffectTimer <= 0)
-                {
-                    hitEffectActive = false;
-                }
+                Player.AddBuff(ModContent.BuffType<FadeHitDebuff>(), 180);
             }
-        }
-
-        public override void ModifyWeaponDamage(Item item, ref StatModifier damage)
-        {
-            // 只有当玩家手持Fade武器且受击效果激活时，才降低20%武器伤害
-            var fadePlayer = Player.GetModPlayer<FadePlayer>();
-            if (hitEffectActive && fadePlayer.isHoldingFade)
-            {
-                damage*=0.8f; // 降低20%武器伤害
-            }
-        }
-
-        public override void UpdateLifeRegen()
-        {
-            // 只有当玩家手持Fade武器且受击效果激活时，才减少生命恢复时间
-            var fadePlayer = Player.GetModPlayer<FadePlayer>();
-            if (hitEffectActive && fadePlayer.isHoldingFade && Main.rand.NextDouble() <= 0.5)
-            {
-                Player.lifeRegenTime -= 1;
-            }
+            
         }
     }
+
 }

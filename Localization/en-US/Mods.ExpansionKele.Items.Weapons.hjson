@@ -408,6 +408,7 @@ DotZeroFiveSniperRifle: {
 		'''
 		Creates a scope frame at the cursor position
 		Left-click to fire projectiles at the cursor position
+			{0} chance to deal {1} of target's current HP as damage
 		Note: Switch to another item if some keys or settings don't respond
 		'''
 	DisplayName: .05 Sniper Rifle
@@ -469,9 +470,4 @@ LaserCutter: {
 		An unfinished weapon
 		'''
 	DisplayName: Laser Cutter
-}
-
-SpaceFunnel: {
-	Tooltip: ""
-	DisplayName: Space Funnel
 }

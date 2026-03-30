@@ -17,10 +17,16 @@ namespace ExpansionKele
         //用这的，别用加载的
         public bool LaserAlwaysOn;
 
-        //[Label("启用灾厄沉沦海版本删除的部分合成表(如果装载了灾厄)")]
+        //[Label("启用灾厄沉沦海版本删除的部分合成表 (如果装载了灾厄)")]
         //[Tooltip("主要添加了部分灾厄沉沦海版本前部分原版物品的合成配方")]
         [DefaultValue(true)]
+        [ReloadRequired]
         public bool EnableCalamityRecipes;
+
+         // 新增：启用原版物品合成配方（不依赖灾厄模组）
+        [DefaultValue(false)]
+        [ReloadRequired]
+        public bool EnableVanillaRecipes { get; set; }
 
 
         public static ExpansionKeleConfig Instance => ModContent.GetInstance<ExpansionKeleConfig>();

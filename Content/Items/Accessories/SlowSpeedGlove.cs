@@ -15,9 +15,9 @@ namespace ExpansionKele.Content.Items.Accessories
         public static float StealthGenMultiplier = 0.66f;
         public override string LocalizationCategory => "Items.Accessories";
         public override LocalizedText Tooltip => base.Tooltip.WithFormatArgs(
-            (AttackSpeedBoostSpeed * 100).ToString("F1"),
-            (AttackSpeedBoostDamage * 100).ToString("F1"),
-            ((AttackSpeedBoostSpeed * AttackSpeedBoostDamage) * 100).ToString("F1")
+            ValueUtils.FormatValue(AttackSpeedBoostSpeed * 100),
+        ValueUtils.FormatValue(AttackSpeedBoostDamage * 100),
+        ValueUtils.FormatValue((AttackSpeedBoostSpeed * AttackSpeedBoostDamage) * 100)
         );
 
         public override void SetStaticDefaults()

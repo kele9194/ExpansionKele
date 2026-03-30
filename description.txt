@@ -142,6 +142,17 @@ v1.4.5.X
 调整了可可原液的恢复效果（100血，1分钟可可增益，60s冷却）
 修复了攻速手套和缓速手套对非鞭子类召唤武器伤害和攻速显示错误的bug
 
+v1.4.6
+新增各种符文石板，用来提供增益效果
+将望月护符的冷却机制用buff展示出来
+修复了黯淡和自我救赎受击后效果不生效的问题
+修复了部分物品的本地化问题
+坚韧系列徽章放宽减伤上限
+新增武器：大师卡牌，拳击手套，烟花，白磷烟雾发射器
+调整金织之针的武器伤害机制
+增强了星元狙击步枪的伤害和后期星元剑的伤害
+其他武器平衡调整
+
 This mod is developed purely for entertainment, developed by me alone, trying to achieve some imagination in ths mod and still under development. 
 When playing with the Calamity mod, some content will be adjusted to fit Calamity's numerical environment.
 
@@ -291,3 +302,14 @@ Emergency Update:
 Fixed a bug where erroneous code caused all healing potion cooldown times to be reduced to 30s
 Adjusted the restoration effect of Cocoa Liquor (100 HP, 1 minute Cocoa buff, 60s cooldown)
 Fixed a bug where attack speed gloves and slowing gloves displayed incorrect damage and attack speed for non-whip summon weapons.
+
+v1.4.6
+Added various Runic Tablet that provide buff effects
+Changed the Full Moon Amulet's cooldown mechanic to be displayed as a buff
+Fixed an issue where Fade and Self-Redemption hit effects were not working
+Fixed localization issues for some items
+Relaxed the damage reduction cap for the Tenacious series emblems
+Added new weapons: Master Card, Boxing Gloves, Fireworks, White Phosphorus Smoke Launcher
+Adjusted the weapon damage mechanic for Golden Weaver Needle
+Increased damage for Starry Sniper Rifle and late-game Starry Sword
+Other weapon balance adjustments

@@ -5,12 +5,19 @@ using System.Collections.Generic;
 using ExpansionKele.Content.Items.Placeables;
 using ExpansionKele.Content.Customs;
 using Terraria.DataStructures;
+using Terraria.Localization;
+using ExpansionKele.Content.Buff;
 
 namespace ExpansionKele.Content.Items.Accessories
 {
     public class FullMoonAmulet : ModItem
     {
         public override string LocalizationCategory => "Items.Accessories";
+        public static float damageBonus =1.05f;
+        public static int ArmorPenetrationBonus = 5;
+        public override LocalizedText Tooltip=>base.Tooltip.WithFormatArgs(
+            
+        );
 
         public override void SetDefaults()
         {
@@ -24,8 +31,7 @@ namespace ExpansionKele.Content.Items.Accessories
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
             var damageplayer=player.GetModPlayer<ExpansionKeleDamageMulti>();
-            // 乘算增伤 -25% (应该是+25%吧？因为-25%是减伤)
-            damageplayer.MultiplyMultiplicativeDamageBonus(1.05f);
+            damageplayer.MultiplyMultiplicativeDamageBonus(damageBonus);
             // +5穿甲
             player.GetArmorPenetration(DamageClass.Generic) += 5;
             
@@ -80,23 +86,48 @@ namespace ExpansionKele.Content.Items.Accessories
                     {
                         // 冷却该阶段
                         healthSegmentCooldown[i]--;
-                        // 一次只冷却一个阶段，所以break
+                        
+                        // 一次只冷却一个阶段，所以 break
                         break;
                     }
                 }
+                
+                // 为所有三个阶段添加 debuff，正在冷却的显示实际时间，未冷却的固定显示 40 秒
+                // 为所有三个阶段添加 debuff，只有正在冷却的阶段才添加
+                for (int i = 0; i < 3; i++)
+                {
+                    // 只给正在冷却的阶段添加 debuff
+                    if (healthSegmentCooldown[i] > 0)
+                    {
+                        int buffType = i switch
+                        {
+                            0 => ModContent.BuffType<FullMoonAmuletSegment1Cooldown>(),
+                            1 => ModContent.BuffType<FullMoonAmuletSegment2Cooldown>(),
+                            2 => ModContent.BuffType<FullMoonAmuletSegment3Cooldown>(),
+                            _ => 0
+                        };
+                        
+                        Player.AddBuff(buffType, healthSegmentCooldown[i]);
+                    }
+                }
+            }
+            else
+            {
+                if (Player.HasBuff(ModContent.BuffType<FullMoonAmuletSegment1Cooldown>()))
+                {
+                    Player.ClearBuff(ModContent.BuffType<FullMoonAmuletSegment1Cooldown>());
+                }
+                if (Player.HasBuff(ModContent.BuffType<FullMoonAmuletSegment2Cooldown>()))
+                {
+                    Player.ClearBuff(ModContent.BuffType<FullMoonAmuletSegment2Cooldown>());
+                }
+                if (Player.HasBuff(ModContent.BuffType<FullMoonAmuletSegment3Cooldown>()))
+                {
+                    Player.ClearBuff(ModContent.BuffType<FullMoonAmuletSegment3Cooldown>());
+                }
             }
         }
-// ... existing code ...
-// ... existing code ...
-        
-        // ... existing code ...
-        // ... existing code ...
-        // ... existing code ...
-        // ... existing code ...
-        // ... existing code ...
-        // ... existing code ...
-// ... existing code ...
-// ... existing code ...
+
         // PostHurt: 在伤害处理完成后调用
         // 可以根据实际受到的伤害来恢复血量
         // ... existing code ...
@@ -233,6 +264,15 @@ namespace ExpansionKele.Content.Items.Accessories
             return base.PreKill(damage, hitDirection, pvp, ref playSound, ref genDust, ref damageSource);
             
             // 默认情况使用基础
+        }
+        public override void Kill(double damage, int hitDirection, bool pvp, PlayerDeathReason damageSource)
+        {
+
+                for (int i = 0; i < 3; i++)
+                {
+                    healthSegmentCooldown[i] = 0;
+                }
+            // 没有装备护符时，保持冷却时间不变
         }
 // ... existing code ...
     }

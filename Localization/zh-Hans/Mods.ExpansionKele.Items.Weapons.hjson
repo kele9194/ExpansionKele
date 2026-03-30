@@ -390,6 +390,7 @@ DotZeroFiveSniperRifle: {
 		'''
 		在鼠标处产生一个瞄准镜框
 		左键在鼠标处发射弹丸
+		{0}概率造成当前目标{1}当前生命值伤害
 		注意，如果部分按键无法点击请切换别的物品
 		'''
 	DisplayName: .05狙击步枪
@@ -451,9 +452,4 @@ LaserCutter: {
 		作者碎碎念：做的破防了
 		'''
 	DisplayName: 激光切割机
-}
-
-SpaceFunnel: {
-	// Tooltip: ""
-	// DisplayName: Space Funnel
 }

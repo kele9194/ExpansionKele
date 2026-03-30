@@ -15,7 +15,7 @@ ExpansionKeleConfig: {
 
 	EnableCalamityRecipes: {
 		Label: Enable Calamity Recipes
-		Tooltip: Enable some crafting recipes for vanilla items that were removed in the Calamity Sunken Sea version (if Calamity is loaded)
+		Tooltip: Enable some crafting recipes for vanilla items that were removed in the Calamity version 2.1(if Calamity is loaded)
 	}
 
 	LaserAlwaysOn: {
@@ -40,5 +40,14 @@ ExpansionKeleConfig: {
 	EnableGlobalDamageMultiplierModification: {
 		Label: Enable Global Damage Multiplier Modification
 		Tooltip: it doe not work now
+	}
+
+	EnableVanillaRecipes: {
+		Tooltip:
+			'''
+			Enable some crafting recipes for vanilla items that were removed in Calamity 2.1 version
+			(Only recipes using vanilla materials, more Calamity recipes may be added later)
+			'''
+		Label: Enable Vanilla Recipes
 	}
 }

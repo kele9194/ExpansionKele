@@ -5,7 +5,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using ExpansionKele.Content.Customs;
 
-namespace ExpansionKele.Content.Items.OtherItem
+namespace ExpansionKele.Content.Items.OtherItem.BagItem
 {
     public class WoodDemonInstrument : ModItem
     {

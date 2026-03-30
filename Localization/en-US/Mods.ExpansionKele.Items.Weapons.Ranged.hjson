@@ -2,3 +2,15 @@ BurningPaperAirPlane: {
 	Tooltip: "Throw a burning paper plane that deals Daybreak debuff "
 	DisplayName: Burning Paper Air Plane
 }
+
+WPSmokeLauncher: {
+	DisplayName: White Phosphorus Smoke Launcher
+	Tooltip:
+		'''
+		Fires white phosphorus ammunition, creates smoke grenade clusters at mouse position
+		Each shot generates {0} waves of smoke
+		Activates fire control locking system when mouse is positioned above player
+		Can fire-control lock onto enemies near the cursor
+		Prioritizes locking onto Bosses and high-threat targets
+		'''
+}

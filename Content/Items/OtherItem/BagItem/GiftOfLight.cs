@@ -4,7 +4,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 
-namespace ExpansionKele.Content.Items.OtherItem
+namespace ExpansionKele.Content.Items.OtherItem.BagItem
 {
     public class GiftOfLight : ModItem
     {

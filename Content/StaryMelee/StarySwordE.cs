@@ -20,7 +20,7 @@ namespace ExpansionKele.Content.StaryMelee
         private const string introduction = "星元剑D的升级版，近战可造成两次伤害，第二次拥有恐怖的二次乘伤和短时增益，右键允许突进但无法连续使用，突进损失一定蓝量但给予无敌帧";
 
         // 重写基础属性
-        public override int BaseDamage => 24;
+        public override int BaseDamage => 27;
         public override int UseTime => 21;
         public override int Rarity => ItemRarityID.LightRed;
         public override int Crit => 7;

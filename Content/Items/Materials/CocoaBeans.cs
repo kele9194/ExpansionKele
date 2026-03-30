@@ -6,7 +6,7 @@ using Terraria.Enums;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace ExpansionKele.Content.Items.OtherItem
+namespace ExpansionKele.Content.Items.Materials
 {
     public class CocoaBeans : ModItem
     {

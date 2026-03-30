@@ -1,4 +1,5 @@
 using ExpansionKele.Content.Customs;
+using ExpansionKele.Content.Items.Materials;
 using ExpansionKele.Content.Items.OtherItem;
 using ExpansionKele.Content.Projectiles.RangedProj;
 using Terraria;

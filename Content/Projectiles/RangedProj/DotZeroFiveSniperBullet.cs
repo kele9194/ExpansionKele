@@ -11,6 +11,8 @@ namespace ExpansionKele.Content.Projectiles.RangedProj
 {
     public class DotZeroFiveSniperBullet : ModProjectile
     {
+        public static readonly int[] CanDamageFrac = new int[2] { 1, 3 };
+        public static float damageRatio = 0.01f;
         private static Asset<Texture2D> _cachedTexture;
 
         public override void Load()
@@ -91,11 +93,30 @@ namespace ExpansionKele.Content.Projectiles.RangedProj
             return false; // 我们已经手动绘制了，不需要默认绘制
         }
 
+        // ... existing code ...
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-
+            // 1/6 概率触发额外伤害
+            if (Main.rand.NextFloat() < 1f / 6f)
+            {
+                // 计算额外伤害：目标当前生命值的 1%
+                int extraDamage = (int)(target.lifeMax * 0.01f);
+                
+                // 确保至少有 1 点伤害
+                if (extraDamage < 1)
+                {
+                    extraDamage = 1;
+                }
+                
+                // 获取发射该弹幕的玩家
+                Player player = Main.player[Projectile.owner];
+                
+                // 对目标造成额外伤害
+                player.ApplyDamageToNPC(target, extraDamage, 0f, 0, false);
+                
+            }
         }
-
+// ... existing code ...
         public override void OnKill(int timeLeft)
         {
             // 死亡时产生粒子效果

@@ -6,7 +6,7 @@ using Terraria.GameContent.ItemDropRules;
 using Terraria.Localization;
 using ExpansionKele.Content.Customs;
 
-namespace ExpansionKele.Content.Items.OtherItem
+namespace ExpansionKele.Content.Items.Materials
 {
 	public class GolemShard : ModItem
 	{

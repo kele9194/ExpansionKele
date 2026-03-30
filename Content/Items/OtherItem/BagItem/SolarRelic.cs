@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using ExpansionKele.Content.Customs;
 
-namespace ExpansionKele.Content.Items.OtherItem
+namespace ExpansionKele.Content.Items.OtherItem.BagItem
 {
     public class SolarRelic : ModItem
     {

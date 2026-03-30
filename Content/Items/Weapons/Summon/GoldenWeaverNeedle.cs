@@ -34,12 +34,12 @@ namespace ExpansionKele.Content.Items.Weapons.Summon
 
         public override void SetDefaults()
         {
-            Item.damage = ExpansionKele.ATKTool(62, 76);         // 基础伤害值
+            Item.damage = ExpansionKele.ATKTool(62, 76);         // 基础伤害值62，76
             Item.DamageType = DamageClass.Summon;                // 召唤伤害类型
             Item.width = 28;                                     // 物品宽高
             Item.height = 30;
-            Item.useTime = 25;                                   // 使用时间
-            Item.useAnimation = 25;                              // 动画持续时间
+            Item.useTime = 30;                                   // 使用时间
+            Item.useAnimation = 30;                              // 动画持续时间
             Item.useStyle = ItemUseStyleID.Swing;                // 使用样式为挥舞
             Item.noMelee = false;                                 // 关闭近战攻击判定
             Item.knockBack = 3f;
@@ -89,7 +89,7 @@ namespace ExpansionKele.Content.Items.Weapons.Summon
             int summonSlotTotal = player.maxMinions;
             // 使用MinionSlotCalculator计算空余召唤栏位
             float summonSlotUnused = MinionSlotCalculator.CalculateAvailableMinionSlots(player);
-            float bonusMultiplier = 1f + (summonSlotTotal * 0.1f) + summonSlotUnused * 1f;
+            float bonusMultiplier = 0.1f + (summonSlotTotal * 0.1f) + summonSlotUnused * 1f;
             if (player.HeldItem.type == ModContent.ItemType<GoldenWeaverNeedle>())
             {
                 bonusMultiplier *= 1.5f;

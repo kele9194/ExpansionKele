@@ -9,6 +9,8 @@ using ExpansionKele.Content.Items.Weapons.Magic;
 using ExpansionKele.Content.Items.Placeables;
 using ExpansionKele.Content.Items.OtherItem;
 using ExpansionKele.Content.Projectiles.RangedProj;
+using ExpansionKele.Content.Items.Materials;
+using ExpansionKele.Content.Buff;
 
 namespace ExpansionKele.Content.Items.Weapons.Ranged
 {
@@ -85,9 +87,7 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
 		}
 		
 		public override void HoldItem(Player player) {
-			// 应用负面效果
-			var selfRedemptionPlayer = player.GetModPlayer<SelfRedemptionPlayer>();
-			selfRedemptionPlayer.isHoldingSelfRedemption = true;
+
 		}
 
 		
@@ -142,76 +142,12 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
 
 	public class SelfRedemptionPlayer : ModPlayer
 	{
-		public bool isHoldingSelfRedemption = false;
-		
-		public override void ResetEffects()
-		{
-			isHoldingSelfRedemption = false;
-		}
+		public override void PostHurt(Player.HurtInfo info)
+			{
+				if (Player.HeldItem?.type == ModContent.ItemType<SelfRedemption>())
+				{
+					Player.AddBuff(ModContent.BuffType<SelfRedemptionHitBuff>(), 360);
+				}
+			}
 	}
-
-	public class SelfRedemptionHitEffectPlayer : ModPlayer
-    {
-        // 受击后效果相关变量
-        public bool hitEffectActive = false;
-        public int hitEffectTimer = 0;
-        public const int HitEffectDuration = 360; // 持续360帧 (6秒)
-
-        public override void ResetEffects()
-        {
-            // 每帧重置效果
-        }
-
-        public override void ModifyHurt(ref Player.HurtModifiers modifiers)
-		{
-			base.ModifyHurt(ref modifiers);
-
-			// 只有当玩家手持SelfRedemption武器时才激活效果
-			var selfRedemptionPlayer = Player.GetModPlayer<SelfRedemptionPlayer>();
-			if (selfRedemptionPlayer.isHoldingSelfRedemption && !hitEffectActive)
-			{
-				hitEffectActive = true;
-				hitEffectTimer = HitEffectDuration;
-			}
-
-			// 如果受击效果激活，则增加30%防御前减伤
-			if (hitEffectActive && selfRedemptionPlayer.isHoldingSelfRedemption)
-			{
-				modifiers.IncomingDamageMultiplier *= 0.7f;
-			}
-		}
-
-        public override void PreUpdate()
-        {
-            // 更新计时器
-            if (hitEffectActive)
-            {
-                hitEffectTimer--;
-                if (hitEffectTimer <= 0)
-                {
-                    hitEffectActive = false;
-                }
-            }
-        }
-
-        public override void ModifyWeaponDamage(Item item, ref StatModifier damage)
-        {
-            // 只有当玩家手持SelfRedemption且受击效果激活时，才增加20%武器伤害
-            var selfRedemptionPlayer = Player.GetModPlayer<SelfRedemptionPlayer>();
-            if (hitEffectActive && selfRedemptionPlayer.isHoldingSelfRedemption)
-            {
-                damage*=1.2f; // 增加20%武器伤害
-            }
-        }
-
-        public override void UpdateLifeRegen()
-        {
-            // 只有当玩家手持Fade武器且受击效果激活时，才减少生命恢复时间
-            var fadePlayer = Player.GetModPlayer<FadePlayer>();
-            if (hitEffectActive && fadePlayer.isHoldingFade && Main.rand.NextDouble() <= 0.5)
-            {
-                Player.lifeRegenTime += 2;
-            }
-        }
-    }
 }

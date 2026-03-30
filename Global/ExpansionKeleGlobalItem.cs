@@ -6,6 +6,7 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using ExpansionKele.Content.Customs.Commands;
+using ExpansionKele.Content.Items.Materials;
 
 namespace ExpansionKele.Global 
 {  

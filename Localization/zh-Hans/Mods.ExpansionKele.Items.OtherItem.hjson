@@ -4,7 +4,11 @@ Wrench: {
 }
 
 WoodDemonInstrument: {
-	Tooltip: 魔力病时间减少（放在背包中收藏发挥作用）
+	Tooltip:
+		'''
+		加快魔力病冷却时间,允许自动使用魔力药水
+		（放在背包中收藏发挥作用）
+		'''
 	DisplayName: 木魔仪
 }
 
@@ -76,6 +80,7 @@ ChromiumOrePowder: {
 DefenseRegulator: {
 	Tooltip:
 		'''
+		[c/808080该物品在灾厄2.1版本已完全失效]
 		[c/808080:未加载灾厄模组时:]
 		[c/808080:无效果]
 
@@ -129,4 +134,109 @@ TestLocatorCopy: {
 	MultiplicativeDamageText: 乘算增伤(特殊伤害乘数)：{0}%
 	PreDefenseCombinedText: 防御前减伤倍率：{0}%
 	PostDefenseText: 防御后减伤倍率：{0}%
+}
+
+WarriorRunicTablet: {
+	Tooltip:
+		'''
+		收藏以发挥作用
+		使用近战武器攻击时，在{0}像素内击中敌人，将会恢复自身最大生命值的{1}左右的血量
+		该效果有{2}秒冷却
+		+{3}近战攻速
+		允许手持物品自动挥舞
+		'''
+	DisplayName: 战士符文石板
+}
+
+RangerRunicTablet: {
+	Tooltip:
+		'''
+		收藏以发挥作用
+		+{1}护甲穿透
+		-{2}仇恨值
+		当敌人在{3}像素以外时，每远{4}像素，增加{5}远程暴击率
+		最多增加{6}远程暴击率
+		'''
+	DisplayName: 射手符文石板
+}
+
+SorcererRunicTablet: {
+	DisplayName: 法师符文石板
+	Tooltip:
+		'''
+		收藏以发挥作用
+		+{0} 最大法力值
+		+{1} 魔法暴击率
+		加快魔力病冷却时间
+		'''
+}
+
+SummonerRunicTablet: {
+	Tooltip:
+		'''
+		+{0}召唤伤害
+		+{1}标记暴击率加成
+		'''
+	DisplayName: 召唤师符文石板
+}
+
+HeartRunicTablet: {
+	Tooltip:
+		'''
+		收藏以发挥作用
+		+{0} 最大生命值
+		'''
+	DisplayName: 生命符文石板
+}
+
+// ... existing code ...
+
+TenacityRunicTablet: {
+	Tooltip:
+		'''
+		+{0}防御力
+		x{1}防御后减伤
+		'''
+	DisplayName: 坚韧符文石板
+}
+
+AvengerRunicTablet: {
+	Tooltip: x{0}伤害(独立乘算增伤)
+	DisplayName: 复仇者符文石板
+}
+
+UnityRunicTablet: {
+	DisplayName: 团结符文石板
+	Tooltip:
+		'''
+		收藏以发挥作用
+		融合所有职业符文石板的终极之力
+		---万法归一，统御全场
+
+		[c/FFD700:效果汇总:]
+		[c/00FF00:战士:] 近战击中回复生命 + 自动挥舞
+		[c/00FF00:射手:] 护甲穿透 + 距离暴击加成
+		[c/00FF00:法师:] 最大法力值 + 魔法暴击 + 魔力病加速
+		[c/00FF00:召唤:] 召唤伤害 + 标记暴击率
+		'''
+}
+
+TriumphRunicTablet: {
+	DisplayName: 凯旋符文石板
+	Tooltip:
+		'''
+		收藏以发挥作用
+		融合生命、坚韧、复仇者三种符文石板之力
+
+		[c/FFD700:效果汇总:]
+		[c/00FF00:+{0} 最大生命值]
+		[c/00FF00:+{1} 防御力]
+		[c/00FF00:x{2} 防御后减伤]
+		[c/00FF00:x{3} 伤害 (独立乘算增伤)]
+		'''
+}
+
+ZephyrRunicTablet: {
+	// Tooltip: ""
+	// DisplayName: Zephyr Runic Tablet
 }

@@ -41,19 +41,7 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
         }
 
 
-        public override void ModifyWeaponDamage(Player player, ref StatModifier damage)
-        {
-            // 这里可以添加其他武器伤害修改逻辑
-        }
 
-//         public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
-// {
-//     if (target.velocity.Y != 0)
-//     {
-//         hit.Damage = (int)(hit.Damage * 1.4f); // 额外40%伤害
-//         Main.NewText($"Missile Launcher Damage: {hit.Damage}");
-//     }
-// }
         
          public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {

@@ -13,7 +13,7 @@ namespace ExpansionKele.Content.StarySniper
 	{
         public override string LocalizationCategory => "StarySniper";
         // 基础属性
-        public override int BaseDamage => 463;
+        public override int BaseDamage => 556;
         public override float KnockBack => 8f;
         public override float ShootSpeed => 16f;
         public override int UseTime => 70;

@@ -19,7 +19,7 @@ namespace ExpansionKele.Content.StaryMelee
         private const string introduction ="星元剑F的升级版";
 
         // 重写基础属性
-        public override int BaseDamage => 34;
+        public override int BaseDamage => 38;
         public override int UseTime => 20;
         public override int Rarity => ItemRarityID.LightPurple;
         public override int Crit => 9;

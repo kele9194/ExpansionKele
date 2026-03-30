@@ -6,6 +6,7 @@ using Terraria.DataStructures;
 using ExpansionKele.Content.Projectiles.RangedProj;
 using ExpansionKele.Content.Customs;
 using ExpansionKele.Content.Items.OtherItem;
+using ExpansionKele.Content.Items.Materials;
 
 namespace ExpansionKele.Content.Items.Weapons.Ranged
 {
@@ -28,7 +29,7 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
         {
             Item.width = 64;
             Item.height = 32;
-            Item.damage = ExpansionKele.ATKTool(1600,2400);
+            Item.damage = ExpansionKele.ATKTool(3000,4500);
             Item.DamageType = DamageClass.Ranged;
             Item.useTime = 180;
             Item.useAnimation = 180;
@@ -45,7 +46,7 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
 
         public override Vector2? HoldoutOffset()
         {
-            return new Vector2(-10f, 0f);
+            return new Vector2(-15f, -6f);
         }
 
         // ... existing code ...
@@ -80,13 +81,7 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
             modPlayer.holdingAutoAimingSniperRifle = true;
         }
 
-        public override bool CanUseItem(Player player)
-        {
-            // 统一使用设置，不再区分左右键
-            Item.useTime = 90;
-            Item.useAnimation = 90;
-            return base.CanUseItem(player);
-        }
+
 
 
         private void EnsureMarkerProjectileExists(Player player)
@@ -265,6 +260,7 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
 
             return false;
         }
+        
 
         private NPC FindNearestNPCToMouse(Player player)
         {

@@ -2,7 +2,7 @@ using ExpansionKele.Content.Customs;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace ExpansionKele.Content.Items.OtherItem
+namespace ExpansionKele.Content.Items.Materials
 {
 	public class RedemptionShard : ModItem
 	{

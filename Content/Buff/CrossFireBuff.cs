@@ -1,7 +1,7 @@
 using Terraria;
 using Terraria.ModLoader;
 using ExpansionKele.Content.Customs;
-using ExpansionKele.Content.Items.OtherItem;
+using ExpansionKele.Content.Items.OtherItem.BagItem;
 
 namespace ExpansionKele.Content.Buff
 {

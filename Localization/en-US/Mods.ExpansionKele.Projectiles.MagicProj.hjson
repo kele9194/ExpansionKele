@@ -1,2 +1,5 @@
 NightFireflyProjectile.DisplayName: Night Firefly Projectile
 AnaxaMagicTrickProjectile.DisplayName: Anaxa Magic Trick Projectile
+FireworksProjectile.DisplayName: Fireworks Projectile
+FireworksParticle.DisplayName: Fireworks Particle
+CardProjectile.DisplayName: Card Projectile

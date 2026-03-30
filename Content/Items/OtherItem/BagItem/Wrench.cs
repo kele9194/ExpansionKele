@@ -5,7 +5,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace ExpansionKele.Content.Items.OtherItem
+namespace ExpansionKele.Content.Items.OtherItem.BagItem
 {
     public class Wrench : ModItem
     {
@@ -23,7 +23,7 @@ namespace ExpansionKele.Content.Items.OtherItem
         public override void AddRecipes()
         {
             CreateRecipe()
-                .AddRecipeGroup("ExpansionKele:AnyIronBars", 5)// 需要12个木头
+                .AddRecipeGroup("ExpansionKele:AnyCopperBars", 5)// 需要12个木头
                 .AddTile(TileID.WorkBenches) // 在工作台制作
                 .Register();
         }

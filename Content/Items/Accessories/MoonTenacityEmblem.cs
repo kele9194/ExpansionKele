@@ -15,7 +15,7 @@ namespace ExpansionKele.Content.Items.Accessories
         private const float DefensePercentBonus = 0.07f; // 7%
         private const float DamageReduction = 0.05f; // 5%
         private const float BonusPerTenDefense = 0.005f; // 0.5%
-        private const float MaxBonus = 0.10f; // 10% 最大加成
+        private const float MaxBonus = 0.20f; // 10% 最大加成
 
         public override void SetDefaults()
         {

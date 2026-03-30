@@ -159,3 +159,28 @@ GoldenWeaverMinionBuff: {
 	Description: 金针准备就绪
 	DisplayName: 金锦之针
 }
+
+FullMoonAmuletSegment3Cooldown: {
+	Description: 血条段3正在冷却
+	DisplayName: 望月护符血条段3冷却
+}
+
+FullMoonAmuletSegment2Cooldown: {
+	Description: 血条段2正在冷却
+	DisplayName: 望月护符血条段2冷却
+}
+
+FullMoonAmuletSegment1Cooldown: {
+	Description: 血条段1正在冷却
+	DisplayName: 望月护符血条段1冷却
+}
+
+FadeHitDebuff: {
+	Description: 正在遭受攻击
+	DisplayName: 黯淡受击减益
+}
+
+SelfRedemptionHitBuff: {
+	// Description: Mods.ExpansionKele.Buff.SelfRedemptionHitBuff.Description
+	// DisplayName: Self Redemption Hit Buff
+}

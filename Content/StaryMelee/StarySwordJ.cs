@@ -19,7 +19,7 @@ namespace ExpansionKele.Content.StaryMelee
         private const string introduction ="星元剑I的升级版,是原版月球领主后的最终升级版";
 
         // 重写基础属性
-        public override int BaseDamage => 111;
+        public override int BaseDamage => 122;
         public override int UseTime => 21;
         public override int Rarity => ItemRarityID.Red;
         public override int Crit => 15;

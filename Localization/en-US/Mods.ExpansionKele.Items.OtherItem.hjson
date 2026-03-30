@@ -1,10 +1,14 @@
 Wrench: {
-	Tooltip: allow autouse item you hold(put it in your bag and Favor it to function)
+	Tooltip: allow to autouse item you hold(put it in your bag and Favor it to function)
 	DisplayName: Wrench
 }
 
 WoodDemonInstrument: {
-	Tooltip: manasickness time decrease(put it in your bag and Favor it to function)
+	Tooltip:
+		'''
+		Speeds up mana sickness cooldown and can autouse mana potion
+		(put it in your bag and Favor it to function)
+		'''
 	DisplayName: Wood Demon Instrument
 }
 
@@ -72,6 +76,7 @@ ChromiumOrePowder: {
 DefenseRegulator: {
 	Tooltip:
 		'''
+		[c/808080:This item has been completely deprecated since Calamity Mod 2.1]
 		[c/808080:When Calamity Mod is not loaded:]
 		[c/808080:Does nothing]
 
@@ -129,4 +134,110 @@ TestLocatorCopy: {
 	MultiplicativeDamageText: Multiplicative Damage Bonus: {0}%
 	PreDefenseCombinedText: Pre-Defense Damage Reduction Multiplier: {0}%
 	PostDefenseText: Post-Defense Damage Reduction Multiplier: {0}%
+}
+
+WarriorRunicTablet: {
+	Tooltip:
+		'''
+		Favorite to function
+		When hitting enemies with melee weapons within {0} pixels, restores approximately {1} of your max health
+		This effect has a {2} second cooldown
+		+{3} melee attack speed
+		allow to autouse item you hold
+		'''
+	DisplayName: Warrior Runic Tablet
+}
+
+RangerRunicTablet: {
+	Tooltip:
+		'''
+		Favorite to function
+		+{1} armor penetration
+		-{2} aggro
+		When enemy is beyond {3} pixels, for every {4} pixels further, increases {5} ranged critical strike chance
+		Maximum {6} ranged critical strike chance bonus
+		'''
+	DisplayName: Ranger Runic Tablet
+}
+
+SorcererRunicTablet: {
+	DisplayName: Sorcerer Runic Tablet
+	Tooltip:
+		'''
+		Favorite to function
+		+{0} max mana
+		+{1} magic critical strike chance
+		Speeds up mana sickness cooldown
+		'''
+}
+
+SummonerRunicTablet: {
+	Tooltip:
+		'''
+		+{0} summon damage
+		+{1} marked critical strike chance bonus
+		'''
+	DisplayName: Summoner Runic Tablet
+}
+
+HeartRunicTablet: {
+	Tooltip:
+		'''
+		Favorite to function
+		+{0} max health
+		'''
+	DisplayName: Heart Runic Tablet
+}
+
+// ... existing code ...
+
+TenacityRunicTablet: {
+	Tooltip:
+		'''
+		+{0} Defense
+		x{1} Post-Defense Damage Reduction
+		'''
+	DisplayName: Tenacity Runic Tablet
+}
+
+AvengerRunicTablet: {
+	Tooltip: x{0} Damage (Independent Multiplicative Bonus)
+	DisplayName: Avenger Runic Tablet
+}
+
+UnityRunicTablet: {
+	DisplayName: Unity Runic Tablet
+	Tooltip:
+		'''
+		Favorite to function
+		Fuses the ultimate power of all class Runic Tablets
+		---Unite all, dominate all
+
+		[c/FFD700:Effect Summary:]
+		[c/00FF00:Melee:] Life on hit + Auto-swing
+		[c/00FF00:Ranged:] Armor penetration + Distance crit bonus
+		[c/00FF00:Magic:] Max mana + Magic crit + Mana sickness reduced
+		[c/00FF00:Summon:] Summon damage + Marked crit chance
+		'''
+}
+
+TriumphRunicTablet: {
+	DisplayName: Triumph Runic Tablet
+	Tooltip:
+		'''
+		Favorite to function
+		Fuses the power of Life, Tenacity, and Avenger Runic Tablets
+		---Triumph over all adversity
+
+		[c/FFD700:Effect Summary:]
+		[c/00FF00:+{0} Max Health]
+		[c/00FF00:+{1} Defense]
+		[c/00FF00:x{2} Post-Defense Damage Reduction]
+		[c/00FF00:x{3} Damage (Independent Multiplicative Bonus)]
+		'''
+}
+
+ZephyrRunicTablet: {
+	Tooltip: ""
+	DisplayName: Zephyr Runic Tablet
 }

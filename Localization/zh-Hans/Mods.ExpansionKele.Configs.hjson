@@ -15,7 +15,7 @@ ExpansionKeleConfig: {
 
 	EnableCalamityRecipes: {
 		Label: 启用灾厄配方
-		Tooltip: 启用在灾厄沉沦海版本中被移除的一些原版物品制作配方（如果加载了灾厄模组）
+		Tooltip: 启用在灾厄2.1版本中被移除的一些原版物品制作配方（如果加载了灾厄模组）
 	}
 
 	LaserAlwaysOn: {
@@ -36,5 +36,14 @@ ExpansionKeleConfig: {
 	EnableGlobalDamageMultiplierModification: {
 		Label: 设置伤害倍率器
 		Tooltip: 暂时无效
+	}
+
+	EnableVanillaRecipes: {
+		Tooltip:
+			'''
+			启用在灾厄2.1版本中被移除的一些原版物品制作配方
+			(只有用原版材料的部分配方，后续可能会增加其他的灾厄配方)
+			'''
+		Label: 原版配方增强
 	}
 }

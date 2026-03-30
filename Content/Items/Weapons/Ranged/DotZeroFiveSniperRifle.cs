@@ -7,12 +7,18 @@ using ExpansionKele.Content.Customs;
 using ExpansionKele.Content.Projectiles.RangedProj;
 using Terraria.GameContent.RGB;
 using ExpansionKele.Content.Items.OtherItem;
+using ExpansionKele.Content.Items.Materials;
+using Terraria.Localization;
 
 namespace ExpansionKele.Content.Items.Weapons.Ranged
 {
     public class DotZeroFiveSniperRifle : ModItem
     {
         public override string LocalizationCategory => "Items.Weapons";
+        public override LocalizedText Tooltip => base.Tooltip.WithFormatArgs(
+            ValueUtils.FormatFraction(DotZeroFiveSniperBullet.CanDamageFrac),
+            ValueUtils.FormatValue(DotZeroFiveSniperBullet.damageRatio,true)
+        );
 
         public override void SetStaticDefaults()
         {

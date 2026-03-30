@@ -18,3 +18,29 @@ AnaxaMagicTrick: {
 		Inflicts random some of debuffs
 		'''
 }
+
+Fireworks: {
+	Tooltip:
+		'''
+		Deals damage and scatters {0} fragments when the firework body is destroyed
+		Fragments have a {1} chance to deal {2} damage and ignore {3} enemy defense
+		'''
+	DisplayName: Firework
+}
+
+CardMaster: {
+	DisplayName: Card Master
+	Tooltip:
+		'''
+		Randomly draw 5 cards, base damage is the sum of hand cards (A counts as 14), hand rank determines damage multiplier
+		High-tier Hands:
+		Royal Flush 25x | Straight Flush 20x | Four of a Kind 18x | Full House 15x | Flush/Straight 10x
+		Low-tier Hands: Three of a Kind 8x | Two Pair 5x | One Pair 2x | High Card 1x
+		Luck stat slightly affects the draw probability of high-value cards
+		Card Master (Trait): Increases probability of high-value cards, decreases probability of low-value cards
+		Low-tier hands also accumulate luck, high-tier hands reduce luck proportionally
+		Card damage is affected by damage bonuses
+		If you roll a Straight Flush, just be happy about it
+		'''
+	CurrentHandLuckText: Current Hand Luck: {0}
+}

@@ -2,3 +2,13 @@ TangDynastySaber: {
 	Tooltip: 近战剑刃命中敌人会积蓄剑气能量，无能量下发射剑气伤害变为0.6倍
 	DisplayName: 唐横刀
 }
+
+BoxingGloves: {
+	DisplayName: 拳击手套
+	Tooltip:
+		'''
+		左右交替拳击
+		拳套中只有打到敌人才能挥出下一拳
+		你离我足够近了吧，吃我一拳
+		'''
+}

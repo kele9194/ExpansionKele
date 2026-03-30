@@ -358,7 +358,7 @@ IronOathShield: {
 FullMoonAmulet: {
 	Tooltip:
 		'''
-		105% multiplicative damage reduction
+		105% multiplicative damage bonus
 		+5 armor penetration
 		Divides your health bar into three equal segments
 		taken damage will be restricted to one health segment,
@@ -371,9 +371,9 @@ FullMoonAmulet: {
 ChromiumShield: {
 	Tooltip:
 		'''
-		12% Pre-defense damage reduction(*0.88)
-		40 ECshield
-		4 ECshield regen
+		{0}% Pre-defense damage reduction(multiplicative)
+		{1} ECshield
+		{2} ECshield regen
 		knockback resistance
 		'''
 	DisplayName: Chromium Shield

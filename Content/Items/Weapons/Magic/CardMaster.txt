@@ -1,0 +1,105 @@
+🃏 泰拉瑞亚模组武器设计文档：卡牌大师 (Card Master)
+1. 项目概述
+设计一把泰拉瑞亚 (Terraria) tModLoader 魔法武器“卡牌大师”。
+核心玩法：每次攻击随机抽取5张牌，根据牌型（如皇家同花顺、四条等）计算伤害并发射对应弹幕。
+性能要求：必须适应泰拉瑞亚快节奏战斗（默认攻速约0.5秒/次），严禁因频繁的对象创建 (GC) 或复杂排序导致游戏卡顿 (Lag Spikes)。
+视觉风格：扑克牌元素，高稀有度牌型需有华丽特效。
+2. 核心机制详解
+2.1 牌面与点数定义
+花色：黑桃 (Spades), 红桃 (Hearts), 梅花 (Clubs), 方块 (Diamonds)。
+点数映射：
+2-9: 对应数字 2-9
+10, J, Q, K: 对应 10, 11, 12, 13
+A: 严格定义为 14 (仅在 10-J-Q-K-A 时构成顺子，A-2-3-4-5 不视为顺子)。
+手牌数量：固定 5 张。
+2.2 幸运值 (Luck) 影响机制
+采用 权重偏移法 + 视觉反馈：
+逻辑：
+Player.Luck > 0：增加高点数牌 (10-A) 在随机池中的权重，提高大牌型概率。
+Player.Luck < 0：增加低点数牌权重。
+特效：当 Luck 极高且触发高阶牌型时，播放“金光闪闪”的抽牌动画。
+2.3 伤害计算公式 (统一倍率法 - 推荐方案)
+为平衡策略深度与计算性能，采用统一公式结构，差异化倍率系数：
+通用公式：Final Damage = BaseDamage * (Sum of All 5 Cards) * TypeMultiplier
+倍率表 (TypeMultiplier)：
+表格
+牌型	倍率	说明
+皇家同花顺 (10-J-Q-K-A 同花)	25x	最高爆发
+同花顺 (连续5张同花)	20x	
+四条 (4张同点数)	18x	
+满堂红 (3+2)	15x	
+同花 / 顺子	10x	
+三条 (3张同点数)	8x	
+两对 (2+2)	5x	
+一对 (2张同点数)	2x	
+高牌 (无组合)	1x	保底伤害
+优势：每张牌都对总和有贡献，避免废牌感；公式统一，便于心算和代码维护。
+3. 视觉与发射方案 (扇形手牌流)
+发射形态：每次攻击生成 5 个独立的弹幕投影 (Projectile)，初始位置在玩家手中，呈扇形散布飞出。
+可视性优化：
+弹幕在生成后的前 0.15 秒内速度较慢且间距较小，确保玩家能看清手中的 5 张牌面。
+随后加速飞向鼠标指向或最近敌人。
+特效反馈：
+牌型高亮：若判定为“顺子”及以上，所有相关卡牌弹幕添加彩色拖尾。
+击中特效：击中敌人时，根据牌型等级播放不同强度的爆炸特效（如皇家同花顺触发全屏闪光及 "ROYAL FLUSH!" 文字）。
+4. 底层实现与性能优化 (关键技术点)
+4.1 数据存储结构 (零 GC 策略)
+严禁在每次攻击 (Shoot 或 PreAI) 中使用 new Card() 或 new List<Card>()。
+方案：使用静态复用数组与结构体 (struct)。
+// 定义不可变的结构体，避免引用类型开销
+public struct CardData {
+    public byte Rank; // 2-14
+    public byte Suit; // 0-3
+    // 构造函数仅做赋值，无内存分配
+}
+// 在武器类中声明静态复用缓冲区 (Thread-Safe 需注意，但在单线程主逻辑中安全)
+private static readonly CardData[] _handBuffer = new CardData[5]; 
+private static readonly int[] _rankCounts = new int[15]; // 用于快速统计点数频次 (索引2-14)
+private static readonly bool[] _suitHasCards = new bool[4]; // 用于快速统计花色
+操作流程：
+攻击触发时，直接重置 _rankCounts 和 _suitHasCards (使用 Array.Clear 或手动循环，避免分配新数组)。
+循环 5 次生成随机牌，直接写入 _handBuffer[i]。
+同步更新计数数组，无需二次遍历。
+4.2 牌型判定算法 (O(1) 复杂度)
+放弃排序法，采用频次统计法，将复杂度从 O(N log N) 降至 O(N) (N=5)。
+步骤：
+初始化：清空 rankCounts[15] 和 suitCounts[4]。
+单次遍历填表：
+生成每张牌时，rankCounts[card.Rank]++，suitCounts[card.Suit]++。
+同时累加 totalRankSum。
+判定逻辑 (基于统计数组，无需排序)：
+同花判断：遍历 suitCounts，若有任意项 == 5 -> 是同花。
+顺子判断：
+检查 10,11,12,13,14 是否均 >= 1 (皇家/普通顺子)。
+或遍历 rankCounts 寻找连续 5 个非零项 (注意 A=14 的特殊性，本题规定 A2345 不算，简化了逻辑)。
+对子/条子判断：
+遍历 rankCounts，记录 maxCount (最大重复数) 和 pairCount (对子数量)。
+maxCount == 4 -> 四条。
+maxCount == 3 && pairCount == 1 -> 满堂红。
+maxCount == 3 -> 三条。
+maxCount == 2 && pairCount == 2 -> 两对。
+maxCount == 2 -> 一对。
+优势：完全避免了 Array.Sort 或 List.Sort 带来的开销，极端稳定。
+4.3 弹幕对象池 (Projectile Pooling)
+问题：高频发射 5 个弹幕可能导致对象池耗尽或频繁实例化。
+方案：
+在 ModSystem.Load 中预加载卡牌贴图。
+利用 tModLoader 自带的 Projectile 管理机制，但需在 Shoot 回调中严格控制生成逻辑。
+自定义 AI：为卡牌弹幕编写专用的 GlobalProjectile，在 PreAI 中通过 Projectile.ai[0] 存储牌面数据 (Rank/Suit)，避免在 Update 循环中查找额外数据字典。
+ai[0]: 编码后的牌面信息 (例如 Rank * 10 + Suit)。
+ai[1]: 牌型倍率缓存 (在生成时计算好存入，Update 时直接使用，避免每帧重复计算)。
+5. 开发交付物要求
+C# 类结构：
+CardMasterItem : ModItem (处理 Shoot 逻辑，包含上述优化算法)。
+CardProjectile : ModProjectile (处理移动、贴图绘制、击中特效)。
+HandEvaluator : static class (纯静态工具类，包含无 GC 的牌型判定逻辑)。
+配置项：
+在 .json 配置文件中暴露 BaseDamage 和 TypeMultipliers 数组，方便后续平衡性调整。
+资源规范：
+提供 52 张牌的独立贴图或一张 SpriteSheet (推荐 SpriteSheet 以减少 DrawCall)。
+牌面需在弹幕飞行初期清晰可见。
+6. 特殊边界情况处理
+网络同步：由于牌型决定伤害，必须在服务器端进行判定。客户端仅负责表现。确保 Shoot 逻辑中计算的牌型数据通过 Projectile.ai 正确同步到服务器/客户端。
+极端幸运值：当 Player.Luck 导致权重溢出时，确保随机算法不会死循环，设置最大重试次数。
+A 的顺子逻辑：代码中需硬编码 if (has10 && hasJ && hasQ && hasK && hasA) 作为最高优先级顺子判断，忽略其他含 A 的组合。
+指令：请依据以上设计规范，编写核心的 HandEvaluator 静态类代码（包含零 GC 的判定逻辑）以及 ModItem.Shoot 方法的实现框架。

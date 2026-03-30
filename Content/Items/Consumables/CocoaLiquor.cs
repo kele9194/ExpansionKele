@@ -4,6 +4,7 @@ using Terraria.ModLoader;
 using ExpansionKele.Content.Buff;
 using System.Collections.Generic;
 using ExpansionKele.Content.Customs;
+using ExpansionKele.Content.Items.Materials;
 
 namespace ExpansionKele.Content.Items.Consumables
 {
@@ -41,13 +42,13 @@ namespace ExpansionKele.Content.Items.Consumables
         public override void AddRecipes()
         {
             CreateRecipe(2)
-                .AddIngredient(ModContent.ItemType<OtherItem.CocoaBeans>(), 1)
+                .AddIngredient(ModContent.ItemType<CocoaBeans>(), 1)
                 .AddIngredient(ItemID.BottledWater, 2)
                 .AddTile(TileID.Bottles)
                 .Register();
 
             CreateRecipe(2)
-                .AddIngredient(ModContent.ItemType<OtherItem.CocoaBeans>(), 1)
+                .AddIngredient(ModContent.ItemType<CocoaBeans>(), 1)
                 .AddIngredient(ItemID.BottledWater, 2)
                 .AddTile(TileID.AlchemyTable)
                 .Register();

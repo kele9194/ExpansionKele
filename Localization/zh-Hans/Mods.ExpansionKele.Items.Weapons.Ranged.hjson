@@ -6,3 +6,15 @@ BurningPaperAirPlane: {
 		'''
 	DisplayName: 燃烧的纸飞机
 }
+
+WPSmokeLauncher: {
+	DisplayName: 烟雾防空发射器
+	Tooltip:
+		'''
+		发射白磷弹药，在鼠标位置产生烟雾弹集群
+		每次发射会产生{0}波烟雾
+		鼠标位于玩家上方时激活火控锁定系统
+		可以火控锁定鼠标附近的敌人
+		优先锁定 Boss 与高威胁目标
+		'''
+}

@@ -15,7 +15,7 @@ namespace ExpansionKele.Content.StarySniper
 	{
         public override string LocalizationCategory => "StarySniper";
 		
-		public override int BaseDamage => 65;
+		public override int BaseDamage => 78;
 		public override int Width => 64;
 		public override int Height => 25;
 		public override int UseTime => 97;

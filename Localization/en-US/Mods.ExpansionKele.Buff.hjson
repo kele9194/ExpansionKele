@@ -159,3 +159,28 @@ GoldenWeaverMinionBuff: {
 	Description: MGolden Brocade Ready
 	DisplayName: Golden Brocade Minion Buff
 }
+
+FullMoonAmuletSegment3Cooldown: {
+	Description: HP Segment3 Cooldown
+	DisplayName: Full Moon Amulet Segment3 Cooldown
+}
+
+FullMoonAmuletSegment2Cooldown: {
+	Description: HP Segment2 Cooldown
+	DisplayName: Full Moon Amulet Segment2 Cooldown
+}
+
+FullMoonAmuletSegment1Cooldown: {
+	Description: HP Segment1 Cooldown
+	DisplayName: Full Moon Amulet Segment1 Cooldown
+}
+
+FadeHitDebuff: {
+	Description: Under attack
+	DisplayName: Fade Hit Debuff
+}
+
+SelfRedemptionHitBuff: {
+	Description: Mods.ExpansionKele.Buff.SelfRedemptionHitBuff.Description
+	DisplayName: Self Redemption Hit Buff
+}

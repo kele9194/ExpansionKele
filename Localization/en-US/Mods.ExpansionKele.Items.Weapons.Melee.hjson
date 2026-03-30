@@ -6,3 +6,13 @@ TangDynastySaber: {
 		'''
 	DisplayName: Tang Dynasty Saber
 }
+
+BoxingGloves: {
+	DisplayName: Boxing Gloves
+	Tooltip:
+		'''
+		Alternates left and right punches
+		Only landing a hit on enemies allows the next punch
+		Get close enough, take this punch!
+		'''
+}

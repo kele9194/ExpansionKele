@@ -7,6 +7,7 @@ using ExpansionKele.Content.Projectiles.RangedProj;
 using ExpansionKele.Content.Customs;
 using ExpansionKele.Content.Items.Weapons.Generic;
 using ExpansionKele.Content.Items.OtherItem;
+using ExpansionKele.Content.Items.Materials;
 
 namespace ExpansionKele.Content.Items.Weapons.Ranged
 {

@@ -1,3 +1,4 @@
+using ExpansionKele.Content.Customs;
 using Microsoft.Build.Evaluation;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -107,8 +108,7 @@ namespace ExpansionKele.Content.Projectiles.MagicProj
 		}
 		private void SplitIntoSecondaryLasers(Vector2 hitPosition)
 		{
-			// 计算次级激光的伤害（主激光伤害的30%）
-			int secondaryDamage = (int)(Projectile.damage * 0.3f);
+			
 			
 			// 向两个随机方向发射次级激光
 			for (int i = 0; i < 2; i++)
@@ -123,7 +123,7 @@ namespace ExpansionKele.Content.Projectiles.MagicProj
 					hitPosition,
 					splitVelocity,
 					ModContent.ProjectileType<EnhancedLaserSplitProjectile>(),
-					secondaryDamage,
+					ValueUtils.ProbabilisticRound(Projectile.damage * 0.3f),
 					Projectile.knockBack * 0.5f,
 					Projectile.owner
 				);

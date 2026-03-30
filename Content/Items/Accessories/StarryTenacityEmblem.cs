@@ -15,7 +15,7 @@ namespace ExpansionKele.Content.Items.Accessories
         private const float DefensePercentBonus = 0.15f; // 15%
         private const float DamageReduction = 0.10f; // 10%
         private const float BonusPerTenDefense = 0.01f; // 1%
-        private const float MaxBonus = 0.20f; // 20% 最大加成
+        private const float MaxBonus = 0.40f; // 40% 最大加成
         private const float DamageReductionAfterHit = 0.20f; // 受伤后20%减伤
         private const float DefenseAfterHitPercent = 0.15f; // 受伤后15%防御
         private const int EffectDuration = 600; // 600帧效果持续时间
