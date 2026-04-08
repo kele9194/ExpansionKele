@@ -40,7 +40,48 @@ CardMaster: {
 		Card Master (Trait): Increases probability of high-value cards, decreases probability of low-value cards
 		Low-tier hands also accumulate luck, high-tier hands reduce luck proportionally
 		Card damage is affected by damage bonuses
+		Spade cards instantly kill spider-type enemies
 		If you roll a Straight Flush, just be happy about it
 		'''
 	CurrentHandLuckText: Current Hand Luck: {0}
+}
+
+FeatherStaff: {
+	Tooltip:
+		'''
+		Similar to a clock, it shoots feathers clockwise towards the mouse cursor.
+		feathers have 10 armor penetration
+		'''
+	DisplayName: Feather Staff
+}
+
+Rinya: {
+	DisplayName: Rinya's magicbook
+	Tooltip:
+		'''
+		Charge to create a magic array. The array requires a brief moment after charging before it can launch and track targets.
+		Magic array damage increases with charge time.
+		The array has a chance to fire magic projectiles, and projectile damage is increased when the array is tracking.
+		Charge speed and magic projectile spawn chance are affected by use time multiplier.
+		'''
+}
+
+CelestialPlumeStaff: {
+	DisplayName: Celestial Plume Staff
+	Tooltip:
+		'''
+		Similar to a clock, fires 3 feathers and 1 giant feather towards the mouse cursor in clockwise order.
+		The giant feather deals double damage.
+		'''
+}
+
+ThousandEyedSoulChase: {
+	Tooltip:
+		'''
+		Fires a fast marking arrow. When the marking arrow hits an enemy, scattered arrows will track the target.
+		Charging increases damage and extends range.
+		All arrows inflict Shadowflame debuff.
+		Charge speed is affected by use time multiplier.
+		'''
+	DisplayName: Thousand Eyed Soul Chase
 }

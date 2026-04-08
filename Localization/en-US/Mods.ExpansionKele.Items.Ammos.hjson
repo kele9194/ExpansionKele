@@ -22,3 +22,8 @@ ChromiumArrow: {
 		deal more damage to enemies without this debuff
 		'''
 }
+
+ChromiumBullet: {
+	DisplayName: Chromium Bullet
+	Tooltip: ""
+}

@@ -18,3 +18,8 @@ GoldenWeaverNeedle: {
 		'''
 	DisplayName: Golden Weaver Needle
 }
+
+RemoteGatling: {
+	DisplayName: Remote Gatling Syetem
+	Tooltip: Deploy an automatic Gatling weapon station
+}

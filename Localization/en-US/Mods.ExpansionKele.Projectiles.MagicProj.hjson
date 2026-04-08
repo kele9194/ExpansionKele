@@ -3,3 +3,6 @@ AnaxaMagicTrickProjectile.DisplayName: Anaxa Magic Trick Projectile
 FireworksProjectile.DisplayName: Fireworks Projectile
 FireworksParticle.DisplayName: Fireworks Particle
 CardProjectile.DisplayName: Card Projectile
+FeatherProjectile.DisplayName: Feather Projectile
+FeatherPlusProjectile.DisplayName: Feather Plus Projectile
+GiantFeatherProjectile.DisplayName: Giant Feather Projectile

@@ -1,5 +1,8 @@
 NightFireflyProjectile.DisplayName: 夜萤火
 AnaxaMagicTrickProjectile.DisplayName: 魔法子弹(魔术技巧)
-// FireworksProjectile.DisplayName: Fireworks Projectile
-// FireworksParticle.DisplayName: Fireworks Particle
-// CardProjectile.DisplayName: Card Projectile
+FireworksProjectile.DisplayName: 烟花
+FireworksParticle.DisplayName: 烟花分裂碎片
+CardProjectile.DisplayName: 卡牌
+FeatherProjectile.DisplayName: 羽毛
+FeatherPlusProjectile.DisplayName: 羽毛（天羽法杖）
+GiantFeatherProjectile.DisplayName: 巨形羽毛

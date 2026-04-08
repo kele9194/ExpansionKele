@@ -69,4 +69,41 @@ public class UseTimeHelper
 		// 返回修正后的使用时间，确保至少为1帧
 		return Math.Max(1, (int)((float)item.useTime * totalUseTimeMult));
 	}
+
+	/// <summary>
+	/// 获取玩家使用物品时的总倍数
+	/// </summary>
+	/// <param name="player">使用物品的玩家实例</param>
+	/// <param name="item">要使用的物品实例</param>
+	/// <param name="includeAttackSpeed">是否包含攻击速度效果，默认为false</param>
+	/// <returns>总倍数，值越大表示使用速度越快</returns>
+	/// <remarks>
+	/// 当includeAttackSpeed为false时，只考虑：
+	/// - 玩家使用速度倍数
+	/// - 物品使用速度倍数
+	/// - 玩家使用时间倍数
+	/// - 物品使用时间倍数
+	/// - 原版物品攻击速度乘数
+	/// 
+	/// 当includeAttackSpeed为true时，额外考虑玩家的攻击速度属性
+	/// </remarks>
+	public static float GetTotalUseMultiplier(Player player, Item item, bool includeAttackSpeed = false)
+	{
+		float vanillaSpeedMult = ItemID.Sets.BonusAttackSpeedMultiplier[item.type];
+		float playerSpeedMult = PlayerLoader.UseSpeedMultiplier(player, item);
+		float itemSpeedMult = ItemLoader.UseSpeedMultiplier(item, player);
+		float playerTimeMult = PlayerLoader.UseTimeMultiplier(player, item);
+		float itemTimeMult = ItemLoader.UseTimeMultiplier(item, player);
+		
+		float totalMultiplier = playerSpeedMult * itemSpeedMult * vanillaSpeedMult / (playerTimeMult * itemTimeMult);
+		
+		if (includeAttackSpeed)
+		{
+			float attackSpeed = player.GetTotalAttackSpeed(item.DamageType);
+			attackSpeed = 1f + (attackSpeed - 1f) * vanillaSpeedMult;
+			totalMultiplier *= attackSpeed;
+		}
+		
+		return totalMultiplier;
+	}
 }

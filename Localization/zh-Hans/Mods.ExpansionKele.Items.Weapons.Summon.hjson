@@ -19,3 +19,13 @@ GoldenWeaverNeedle: {
 		'''
 	DisplayName: 金织之针
 }
+
+RemoteGatling: {
+	DisplayName: 遥控加特林站台
+	Tooltip:
+		'''
+		部署一座自动加特林武器站
+		武器站发射特制的铬钢弹
+		造成20点盔甲穿透
+		'''
+}

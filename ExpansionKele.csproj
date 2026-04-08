@@ -13,6 +13,13 @@
 		<RootNamespace>ExpansionKele</RootNamespace>
 		<AssemblyName>ExpansionKele</AssemblyName>
 	</PropertyGroup>
+	<ItemGroup>
+    <!-- 引用编译好的 InnoVault.dll -->
+    <Reference Include="InnoVault">
+      <HintPath>..\..\ModReader\InnoVault\InnoVault.dll</HintPath>
+      <Private>false</Private> <!-- 不复制到输出目录 -->
+    </Reference>
+  </ItemGroup>
 
 
 </Project>

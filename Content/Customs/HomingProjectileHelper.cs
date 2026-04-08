@@ -9,6 +9,23 @@ namespace ExpansionKele.Content.Customs
 {
     public static class ProjectileHelper
     {
+        private static Dictionary<int, ProjectileLockData> _lockStates = new Dictionary<int, ProjectileLockData>();
+        
+        private static int _cleanupCounter = 0;
+        private const int CLEANUP_INTERVAL = 600;
+        
+        private struct ProjectileLockData
+        {
+            public int LockedTargetId;
+            public float LockTimer;
+            
+            public ProjectileLockData(int targetId, float timer = 0f)
+            {
+                LockedTargetId = targetId;
+                LockTimer = timer;
+            }
+        }
+
         /// <summary>
         /// 改进的Boss优先追踪方法
         /// </summary>
@@ -158,36 +175,83 @@ namespace ExpansionKele.Content.Customs
 
         #region 目标锁定系统
         
-        // 使用Projectile.ai数组存储锁定目标ID
-        private const int LOCKED_TARGET_AI_INDEX = 0;
-        
         /// <summary>
         /// 获取当前锁定的目标
         /// </summary>
         private static NPC GetLockedTarget(Terraria.Projectile projectile)
         {
-            int targetId = (int)projectile.ai[LOCKED_TARGET_AI_INDEX] - 1;
-            if (targetId >= 0 && targetId < Main.maxNPCs && Main.npc[targetId].active)
+            if (_lockStates.TryGetValue(projectile.whoAmI, out ProjectileLockData lockData))
             {
-                return Main.npc[targetId];
+                int targetId = lockData.LockedTargetId;
+                if (targetId >= 0 && targetId < Main.maxNPCs && Main.npc[targetId].active)
+                {
+                    return Main.npc[targetId];
+                }
+                else
+                {
+                    ClearLockedTarget(projectile);
+                }
             }
             return null;
         }
         
-        /// <summary>
-        /// 设置锁定目标
-        /// </summary>
         private static void SetLockedTarget(Terraria.Projectile projectile, NPC target)
         {
-            projectile.ai[LOCKED_TARGET_AI_INDEX] = target.whoAmI + 1;
+            if (_lockStates.TryGetValue(projectile.whoAmI, out ProjectileLockData existingData))
+            {
+                _lockStates[projectile.whoAmI] = new ProjectileLockData(target.whoAmI, existingData.LockTimer);
+            }
+            else
+            {
+                _lockStates[projectile.whoAmI] = new ProjectileLockData(target.whoAmI, 0f);
+            }
         }
         
-        /// <summary>
-        /// 清除锁定目标
-        /// </summary>
         public static void ClearLockedTarget(Terraria.Projectile projectile)
         {
-            projectile.ai[LOCKED_TARGET_AI_INDEX] = 0;
+            if (_lockStates.ContainsKey(projectile.whoAmI))
+            {
+                _lockStates.Remove(projectile.whoAmI);
+            }
+        }
+        
+        public static void CleanupLockData()
+        {
+            var keysToRemove = new List<int>();
+            
+            foreach (var kvp in _lockStates)
+            {
+                int projIndex = kvp.Key;
+                if (projIndex < 0 || projIndex >= Main.maxProjectiles || !Main.projectile[projIndex].active)
+                {
+                    keysToRemove.Add(projIndex);
+                }
+            }
+            
+            foreach (int key in keysToRemove)
+            {
+                _lockStates.Remove(key);
+            }
+        }
+        
+        public static void CleanupAllLockData()
+        {
+            _lockStates.Clear();
+        }
+        
+        internal static void PeriodicCleanup()
+        {
+            _cleanupCounter++;
+            if (_cleanupCounter >= CLEANUP_INTERVAL)
+            {
+                CleanupLockData();
+                _cleanupCounter = 0;
+            }
+        }
+        
+        internal static int GetLockDataCount()
+        {
+            return _lockStates.Count;
         }
         
         #endregion
@@ -328,7 +392,11 @@ namespace ExpansionKele.Content.Customs
                 return true;
                 
             // 如果锁定时间过长，允许重新选择
-            // 这里可以通过Projectile.ai数组的另一个slot来实现计时
+            if (_lockStates.TryGetValue(projectile.whoAmI, out ProjectileLockData lockData))
+            {
+                if (lockData.LockTimer >= lockDuration)
+                    return true;
+            }
             
             return false;
         }
@@ -338,8 +406,28 @@ namespace ExpansionKele.Content.Customs
         /// </summary>
         private static void UpdateLockTimer(Terraria.Projectile projectile)
         {
-            // 可以在这里实现锁定时间的更新逻辑
-            // 例如：projectile.ai[1] += 1f; // 第二个ai slot用于计时
+            if (_lockStates.TryGetValue(projectile.whoAmI, out ProjectileLockData lockData))
+            {
+                lockData.LockTimer += 1f;
+                _lockStates[projectile.whoAmI] = lockData;
+            }
+        }
+    }
+    public class ExpansionKeleGlobalProjectile : GlobalProjectile
+    {
+        public override bool InstancePerEntity => true;
+        
+        public override void OnKill(Projectile projectile, int version)
+        {
+            ProjectileHelper.ClearLockedTarget(projectile);
+        }
+        
+        public override void PostAI(Projectile projectile)
+        {
+            if (projectile.whoAmI == 0)
+            {
+                ProjectileHelper.PeriodicCleanup();
+            }
         }
     }
 }

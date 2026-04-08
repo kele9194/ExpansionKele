@@ -46,8 +46,8 @@ namespace ExpansionKele.Content.Projectiles.MeleeProj
 
         public override void SetDefaults()
         {
-            Projectile.width = 10;
-            Projectile.height = 10;
+            Projectile.width = 2;
+            Projectile.height = 2;
             Projectile.friendly = true;
             Projectile.timeLeft = 200;
             Projectile.penetrate = -1;

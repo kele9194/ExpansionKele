@@ -138,6 +138,7 @@ namespace ExpansionKele
             sniperLaserTexture = null;
             TrackingKeyBind = null;
             AutoAimingKeyBind = null;
+            ProjectileHelper.CleanupLockData();
             // 其他卸载逻辑
         }
 

@@ -12,3 +12,12 @@ BoxingGloves: {
 		你离我足够近了吧，吃我一拳
 		'''
 }
+
+StoneBlade: {
+	Tooltip:
+		'''
+		一把普通但又不平凡的武器
+		全新的开始
+		'''
+	DisplayName: 石刀
+}

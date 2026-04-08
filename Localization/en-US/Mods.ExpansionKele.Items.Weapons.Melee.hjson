@@ -16,3 +16,12 @@ BoxingGloves: {
 		Get close enough, take this punch!
 		'''
 }
+
+StoneBlade: {
+	Tooltip:
+		'''
+		A weapon that is ordinary yet extraordinary
+		A brand new beginning
+		'''
+	DisplayName: Stone Blade
+}

@@ -1,3 +1,4 @@
 displayName = Kele expansion
 author = CRO0820
-version = 1.4.6
+version = 1.5.1
+modReferences=InnoVault@1.9.89

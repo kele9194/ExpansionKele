@@ -93,3 +93,13 @@ BurningPaperAirPlaneProjectile.DisplayName: Burning Paper Air Plane Projectile
 TangDynastySwordProjectile.DisplayName: Tang Dynasty Sword Projectile
 TangDynastySwordEnergyProjectile.DisplayName: Tang Dynasty Sword Energy Projectile
 BoxingGlovesProjectile.DisplayName: Boxing Gloves Projectile
+StoneBladeHeld.DisplayName: Stone Blade
+RinyaHeld.DisplayName: Rinya's Magicbook
+RinyaProjectile.DisplayName: Magic array(Rinya's Magicbook)
+RinyaSubProjectile.DisplayName: Magic Projectile(Rinya's Magicbook)
+ThousandEyedSoulChaseHeld.DisplayName: Thousand Eyed Soul Chase
+MarkedSubArrow.DisplayName: Marked Sub Arrow(Thousand Eyed Soul Chase)
+MarkedArrow.DisplayName: Marked Arrow(Thousand Eyed Soul Chase)
+ChromiumBulletProjectile.DisplayName: Chromium Bullet Projectile
+RemoteGatlingBullet.DisplayName: Remote Gatling Bullet
+RemoteGatlingSentry.DisplayName: Remote Gatling Sentry

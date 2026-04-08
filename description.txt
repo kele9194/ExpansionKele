@@ -153,6 +153,17 @@ v1.4.6
 增强了星元狙击步枪的伤害和后期星元剑的伤害
 其他武器平衡调整
 
+v1.5
+新增石刀
+自该版本起需要InnoVault mod作为前置模组
+
+v1.5.1
+新增NPC：可乐Cola
+新增武器：羽毛法杖，天羽法杖，千目追魂，
+新增纪念武器：百夜凛夜的魔法书
+修复了追踪武器的一个bug
+其他修复
+
 This mod is developed purely for entertainment, developed by me alone, trying to achieve some imagination in ths mod and still under development. 
 When playing with the Calamity mod, some content will be adjusted to fit Calamity's numerical environment.
 
@@ -313,3 +324,14 @@ Added new weapons: Master Card, Boxing Gloves, Fireworks, White Phosphorus Smoke
 Adjusted the weapon damage mechanic for Golden Weaver Needle
 Increased damage for Starry Sniper Rifle and late-game Starry Sword
 Other weapon balance adjustments
+
+v1.5
+Added Stone Blade
+InnoVault mod is now required as a dependency starting from this version
+
+v1.5.1
+Added NPC: Cola
+Added weapons: Feather Staff, Celestial Plume Staff, Thousand Eyed Soul Chase
+Added commemorative weapon: Rinya's Magic Book
+Fixed a bug with tracking weapons
+Other fixes

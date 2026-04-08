@@ -380,6 +380,34 @@ namespace ExpansionKele.Content.Projectiles.MagicProj
             if (!_dataInitialized || _hand == null)
                 return;
             
+            bool hasSpade = false;
+            for (int i = 0; i < _hand.Length; i++)
+            {
+                if (_hand[i].Suit == 0)
+                {
+                    hasSpade = true;
+                    break;
+                }
+            }
+            
+            if (hasSpade)
+            {
+                switch (target.type)
+                {
+                    case NPCID.WallCreeper:
+                    case NPCID.WallCreeperWall:
+                    case NPCID.JungleCreeper :
+                    case NPCID.JungleCreeperWall :
+                    case NPCID.BlackRecluse:
+                    case NPCID.BlackRecluseWall:
+                    case NPCID.BloodCrawler:
+                    case NPCID.BloodCrawlerWall:
+                        modifiers.SetInstantKill();
+                        CombatText.NewText(Projectile.getRect(), Color.Red, "Instant Kill");
+                        return;
+                }
+            }
+            
             int rankSum = CardHandEvaluator.CalculateRankSum(_hand);
             float damageMultiplier = _multiplier * rankSum / CardMaster.BASE_DAMAGE;
             modifiers.FinalDamage *= damageMultiplier;
@@ -404,6 +432,8 @@ namespace ExpansionKele.Content.Projectiles.MagicProj
                 {
                     CombatText.NewText(Projectile.getRect(), textColor, handName);
                 }
+
+
             }
         }
         public override void OnKill(int timeLeft)

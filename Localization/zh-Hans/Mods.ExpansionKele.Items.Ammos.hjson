@@ -22,3 +22,12 @@ ChromiumArrow: {
 		对没有切割buff的敌人造成额外伤害
 		'''
 }
+
+ChromiumBullet: {
+	DisplayName: 铬钢弹
+	Tooltip:
+		'''
+		穿透1次，第二次造成50%伤害
+		对敌人造成切割减益
+		'''
+}

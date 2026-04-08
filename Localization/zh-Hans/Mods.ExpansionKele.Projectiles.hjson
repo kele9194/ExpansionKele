@@ -92,4 +92,14 @@ SpaceFunnelBeam.DisplayName: 太空浮游炮激光
 BurningPaperAirPlaneProjectile.DisplayName: 燃烧纸飞机
 TangDynastySwordProjectile.DisplayName: 唐横刀
 TangDynastySwordEnergyProjectile.DisplayName: 唐横刀剑气
-// BoxingGlovesProjectile.DisplayName: Boxing Gloves Projectile
+BoxingGlovesProjectile.DisplayName: 拳击手套
+StoneBladeHeld.DisplayName: 石刀
+RinyaHeld.DisplayName: Rinya
+RinyaProjectile.DisplayName: 魔法法阵
+RinyaSubProjectile.DisplayName: 魔法矢
+ThousandEyedSoulChaseHeld.DisplayName: 千目追魂
+MarkedSubArrow.DisplayName: 千目追魂-标记箭
+MarkedArrow.DisplayName: 千目追魂-散射箭
+ChromiumBulletProjectile.DisplayName: 铬钢弹
+RemoteGatlingBullet.DisplayName: 自动加特林武器站
+RemoteGatlingSentry.DisplayName: 自动加特林武器站

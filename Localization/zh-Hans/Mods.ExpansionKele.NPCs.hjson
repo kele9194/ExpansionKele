@@ -1,18 +1,30 @@
 Cola: {
-	// DisplayName: Cola
+	DisplayName: 可乐
 
-	TownNPCMood: {
-		// Content: 我很满足。
-		// NoHome: 我讨厌没有家。
-		// FarFromHome: 我离家太远了。
-		// LoveSpace: 我非常喜欢有这么大的空间。
-		// DislikeCrowded: 我不喜欢这么拥挤。
-		// HateCrowded: 我讨厌这么拥挤。
-		// LikeNPC_Princess: 我喜欢 {NPCName}。
-		// Princess_LovesNPC: 我喜欢 {NPCName}。
+	Chat: {
+		Line1: 你好，我叫可乐，是Kele Expansion作者设定上的妹妹
+		Line2: 森林的环境很适合我呢，每天都能听到鸟语花香的声音
+		Line3: 你知道那些星元系列的武器吗？我哥怕是被灾厄和突变体打怕了才写了个这样的武器。
+		Line4: 星元武器系列基本上都会有对应升级，而且有些强度足够超标
+		Line5: 在消灭那个从月亮而来的强大领主后，我们之间或许会有一战
+		Line6: 打败我可以获得一种闪耀着三种颜色的锭。
+		ShadowOfRevengeText1: 有时候在夜空中，我会看到带着斗篷的黑衣人在远处
+		DowneddShadowOfRevengeText1: 消灭那位黑衣人可以获得一种暗黑的锭，可以用来制作强力的武器
+		FargoText1: 你有见过戴维安姐姐吗？她的招式都好帅气呢
 	}
 
-	// Census.SpawnCondition: Conditions unknown
+	TownNPCMood: {
+		Content: 我很满足。
+		NoHome: 我讨厌没有家。
+		FarFromHome: 我离家太远了。
+		LoveSpace: 我非常喜欢有这么大的空间。
+		DislikeCrowded: 我不喜欢这么拥挤。
+		HateCrowded: 我讨厌这么拥挤。
+		LikeNPC_Princess: 我喜欢 {NPCName}。
+		Princess_LovesNPC: 我喜欢 {NPCName}。
+	}
+
+	Census.SpawnCondition: 在世界有至少一个NPC后
 }
 
-// BalloonNPC.DisplayName: Balloon N P C
+BalloonNPC.DisplayName: Balloon N P C
