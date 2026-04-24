@@ -31,3 +31,15 @@ ShadowOfRevenge: {
 		Tooltip: 右键打开
 	}
 }
+
+BossKeleNew: {
+	BossKeleNew: {
+		SpawnCondition: 使用夜明可乐罐召唤可乐
+		DisplayName: Boss可乐(新版)
+	}
+
+	BossKeleNewBag: {
+		Tooltip: 右键打开
+		DisplayName: 可乐宝藏袋
+	}
+}

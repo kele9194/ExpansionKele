@@ -466,8 +466,10 @@ M37Shotgun: {
 LaserCutter: {
 	Tooltip:
 		'''
+		Weapon has been reset
 		Experimental weapon that deals high-frequency damage
-		An unfinished weapon
+		ignores defense of enemies
+		---Technology obtained from an unmanned tank
 		'''
-	DisplayName: Laser Cutter
+	DisplayName: Laser Cannon
 }

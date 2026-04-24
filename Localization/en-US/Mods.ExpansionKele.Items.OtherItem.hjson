@@ -241,3 +241,13 @@ ZephyrRunicTablet: {
 	Tooltip: ""
 	DisplayName: Zephyr Runic Tablet
 }
+
+LunarKeleNew: {
+	Tooltip: To Summon Boss Kele New
+	DisplayName: Lunar Kele (New)
+}
+
+NewTexter: {
+	DisplayName: New Texter
+	Tooltip: "A debug item "
+}

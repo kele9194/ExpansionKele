@@ -447,9 +447,10 @@ M37Shotgun: {
 LaserCutter: {
 	Tooltip:
 		'''
+		武器已重置
 		实验性武器，造成高频伤害
-		一把并未完成的武器
-		作者碎碎念：做的破防了
+		无视敌人防御
+		---从某个无人坦克上获得的技术
 		'''
-	DisplayName: 激光切割机
+	DisplayName: 光束炮
 }

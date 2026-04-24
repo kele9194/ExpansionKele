@@ -89,8 +89,7 @@ namespace ExpansionKele.Global
             }
         }
 
-        // ... existing code ...
-        // ... existing code ...
+       // ... existing code ...
         public override void ModifyTooltips(Item item, System.Collections.Generic.List<TooltipLine> tooltips)
         {
             // 只对有伤害值的武器显示基础伤害
@@ -114,23 +113,24 @@ namespace ExpansionKele.Global
                     switch (lastModification.Type)
                     {
                         case ItemPropertyModification.ModificationType.Add:
-                            damageDisplay = $"基础伤害：{modifiedDamage}---{baseDamage} (+{lastModification.Value})";
+                            damageDisplay = Language.GetTextValue("Mods.ExpansionKele.Others.BaseDamageAdd", modifiedDamage, baseDamage, lastModification.Value);
                             break;
                         case ItemPropertyModification.ModificationType.Multiply:
-                            damageDisplay = $"基础伤害：{modifiedDamage}---{baseDamage} (×{lastModification.Value:F2})";
+                            damageDisplay = Language.GetTextValue("Mods.ExpansionKele.Others.BaseDamageMultiply", modifiedDamage, baseDamage, lastModification.Value);
                             break;
                         case ItemPropertyModification.ModificationType.SetValue:
-                            damageDisplay = $"基础伤害：{modifiedDamage}---{baseDamage} ({lastModification.Value})";
+                            damageDisplay = Language.GetTextValue("Mods.ExpansionKele.Others.BaseDamageSet", modifiedDamage, baseDamage, lastModification.Value);
                             break;
                     }
                 }
                 else
                 {
                     // 没有修改或者修改后数值相同
-                    damageDisplay = $"基础伤害：{baseDamage}";
+                    damageDisplay = Language.GetTextValue("Mods.ExpansionKele.Others.BaseDamageNormal", baseDamage);
                 }
                 
-                tooltips.Add(new TooltipLine(Mod, "BaseDamage", $"[c/00FFFF:{damageDisplay}]"));
+                TooltipLine damageLine = new TooltipLine(Mod, "BaseDamage", $"[c/00FFFF:{damageDisplay}]");
+                InsertAfterTooltip(tooltips, damageLine);
             }
 
             // 显示自定义修改信息
@@ -140,8 +140,9 @@ namespace ExpansionKele.Global
             
             if (globalModifications.Count > 0 || playerModifications.Count > 0)
             {
-                string modificationText = "[c/FF69B4:已被开发者修改：修改属性如下：]";
-                tooltips.Add(new TooltipLine(Mod, "DevModifiedHeader", modificationText));
+                string modificationText = Language.GetTextValue("Mods.ExpansionKele.Others.DevModifiedHeader");
+                TooltipLine headerLine = new TooltipLine(Mod, "DevModifiedHeader", $"[c/FF69B4:{modificationText}]");
+                InsertAfterTooltip(tooltips, headerLine);
                 
                 // 显示全局修改
                 foreach (var modification in globalModifications)
@@ -150,16 +151,17 @@ namespace ExpansionKele.Global
                     switch (modification.Type)
                     {
                         case ItemPropertyModification.ModificationType.Multiply:
-                            operation = $"乘以 {modification.Value} ({modification.Description})";
+                            operation = Language.GetTextValue("Mods.ExpansionKele.Others.DevModifiedMultiply", modification.Value, modification.Description);
                             break;
                         case ItemPropertyModification.ModificationType.Add:
-                            operation = $"增加 {modification.Value} ({modification.Description})";
+                            operation = Language.GetTextValue("Mods.ExpansionKele.Others.DevModifiedAdd", modification.Value, modification.Description);
                             break;
                         case ItemPropertyModification.ModificationType.SetValue:
-                            operation = $"设为 {modification.Value} ({modification.Description})";
+                            operation = Language.GetTextValue("Mods.ExpansionKele.Others.DevModifiedSet", modification.Value, modification.Description);
                             break;
                     }
-                    tooltips.Add(new TooltipLine(Mod, "DevModifiedGlobalDetail", $"[c/FF69B4:全局 - {operation}]"));
+                    TooltipLine globalDetailLine = new TooltipLine(Mod, "DevModifiedGlobalDetail", $"[c/FF69B4:{Language.GetTextValue("Mods.ExpansionKele.Others.DevModifiedGlobal", operation)}]");
+                    InsertAfterTooltip(tooltips, globalDetailLine);
                 }
                 
                 // 显示玩家特定修改
@@ -169,17 +171,39 @@ namespace ExpansionKele.Global
                     switch (modification.Type)
                     {
                         case ItemPropertyModification.ModificationType.Multiply:
-                            operation = $"乘以 {modification.Value} ({modification.Description})";
+                            operation = Language.GetTextValue("Mods.ExpansionKele.Others.DevModifiedMultiply", modification.Value, modification.Description);
                             break;
                         case ItemPropertyModification.ModificationType.Add:
-                            operation = $"增加 {modification.Value} ({modification.Description})";
+                            operation = Language.GetTextValue("Mods.ExpansionKele.Others.DevModifiedAdd", modification.Value, modification.Description);
                             break;
                         case ItemPropertyModification.ModificationType.SetValue:
-                            operation = $"设为 {modification.Value} ({modification.Description})";
+                            operation = Language.GetTextValue("Mods.ExpansionKele.Others.DevModifiedSet", modification.Value, modification.Description);
                             break;
                     }
-                    tooltips.Add(new TooltipLine(Mod, "DevModifiedPlayerDetail", $"[c/FF69B4:个人 - {operation}]"));
+                    TooltipLine playerDetailLine = new TooltipLine(Mod, "DevModifiedPlayerDetail", $"[c/FF69B4:{Language.GetTextValue("Mods.ExpansionKele.Others.DevModifiedPlayer", operation)}]");
+                    InsertAfterTooltip(tooltips, playerDetailLine);
                 }
+            }
+        }
+
+        private void InsertAfterTooltip(System.Collections.Generic.List<TooltipLine> tooltips, TooltipLine line)
+        {
+            int insertIndex = tooltips.Count;
+            for (int i = 0; i < tooltips.Count; i++)
+            {
+                if (tooltips[i].Name == "Tooltip")
+                {
+                    insertIndex = i + 1;
+                }
+            }
+
+            if (insertIndex < tooltips.Count)
+            {
+                tooltips.Insert(insertIndex, line);
+            }
+            else
+            {
+                tooltips.Add(line);
             }
         }
 // ... existing code ...

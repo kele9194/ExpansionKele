@@ -18,7 +18,7 @@ namespace ExpansionKele.Content.Projectiles.MagicProj
 		{
             Projectile.CloneDefaults(ProjectileID.GreenLaser);
             Projectile.aiStyle = -1;
-			Projectile.penetrate += 3; // 只穿透一次
+			Projectile.penetrate += 2; // 只穿透一次
 			Projectile.timeLeft = 360;
 			Projectile.light = 1f;
 			Projectile.ignoreWater = true;

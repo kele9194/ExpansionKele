@@ -1,11 +1,58 @@
 using System;
 using System.Collections.Generic;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace ExpansionKele.Content.Customs
 {
+// ... existing code ...
+
+    /// <summary>
+    /// 提供与Boss召唤相关的实用工具方法
+    /// </summary>
+    public static class BossSpawnUtils
+    {
+        /// <summary>
+        /// 使用物品召唤Boss
+        /// </summary>
+        /// <param name="player">召唤Boss的玩家</param>
+        /// <param name="npcType">要召唤的Boss的NPC类型ID</param>
+        /// <param name="spawnSound">召唤时播放的音效（可选）</param>
+        /// <remarks>
+        /// 该方法会处理单人和多人模式的网络同步问题。
+        /// 在单人模式下立即生成Boss，在多人模式下向服务器发送请求。
+        /// </remarks>
+        public static void ItemSpawnBoss(Player player, int npcType, in SoundStyle? spawnSound = null)
+        {
+            DebugMarker.Mark();
+            if (spawnSound.HasValue)
+            {
+                SoundEngine.PlaySound(spawnSound.Value, player.Center);
+            }
+
+            if (player.whoAmI != Main.myPlayer){
+                DebugMarker.Mark();
+                return;
+            }
+
+            switch (Main.netMode)
+            {
+                case NetmodeID.SinglePlayer:
+                DebugMarker.Mark();
+                    NPC.SpawnOnPlayer(player.whoAmI, npcType);
+                    break;
+
+                //为其设置特殊参数
+                case NetmodeID.MultiplayerClient:
+                DebugMarker.Mark();
+                    NetMessage.SendData(MessageID.SpawnBossUseLicenseStartEvent, -1, -1, null, player.whoAmI, npcType);
+                    break;
+            }
+        }
+    }
+
     /// <summary>
     /// 提供与玩家相关的实用工具方法
     /// </summary>

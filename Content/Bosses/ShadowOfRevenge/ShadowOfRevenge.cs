@@ -95,6 +95,7 @@ namespace ExpansionKele.Content.Bosses.ShadowOfRevenge
             Main.npcFrameCount[NPC.type] = 1; // 设置为单帧纹理
             NPCID.Sets.BossBestiaryPriority.Add(NPC.type); // 添加到图鉴优先级列表
             SpawnCondition = this.GetLocalization("SpawnCondition");
+            NPCID.Sets.MPAllowedEnemies[NPC.type] = true;
             
             // 指定Boss是否免疫某些Debuff
             // NPCID.Sets.ImmuneToRegularBuffs[Type] = true;

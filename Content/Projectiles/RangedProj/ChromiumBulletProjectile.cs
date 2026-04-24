@@ -36,7 +36,7 @@ namespace ExpansionKele.Content.Projectiles.RangedProj
         {
             target.AddBuff(ModContent.BuffType<SlicingBuff>(), 180);
 
-            Projectile.damage = (int)(Projectile.damage * 0.5f);
+            Projectile.damage = (int)(Projectile.damage * 0.75f);
         }
     }
 }

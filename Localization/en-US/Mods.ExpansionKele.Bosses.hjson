@@ -31,3 +31,15 @@ ShadowOfRevenge: {
 		Tooltip: Right click to open
 	}
 }
+
+BossKeleNew: {
+	BossKeleNew: {
+		SpawnCondition: Use LunarKeleNew to summon
+		DisplayName: Boss Kele (New)
+	}
+
+	BossKeleNewBag: {
+		Tooltip: Right click to open
+		DisplayName: Kele Treasure Bag
+	}
+}

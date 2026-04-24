@@ -23,7 +23,7 @@ namespace ExpansionKele.Content.Items.Weapons.Magic
 
         public override void SetDefaults()
         {
-            Item.damage = ExpansionKele.ATKTool(33, 40);
+            Item.damage = ExpansionKele.ATKTool(40, 50);
             Item.DamageType = DamageClass.Magic;
             Item.width = 40;
             Item.height = 40;

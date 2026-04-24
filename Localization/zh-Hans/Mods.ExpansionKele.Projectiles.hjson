@@ -103,3 +103,16 @@ MarkedArrow.DisplayName: 千目追魂-散射箭
 ChromiumBulletProjectile.DisplayName: 铬钢弹
 RemoteGatlingBullet.DisplayName: 自动加特林武器站
 RemoteGatlingSentry.DisplayName: 自动加特林武器站
+// SuperSword.DisplayName: Super Sword
+FFLaser.DisplayName: 光束炮激光
+FFExplosion.DisplayName: 光束炮爆炸
+// ColaBossProjectile.DisplayName: Cola Boss Projectile
+// BossHighVelocityBullet.DisplayName: Boss High Velocity Bullet
+// BossSniperRifle.DisplayName: Boss Sniper Rifle
+// MagicRedBossProjectile.DisplayName: Magic Red Boss Projectile
+// MagicPurpleBossProjectile.DisplayName: Magic Purple Boss Projectile
+// MagicCyanBossProjectile.DisplayName: Magic Cyan Boss Projectile
+// MagicBlueBossProjectile.DisplayName: Magic Blue Boss Projectile
+// BossKeleNew.CyanProjectileShooter.DisplayName: Cyan Projectile Shooter
+// RinyaBossProjectile.DisplayName: Rinya Boss Projectile
+// RinyaSubBossProjectile.DisplayName: Rinya Sub Boss Projectile

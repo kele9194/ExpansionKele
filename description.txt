@@ -164,6 +164,20 @@ v1.5.1
 修复了追踪武器的一个bug
 其他修复
 
+v1.5.2
+新增弹药：铬钢弹
+新增武器：自动武器站
+重置武器：光束炮（原激光切割机）
+
+v1.5.3
+削弱幽幕加农炮，灵魂质子炮
+重置boss可乐
+对魔法武器中原版武器中的部分魔法武器进行伤害重整
+
+v1.5.4
+完全删除了旧版的Boss可乐
+修复了在多人模式下不能召唤本模组boss的bug
+
 This mod is developed purely for entertainment, developed by me alone, trying to achieve some imagination in ths mod and still under development. 
 When playing with the Calamity mod, some content will be adjusted to fit Calamity's numerical environment.
 
@@ -335,3 +349,17 @@ Added weapons: Feather Staff, Celestial Plume Staff, Thousand Eyed Soul Chase
 Added commemorative weapon: Rinya's Magic Book
 Fixed a bug with tracking weapons
 Other fixes
+
+v1.5.2
+Added ammo: Chromium Bullet
+Added weapon: Remote Gatling Syetem
+Reset weapon: Beam Cannon (formerly Laser Cutter)
+
+v1.5.3
+Nerfed Spectral Curtain Cannon and Soul Proton Cannon
+Reset boss Cola
+Rebalanced damage for some vanilla magic weapons in the mod
+
+v1.5.4
+Completely removed the old version of Boss Cola
+Fixed bug where mod bosses couldn't be summoned in multiplayer mode

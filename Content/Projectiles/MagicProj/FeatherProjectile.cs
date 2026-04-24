@@ -31,7 +31,7 @@ namespace ExpansionKele.Content.Projectiles.MagicProj
             Projectile.height = 24;
             Projectile.friendly = true;
             Projectile.DamageType = DamageClass.Magic;
-            Projectile.penetrate = -1;
+            Projectile.penetrate = 5;
             Projectile.timeLeft = 100;
             Projectile.light = 1f;
             Projectile.ignoreWater = true;

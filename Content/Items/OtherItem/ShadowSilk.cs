@@ -41,7 +41,7 @@ namespace ExpansionKele.Content.Items.OtherItem
         {
 
                 // 召唤复仇之影
-            NPC.SpawnOnPlayer(player.whoAmI, ModContent.NPCType<ShadowOfRevenge>());
+            BossSpawnUtils.ItemSpawnBoss(player, ModContent.NPCType<ShadowOfRevenge>());
             return true;
         }
         

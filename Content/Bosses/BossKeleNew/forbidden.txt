@@ -1,0 +1,202 @@
+public void UpdateMovement(){
+            UpdateHorizontalMovement();
+            UpdateVerticalMovement();
+        }
+        
+        public void UpdateHorizontalMovement(){
+            float targetVelocityX = 0f;
+            
+            switch(horizontalMove){
+                case HorizaonalMove.Left:
+                    targetVelocityX = -MaxHorizontalSpeed;
+                    break;
+                case HorizaonalMove.Right:
+                    targetVelocityX = MaxHorizontalSpeed;
+                    break;
+                case HorizaonalMove.None:
+                default:
+                    targetVelocityX = 0f;
+                    break;
+            }
+            
+            ApplyVelocityWithAcceleration(ref NPC.velocity.X, targetVelocityX, HorizontalAcceleration, HorizontalDeceleration, MaxHorizontalSpeed);
+        }
+        
+        public void UpdateVerticalMovement(){
+            float targetVelocityY = 0f;
+            
+            switch(verticalMove){
+                case VerticalMove.Up:
+                    targetVelocityY = -MaxVerticalSpeed;
+                    break;
+                case VerticalMove.Down:
+                    targetVelocityY = MaxVerticalSpeed;
+                    break;
+                case VerticalMove.None:
+                default:
+                    targetVelocityY = 0f;
+                    break;
+            }
+            
+            ApplyVelocityWithAcceleration(ref NPC.velocity.Y, targetVelocityY, VerticalAcceleration, VerticalDeceleration, MaxVerticalSpeed);
+        }
+        
+
+        public void ApplyVelocityWithAcceleration(ref float currentVelocity, float targetVelocity, float acceleration, float deceleration, float maxSpeed){
+            float velocityDifference = targetVelocity - currentVelocity;
+            
+            if(Math.Abs(velocityDifference) < 0.01f){
+                currentVelocity = targetVelocity;
+                return;
+            }
+            
+            bool isChangingDirection = (currentVelocity != 0 && targetVelocity != 0 && 
+                                       Math.Sign(currentVelocity) != Math.Sign(targetVelocity));
+            bool isStopping = (targetVelocity == 0 && currentVelocity != 0);
+            bool needsDeceleration = isChangingDirection || isStopping;
+            
+            float stepSize = needsDeceleration ? deceleration : acceleration;
+            float direction = Math.Sign(velocityDifference);
+            
+            float newVelocity = currentVelocity + (stepSize * direction);
+            
+            bool hasOvershot = false;
+            
+            if(isChangingDirection){
+                hasOvershot = (Math.Sign(currentVelocity) != Math.Sign(newVelocity));
+            }
+            else if(targetVelocity != 0){
+                hasOvershot = (Math.Abs(newVelocity) > Math.Abs(targetVelocity)) && 
+                             (Math.Sign(newVelocity) == Math.Sign(targetVelocity));
+            }
+            else{
+                hasOvershot = (Math.Sign(currentVelocity) != Math.Sign(newVelocity));
+            }
+            
+            if(hasOvershot){
+                newVelocity = targetVelocity;
+            }
+            
+            if(Math.Abs(newVelocity) > maxSpeed && targetVelocity != 0){
+                newVelocity = maxSpeed * Math.Sign(targetVelocity);
+            }
+            
+            currentVelocity = newVelocity;
+        }
+        
+        public void SetHorizontalMove(HorizaonalMove move){
+            horizontalMoveNum = (int)move;
+            NPC.netUpdate = true;
+        }
+        
+        public void SetVerticalMove(VerticalMove move){
+            verticalMoveNum = (int)move;
+            NPC.netUpdate = true;
+        }
+        
+        public void StopHorizontalMovement(){
+            SetHorizontalMove(HorizaonalMove.None);
+        }
+        
+        public void StopVerticalMovement(){
+            SetVerticalMove(VerticalMove.None);
+        }
+        
+
+        public void MoveToRegion(Vector2 referencePoint, Vector2 vector1, Vector2 vector2){
+            Vector2 regionTopLeft = referencePoint + vector1;
+            Vector2 regionBottomRight = regionTopLeft + vector2;
+            
+            float regionLeft = Math.Min(regionTopLeft.X, regionBottomRight.X);
+            float regionRight = Math.Max(regionTopLeft.X, regionBottomRight.X);
+            float regionTop = Math.Min(regionTopLeft.Y, regionBottomRight.Y);
+            float regionBottom = Math.Max(regionTopLeft.Y, regionBottomRight.Y);
+            
+            bool isInRegion = NPC.Center.X >= regionLeft && NPC.Center.X <= regionRight && 
+                             NPC.Center.Y >= regionTop && NPC.Center.Y <= regionBottom;
+            
+            if(!isInRegion){
+                float targetX = NPC.Center.X;
+                float targetY = NPC.Center.Y;
+                
+                if(NPC.Center.X < regionLeft){
+                    targetX = regionLeft + 50f;
+                }
+                else if(NPC.Center.X > regionRight){
+                    targetX = regionRight - 50f;
+                }
+                
+                if(NPC.Center.Y < regionTop){
+                    targetY = regionTop + 50f;
+                }
+                else if(NPC.Center.Y > regionBottom){
+                    targetY = regionBottom - 50f;
+                }
+                
+                if(targetX != NPC.Center.X){
+                    if(targetX < NPC.Center.X){
+                        SetHorizontalMove(HorizaonalMove.Left);
+                    }
+                    else{
+                        SetHorizontalMove(HorizaonalMove.Right);
+                    }
+                }
+                else{
+                    StopHorizontalMovement();
+                }
+                
+                if(targetY != NPC.Center.Y){
+                    if(targetY < NPC.Center.Y){
+                        SetVerticalMove(VerticalMove.Up);
+                    }
+                    else{
+                        SetVerticalMove(VerticalMove.Down);
+                    }
+                }
+                else{
+                    StopVerticalMovement();
+                }
+            }
+            else{
+                float distanceToLeft = NPC.Center.X - regionLeft;
+                float distanceToRight = regionRight - NPC.Center.X;
+                float distanceToTop = NPC.Center.Y - regionTop;
+                float distanceToBottom = regionBottom - NPC.Center.Y;
+                
+                float margin = 80f;
+                
+                HorizaonalMove horizontalDecision = HorizaonalMove.None;
+                VerticalMove verticalDecision = VerticalMove.None;
+                
+                if(distanceToLeft < margin){
+                    horizontalDecision = HorizaonalMove.Right;
+                }
+                else if(distanceToRight < margin){
+                    horizontalDecision = HorizaonalMove.Left;
+                }
+                
+                if(distanceToTop < margin){
+                    verticalDecision = VerticalMove.Down;
+                }
+                else if(distanceToBottom < margin){
+                    verticalDecision = VerticalMove.Up;
+                }
+                
+                if(horizontalDecision == HorizaonalMove.None && verticalDecision == VerticalMove.None){
+                    float randomValue = Main.rand.NextFloat();
+                    if(randomValue < 0.3f){
+                        int randomHorizontal = Main.rand.Next(3);
+                        horizontalDecision = (HorizaonalMove)(20 + randomHorizontal);
+                    }
+                    if(randomValue >= 0.3f && randomValue < 0.6f){
+                        int randomVertical = Main.rand.Next(3);
+                        verticalDecision = (VerticalMove)(30 + randomVertical);
+                    }
+                }
+                
+                SetHorizontalMove(horizontalDecision);
+                SetVerticalMove(verticalDecision);
+            }
+            
+            NPC.netUpdate = true;
+        }

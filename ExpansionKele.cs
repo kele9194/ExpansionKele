@@ -18,7 +18,6 @@ using ExpansionKele;
 using Terraria;
 using ExpansionKele.Content.Projectiles;
 using ExpansionKele.Content.Bosses.ShadowOfRevenge;
-using ExpansionKele.Content.Bosses.BossKele;
 using ExpansionKele.Content.Customs;
 using ExpansionKele.Content.Customs.Commands;
 using ExpansionKele.Content.Projectiles.RangedProj;
@@ -26,6 +25,7 @@ using ExpansionKele.Content.Projectiles.MeleeProj;
 using ExpansionKele.Content.Projectiles.MagicProj;
 using ExpansionKele.Content.Projectiles.GenericProj;
 using ExpansionKele.Commons;
+using ExpansionKele.Content.Bosses.BossKeleNew;
 
 
 namespace ExpansionKele
@@ -166,18 +166,18 @@ namespace ExpansionKele
                         
                     }
                 );
-                var downedBossKele = ModContent.GetInstance<DownedBossKele>();
-                // 注册BossKele
+                var downedBossKeleNew = ModContent.GetInstance<DownedBossKeleNew>();
+                // 注册BossKeleNew
                 bossChecklist.Call(
                     "LogBoss",
                     this,
-                    "BossKele",
+                    "BossKeleNew",
                     18.5f,
-                    (Func<bool>)(() =>downedBossKele.downedBossKele),
-                    ModContent.NPCType<BossKele>(),
+                    (Func<bool>)(() =>downedBossKeleNew.downedBossKeleNew),
+                    ModContent.NPCType<BossKeleNew>(),
                     new Dictionary<string, object>() {
-                        ["spawnItems"] = ModContent.ItemType<Content.Items.OtherItem.LunarKele>(),
-                        ["spawnInfo"] = Language.GetText("Mods.ExpansionKele.Bosses.BossKele.BossKele.SpawnCondition")
+                        ["spawnItems"] = ModContent.ItemType<Content.Items.OtherItem.LunarKeleNew>(),
+                        ["spawnInfo"] = Language.GetText("Mods.ExpansionKele.Bosses.BossKeleNew.BossKeleNew.SpawnCondition")
                             
                     }
 

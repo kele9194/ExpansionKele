@@ -30,7 +30,7 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
             //Item.SetNameOverride(setNameOverride);
             Item.width = 48;
             Item.height = 24;
-            Item.damage = ExpansionKele.ATKTool(94,105);
+            Item.damage = ExpansionKele.ATKTool(70,82);
             Item.DamageType = DamageClass.Ranged;
             Item.useTime = (Item.useAnimation = AftershotCooldownFrames);
             Item.useStyle = ItemUseStyleID.Shoot;

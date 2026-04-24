@@ -13,7 +13,7 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
     public class SpectralCurtainCannon : ModItem
     {
         public override string LocalizationCategory => "Items.Weapons";
-        private const int constDamage = 85;
+        private const int constDamage = 75;
         public override void SetStaticDefaults()
         {
             ItemID.Sets.IsRangedSpecialistWeapon[Type] = true;

@@ -64,7 +64,7 @@ namespace ExpansionKele.Content.Items.Weapons.Magic
             Item.noUseGraphic = true;
             Item.knockBack = 4f;
             Item.value = ItemUtils.CalculateValueFromRecipes(this);
-            Item.rare = ItemUtils.CalculateRarityFromRecipes(this);
+            Item.rare = ItemUtils.CalculateRarityFromRecipes(this,ItemRarityID.Red);
             Item.UseSound = SoundID.Item43;
             Item.shoot = ModContent.ProjectileType<RinyaHeld>();
             Item.shootSpeed = 10f;

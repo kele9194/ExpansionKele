@@ -31,7 +31,7 @@ namespace ExpansionKele.Content.Items.Weapons.Magic
         public override void SetDefaults()
         {
             //Item.SetNameOverride("望月回响");
-            Item.damage = ExpansionKele.ATKTool(65,85);                    // 基础魔法伤害
+            Item.damage = ExpansionKele.ATKTool(50,85);                    // 基础魔法伤害
             Item.DamageType = DamageClass.Magic; // 魔法伤害类型
             Item.mana = 10;                     // 每次使用消耗 10 点魔力
             Item.width = 28;                    // 物品宽度

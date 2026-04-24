@@ -103,3 +103,16 @@ MarkedArrow.DisplayName: Marked Arrow(Thousand Eyed Soul Chase)
 ChromiumBulletProjectile.DisplayName: Chromium Bullet Projectile
 RemoteGatlingBullet.DisplayName: Remote Gatling Bullet
 RemoteGatlingSentry.DisplayName: Remote Gatling Sentry
+SuperSword.DisplayName: Super Sword
+FFLaser.DisplayName: FF Laser
+FFExplosion.DisplayName: FF Explosion
+ColaBossProjectile.DisplayName: Cola Boss Projectile
+BossHighVelocityBullet.DisplayName: Boss High Velocity Bullet
+BossSniperRifle.DisplayName: Boss Sniper Rifle
+MagicRedBossProjectile.DisplayName: Magic Red Boss Projectile
+MagicPurpleBossProjectile.DisplayName: Magic Purple Boss Projectile
+MagicCyanBossProjectile.DisplayName: Magic Cyan Boss Projectile
+MagicBlueBossProjectile.DisplayName: Magic Blue Boss Projectile
+BossKeleNew.CyanProjectileShooter.DisplayName: Cyan Projectile Shooter
+RinyaBossProjectile.DisplayName: Rinya Boss Projectile
+RinyaSubBossProjectile.DisplayName: Rinya Sub Boss Projectile

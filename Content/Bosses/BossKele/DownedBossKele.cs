@@ -1,31 +1,31 @@
-using Terraria.ModLoader;
-using Terraria.ModLoader.IO;
+// using Terraria.ModLoader;
+// using Terraria.ModLoader.IO;
 
-namespace ExpansionKele.Content.Bosses.BossKele
-{
-	public class DownedBossKele : ModSystem
-	{
-		// 实例属性，不再是静态的
-		public bool downedBossKele = false;
+// namespace ExpansionKele.Content.Bosses.BossKele
+// {
+// 	public class DownedBossKele : ModSystem
+// 	{
+// 		// 实例属性，不再是静态的
+// 		public bool downedBossKele = false;
 
-		public override void OnWorldLoad() {
-			downedBossKele = false;
-		}
+// 		public override void OnWorldLoad() {
+// 			downedBossKele = false;
+// 		}
 
-		public override void OnWorldUnload() {
-			downedBossKele = false;
-		}
+// 		public override void OnWorldUnload() {
+// 			downedBossKele = false;
+// 		}
 
-		public override void SaveWorldData(TagCompound tag) {
-			tag["downedBossKele"] = downedBossKele;
-		}
+// 		public override void SaveWorldData(TagCompound tag) {
+// 			tag["downedBossKele"] = downedBossKele;
+// 		}
 
-		public override void LoadWorldData(TagCompound tag) {
-			downedBossKele = tag.ContainsKey("downedBossKele") ? tag.GetBool("downedBossKele") : false;
-		}
+// 		public override void LoadWorldData(TagCompound tag) {
+// 			downedBossKele = tag.ContainsKey("downedBossKele") ? tag.GetBool("downedBossKele") : false;
+// 		}
 
-		public override void PostUpdateEverything() {
+// 		public override void PostUpdateEverything() {
 			
-		}
-	}
-}
+// 		}
+// 	}
+// }

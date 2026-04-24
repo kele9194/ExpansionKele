@@ -16,7 +16,7 @@ namespace ExpansionKele.Content.Projectiles.MagicProj
 
 		public override void SetDefaults()
 		{
-			Projectile.penetrate = -1; // 只穿透一次
+			Projectile.penetrate = 6; // 只穿透一次
 			Projectile.timeLeft = 120; // 较短的生命周期
 			Projectile.light = 0.5f;
 			Projectile.ignoreWater = true;

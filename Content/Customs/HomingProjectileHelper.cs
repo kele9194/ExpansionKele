@@ -430,4 +430,121 @@ namespace ExpansionKele.Content.Customs
             }
         }
     }
+    public static class NPCHomingProjectileExtensions
+    {
+        public static void UpdateTrackingSpecial(this Projectile Projectile ,Player targetPlayer, float speed,ref float counter)
+        {
+            float MaxCounterFrames = 60f;
+            float trackingFactor = Math.Max(0f, 1f - (counter / MaxCounterFrames));
+            counter++;
+            
+            BaseUpdateTraking(Projectile,targetPlayer, speed, trackingFactor);
+        }
+        // ... existing code ...
+        public static void BaseUpdateTraking(this Projectile Projectile ,Player targetPlayer, float speed, float trackingFactor, float maxAngularAcceleration = -1f){
+            if (targetPlayer != null && targetPlayer.active && !targetPlayer.dead && !targetPlayer.ghost)
+            {
+                Vector2 direction = targetPlayer.Center - Projectile.Center;
+                direction.Normalize();
+                Vector2 targetVelocity = direction * speed;
+                
+                if (maxAngularAcceleration < 0)
+                {
+                    Projectile.velocity = Vector2.Lerp(Projectile.velocity, targetVelocity, trackingFactor);
+                }
+                else
+                {
+                    Vector2 lerpedVelocity = Vector2.Lerp(Projectile.velocity, targetVelocity, trackingFactor);
+                    
+                    float currentAngle = Projectile.velocity.ToRotation();
+                    float lerpedAngle = lerpedVelocity.ToRotation();
+                    float angleDiff = lerpedAngle - currentAngle;
+                    
+                    while (angleDiff > MathHelper.Pi)
+                        angleDiff -= MathHelper.TwoPi;
+                    while (angleDiff < -MathHelper.Pi)
+                        angleDiff += MathHelper.TwoPi;
+                    
+                    if (Math.Abs(angleDiff) > maxAngularAcceleration)
+                    {
+                        float clampedAngleDiff = Math.Sign(angleDiff) * maxAngularAcceleration;
+                        float newAngle = currentAngle + clampedAngleDiff;
+                        float newSpeed = lerpedVelocity.Length();
+                        
+                        Projectile.velocity = new Vector2((float)Math.Cos(newAngle), (float)Math.Sin(newAngle)) * newSpeed;
+                    }
+                    else
+                    {
+                        Projectile.velocity = lerpedVelocity;
+                    }
+                }
+            }
+        }
+// ... existing code ...
+         /// <summary>
+        /// 预判追踪算法 - 考虑目标玩家的运动方向进行预判
+        /// </summary>
+        /// <param name="Projectile">弹射物</param>
+        /// <param name="targetPlayer">目标玩家</param>
+        /// <param name="speed">弹射物速度</param>
+        /// <param name="trackingFactor">追踪因子(0-1)，值越大追踪越灵敏</param>
+        /// <param name="predictionTime">预判时间(帧数)，默认30帧(0.5秒)</param>
+        /// <param name="maxAngularAcceleration">最大角加速度(弧度/帧)，-1表示不限制</param>
+        // ... existing code ...
+    public static void UpdateTrackingWithPrediction(this Projectile Projectile, Player targetPlayer, float speed, float trackingFactor,  float maxAngularAcceleration = -1f)
+    {
+        if (targetPlayer != null && targetPlayer.active && !targetPlayer.dead && !targetPlayer.ghost)
+        {
+            Vector2 playerVelocity = targetPlayer.velocity;
+            
+            float distance = Vector2.Distance(Projectile.Center, targetPlayer.Center);
+            float currentSpeed = Projectile.velocity.Length();
+            float projectileSpeed = currentSpeed > 0 ? currentSpeed : speed;
+            
+            float dynamicPredictionTime = distance / projectileSpeed;
+            
+            Vector2 predictedPosition = targetPlayer.Center + playerVelocity * dynamicPredictionTime;
+            
+            Vector2 direction = predictedPosition - Projectile.Center;
+            
+            direction.Normalize();
+            
+            Vector2 targetVelocity = direction * speed;
+            
+            if (maxAngularAcceleration < 0)
+            {
+                Projectile.velocity = Vector2.Lerp(Projectile.velocity, targetVelocity, trackingFactor);
+            }
+            else
+            {
+                Vector2 lerpedVelocity = Vector2.Lerp(Projectile.velocity, targetVelocity, trackingFactor);
+                
+                float currentAngle = Projectile.velocity.ToRotation();
+                float lerpedAngle = lerpedVelocity.ToRotation();
+                float angleDiff = lerpedAngle - currentAngle;
+                
+                while (angleDiff > MathHelper.Pi)
+                    angleDiff -= MathHelper.TwoPi;
+                while (angleDiff < -MathHelper.Pi)
+                    angleDiff += MathHelper.TwoPi;
+                
+                if (Math.Abs(angleDiff) > maxAngularAcceleration)
+                {
+                    float clampedAngleDiff = Math.Sign(angleDiff) * maxAngularAcceleration;
+                    float newAngle = currentAngle + clampedAngleDiff;
+                    float newSpeed = lerpedVelocity.Length();
+                    
+                    Projectile.velocity = new Vector2((float)Math.Cos(newAngle), (float)Math.Sin(newAngle)) * newSpeed;
+                }
+                else
+                {
+                    Projectile.velocity = lerpedVelocity;
+                }
+            }
+        }
+    }
+// ... existing code ...
+
+    
+    }
 }

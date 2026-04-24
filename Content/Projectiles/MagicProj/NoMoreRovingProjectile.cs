@@ -59,9 +59,6 @@ namespace ExpansionKele.Content.Projectiles.MagicProj
                 Projectile.velocity = Vector2.Zero;
                 Projectile.tileCollide = false; // 部署后不再与物块碰撞
                 
-                // 改变地雷的碰撞箱大小，使其更容易被敌人碰到
-                Projectile.width = 30;
-                Projectile.height = 30;
                 Projectile.netUpdate = true; // 同步更新
             }
             else if (!deployed)

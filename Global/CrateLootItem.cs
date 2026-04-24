@@ -4,7 +4,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using ExpansionKele.Content.Items.Placeables;
 using ExpansionKele.Content.Bosses.ShadowOfRevenge;
-using ExpansionKele.Content.Bosses.BossKele;
+using ExpansionKele.Content.Bosses.BossKeleNew;
 
 namespace ExpansionKele.Global
 {
@@ -77,8 +77,8 @@ namespace ExpansionKele.Global
     {
         public bool CanDrop(DropAttemptInfo info)
         {
-            var system = ModContent.GetInstance<DownedBossKele>();
-            return system != null && system.downedBossKele;
+            var system = ModContent.GetInstance<DownedBossKeleNew>();
+            return system != null && system.downedBossKeleNew;
         }
 
         public bool CanShowItemDropInUI()
@@ -89,7 +89,7 @@ namespace ExpansionKele.Global
 
         public string GetConditionDescription()
         {
-            return "击败BossKele后";
+            return "击败BossKeleNew后";
         }
     }
 

@@ -1,1 +1,11 @@
 MentalOmegaDamageClass.DisplayName: 心灵终结伤害
+BaseDamageNormal: 基础伤害：{0}
+BaseDamageAdd: 基础伤害：{0}---{1} (+{2})
+BaseDamageMultiply: 基础伤害：{0}---{1} (×{2:F2})
+BaseDamageSet: 基础伤害：{0}---{1} ({2})
+DevModifiedHeader: 已被开发者修改：修改属性如下：
+DevModifiedMultiply: 乘以 {0} ({1})
+DevModifiedAdd: 增加 {0} ({1})
+DevModifiedSet: 设为 {0} ({1})
+DevModifiedGlobal: 全局 - {0}
+DevModifiedPlayer: 个人 - {0}

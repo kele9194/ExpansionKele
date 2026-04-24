@@ -1,1 +1,11 @@
 MentalOmegaDamageClass.DisplayName: MentalOmega Damage
+BaseDamageNormal: Base Damage: {0}
+BaseDamageAdd: Base Damage: {0}---{1} (+{2})
+BaseDamageMultiply: Base Damage: {0}---{1} (×{2:F2})
+BaseDamageSet: Base Damage: {0}---{1} ({2})
+DevModifiedHeader: Modified by Developer: Attribute Changes:
+DevModifiedMultiply: Multiply by {0} ({1})
+DevModifiedAdd: Add {0} ({1})
+DevModifiedSet: Set to {0} ({1})
+DevModifiedGlobal: Global - {0}
+DevModifiedPlayer: Personal - {0}
