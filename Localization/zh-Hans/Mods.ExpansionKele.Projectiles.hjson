@@ -116,3 +116,5 @@ FFExplosion.DisplayName: 光束炮爆炸
 // BossKeleNew.CyanProjectileShooter.DisplayName: Cyan Projectile Shooter
 // RinyaBossProjectile.DisplayName: Rinya Boss Projectile
 // RinyaSubBossProjectile.DisplayName: Rinya Sub Boss Projectile
+RinyaBladeHeld.DisplayName: 紫晶长刀
+PlayerLogic.RinyaInvProj.DisplayName: 紫晶长刀

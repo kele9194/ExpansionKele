@@ -25,3 +25,12 @@ StoneBlade: {
 		'''
 	DisplayName: Stone Blade
 }
+
+RinyaBlade: {
+	Tooltip:
+		'''
+		Continuously increases damage and blade size when using, 
+		resetting after the most 6 stacks
+		'''
+	DisplayName: Amethyst Longblade
+}

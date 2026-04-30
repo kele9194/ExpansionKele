@@ -7,6 +7,7 @@ using ExpansionKele.Content.Projectiles.RangedProj;
 using ExpansionKele.Content.Customs;
 using ExpansionKele.Content.Items.OtherItem;
 using ExpansionKele.Content.Items.Materials;
+using ExpansionKele.Content.Audio;
 
 namespace ExpansionKele.Content.Items.Weapons.Ranged
 {
@@ -38,7 +39,7 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
             Item.knockBack = 4f;
             Item.value = ItemUtils.CalculateValueFromRecipes(this);
             Item.rare = ItemUtils.CalculateRarityFromRecipes(this); 
-            Item.UseSound = ExpansionKele.SniperSound;
+            Item.UseSound = ExpansionKeleSounds.SniperSound;
             Item.autoReuse = true;
             Item.shoot = ModContent.ProjectileType<AutoAimingSniperBullet>();
             Item.shootSpeed = 16f;

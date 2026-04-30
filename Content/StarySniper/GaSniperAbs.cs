@@ -9,6 +9,7 @@ using Terraria.Audio;
 using System.Collections.Generic;
 using ExpansionKele.Content.Customs;
 using ExpansionKele.Content.Projectiles.RangedProj;
+using ExpansionKele.Content.Audio;
 
 namespace ExpansionKele.Content.StarySniper
 {
@@ -50,7 +51,7 @@ namespace ExpansionKele.Content.StarySniper
             Item.shootSpeed = ShootSpeed; 
             Item.useAnimation = UseAnimationTime; 
             Item.useTime = UseTime; 
-            Item.UseSound = ExpansionKele.SniperSound; 
+            Item.UseSound = ExpansionKeleSounds.SniperSound; 
             Item.useStyle = ItemUseStyleID.Shoot; 
             Item.value = ItemUtils.CalculateValueFromRecipes(this);
             Item.rare = ItemUtils.CalculateRarityFromRecipes(this); 

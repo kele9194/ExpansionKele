@@ -11,6 +11,7 @@ using ExpansionKele.Content.Items.OtherItem;
 using ExpansionKele.Content.Projectiles.RangedProj;
 using ExpansionKele.Content.Items.Materials;
 using ExpansionKele.Content.Buff;
+using ExpansionKele.Content.Audio;
 
 namespace ExpansionKele.Content.Items.Weapons.Ranged
 {
@@ -99,7 +100,7 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
 				ammoCount = MaxAmmoCount;
     
 				//CombatText.NewText(player.getRect(), Color.Cyan, $"{ammoCount}/{MaxAmmoCount}", true);
-				Terraria.Audio.SoundEngine.PlaySound(ExpansionKele.FadeReloadSound, player.position);
+				Terraria.Audio.SoundEngine.PlaySound(ExpansionKeleSounds.FadeReloadSound, player.position);
 				return false;
 			}
 			

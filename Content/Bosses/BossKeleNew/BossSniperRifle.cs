@@ -10,6 +10,8 @@ using ExpansionKele.Content.Customs;
 using InnoVault;
 using static ExpansionKele.Content.Bosses.BossKeleNew.BossKeleNew;
 using Terraria.Audio;
+using ExpansionKele.Content.Audio;
+
 
 namespace ExpansionKele.Content.Bosses.BossKeleNew
 {
@@ -137,7 +139,7 @@ namespace ExpansionKele.Content.Bosses.BossKeleNew
 
 
             if(Projectile.timeLeft==30){
-                    SoundEngine.PlaySound(ExpansionKele.SniperSound, ownerNPC.Center);
+                    SoundEngine.PlaySound(ExpansionKeleSounds.SniperSound, ownerNPC.Center);
                     Projectile.NewProjectile(
                     Projectile.GetSource_FromAI(),
                     ownerNPC.Center+Projectile.rotation.ToRotationVector2() * 90f, 

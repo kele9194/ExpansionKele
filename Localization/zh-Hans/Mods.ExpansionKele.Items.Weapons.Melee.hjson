@@ -21,3 +21,8 @@ StoneBlade: {
 		'''
 	DisplayName: 石刀
 }
+
+RinyaBlade: {
+	Tooltip: 使用时会不断增加伤害和刀片大小，最多6次后重新循环
+	DisplayName: 紫晶长刀
+}

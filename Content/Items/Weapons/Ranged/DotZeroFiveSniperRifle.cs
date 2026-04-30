@@ -9,6 +9,7 @@ using Terraria.GameContent.RGB;
 using ExpansionKele.Content.Items.OtherItem;
 using ExpansionKele.Content.Items.Materials;
 using Terraria.Localization;
+using ExpansionKele.Content.Audio;
 
 namespace ExpansionKele.Content.Items.Weapons.Ranged
 {
@@ -38,7 +39,7 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
             Item.knockBack = 6f;
             Item.value = ItemUtils.CalculateValueFromRecipes(this);
             Item.rare = ItemUtils.CalculateRarityFromRecipes(this); 
-            Item.UseSound = ExpansionKele.SniperSound; 
+            Item.UseSound = ExpansionKeleSounds.SniperSound; 
             Item.autoReuse = true;
             Item.shoot = ModContent.ProjectileType<DotZeroFiveSniperBullet>();
             Item.shootSpeed = 16f;

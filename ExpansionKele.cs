@@ -26,6 +26,7 @@ using ExpansionKele.Content.Projectiles.MagicProj;
 using ExpansionKele.Content.Projectiles.GenericProj;
 using ExpansionKele.Commons;
 using ExpansionKele.Content.Bosses.BossKeleNew;
+using ExpansionKele.Content.Items.Weapons.Melee;
 
 
 namespace ExpansionKele
@@ -40,37 +41,12 @@ namespace ExpansionKele
         public static object Content { get; internal set; }
         // public static int[] projectileTypes;
 
-        public static SoundStyle SniperSound = new SoundStyle("ExpansionKele/Content/Audio/SniperSound")
-        {
-            Volume = 0.3f,
-            PitchVariance = 0.2f,
-            MaxInstances = 3,
-        };
-
-        public static SoundStyle FadeReloadSound = new SoundStyle("ExpansionKele/Content/Audio/FadeReloadAudio")
-        {
-            Volume = 0.4f,
-            PitchVariance = 0.1f,
-            MaxInstances = 2,
-        };
-
-        public static SoundStyle IronCurtainExplosionSound = new SoundStyle("ExpansionKele/Content/Audio/IronCurtainExplosion")
-        {
-            Volume = 0.8f,
-            PitchVariance = 0.1f,
-            MaxInstances = 3,
-        };
+        
 
         public static Texture2D sniperLaserTexture = ModContent.Request<Texture2D>("ExpansionKele/Content/StarySniper/SniperLaser").Value;
 
         // 添加物品修改UI的按键绑定
 
-        
-
-        public static SoundStyle GetSniperSound()
-        {
-            return SniperSound;
-        }
 
 
         public override void Load()
@@ -183,6 +159,10 @@ namespace ExpansionKele
 
                 );
             }
+            if (ModLoader.TryGetMod("CalamityMod", out Mod calamityMod))
+            {
+                RegisterExemptProjectiles(calamityMod);
+            }
         }
 // ... existing code ...
 // ... existing code ...
@@ -269,5 +249,29 @@ public static int DEFTool(int nonCalamityDefense, int calamityDefense)
         //     return ExpansionKeleCallHandler.HandleCall(this, args);
         // }
 // ... existing code ...
-    }
+    
+
+
+        private void RegisterExemptProjectiles(Mod calamityMod)
+        {
+            // 调用灾厄的 ModCall 来注册豁免射弹
+            // 你需要查看灾厄的 ModCalls.cs 文件确认是否有这个接口
+            
+            // 示例（如果灾厄提供了这样的接口）：
+            
+            // 或者批量注册
+            int[] exemptProjectiles = new int[]
+            {
+                ModContent.ProjectileType<RinyaBladeHeld>(),
+                ModContent.ProjectileType<RinyaProjectile>(),
+                ModContent.ProjectileType<StoneBladeHeld>(),
+                // ... 更多射弹
+            };
+            
+            foreach (int projType in exemptProjectiles)
+            {
+                calamityMod.Call("RegisterPierceResistExemptProjectile", projType);
+            }
+        }
+}
 }
