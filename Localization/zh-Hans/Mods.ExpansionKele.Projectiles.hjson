@@ -118,3 +118,9 @@ FFExplosion.DisplayName: 光束炮爆炸
 // RinyaSubBossProjectile.DisplayName: Rinya Sub Boss Projectile
 RinyaBladeHeld.DisplayName: 紫晶长刀
 PlayerLogic.RinyaInvProj.DisplayName: 紫晶长刀
+LightGapProjectile.DisplayName: 光隙
+// ArtilleristExplosion.DisplayName: Artillerist Explosion
+// ThrowerExplosion.DisplayName: Thrower Explosion
+// SpreadProjectile.DisplayName: Spread Projectile
+// CenturionSlashProj.DisplayName: Centurion Slash Proj
+// LordSlashProjectile.DisplayName: Lord Slash Projectile

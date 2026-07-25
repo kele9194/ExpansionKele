@@ -161,6 +161,12 @@ namespace ExpansionKele.Content.Buff
 
             }
         }
+        public override void NaturalLifeRegen(ref float regen)
+        {
+            if (!lifeRegenDebuff) return;
+            // 将自然再生系数设为零，完全禁止自然恢复
+            regen *= 0f;
+        }
 
         public void RestoreLifeRegenTime()
         {

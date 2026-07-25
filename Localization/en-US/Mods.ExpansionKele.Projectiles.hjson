@@ -118,3 +118,9 @@ RinyaBossProjectile.DisplayName: Rinya Boss Projectile
 RinyaSubBossProjectile.DisplayName: Rinya Sub Boss Projectile
 RinyaBladeHeld.DisplayName: Amethyst Longblade
 PlayerLogic.RinyaInvProj.DisplayName: Amethyst Longblade
+LightGapProjectile.DisplayName: Light Gap Projectile
+ArtilleristExplosion.DisplayName: Artillerist Explosion
+ThrowerExplosion.DisplayName: Thrower Explosion
+SpreadProjectile.DisplayName: Spread Projectile
+CenturionSlashProj.DisplayName: Centurion Slash Proj
+LordSlashProjectile.DisplayName: Lord Slash Projectile

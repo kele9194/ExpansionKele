@@ -48,7 +48,7 @@ namespace ExpansionKele.Content.Armor.StarArmorA
 	{
 	Recipe recipeI = Recipe.Create(ModContent.ItemType<StarHelmetJ>()); 
 	recipeI.AddIngredient(ExpansionKele.calamity.Find<ModItem>("LifeAlloy").Type, 8);
-	recipeI.AddIngredient(ExpansionKele.calamity.Find<ModItem>("GalacticaSingularity").Type, 8);
+	//recipeI.AddIngredient(ExpansionKele.calamity.Find<ModItem>("GalacticaSingularity").Type, 8);
     recipeI.AddIngredient(ItemID.LunarBar, 8);
     recipeI.AddTile(TileID.LunarCraftingStation);//远古操纵机
     recipeI.Register(); // 注册配方  

@@ -1,0 +1,308 @@
+SniperBaseChip: {
+	DisplayName: 基础狙击芯片
+	Tooltip: 基础狙击芯片，用以合成各子职业芯片
+}
+
+RapidFireChip: {
+	DisplayName: 速射狙芯片
+	Tooltip: ""
+	ChipEngraveName: 速射狙
+	ChipTooltip:
+		'''
+		右键使用：将当前手持的远程武器刻印为【速射狙】
+		刻印后获得速射狙天赋：射速↑ 对空特化 轻微追踪
+		空中单位：Y方向速度 ≠ 0 的敌人
+		'''
+}
+
+ArtilleristChip: {
+	DisplayName: 炮手芯片
+	Tooltip: ""
+	ChipEngraveName: 炮手
+	ChipTooltip:
+		'''
+		右键使用：将当前手持的远程武器刻印为【炮手】
+		刻印后获得炮手天赋：攻击附带爆炸、破甲
+		'''
+}
+
+MarksmanChip: {
+	DisplayName: 神射手芯片
+	Tooltip: ""
+	ChipEngraveName: 神射手
+	ChipTooltip:
+		'''
+		右键使用：将当前手持的远程武器刻印为【神射手】
+		刻印后获得神射手天赋：精准打击、轻微追踪、距离增伤
+		未击杀补偿：射弹未击败敌人时获得攻速提升
+		'''
+}
+
+ThrowerChip: {
+	DisplayName: 投掷手芯片
+	Tooltip: ""
+	ChipEngraveName: 投掷手
+	ChipTooltip:
+		'''
+		右键使用：将当前手持的远程武器刻印为【投掷手】
+		刻印后获得投掷手天赋：穿透爆炸攻击
+		主弹命中造成0.75倍伤害，随后产生两次延迟爆炸
+		'''
+}
+
+SpreadChip: {
+	DisplayName: 散射手芯片
+	Tooltip: ""
+	ChipEngraveName: 散射手
+	ChipTooltip:
+		'''
+		右键使用：将当前手持的远程武器刻印为【散射手】
+		刻印后获得散射手天赋：弹药伤害积累，释放扇形AOE
+		每次射击积累弹药伤害，3帧后释放扇形范围攻击
+		近距（0-200px）造成50%存储伤害
+		远距（200-400px）造成20%存储伤害
+		'''
+}
+
+HeavyShooterChip: {
+	DisplayName: 重射手芯片
+	Tooltip: ""
+	ChipEngraveName: 重射手
+	ChipTooltip:
+		'''
+		右键使用：将当前手持的远程武器刻印为【重射手】
+		刻印后获得重射手天赋：伤害↑ 攻速↓ 近身增伤 角度判定增伤
+		贴脸越近越痛，角度越正越痛，换枪上膛爆发
+		'''
+	SwapBurstStart: 上膛爆发！
+	SwapBurstEnd: 爆发结束
+	SwapBurstCooldownEnd: 上膛就绪
+}
+
+SiegeChip: {
+	DisplayName: 攻城手芯片
+	Tooltip: ""
+	ChipEngraveName: 攻城手
+	ChipTooltip:
+		'''
+		右键使用：将当前手持的远程武器刻印为【攻城手】
+		刻印后获得攻城手天赋：体积锁定、近身惩罚、远程增伤、轻微追踪
+		自动锁定范围内碰撞箱最大的敌人，体积越大越优先
+		贴脸（64px内）伤害减半；远距（400px外）伤害提升
+		'''
+}
+
+ChipExtractor: {
+	DisplayName: 芯片提取器
+	Tooltip: ""
+	ChipTooltip:
+		'''
+		右键使用：从当前手持的武器中提取刻印芯片
+		消耗50铜币，不消耗本物品
+		返还对应的刻印芯片
+		'''
+	NoWeapon: 请手持一把已刻印的武器！
+	RealArknights: 这把武器是明日方舟专属武器，无法提取芯片！
+	NoEngraving: 这把武器没有刻印，无法提取芯片！
+	UnknownType: 无法识别该武器的刻印类型！
+	NoMoney: 你没有足够的铜币！（需要50铜币）
+	MissingChip: 警告：未找到对应的芯片类型（{0}），请联系模组作者。
+	Success: 已从 {0} 中提取出刻印芯片！消耗了50铜币。
+}
+
+ChipsLoad: {
+	HoldWeapon: 请手持一把武器再使用芯片！
+	WeaponOnly: 芯片只能用于武器！
+	RangedOnly: 该芯片只能用于远程武器！
+	MeleeOnly: 该芯片只能用于近战武器！
+	RealArknights: 这把武器是明日方舟专属武器，无法刻印！
+	AlreadyEngraved: 这把武器已经刻印过了！
+	EngraveFailed: 刻印失败，请稍后重试。
+	EngraveSuccess: 已将 {0} 刻印为【{1}】！
+}
+
+HomingOn: 制导：已开启（默认按 J 切换）
+HomingOff: 制导：已关闭（默认按 J 切换）
+HomingStatusOn:
+	'''
+	[制导开启]
+	（默认按 J 切换）
+	'''
+HomingStatusOff:
+	'''
+	[制导关闭]
+	（默认按 J 切换）
+	'''
+
+TalentDisplayName: {
+	RapidFire: 【天赋·速射】攻击速度提升，对空增伤制导
+	Marksman: 【天赋·神射】射程增加、精准打击
+	HeavyShooter: 【天赋·重射】高伤害、上膛爆发
+	Artillerist: 【天赋·炮手】攻击附带AOE，爆炸、破甲
+	Thrower: 【天赋·投掷】命中后产生两次延迟爆炸
+	Siege: 【天赋·攻城】锁定最大目标，远程增伤，近身惩罚
+	Spread: 【天赋·散射】弹药积累，扇形范围攻击
+	Dreadnought: 【天赋·无畏】挡1、阻挡增伤、无畏重生
+	Centurion: 【天赋·强攻】挡2、增伤减伤、溅射传导
+	ArtsFighter: 【天赋·术战】挡1、法术转化、防御穿透、易伤
+	Fighter: 【天赋·斗士】挡1、高攻速低伤、闪避、命中叠层
+	Swordmaster: 【天赋·剑豪】挡2、高攻速低伤、破甲、减防、最终暴击
+	Reaper: 【天赋·收割】挡2、抑制生命再生、命中回血、群战增伤
+	Musha: 【天赋·武者】挡1、抑制生命回复、命中回血、低血减伤、残血加攻速、复活
+	Crusher: 【天赋·重剑】挡2、玻璃大炮、生命+30%、回血+20%、阻挡增伤
+	Lord: 【天赋·领主】挡2、领主剑气、武器射弹增益、群战攻速
+}
+
+ArknightsTag: "[明日方舟] "
+
+GuardBaseChip: {
+	DisplayName: 基础近卫芯片
+	Tooltip: 基础近卫芯片，用以合成各子职业芯片
+}
+
+DreadnoughtChip: {
+	DisplayName: 无畏者芯片
+	Tooltip: ""
+	ChipEngraveName: 无畏者
+	ChipTooltip:
+		'''
+		右键使用：将当前手持的近战武器刻印为【无畏者】
+		刻印后获得无畏者天赋：
+		■ 挡1：阻挡1个敌人，近战增伤+减伤
+		■ 专属增伤：对阻挡目标额外造成15%伤害
+		■ 无畏重生：受到致命伤害时，回满血、生命上限降至40%、攻速×1.3（持续6分钟）
+		'''
+}
+
+CenturionChip: {
+	DisplayName: 强攻手芯片
+	Tooltip: ""
+	ChipEngraveName: 强攻手
+	ChipTooltip:
+		'''
+		右键使用：将当前手持的近战武器刻印为【强攻手】
+		刻印后获得强攻手天赋：
+		■ 挡2：阻挡2个敌人，近战增伤+减伤
+		■ 专属增伤：对被阻挡敌人额外造成12%伤害
+		■ 半血减伤：生命高于50%时，受到被阻挡敌人伤害-20%
+		■ 溅射传导：攻击命中时，对其他被阻挡敌人造成20%传导伤害
+		'''
+}
+
+ArtsFighterChip: {
+	DisplayName: 术战者芯片
+	Tooltip: ""
+	ChipEngraveName: 术战者
+	ChipTooltip:
+		'''
+		右键使用：将当前手持的近战武器刻印为【术战者】
+		刻印后获得术战者天赋：
+		■ 挡1：阻挡1个敌人，近战增伤+减伤
+		■ 法术转化：所有伤害和弹幕转为法术伤害
+		■ 防御穿透：获得30%防御穿透
+		■ 非阻挡增伤：对未被阻挡的目标造成1.12倍伤害
+		■ 阻挡易伤：已被阻挡的目标受到伤害+10%
+		'''
+}
+
+FighterChip: {
+	DisplayName: 斗士芯片
+	Tooltip: ""
+	ChipEngraveName: 斗士
+	ChipTooltip:
+		'''
+		右键使用：将当前手持的近战武器刻印为【斗士】
+		刻印后获得斗士天赋：
+		■ 挡1：阻挡1个敌人，近战增伤+减伤
+		■ 轻灵攻势：攻击速度×1.25，但伤害×0.80
+		■ 基础闪避：获得15%闪避概率
+		■ 战意昂扬：生命高于50%时，近战攻速+10%
+		■ 斗士叠劲：每次命中敌人获得1层斗士Buff（持续2秒）
+		  每层提供+1%闪避、+3%攻速，最多5层
+		'''
+}
+
+SwordmasterChip: {
+	DisplayName: 剑豪芯片
+	Tooltip: ""
+	ChipEngraveName: 剑豪
+	ChipTooltip:
+		'''
+		右键使用：将当前手持的近战武器刻印为【剑豪】
+		刻印后获得剑豪天赋：
+		■ 挡2：阻挡2个敌人，近战增伤+减伤
+		■ 刀光剑影：攻击速度×1.43（动画时间×0.7），但伤害×0.65
+		■ 破甲：攻击附带15点护甲穿透
+		■ 削铁如泥：攻击时降低目标10%防御效果
+		■ 会心一击：最终伤害×1.1（不受距离影响）
+		'''
+}
+
+ReaperChip: {
+	DisplayName: 收割者芯片
+	Tooltip: ""
+	ChipEngraveName: 收割者
+	ChipTooltip:
+		'''
+		右键使用：将当前手持的近战武器刻印为【收割者】
+		刻印后获得收割者天赋：
+		■ 挡2：阻挡2个敌人，近战增伤+减伤
+		■ 暗夜掠夺：抑制自然生命再生（lifeRegen 与 lifeRegenTime 置零）
+		■ 吸血收割（距离衰减）：命中敌人时恢复已损生命值
+		距离越近回复越多：128px内满效，128~320px衰减至33%，320px外仅33%
+		（非线性递减，连续快攻收益降低）
+		■ 群战本能：300px内每多一个敌人+6%伤害，最多+12%
+		'''
+}
+
+MushaChip: {
+	DisplayName: 武者芯片
+	Tooltip: ""
+	ChipEngraveName: 武者
+	ChipTooltip:
+		'''
+		右键使用：将当前手持的近战武器刻印为【武者】
+		刻印后获得武者天赋：
+		■ 挡1：阻挡1个敌人，近战增伤+减伤
+		■ 绝地求生：抑制自然生命再生（lifeRegen 与 lifeRegenTime 置零）
+		■ 借击回生（距离衰减）：每次命中回复已损生命值5%，冷却为武器使用时间
+		距离越近回复越多：128px内满效，128~320px衰减至33%，320px外仅33%
+		■ 孤注一掷：生命低于50%时获得20%减伤
+		■ 愈战愈勇：根据已损生命值（最高70%）线性提升最高50%攻击速度
+		■ 不屈意志：死亡时回复30%最大生命值，冷却10分钟，期间再死则真正死亡
+		'''
+}
+
+CrusherChip: {
+	DisplayName: 重剑手芯片
+	Tooltip: ""
+	ChipEngraveName: 重剑手
+	ChipTooltip:
+		'''
+		右键使用：将当前手持的近战武器刻印为【重剑手】
+		刻印后获得重剑手天赋：
+		■ 挡2：阻挡2个敌人，近战增伤+减伤
+		■ 玻璃大炮：总防御力降低50%，近战伤害提高至150%
+		■ 不屈之躯：生命上限+30%，自然回血速度+20%
+		■ 破阵：对已被阻挡的敌人额外造成×1.1伤害
+		'''
+}
+
+LordChip: {
+	DisplayName: 领主芯片
+	Tooltip: ""
+	ChipEngraveName: 领主
+	ChipTooltip:
+		'''
+		右键使用：将当前手持的近战武器刻印为【领主】
+		刻印后获得领主天赋：
+		■ 挡2：阻挡2个敌人，近战增伤+减伤
+		■ 领主剑气：近战攻击时额外发射领主剑气
+		  基础伤害60%，速度8
+		  伤害随飞行距离衰减：128px内满效，320px处降至20%
+		■ 武器射弹增益：若武器自带射弹，则在128~320px范围内：
+		  伤害从+100%线性递增至+120%
+		  穿甲从0%线性递增至10%（贴脸时达到最大）
+		■ 群战本能：300px内存在至少2个敌人时，近战攻速+12%
+		'''
+}

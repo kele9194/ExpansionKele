@@ -1,0 +1,309 @@
+SniperBaseChip: {
+	DisplayName: Sniper Base Chip
+	Tooltip: Base Sniper Chip, used to synthesize subclass chips
+}
+
+RapidFireChip: {
+	DisplayName: Rapid Fire Chip
+	Tooltip: ""
+	ChipEngraveName: Rapid Fire
+	ChipTooltip:
+		'''
+		Right-click: Engrave the held ranged weapon as [Rapid Fire]
+		Gain Rapid Fire talent: Increased fire rate, anti-air specialization, slight homing
+		Airborne enemies: enemies with Y velocity ≠ 0
+		'''
+}
+
+ArtilleristChip: {
+	DisplayName: Artillerist Chip
+	Tooltip: ""
+	ChipEngraveName: Artillerist
+	ChipTooltip:
+		'''
+		Right-click: Engrave the held ranged weapon as [Artillerist]
+		Gain Artillerist talent: Attacks cause explosions and armor break
+		'''
+}
+
+MarksmanChip: {
+	DisplayName: Marksman Chip
+	Tooltip: ""
+	ChipEngraveName: Marksman
+	ChipTooltip:
+		'''
+		Right-click: Engrave the held ranged weapon as [Marksman]
+		Gain Marksman talent: Precision strike, light homing, distance damage bonus
+		Miss compensation: Gain attack speed buff when projectile fails to defeat an enemy
+		'''
+}
+
+ThrowerChip: {
+	DisplayName: Thrower Chip
+	Tooltip: ""
+	ChipEngraveName: Thrower
+	ChipTooltip:
+		'''
+		Right-click: Engrave the held ranged weapon as [Thrower]
+		Gain Thrower talent: Main hit deals 0.75x damage, then triggers two delayed explosions
+		First explosion: 0.5s after hit — 0.375x damage, 24px radius
+		Second explosion: 1.0s after hit — 0.375x damage, 24px radius
+		Total damage: 1.5x base damage
+		'''
+}
+
+SpreadChip: {
+	DisplayName: Spread Chip
+	Tooltip: ""
+	ChipEngraveName: Spread
+	ChipTooltip:
+		'''
+		Right-click: Engrave the held ranged weapon as [Spread]
+		Gain Spread talent: Accumulate ammo damage, release fan-shaped AOE
+		Each shot accumulates ammo damage, releases fan-shaped AOE after 3 frames
+		Close range (0-200px): 50% of stored damage
+		Far range (200-400px): 20% of stored damage
+		'''
+}
+
+HeavyShooterChip: {
+	DisplayName: HeavyShooter Chip
+	Tooltip: ""
+	ChipEngraveName: HeavyShooter
+	ChipTooltip:
+		'''
+		Right-click to engrave your held ranged weapon as 【HeavyShooter】
+		Grants HeavyShooter talent: DMG↑ SPD↓ Close-range bonus Angle bonus
+		The closer and more direct your aim, the higher the damage
+		Weapon swap grants a burst of attack speed
+		'''
+	SwapBurstStart: Chamber Loaded!
+	SwapBurstEnd: Burst Ended
+	SwapBurstCooldownEnd: Chamber Ready
+}
+
+SiegeChip: {
+	DisplayName: Siege Chip
+	Tooltip: ""
+	ChipEngraveName: Siege
+	ChipTooltip:
+		'''
+		Right-click: Engrave the held ranged weapon as [Siege]
+		Gain Siege talent: Volume targeting, close penalty, ranged bonus, slight homing
+		Auto-locks the enemy with the largest hitbox in range
+		Close range (under 64px): damage ×0.5
+		Long range (over 400px): damage ×1.12
+		'''
+}
+
+ChipExtractor: {
+	DisplayName: Chip Extractor
+	Tooltip: ""
+	ChipTooltip:
+		'''
+		Right-click: Extract engraving chip from the held weapon
+		Costs 50 copper coins, item is not consumed
+		Returns the corresponding engraving chip
+		'''
+	NoWeapon: Hold an engraved weapon to use the extractor!
+	RealArknights: This is an Arknights exclusive weapon, cannot extract chip!
+	NoEngraving: This weapon has no engraving, cannot extract chip!
+	UnknownType: Unable to recognize the weapon's engraving type!
+	NoMoney: Not enough copper coins! (50 copper coins required)
+	MissingChip: Warning: No chip type found for {0}, please contact the mod author.
+	Success: Extracted engraving chip from {0}! 50 copper coins deducted.
+}
+
+ChipsLoad: {
+	HoldWeapon: Hold a weapon to use the chip!
+	WeaponOnly: Chip can only be used on weapons!
+	RangedOnly: This chip can only be used on ranged weapons!
+	MeleeOnly: This chip can only be used on melee weapons!
+	RealArknights: This is an Arknights exclusive weapon and cannot be engraved!
+	AlreadyEngraved: This weapon has already been engraved!
+	EngraveFailed: Engraving failed, please try again later.
+	EngraveSuccess: '''"{0}" has been engraved as [{1}]!'''
+}
+
+HomingOn: Homing: ON (Press button(default J) to toggle)
+HomingOff: Homing: OFF (Press button(default J) to toggle)
+HomingStatusOn:
+	'''
+	[Homing ON]
+	(Press button(default J) to toggle)
+	'''
+HomingStatusOff:
+	'''
+	[Homing ON]
+	(Press button(default J) to toggle)
+	'''
+
+TalentDisplayName: {
+	RapidFire: 【Talent·Rapid Fire】Increased fire rate, anti-air specialization
+	Marksman: 【Talent·Marksman】Increased range, precision strike
+	HeavyShooter: 【Talent·Heavy Shooter】High damage, close-range bonus, swap burst
+	Artillerist: 【Talent·Artillerist】Attacks cause explosions and armor break
+	Thrower: 【Talent·Thrower】Delayed explosive attacks
+	Siege: 【Talent·Siege】Lock largest target, ranged bonus, close penalty
+	Spread: 【Talent·Spread】Ammo accumulation, fan-shaped area attack
+	Dreadnought: 【Talent·Dreadnought】Block 1, blocking damage bonus, Dreadnought Rebirth
+	Centurion: 【Talent·Centurion】Block 2, dmg bonus/reduction, splash conduction
+	ArtsFighter: 【Talent·ArtsFighter】Block 1, magic conversion, defense penetration, vulnerability
+	Fighter: 【Talent·Fighter】Block 1, high attack speed, dodge, hit stacks
+	Swordmaster: 【Talent·Swordmaster】Block 2, attack speed, armor pierce, def reduction, crit strike
+	Reaper: 【Talent·Reaper】Block 2, suppress life regen, life steal, group damage bonus
+	Musha: 【Talent·Musha】Block 1, suppress life regen, life steal, low HP dmg reduction, missing HP attack speed, revive
+	Crusher: 【Talent·Crusher】Block 2, glass cannon, +30% HP, +20% regen, blocking bonus dmg
+	Lord: 【Talent·Lord】Block 2, Lord Slash, projectile boost, group attack speed
+}
+
+ArknightsTag: "[Arknights] "
+
+GuardBaseChip: {
+	DisplayName: Guard Base Chip
+	Tooltip: Base Guard Chip, used to synthesize subclass chips
+}
+
+DreadnoughtChip: {
+	DisplayName: Dreadnought Chip
+	Tooltip: ""
+	ChipEngraveName: Dreadnought
+	ChipTooltip:
+		'''
+		Right-click: Engrave the held melee weapon as [Dreadnought]
+		Gain Dreadnought talent:
+		■ Block 1: Blocks 1 enemy, melee damage bonus + damage reduction
+		■ Exclusive bonus: +15% damage vs blocked targets
+		■ Dreadnought Rebirth: On lethal hit, heal to full, reduce max HP to 40%, gain ×1.3 attack speed (6 min duration)
+		'''
+}
+
+CenturionChip: {
+	DisplayName: Centurion Chip
+	Tooltip: ""
+	ChipEngraveName: Centurion
+	ChipTooltip:
+		'''
+		Right-click: Engrave the held melee weapon as [Centurion]
+		Gain Centurion talent:
+		■ Block 2: Blocks 2 enemies, melee damage bonus + damage reduction
+		■ Exclusive bonus: +12% damage vs blocked targets
+		■ HP safeguard: Take 20% less damage from blocked enemies when HP > 50%
+		■ Splash conduction: On hit, deal 20% conduction damage to other blocked enemies
+		'''
+}
+
+ArtsFighterChip: {
+	DisplayName: Arts Fighter Chip
+	Tooltip: ""
+	ChipEngraveName: Arts Fighter
+	ChipTooltip:
+		'''
+		Right-click: Engrave the held melee weapon as [Arts Fighter]
+		Gain Arts Fighter talent:
+		■ Block 1: Blocks 1 enemy, melee damage bonus + damage reduction
+		■ Magic conversion: All damage and projectiles converted to magic damage
+		■ Defense penetration: 30% defense penetration
+		■ Unblocked bonus: +12% damage vs unblocked targets
+		■ Blocked vulnerability: +10% damage taken on blocked targets
+		'''
+}
+
+FighterChip: {
+	DisplayName: Fighter Chip
+	Tooltip: ""
+	ChipEngraveName: Fighter
+	ChipTooltip:
+		'''
+		Right-click: Engrave the held melee weapon as [Fighter]
+		Gain Fighter talent:
+		■ Block 1: Blocks 1 enemy, melee damage bonus + damage reduction
+		■ Swift Strikes: Attack speed ×1.25, but damage ×0.80
+		■ Base Dodge: Gain 15% dodge chance
+		■ Fighting Spirit: When HP > 50%, +10% melee attack speed
+		■ Fighter Stacks: Each hit grants 1 stack of Fighter Buff (2 sec duration)
+		  Each stack: +1% dodge chance, +3% attack speed, max 5 stacks
+		'''
+}
+
+SwordmasterChip: {
+	DisplayName: Swordmaster Chip
+	Tooltip: ""
+	ChipEngraveName: Swordmaster
+	ChipTooltip:
+		'''
+		Right-click: Engrave the held melee weapon as [Swordmaster]
+		Gain Swordmaster talent:
+		■ Block 2: Blocks 2 enemies, melee damage bonus + damage reduction
+		■ Bladestorm: Attack speed ×1.43 (animation time ×0.7), but damage ×0.65
+		■ Armor Pierce: Attacks ignore 15 flat armor
+		■ Sunder: Reduce target's defense effectiveness by 10%
+		■ Critical Strike: Final damage ×1.1 (not affected by distance)
+		'''
+}
+
+ReaperChip: {
+	DisplayName: Reaper Chip
+	Tooltip: ""
+	ChipEngraveName: Reaper
+	ChipTooltip:
+		'''
+		Right-click: Engrave the held melee weapon as [Reaper]
+		Gain Reaper talent:
+		■ Block 2: Blocks 2 enemies, melee damage bonus + damage reduction
+		■ Dark Harvest: Suppress natural life regeneration (lifeRegen & lifeRegenTime set to 0)
+		■ Blood Siphon: Hitting an enemy restores missing health (non-linear, diminishing returns on rapid hits)
+		■ Pack Instinct: +6% damage per additional enemy within 300px, up to +12%
+		'''
+}
+
+MushaChip: {
+	DisplayName: Musha Chip
+	Tooltip: ""
+	ChipEngraveName: Musha
+	ChipTooltip:
+		'''
+		Right-click: Engrave the held melee weapon as [Musha]
+		Gain Musha talent:
+		■ Block 1: Blocks 1 enemy, melee damage bonus + damage reduction
+		■ Last Stand: Suppress natural life regeneration (lifeRegen & lifeRegenTime set to 0)
+		■ Life Steal Strike: Each hit restores 5% of missing HP, cooldown equals weapon use time
+		■ Desperate Gamble: Take 20% less damage when HP ≤ 50%
+		■ Indomitable: Up to 50% attack speed bonus scaling linearly with missing HP (max 70%)
+		■ Unyielding Will: On death, revive with 30% max HP (10 min cooldown), true death if killed again
+		'''
+}
+
+CrusherChip: {
+	DisplayName: Crusher Chip
+	Tooltip: ""
+	ChipEngraveName: Crusher
+	ChipTooltip:
+		'''
+		Right-click: Engrave the held melee weapon as [Crusher]
+		Gain Crusher talent:
+		■ Block 2: Blocks 2 enemies, melee damage bonus + damage reduction
+		■ Glass Cannon: Total defense reduced by 50%, melee damage increased to 150%
+		■ Unyielding Body: Max HP +30%, natural life regen +20%
+		■ Break Formation: Deal ×1.1 damage to blocked enemies
+		'''
+}
+
+LordChip: {
+	DisplayName: Lord Chip
+	Tooltip: ""
+	ChipEngraveName: Lord
+	ChipTooltip:
+		'''
+		Right-click: Engrave the held melee weapon as [Lord]
+		Gain Lord talent:
+		■ Block 2: Blocks 2 enemies, melee damage bonus + damage reduction
+		■ Lord Slash: Melee attacks fire an additional Lord Slash projectile
+		  Base damage 60%, speed 8
+		  Damage decays with distance: 60% at 128px, 20% at 320px
+		■ Projectile Boost: If the weapon itself fires projectiles, within 128~320px:
+		  Damage bonus: +100% → +120% (scales with proximity)
+		  Armor penetration: 0% → 10% (scales with proximity)
+		■ Battle Momentum: +12% melee attack speed when 2+ enemies within 300px
+		'''
+}

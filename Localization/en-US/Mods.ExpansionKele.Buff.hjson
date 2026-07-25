@@ -184,3 +184,23 @@ SelfRedemptionHitBuff: {
 	Description: Mods.ExpansionKele.Buff.SelfRedemptionHitBuff.Description
 	DisplayName: Self Redemption Hit Buff
 }
+
+MarksmanBuff: {
+	Description: Marksman miss compensation: Ranged attack speed increased by 10%
+	DisplayName: Marksman Focus
+}
+
+DreadnoughtRebirthBuff: {
+	DisplayName: Dreadnought Rebirth
+	Description: Max HP reduced to 40%, attack speed ×1.3\nFurther lethal damage will cause true death
+}
+
+FighterBuff: {
+	DisplayName: Fighter Stacks
+	Description: Attack speed and dodge chance stack up, max to 5 stacks
+}
+
+MushaRevivalCooldown: {
+	DisplayName: Musha Will Cooldown
+	Description: The Musha's unyielding will is on cooldown. Dying again will result in true death.
+}

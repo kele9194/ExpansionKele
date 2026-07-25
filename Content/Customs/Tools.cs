@@ -4,6 +4,7 @@ using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Microsoft.Xna.Framework;
 
 namespace ExpansionKele.Content.Customs
 {
@@ -26,27 +27,26 @@ namespace ExpansionKele.Content.Customs
         /// </remarks>
         public static void ItemSpawnBoss(Player player, int npcType, in SoundStyle? spawnSound = null)
         {
-            DebugMarker.Mark();
+
             if (spawnSound.HasValue)
             {
                 SoundEngine.PlaySound(spawnSound.Value, player.Center);
             }
 
             if (player.whoAmI != Main.myPlayer){
-                DebugMarker.Mark();
+
                 return;
             }
 
             switch (Main.netMode)
             {
                 case NetmodeID.SinglePlayer:
-                DebugMarker.Mark();
+
                     NPC.SpawnOnPlayer(player.whoAmI, npcType);
                     break;
 
                 //为其设置特殊参数
                 case NetmodeID.MultiplayerClient:
-                DebugMarker.Mark();
                     NetMessage.SendData(MessageID.SpawnBossUseLicenseStartEvent, -1, -1, null, player.whoAmI, npcType);
                     break;
             }
@@ -417,4 +417,22 @@ namespace ExpansionKele.Content.Customs
             return (float)numerator / denominator;
         }
     }
+    public static class PvUtils
+    {
+        /// <summary>
+        /// 对位置和速度进行灵活一次性设置的代码
+        /// </summary>
+        /// <param name="BasePosition">基础位置</param>
+        /// <param name="BaseOffSet">基础偏移量</param>
+        /// <param name="rotVector">旋转向量</param>
+        /// <returns>在基础向量基础上，将基础偏移量在旋转向量作用的情况下的方式获得新的向量</returns>
+        /// <example>
+        /// 例如
+        /// </example>
+        public static Vector2 PositionSet (Vector2 BasePosition,Vector2 BaseOffSet,Vector2 rotVector){
+            return BasePosition+BaseOffSet.RotatedBy(rotVector.ToRotation());
+        }
+        
+
+}
 }

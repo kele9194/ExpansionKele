@@ -14,3 +14,13 @@ WPSmokeLauncher: {
 		Prioritizes locking onto Bosses and high-threat targets
 		'''
 }
+
+LightGap: {
+	Tooltip:
+		'''
+		Use to switch between Scatter Mode and Normal Mode
+		Scatter Mode fires additional spread bullets
+		Deals extra damage to aerial targets
+		'''
+	DisplayName: Light Gap
+}

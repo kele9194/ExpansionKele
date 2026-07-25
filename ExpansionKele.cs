@@ -38,6 +38,10 @@ namespace ExpansionKele
         public static ModKeybind TrackingKeyBind { get; private set; } // 正确位置：类成员
 
         public static ModKeybind AutoAimingKeyBind{ get; private set; }
+
+        // 在类成员区域添加
+        public static ModKeybind ArkHomingKeyBind { get; private set; }
+
         public static object Content { get; internal set; }
         // public static int[] projectileTypes;
 
@@ -65,6 +69,7 @@ namespace ExpansionKele
             sniperLaserTexture = ModContent.Request<Texture2D>("ExpansionKele/Content/StarySniper/SniperLaser").Value;
             TrackingKeyBind = KeybindLoader.RegisterKeybind(this, "TrackingLocator", Keys.Y);
             AutoAimingKeyBind = KeybindLoader.RegisterKeybind(this, "AutoAiming", "MouseRight");
+            ArkHomingKeyBind = KeybindLoader.RegisterKeybind(this, "ArkHoming",Keys.J);
 
             ProjectileClassificationManager.InitializeProjectileClassifications();
             
@@ -114,6 +119,7 @@ namespace ExpansionKele
             sniperLaserTexture = null;
             TrackingKeyBind = null;
             AutoAimingKeyBind = null;
+            ArkHomingKeyBind = null;
             ProjectileHelper.CleanupLockData();
             // 其他卸载逻辑
         }

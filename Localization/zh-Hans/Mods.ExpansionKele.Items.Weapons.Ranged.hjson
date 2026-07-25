@@ -18,3 +18,13 @@ WPSmokeLauncher: {
 		优先锁定 Boss 与高威胁目标
 		'''
 }
+
+LightGap: {
+	Tooltip:
+		'''
+		使用以在散射模式和正常模式循环切换
+		散射模式会发射额外的散射子弹
+		对空中目标造成额外伤害
+		'''
+	DisplayName: 光隙
+}

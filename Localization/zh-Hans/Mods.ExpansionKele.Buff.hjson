@@ -184,3 +184,23 @@ SelfRedemptionHitBuff: {
 	// Description: Mods.ExpansionKele.Buff.SelfRedemptionHitBuff.Description
 	// DisplayName: Self Redemption Hit Buff
 }
+
+MarksmanBuff: {
+	Description: 神射手未击杀补偿：远程攻速提升10%
+	DisplayName: 神射手专注
+}
+
+DreadnoughtRebirthBuff: {
+	DisplayName: 无畏重生
+	Description: 生命上限降至40%，攻击速度×1.3，再次受到致命伤害将真正死亡
+}
+
+FighterBuff: {
+	DisplayName: 斗士叠劲
+	Description: 攻击速度与闪避层层叠加，最多5层
+}
+
+MushaRevivalCooldown: {
+	DisplayName: 武者意志冷却
+	Description: 武者的不屈意志正在冷却中，再次死亡将真正死去
+}

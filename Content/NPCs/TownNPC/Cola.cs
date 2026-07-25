@@ -8,6 +8,8 @@ using Terraria.Utilities;
 using ExpansionKele.Content.Projectiles.MeleeProj;
 using ExpansionKele.Content.Items.OtherItem.BagItem;
 using ExpansionKele.Content.Bosses.ShadowOfRevenge;
+using ExpansionKele.Content.Items.ArknightsItem.Chips;
+using ExpansionKele.Content.Items.ArknightsItem.GuardChips;
 
 namespace ExpansionKele.Content.NPCs.TownNPC
 {
@@ -131,10 +133,11 @@ namespace ExpansionKele.Content.NPCs.TownNPC
 		}
 
 		public override void AddShops() {
-			// TODO: Add items to the shop
-			var npcShop = new NPCShop(Type, ShopName)
-                .Add<GiftOfLight>();
-			npcShop.Register();
+    		var npcShop = new NPCShop(Type, ShopName)
+        	.Add<GiftOfLight>()
+        	.Add<SniperBaseChip>()
+			.Add<GuardBaseChip>();
+    		npcShop.Register();
 		}
 
 		public override void ModifyNPCLoot(Terraria.ModLoader.NPCLoot npcLoot) {

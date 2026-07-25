@@ -8,11 +8,13 @@ using Terraria.Localization;
 using ExpansionKele.Content.Items.Weapons.Ranged;
 using ExpansionKele.Content.Customs;
 using ExpansionKele.Content.Projectiles.RangedProj;
+using ExpansionKele.Content.Items.Placeables;
 
 namespace ExpansionKele.Content.Items.Weapons.Ranged
 {
     public class AAMissileLauncher : ModItem
     {
+        
         public override string LocalizationCategory => "Items.Weapons";
         public static LocalizedText BaseTooltip { get; private set; }
 
@@ -46,7 +48,7 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
          public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             // 创建导弹并设置初始速度
-            Terraria.Projectile projectile = Terraria.Projectile.NewProjectileDirect(source, position, velocity, type, damage, knockback, player.whoAmI);
+            Projectile projectile = Projectile.NewProjectileDirect(source, position, velocity, type, damage, knockback, player.whoAmI);
             
             return false; // 返回 false 以防止默认的发射行为
         }
@@ -58,7 +60,7 @@ namespace ExpansionKele.Content.Items.Weapons.Ranged
 
         public override void AddRecipes()  
 	{  
-    // 创建 GaSniperA 武器的合成配方  
+        // 创建 GaSniperA 武器的合成配方  
     Recipe recipe = Recipe.Create(ModContent.ItemType<AAMissileLauncher>()); // 替换为 GaSniperA 的类型  
     recipe.AddIngredient(ItemID.MeteoriteBar, 5); // 添加任意金锭组，要求7个 
 	recipe.AddIngredient(ItemID.ShroomiteBar, 5);
