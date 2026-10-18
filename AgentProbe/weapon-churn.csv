@@ -1,0 +1,137 @@
+﻿Path,Commits,TotalAdded,TotalDeleted,FirstSeen,LastTouch,LastSubject,BiggestDate,BiggestSubject,BigAdd,BigDel
+Content/Items/Weapons/Ranged/Fade.cs,9,281,81,2025-11-09,2026-04-30,新增克胱debuff,2025-11-09,更改武器分区，新增怨憎，黯淡，救赎碎片，石巨人碎片,117,0
+Content/Items/Weapons/Ranged/SelfRedemption.cs,7,243,89,2025-11-09,2026-04-30,新增克胱debuff,2025-11-09,新增自我救赎，救赎箭，救赎弹，利齿，荡漾水杖，夜萤火等,208,0
+Content/Items/Weapons/Ranged/GaussRifle.cs,6,154,8,2025-11-09,2026-03-23,“v1.4.5更新”,2025-11-09,更改武器分区，新增怨憎，黯淡，救赎碎片，石巨人碎片,128,0
+Content/Items/Weapons/Ranged/SoulCannon.cs,6,113,5,2025-11-09,2026-04-24,v1.5.4,2025-11-09,更改武器分区，新增怨憎，黯淡，救赎碎片，石巨人碎片,70,0
+Content/StaryMelee/StarrySwordAbs.cs,6,283,12,2025-10-19,2026-02-14,工具更新，抛射体位置重整,2025-10-19,first commit,265,0
+Content/Items/Weapons/Magic/FullMoonEcho.cs,5,102,4,2025-11-09,2026-04-24,v1.5.4,2025-11-09,更改武器分区，新增怨憎，黯淡，救赎碎片，石巨人碎片,95,0
+Content/Items/Weapons/Magic/Resentment.cs,5,120,5,2025-11-09,2026-03-23,“v1.4.5更新”,2025-11-09,更改武器分区，新增怨憎，黯淡，救赎碎片，石巨人碎片,102,0
+Content/Items/Weapons/Melee/KillingsBlade.cs,5,206,10,2025-11-09,2026-02-14,工具更新，抛射体位置重整,2025-11-09,更改武器分区，新增怨憎，黯淡，救赎碎片，石巨人碎片,161,0
+Content/Items/Weapons/Melee/SigLightSpear.cs,5,418,332,2025-11-09,2026-02-14,工具更新，抛射体位置重整,2025-11-09,更改武器分区，新增怨憎，黯淡，救赎碎片，石巨人碎片,396,0
+Content/Items/Weapons/Melee/ThoughtsCrossBlade.cs,5,83,3,2025-12-19,2026-03-30,大量优化,2025-12-19,众多更新,77,0
+Content/Items/Weapons/Ranged/AAMissileLauncher.cs,5,93,17,2025-11-09,2026-07-25,1.6更新,2025-11-09,更改武器分区，新增怨憎，黯淡，救赎碎片，石巨人碎片,84,0
+Content/Items/Weapons/Ranged/AutoAimingSniperRifle.cs,5,343,13,2025-12-19,2026-04-30,新增克胱debuff,2025-12-19,众多更新,333,0
+Content/Items/Weapons/Ranged/DotZeroFiveSniperRifle.cs,5,116,5,2025-12-19,2026-04-30,新增克胱debuff,2025-12-19,众多更新,104,0
+Content/Items/Weapons/Ranged/IronCurtainCannon.cs,5,152,17,2025-11-09,2026-02-14,工具更新，抛射体位置重整,2025-11-09,更改武器分区，新增怨憎，黯淡，救赎碎片，石巨人碎片,124,0
+Content/Items/Weapons/Ranged/ShadowCrossbow.cs,5,210,146,2025-12-19,2026-02-07,灾厄紧急更新,2026-02-07,灾厄紧急更新,24,142
+Content/StaryMelee/StarySwordD.cs,5,149,7,2025-10-19,2026-02-14,工具更新，抛射体位置重整,2025-10-19,first commit,142,0
+Content/StarySniper/GaSniperAbs.cs,5,310,35,2025-10-19,2026-04-30,新增克胱debuff,2025-10-19,first commit,186,0
+Content/Items/Weapons/Magic/NoMoreRoving.cs,4,64,5,2025-11-09,2026-04-24,v1.5.4,2025-11-09,更改武器分区，新增怨憎，黯淡，救赎碎片，石巨人碎片,57,0
+Content/Items/Weapons/Melee/CodeChaos.cs,4,353,165,2025-11-09,2026-02-23,新增武器，修改本地化,2026-02-23,新增武器，修改本地化,87,162
+Content/Items/Weapons/Melee/FullMoonSpear.cs,4,77,3,2025-11-09,2026-03-23,“v1.4.5更新”,2025-11-09,更改武器分区，新增怨憎，黯淡，救赎碎片，石巨人碎片,72,0
+Content/Items/Weapons/Melee/PearlWoodSpear.cs,4,256,8,2025-11-09,2026-02-06,VS 迁移准备,2025-11-09,更改武器分区，新增怨憎，黯淡，救赎碎片，石巨人碎片,233,0
+Content/Items/Weapons/Melee/SharpTeeth.cs,4,72,14,2025-11-09,2026-03-23,“v1.4.5更新”,2025-11-09,新增自我救赎，救赎箭，救赎弹，利齿，荡漾水杖，夜萤火等,60,0
+Content/Items/Weapons/Ranged/BloodCrossbow.cs,4,170,133,2025-12-19,2026-02-07,灾厄紧急更新,2025-12-19,众多更新,140,0
+Content/Items/Weapons/Ranged/Gatling.cs,4,146,5,2025-11-12,2026-02-04,贴图更新，追踪算法更新,2025-11-12,新增铬矿，铬锭，铬矿粉，日耀圣物，望月护符，铬钢剑，荡漾水杖,122,0
+Content/Items/Weapons/Ranged/ProtonCannon.cs,4,160,3,2025-11-09,2026-02-14,工具更新，抛射体位置重整,2025-11-09,更改武器分区，新增怨憎，黯淡，救赎碎片，石巨人碎片,111,0
+Content/Items/Weapons/Ranged/SeitaadBallista.cs,4,104,2,2025-12-04,2026-03-30,大量优化,2025-12-04,大量更新和机制改动、,91,0
+Content/Items/Weapons/Ranged/SpectralCurtainCannon.cs,4,62,3,2025-11-09,2026-04-24,v1.5.4,2025-11-09,更改武器分区，新增怨憎，黯淡，救赎碎片，石巨人碎片,54,0
+Content/Items/Weapons/Ranged/WoodenCrossbow.cs,4,167,136,2025-12-19,2026-02-07,灾厄紧急更新,2026-02-07,灾厄紧急更新,7,132
+Content/Items/Weapons/Summon/FullMoonStaff.cs,4,152,54,2025-11-09,2026-02-23,新增武器，修改本地化,2025-11-09,更改武器分区，新增怨憎，黯淡，救赎碎片，石巨人碎片,127,0
+Content/StaryMagic/AbsStarStaff.cs,4,201,3,2025-10-19,2026-02-14,工具更新，抛射体位置重整,2025-10-19,first commit,193,0
+Content/StaryMelee/StarySwordA.cs,4,91,6,2025-10-19,2026-02-14,工具更新，抛射体位置重整,2025-10-19,first commit,84,0
+Content/StaryMelee/StarySwordB.cs,4,95,6,2025-10-19,2026-02-14,工具更新，抛射体位置重整,2025-10-19,first commit,89,0
+Content/StaryMelee/StarySwordC.cs,4,96,6,2025-10-19,2026-02-14,工具更新，抛射体位置重整,2025-10-19,first commit,90,0
+Content/StaryMelee/StarySwordE.cs,4,71,3,2025-10-19,2026-03-30,大量优化,2025-10-19,first commit,63,0
+Content/StaryMelee/StarySwordI.cs,4,75,5,2025-10-19,2026-03-30,大量优化,2025-10-19,first commit,66,0
+Content/StarySniper/GaSniperA.cs,4,151,73,2025-10-19,2026-03-30,大量优化,2025-10-19,first commit,120,0
+Content/StarySniper/GaSniperB.cs,4,156,83,2025-10-19,2026-03-30,大量优化,2025-10-19,first commit,124,0
+Content/StarySniper/GaSniperC.cs,4,157,84,2025-10-19,2026-03-30,大量优化,2025-10-19,first commit,125,0
+Content/Items/Weapons/CodeChaos.cs,3,255,255,2025-10-19,2025-11-09,更改武器分区，新增怨憎，黯淡，救赎碎片，石巨人碎片,2025-11-09,更改武器分区，新增怨憎，黯淡，救赎碎片，石巨人碎片,0,237
+Content/Items/Weapons/FullMoonStaff.cs,3,129,129,2025-10-23,2025-11-09,更改武器分区，新增怨憎，黯淡，救赎碎片，石巨人碎片,2025-11-09,更改武器分区，新增怨憎，黯淡，救赎碎片，石巨人碎片,0,127
+Content/Items/Weapons/Generic/NeutronGun.cs,3,111,2,2025-11-09,2026-02-14,工具更新，抛射体位置重整,2025-11-09,更改武器分区，新增怨憎，黯淡，救赎碎片，石巨人碎片,107,0
+Content/Items/Weapons/Magic/AnaxaMagicTrick.cs,3,78,2,2026-02-23,2026-04-24,v1.5.4,2026-02-23,新增武器，修改本地化,76,0
+Content/Items/Weapons/Magic/NightFirefly.cs,3,177,3,2025-11-09,2026-01-17,大量更新，稳定版更新,2025-11-09,新增自我救赎，救赎箭，救赎弹，利齿，荡漾水杖，夜萤火等,146,0
+Content/Items/Weapons/Magic/RippleStaff.cs,3,61,4,2025-11-09,2026-02-23,新增武器，修改本地化,2025-11-09,新增自我救赎，救赎箭，救赎弹，利齿，荡漾水杖，夜萤火等,56,0
+Content/Items/Weapons/Melee/ChromiumSword.cs,3,147,65,2025-11-12,2026-01-17,大量更新，稳定版更新,2025-11-12,新增铬矿，铬锭，铬矿粉，日耀圣物，望月护符，铬钢剑，荡漾水杖,112,0
+Content/Items/Weapons/Melee/FragmentsEmergence.cs,3,100,3,2025-11-09,2026-02-14,工具更新，抛射体位置重整,2025-11-09,更改武器分区，新增怨憎，黯淡，救赎碎片，石巨人碎片,95,0
+Content/Items/Weapons/Melee/FullMoonShortSword.cs,3,75,2,2025-11-09,2026-02-14,工具更新，抛射体位置重整,2025-11-09,更改武器分区，新增怨憎，黯淡，救赎碎片，石巨人碎片,71,0
+Content/Items/Weapons/Melee/FullMoonSword.cs,3,163,58,2025-11-09,2026-01-17,大量更新，稳定版更新,2025-11-09,更改武器分区，新增怨憎，黯淡，救赎碎片，石巨人碎片,150,0
+Content/Items/Weapons/Melee/SolarSpear.cs,3,689,13,2025-11-09,2026-02-04,贴图更新，追踪算法更新,2025-11-09,更改武器分区，新增怨憎，黯淡，救赎碎片，石巨人碎片,445,0
+Content/Items/Weapons/Melee/SolarSword.cs,3,111,1,2025-12-04,2026-02-14,工具更新，抛射体位置重整,2025-12-04,大量更新和机制改动、,109,0
+Content/Items/Weapons/Melee/TangDynastySaber.cs,3,122,3,2026-02-14,2026-03-23,“v1.4.5更新”,2026-02-14,工具更新，抛射体位置重整,119,0
+Content/Items/Weapons/Ranged/FrostRayGun.cs,3,61,2,2025-11-09,2026-02-14,工具更新，抛射体位置重整,2025-11-09,更改武器分区，新增怨憎，黯淡，救赎碎片，石巨人碎片,52,0
+Content/Items/Weapons/Ranged/FullMoonBow.cs,3,105,6,2025-11-09,2026-02-14,工具更新，抛射体位置重整,2025-11-09,更改武器分区，新增怨憎，黯淡，救赎碎片，石巨人碎片,100,0
+Content/Items/Weapons/Ranged/PowerShotSMG.cs,3,221,5,2025-11-09,2026-02-04,贴图更新，追踪算法更新,2025-11-09,更改武器分区，新增怨憎，黯淡，救赎碎片，石巨人碎片,193,0
+Content/Items/Weapons/Ranged/StingerLauncher.cs,3,127,3,2025-11-09,2026-02-14,工具更新，抛射体位置重整,2025-11-09,更改武器分区，新增怨憎，黯淡，救赎碎片，石巨人碎片,118,0
+Content/Items/Weapons/Ranged/VortexMissileLauncher.cs,3,118,5,2025-11-09,2026-02-14,工具更新，抛射体位置重整,2025-11-09,更改武器分区，新增怨憎，黯淡，救赎碎片，石巨人碎片,107,0
+Content/Items/Weapons/Summon/SpaceFunnel.cs,3,87,2,2026-02-14,2026-03-23,“v1.4.5更新”,2026-02-14,工具更新，抛射体位置重整,85,0
+Content/StaryMelee/StarySwordF.cs,3,58,3,2025-10-19,2026-03-30,大量优化,2025-10-19,first commit,51,0
+Content/StaryMelee/StarySwordG.cs,3,57,3,2025-10-19,2026-03-30,大量优化,2025-10-19,first commit,50,0
+Content/StaryMelee/StarySwordH.cs,3,71,4,2025-10-19,2026-03-30,大量优化,2025-10-19,first commit,65,0
+Content/StaryMelee/StarySwordJ.cs,3,72,3,2025-10-19,2026-03-30,大量优化,2025-10-19,first commit,66,0
+Content/Items/Weapons/AAMissileLauncher.cs,2,85,85,2025-10-19,2025-11-09,更改武器分区，新增怨憎，黯淡，救赎碎片，石巨人碎片,2025-11-09,更改武器分区，新增怨憎，黯淡，救赎碎片，石巨人碎片,0,85
+Content/Items/Weapons/BaseMainGun.cs,2,140,140,2025-10-19,2025-11-09,更改武器分区，新增怨憎，黯淡，救赎碎片，石巨人碎片,2025-11-09,更改武器分区，新增怨憎，黯淡，救赎碎片，石巨人碎片,0,140
+Content/Items/Weapons/FrostRayGun.cs,2,52,52,2025-10-19,2025-11-09,更改武器分区，新增怨憎，黯淡，救赎碎片，石巨人碎片,2025-11-09,更改武器分区，新增怨憎，黯淡，救赎碎片，石巨人碎片,0,52
+Content/Items/Weapons/FullMoonBow.cs,2,100,100,2025-10-19,2025-11-09,更改武器分区，新增怨憎，黯淡，救赎碎片，石巨人碎片,2025-11-09,更改武器分区，新增怨憎，黯淡，救赎碎片，石巨人碎片,0,100
+Content/Items/Weapons/FullMoonEcho.cs,2,95,95,2025-10-19,2025-11-09,更改武器分区，新增怨憎，黯淡，救赎碎片，石巨人碎片,2025-11-09,更改武器分区，新增怨憎，黯淡，救赎碎片，石巨人碎片,0,95
+Content/Items/Weapons/FullMoonShortSword.cs,2,71,71,2025-10-24,2025-11-09,更改武器分区，新增怨憎，黯淡，救赎碎片，石巨人碎片,2025-11-09,更改武器分区，新增怨憎，黯淡，救赎碎片，石巨人碎片,0,71
+Content/Items/Weapons/FullMoonSpear.cs,2,72,72,2025-10-25,2025-11-09,更改武器分区，新增怨憎，黯淡，救赎碎片，石巨人碎片,2025-11-09,更改武器分区，新增怨憎，黯淡，救赎碎片，石巨人碎片,0,72
+Content/Items/Weapons/FullMoonSword.cs,2,150,150,2025-10-19,2025-11-09,更改武器分区，新增怨憎，黯淡，救赎碎片，石巨人碎片,2025-11-09,更改武器分区，新增怨憎，黯淡，救赎碎片，石巨人碎片,0,150
+Content/Items/Weapons/GaussRifle.cs,2,128,128,2025-10-31,2025-11-09,更改武器分区，新增怨憎，黯淡，救赎碎片，石巨人碎片,2025-11-09,更改武器分区，新增怨憎，黯淡，救赎碎片，石巨人碎片,0,128
+Content/Items/Weapons/IronCurtainCannon.cs,2,124,124,2025-10-19,2025-11-09,更改武器分区，新增怨憎，黯淡，救赎碎片，石巨人碎片,2025-11-09,更改武器分区，新增怨憎，黯淡，救赎碎片，石巨人碎片,0,124
+Content/Items/Weapons/KillingsBlade.cs,2,161,161,2025-10-31,2025-11-09,更改武器分区，新增怨憎，黯淡，救赎碎片，石巨人碎片,2025-11-09,更改武器分区，新增怨憎，黯淡，救赎碎片，石巨人碎片,0,161
+Content/Items/Weapons/LightSpear.cs,2,396,396,2025-10-19,2025-11-09,更改武器分区，新增怨憎，黯淡，救赎碎片，石巨人碎片,2025-11-09,更改武器分区，新增怨憎，黯淡，救赎碎片，石巨人碎片,0,396
+Content/Items/Weapons/Magic/EnhancedSpaceGun.cs,2,53,2,2026-02-14,2026-03-23,“v1.4.5更新”,2026-02-14,工具更新，抛射体位置重整,51,0
+Content/Items/Weapons/Magic/FeatherStaff.cs,2,80,1,2026-04-08,2026-04-24,v1.5.4,2026-04-08,“1.5.1.5”,79,0
+Content/Items/Weapons/Magic/Rinya.cs,2,222,1,2026-04-08,2026-04-24,v1.5.4,2026-04-08,“1.5.1.5”,221,0
+Content/Items/Weapons/Magic/ThousandEyedSoulChase.cs,2,229,1,2026-04-08,2026-04-24,v1.5.4,2026-04-08,“1.5.1.5”,228,0
+Content/Items/Weapons/Melee/SpectreSword.cs,2,202,33,2026-01-17,2026-02-14,工具更新，抛射体位置重整,2026-01-17,大量更新，稳定版更新,191,0
+Content/Items/Weapons/Melee/StoneBlade.cs,2,200,0,2026-04-08,2026-04-30,新增克胱debuff,2026-04-08,“1.5.1.5”,197,0
+Content/Items/Weapons/Melee/SuperGear.cs,2,68,3,2025-12-19,2026-01-17,大量更新，稳定版更新,2025-12-19,众多更新,64,0
+Content/Items/Weapons/NeutronGun.cs,2,107,107,2025-10-19,2025-11-09,更改武器分区，新增怨憎，黯淡，救赎碎片，石巨人碎片,2025-11-09,更改武器分区，新增怨憎，黯淡，救赎碎片，石巨人碎片,0,107
+Content/Items/Weapons/NoMoreRoving.cs,2,57,57,2025-10-31,2025-11-09,更改武器分区，新增怨憎，黯淡，救赎碎片，石巨人碎片,2025-11-09,更改武器分区，新增怨憎，黯淡，救赎碎片，石巨人碎片,0,57
+Content/Items/Weapons/PearlWoodSpear.cs,2,233,233,2025-10-19,2025-11-09,更改武器分区，新增怨憎，黯淡，救赎碎片，石巨人碎片,2025-11-09,更改武器分区，新增怨憎，黯淡，救赎碎片，石巨人碎片,0,233
+Content/Items/Weapons/PowerShotSMG.cs,2,193,193,2025-10-19,2025-11-09,更改武器分区，新增怨憎，黯淡，救赎碎片，石巨人碎片,2025-11-09,更改武器分区，新增怨憎，黯淡，救赎碎片，石巨人碎片,0,193
+Content/Items/Weapons/ProtonCannon.cs,2,111,111,2025-10-19,2025-11-09,更改武器分区，新增怨憎，黯淡，救赎碎片，石巨人碎片,2025-11-09,更改武器分区，新增怨憎，黯淡，救赎碎片，石巨人碎片,0,111
+Content/Items/Weapons/ProtonCannonA.cs,2,135,135,2025-10-19,2025-11-09,新增自我救赎，救赎箭，救赎弹，利齿，荡漾水杖，夜萤火等,2025-11-09,新增自我救赎，救赎箭，救赎弹，利齿，荡漾水杖，夜萤火等,0,135
+Content/Items/Weapons/Ranged/BaseMainGun.cs,2,147,2,2025-11-09,2025-12-04,大量更新和机制改动、,2025-11-09,更改武器分区，新增怨憎，黯淡，救赎碎片，石巨人碎片,140,0
+Content/Items/Weapons/Ranged/Crossbow.cs,2,247,43,2026-02-07,2026-02-23,新增武器，修改本地化,2026-02-07,灾厄紧急更新,175,0
+Content/Items/Weapons/Ranged/ElectricBallista.cs,2,69,1,2025-12-04,2026-03-23,“v1.4.5更新”,2025-12-04,大量更新和机制改动、,68,0
+Content/Items/Weapons/Ranged/LaserCutter.cs,2,86,5,2026-02-04,2026-04-24,v1.5.4,2026-04-24,v1.5.4,41,5
+Content/Items/Weapons/Ranged/M37Shotgun.cs,2,175,2,2026-02-04,2026-03-23,“v1.4.5更新”,2026-02-04,贴图更新，追踪算法更新,173,0
+Content/Items/Weapons/SolarSpear.cs,2,445,445,2025-10-19,2025-11-09,更改武器分区，新增怨憎，黯淡，救赎碎片，石巨人碎片,2025-11-09,更改武器分区，新增怨憎，黯淡，救赎碎片，石巨人碎片,0,445
+Content/Items/Weapons/SoulCannon.cs,2,70,70,2025-10-19,2025-11-09,更改武器分区，新增怨憎，黯淡，救赎碎片，石巨人碎片,2025-11-09,更改武器分区，新增怨憎，黯淡，救赎碎片，石巨人碎片,0,70
+Content/Items/Weapons/SpectralCurtainCannon.cs,2,54,54,2025-10-19,2025-11-09,更改武器分区，新增怨憎，黯淡，救赎碎片，石巨人碎片,2025-11-09,更改武器分区，新增怨憎，黯淡，救赎碎片，石巨人碎片,0,54
+Content/Items/Weapons/StingerLauncher.cs,2,118,118,2025-10-19,2025-11-09,更改武器分区，新增怨憎，黯淡，救赎碎片，石巨人碎片,2025-11-09,更改武器分区，新增怨憎，黯淡，救赎碎片，石巨人碎片,0,118
+Content/Items/Weapons/Summon/GoldenWeaverNeedle.cs,2,157,4,2026-02-23,2026-03-30,大量优化,2026-02-23,新增武器，修改本地化,153,0
+Content/Items/Weapons/VortexMissileLauncher.cs,2,106,106,2025-10-19,2025-11-09,更改武器分区，新增怨憎，黯淡，救赎碎片，石巨人碎片,2025-11-09,更改武器分区，新增怨憎，黯淡，救赎碎片，石巨人碎片,0,106
+Content/StaryMagic/StarStaff.cs,2,137,0,2025-10-19,2026-02-14,工具更新，抛射体位置重整,2025-10-19,first commit,136,0
+Content/StaryMagic/StarStaffA.cs,2,40,0,2025-10-19,2026-01-17,大量更新，稳定版更新,2025-10-19,first commit,33,0
+Content/StaryMagic/StarStaffB.cs,2,57,0,2025-10-19,2026-01-17,大量更新，稳定版更新,2025-10-19,first commit,50,0
+Content/StaryMagic/StarStaffC.cs,2,57,0,2025-10-19,2026-01-17,大量更新，稳定版更新,2025-10-19,first commit,50,0
+Content/StaryMagic/StarStaffD.cs,2,58,0,2025-10-19,2026-01-17,大量更新，稳定版更新,2025-10-19,first commit,51,0
+Content/StaryMagic/StarStaffE.cs,2,67,0,2025-10-19,2026-01-17,大量更新，稳定版更新,2025-10-19,first commit,60,0
+Content/StaryMagic/StarStaffF.cs,2,57,0,2025-10-19,2026-01-17,大量更新，稳定版更新,2025-10-19,first commit,50,0
+Content/StaryMagic/StarStaffG.cs,2,39,0,2025-10-19,2026-01-17,大量更新，稳定版更新,2025-10-19,first commit,32,0
+Content/StaryMagic/StarStaffH.cs,2,55,0,2025-10-19,2026-01-17,大量更新，稳定版更新,2025-10-19,first commit,48,0
+Content/StaryMagic/StarStaffI.cs,2,55,0,2025-10-19,2026-01-17,大量更新，稳定版更新,2025-10-19,first commit,48,0
+Content/StaryMagic/StarStaffJ.cs,2,55,0,2025-10-19,2026-01-17,大量更新，稳定版更新,2025-10-19,first commit,48,0
+Content/StaryMelee/StarySword.cs,2,301,0,2025-10-19,2026-02-14,工具更新，抛射体位置重整,2025-10-19,first commit,300,0
+Content/StarySniper/GaSniperD.cs,2,47,1,2025-10-19,2026-03-30,大量优化,2025-10-19,first commit,46,0
+Content/StarySniper/GaSniperE.cs,2,62,1,2025-10-19,2026-03-30,大量优化,2025-10-19,first commit,61,0
+Content/StarySniper/GaSniperF.cs,2,43,1,2025-10-19,2026-03-30,大量优化,2025-10-19,first commit,42,0
+Content/StarySniper/GaSniperG.cs,2,42,1,2025-10-19,2026-03-30,大量优化,2025-10-19,first commit,41,0
+Content/StarySniper/GaSniperH.cs,2,42,1,2025-10-19,2026-03-30,大量优化,2025-10-19,first commit,41,0
+Content/StarySniper/GaSniperI.cs,2,42,1,2025-10-19,2026-03-30,大量优化,2025-10-19,first commit,41,0
+Content/StarySniper/GaSniperJ.cs,2,42,1,2025-10-19,2026-03-30,大量优化,2025-10-19,first commit,41,0
+Content/StarySniper/LaserDrawer.cs,2,129,1,2025-10-19,2026-02-04,贴图更新，追踪算法更新,2025-10-19,first commit,113,0
+Content/StarySummon/StarBlade.cs,2,344,1,2025-10-19,2026-02-04,贴图更新，追踪算法更新,2025-10-19,first commit,343,0
+Content/Items/Weapons/Generic/EMPPistol.cs,1,50,0,2025-12-04,2025-12-04,大量更新和机制改动、,2025-12-04,大量更新和机制改动、,50,0
+Content/Items/Weapons/Magic/CardDeck.cs,1,382,0,2026-03-30,2026-03-30,大量优化,2026-03-30,大量优化,382,0
+Content/Items/Weapons/Magic/CardHandEvaluator.cs,1,221,0,2026-03-30,2026-03-30,大量优化,2026-03-30,大量优化,221,0
+Content/Items/Weapons/Magic/CardMaster.cs,1,195,0,2026-03-30,2026-03-30,大量优化,2026-03-30,大量优化,195,0
+Content/Items/Weapons/Magic/CelestialPlumeStaff.cs,1,86,0,2026-04-08,2026-04-08,“1.5.1.5”,2026-04-08,“1.5.1.5”,86,0
+Content/Items/Weapons/Magic/Fireworks.cs,1,73,0,2026-03-30,2026-03-30,大量优化,2026-03-30,大量优化,73,0
+Content/Items/Weapons/Melee/BaseSwordHeldProjectile.cs,1,280,0,2026-04-08,2026-04-08,“1.5.1.5”,2026-04-08,“1.5.1.5”,280,0
+Content/Items/Weapons/Melee/BoxingGloves.cs,1,87,0,2026-03-30,2026-03-30,大量优化,2026-03-30,大量优化,87,0
+Content/Items/Weapons/Melee/RinyaBlade.cs,1,302,0,2026-04-30,2026-04-30,新增克胱debuff,2026-04-30,新增克胱debuff,302,0
+Content/Items/Weapons/Melee/ShroomiteSword.cs,1,85,0,2026-01-17,2026-01-17,大量更新，稳定版更新,2026-01-17,大量更新，稳定版更新,85,0
+Content/Items/Weapons/Ranged/BalloonBow.cs,1,68,0,2025-12-19,2025-12-19,众多更新,2025-12-19,众多更新,68,0
+Content/Items/Weapons/Ranged/BurningPaperAirPlane.cs,1,45,0,2026-02-14,2026-02-14,工具更新，抛射体位置重整,2026-02-14,工具更新，抛射体位置重整,45,0
+Content/Items/Weapons/Ranged/ChromiumBow.cs,1,99,0,2026-02-04,2026-02-04,贴图更新，追踪算法更新,2026-02-04,贴图更新，追踪算法更新,99,0
+Content/Items/Weapons/Ranged/LightGap.cs,1,117,0,2026-07-25,2026-07-25,1.6更新,2026-07-25,1.6更新,117,0
+Content/Items/Weapons/Ranged/WPSmokeLauncher.cs,1,160,0,2026-03-30,2026-03-30,大量优化,2026-03-30,大量优化,160,0
+Content/Items/Weapons/Summon/RemoteGatling.cs,1,69,0,2026-04-08,2026-04-08,“1.5.1.5”,2026-04-08,“1.5.1.5”,69,0
+Content/StaryMelee/StarySwordSP.cs,1,41,0,2026-02-04,2026-02-04,贴图更新，追踪算法更新,2026-02-04,贴图更新，追踪算法更新,41,0
+Content/StarySniper/ForceAttack.cs,1,0,0,2025-10-19,2025-10-19,first commit,2025-10-19,first commit,0,0

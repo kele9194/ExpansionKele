@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -29,6 +30,9 @@ namespace ExpansionKele.Content.Customs
         /// <summary>当前近卫子职业（由手持武器的刻印决定）</summary>
         public GuardSubclass CurrentGuardSubclass { get; set; } = GuardSubclass.Unassigned;
 
+        /// <summary>当前重装子职业（由手持武器的刻印决定）</summary>
+public DefenderSubclass CurrentDefenderSubclass { get; set; } = DefenderSubclass.Unassigned;
+
         /// <summary>当前帧的阻挡名单（只读，外部不要修改）</summary>
         public List<NPC> CurrentBlockingList { get; private set; } = new List<NPC>();
 
@@ -42,6 +46,7 @@ namespace ExpansionKele.Content.Customs
         {
             BlockingCap = 0;
             CurrentGuardSubclass = GuardSubclass.Unassigned;
+            CurrentDefenderSubclass = DefenderSubclass.Unassigned;
         }
 
         /// <summary>
@@ -113,45 +118,69 @@ namespace ExpansionKele.Content.Customs
             return maxReduction * factor;
         }
 
+        /// <summary>
+        /// 获取减伤拆分（含阻挡补偿）：返回 (防御前减伤, 防御后减伤)。
+        /// 挡3/挡4 每少挡1个目标，将5%防御后减伤转化为防御前减伤，
+        /// 转化量随阻挡效果系数（距离衰减）等比缩放。
+        /// </summary>
+        /// <param name="attacker">攻击者 NPC</param>
+        /// <returns>元组：(beforeDefense 防御前减伤, afterDefense 防御后减伤)</returns>
+        public (float beforeDefense, float afterDefense) GetDamageReductionSplit(NPC attacker)
+        {
+            if (!IsInBlockingList(attacker)) return (0f, 0f);
+
+            float dist = Vector2.Distance(Player.Center, attacker.Center);
+            float factor = BlockingSystem.GetEffectFactor(dist);
+            float maxReduction = BlockingSystem.GetMaxDamageReduction(BlockingCap);
+            float total = maxReduction * factor;
+            if (total <= 0f) return (0f, 0f);
+
+            float converted = BlockingSystem.GetUnderBlockConvertedReduction(BlockingCap, CurrentBlockingList.Count, factor);
+            float beforeDefense = Math.Min(converted, total); // 保险起见保留上限（正常情况不会触发）
+            return (beforeDefense, total - beforeDefense);
+        }
+
         // ======================== 伤害挂钩 ========================
 
         /// <summary>
-        /// 玩家攻击NPC时：如果目标在阻挡名单中，附加通用增伤。
+        /// 玩家攻击NPC时：如果目标在阻挡名单中，附加通用增伤和挡2补偿。
         /// </summary>
         public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
         {
-            float bonus = GetDamageBonus(target);
-            if (bonus > 0f)
+            float dist = Vector2.Distance(Player.Center, target.Center);
+            float factor = BlockingSystem.GetEffectFactor(dist);
+            float bonus = GetDamageBonus(target)
+                        + BlockingSystem.GetUnderBlockDamageBonus(BlockingCap, CurrentBlockingList.Count, factor);
+            if (bonus != 0f)
             {
                 modifiers.FinalDamage *= 1f + bonus;
             }
         }
 
         /// <summary>
-        /// 玩家被NPC攻击时：如果攻击者在阻挡名单中，附加减伤。
+        /// 玩家被NPC攻击时：如果攻击者在阻挡名单中，附加减伤。包括补偿
         /// </summary>
         public override void ModifyHitByNPC(NPC attacker, ref Player.HurtModifiers modifiers)
         {
-            float reduction = GetDamageReduction(attacker);
-            if (reduction > 0f)
-            {
-                modifiers.FinalDamage *= 1f - reduction;
-            }
+            var (beforeDefense, afterDefense) = GetDamageReductionSplit(attacker);
+            if (beforeDefense > 0f)
+                modifiers.SourceDamage *= 1f - beforeDefense;
+            if (afterDefense > 0f)
+                modifiers.FinalDamage *= 1f - afterDefense;
         }
 
         /// <summary>
-        /// 玩家被弹幕击中时：如果弹幕来源于阻挡名单中的NPC，附加减伤。
+        /// 玩家被弹幕击中时：如果弹幕来源于阻挡名单中的NPC，附加减伤。包括补偿
         /// </summary>
         public override void ModifyHitByProjectile(Projectile proj, ref Player.HurtModifiers modifiers)
         {
             if (NPCProjectileSourceTracker.TryGetSourceNPC(proj, out NPC sourceNPC))
             {
-                Main.NewText(sourceNPC);
-                float reduction = GetDamageReduction(sourceNPC);
-                if (reduction > 0f)
-                {
-                    modifiers.FinalDamage *= 1f - reduction;
-                }
+                var (beforeDefense, afterDefense) = GetDamageReductionSplit(sourceNPC);
+                if (beforeDefense > 0f)
+                    modifiers.SourceDamage *= 1f - beforeDefense;
+                if (afterDefense > 0f)
+                    modifiers.FinalDamage *= 1f - afterDefense;
             }
         }
     }

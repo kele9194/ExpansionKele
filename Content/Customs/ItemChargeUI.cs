@@ -8,6 +8,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ModLoader.UI;
 using Terraria.UI;
+using ExpansionKele.Content.Items.ArknightsItem.GuardChips;
 
 namespace ExpansionKele.Content.Customs
 {
@@ -20,6 +21,7 @@ namespace ExpansionKele.Content.Customs
 
     internal class ItemChargeBarElement : UIElement
     {
+
         private Vector2 _dragOffset;
         private bool _isDragging;
         private static Vector2 _position = new Vector2(-1, -1); // 使用(-1, -1)表示使用默认位置

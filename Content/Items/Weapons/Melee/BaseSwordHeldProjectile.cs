@@ -84,8 +84,8 @@ namespace ExpansionKele.Content.Items.Weapons.Melee
 
         public override void SetDefaults()
         {
-            Projectile.width = 1;
-            Projectile.height = 1;
+            Projectile.width = 20;
+            Projectile.height = 20;
             Projectile.aiStyle = -1;
             Projectile.friendly = true;
             Projectile.DamageType = DamageClass.Melee;

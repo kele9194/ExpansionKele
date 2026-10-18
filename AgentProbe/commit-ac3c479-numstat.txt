@@ -1,0 +1,197 @@
+﻿commit ac3c479da81230fb335a86cff586259789f9ba51
+Author: Kele9194 <2893795217@qq.com>
+Date:   Sat Feb 14 10:00:10 2026 +0800
+
+    工具更新，抛射体位置重整
+
+1	0	Content/Bosses/BossKele/BossKeleBag.cs
+0	30	Content/Buff/FrostShatterDebuff.cs
+11	9	Content/Buff/FullMoonArmorDebuff.cs
+35	0	Content/Buff/SpaceFunnelMinionBuff.cs
+-	-	Content/Buff/SpaceFunnelMinionBuff.png
+7	1	Content/Customs/Tools.cs
+2	2	Content/Items/Accessories/MoonCommonalityEmblem.cs
+1	0	Content/Items/Ammos/SharkyBulletAmmo.cs
+2	2	Content/Items/Armors/MoonHelmet.cs
+77	0	Content/Items/Tools/ChromiumHamaxe.cs
+-	-	Content/Items/Tools/ChromiumHamaxe.png
+76	0	Content/Items/Tools/ChromiumPickaxe.cs
+-	-	Content/Items/Tools/ChromiumPickaxe.png
+2	2	Content/Items/Tools/FullMoonPickAxe.cs
+1	0	Content/Items/Weapons/Generic/NeutronGun.cs
+51	0	Content/Items/Weapons/Magic/EnhancedSpaceGun.cs
+-	-	Content/Items/Weapons/Magic/EnhancedSpaceGun.png
+1	0	Content/Items/Weapons/Magic/FullMoonEcho.cs
+1	0	Content/Items/Weapons/Magic/NoMoreRoving.cs
+1	0	Content/Items/Weapons/Magic/Resentment.cs
+-	-	Content/Items/Weapons/Magic/SpaceFunnel.png
+1	0	Content/Items/Weapons/Melee/FragmentsEmergence.cs
+1	0	Content/Items/Weapons/Melee/FullMoonShortSword.cs
+1	0	Content/Items/Weapons/Melee/FullMoonSpear.cs
+1	0	Content/Items/Weapons/Melee/KillingsBlade.cs
+2	326	Content/Items/Weapons/Melee/SigLightSpear.cs
+1	1	Content/Items/Weapons/Melee/SolarSword.cs
+11	33	Content/Items/Weapons/Melee/SpectreSword.cs
+119	0	Content/Items/Weapons/Melee/TangDynastySaber.cs
+-	-	Content/Items/Weapons/Melee/TangDynastySaber.png
+0	1	Content/Items/Weapons/Melee/ThoughtsCrossBlade.cs
+45	0	Content/Items/Weapons/Ranged/BurningPaperAirPlane.cs
+-	-	Content/Items/Weapons/Ranged/BurningPaperAirPlane.png
+1	0	Content/Items/Weapons/Ranged/Fade.cs
+1	0	Content/Items/Weapons/Ranged/FrostRayGun.cs
+1	0	Content/Items/Weapons/Ranged/FullMoonBow.cs
+1	0	Content/Items/Weapons/Ranged/GaussRifle.cs
+1	0	Content/Items/Weapons/Ranged/IronCurtainCannon.cs
+1	0	Content/Items/Weapons/Ranged/ProtonCannon.cs
+1	0	Content/Items/Weapons/Ranged/SelfRedemption.cs
+1	0	Content/Items/Weapons/Ranged/SoulCannon.cs
+1	0	Content/Items/Weapons/Ranged/SpectralCurtainCannon.cs
+1	0	Content/Items/Weapons/Ranged/StingerLauncher.cs
+3	2	Content/Items/Weapons/Ranged/VortexMissileLauncher.cs
+85	0	Content/Items/Weapons/Summon/SpaceFunnel.cs
+-	-	Content/Items/Weapons/Summon/SpaceFunnel.png
+-	-	Content/Projectiles/DeathLaser.png
+-	-	Content/Projectiles/EnchantedBeam.png
+-	-	Content/Projectiles/ExplosiveBullet.png
+-	-	Content/Projectiles/ExplosiveBulletPlus.png
+84	0	Content/Projectiles/GenericProj/FullMoonExplosin.cs
+-	-	Content/Projectiles/{FullMoonEchoProj.png => GenericProj/FullMoonExplosion.png}
+3	2	Content/Projectiles/{ => GenericProj}/NeutronProjectile.cs
+-	-	Content/Projectiles/{ => GenericProj}/NeutronProjectile.png
+-	-	Content/Projectiles/IronCurtainCannonExplosion.aseprite
+-	-	Content/Projectiles/IronCurtainCannonExplosionOld.png
+-	-	Content/Projectiles/LaserMachinegunLaser.png
+142	0	Content/Projectiles/MagicProj/EnhancedLaserProjectile.cs
+-	-	Content/Projectiles/MagicProj/EnhancedLaserProjectile.png
+126	0	Content/Projectiles/MagicProj/EnhancedLaserSplitProjectile.cs
+-	-	Content/Projectiles/MagicProj/EnhancedLaserSplitProjectile.png
+1	1	Content/Projectiles/{ => MagicProj}/FullMoonEchoProj.cs
+-	-	Content/Projectiles/MagicProj/FullMoonEchoProj.png
+-	-	Content/Projectiles/{ => MagicProj}/MagicBlueProjectile.png
+-	-	Content/Projectiles/{ => MagicProj}/MagicCyanProjectile.png
+-	-	Content/Projectiles/{ => MagicProj}/MagicPurpleProjectile.png
+-	-	Content/Projectiles/{ => MagicProj}/MagicRedProjectile.png
+1	1	Content/Projectiles/{ => MagicProj}/MagicStarProjectile.cs
+-	-	Content/Projectiles/{ => MagicProj}/MagicStarProjectile.png
+-	-	Content/Projectiles/{ => MagicProj}/MagicStarProjectileLower.png
+1	1	Content/Projectiles/{ => MagicProj}/NoMoreRovingProjectile.cs
+-	-	Content/Projectiles/{ => MagicProj}/NoMoreRovingProjectile.png
+1	1	Content/Projectiles/{ => MagicProj}/ResentmentProjectile.cs
+-	-	Content/Projectiles/{ => MagicProj}/ResentmentProjectile.png
+12	5	Content/Projectiles/MagicProj/RippleProjectile.cs
+1	1	Content/Projectiles/MeleeProj/ChromiumSwordProjectile.cs
+-	-	Content/Projectiles/{ => MeleeProj}/ColaExplosion.png
+4	4	Content/Projectiles/{ => MeleeProj}/ColaProjectile.cs
+-	-	Content/Projectiles/{ => MeleeProj}/ColaProjectile.png
+2	2	Content/Projectiles/{ => MeleeProj}/ColaProjectileLower.cs
+-	-	Content/Projectiles/{ => MeleeProj}/ColaProjectileLower.png
+2	2	Content/Projectiles/MeleeProj/EnergySwordProjectile.cs
+238	0	Content/Projectiles/MeleeProj/EnergySwordProjectileLinear.cs
+-	-	Content/Projectiles/MeleeProj/EnergySwordProjectileLinear.png
+1	1	Content/Projectiles/{ => MeleeProj}/FragmentsEmergenceHitProjectile.cs
+-	-	Content/Projectiles/{ => MeleeProj}/FragmentsEmergenceHitProjectile.png
+1	1	Content/Projectiles/{ => MeleeProj}/FragmentsEmergenceProjectile.cs
+-	-	Content/Projectiles/{ => MeleeProj}/FragmentsEmergenceProjectile.png
+1	1	Content/Projectiles/{ => MeleeProj}/FullMoonProjectile.cs
+-	-	Content/Projectiles/{ => MeleeProj}/FullMoonProjectile.png
+161	28	Content/Projectiles/{ => MeleeProj}/FullMoonShortSwordMoonProj.cs
+-	-	Content/Projectiles/{ => MeleeProj}/FullMoonShortSwordMoonProj.png
+1	1	Content/Projectiles/{ => MeleeProj}/FullMoonShortSwordProjectile.cs
+-	-	Content/Projectiles/{ => MeleeProj}/FullMoonShortSwordProjectile.png
+1	1	Content/Projectiles/{ => MeleeProj}/FullMoonSpearHeadProjectile.cs
+-	-	Content/Projectiles/{ => MeleeProj}/FullMoonSpearHeadProjectile.png
+1	1	Content/Projectiles/{ => MeleeProj}/FullMoonSpearMoonProjectile.cs
+-	-	Content/Projectiles/{ => MeleeProj}/FullMoonSpearMoonProjectile.png
+1	1	Content/Projectiles/{ => MeleeProj}/FullMoonSpearProjectile.cs
+-	-	Content/Projectiles/{ => MeleeProj}/FullMoonSpearProjectile.png
+1	1	Content/Projectiles/MeleeProj/FullMoonSwordProjectile.cs
+-	-	Content/Projectiles/MeleeProj/FullMoonSwordProjectileA.png
+1	1	Content/Projectiles/{ => MeleeProj}/KillingsBladeThrownProjectile.cs
+-	-	Content/Projectiles/{ => MeleeProj}/KillingsBladeThrownProjectile.png
+1	1	Content/Projectiles/{ => MeleeProj}/LifePercentageProjectile.cs
+-	-	Content/Projectiles/{ => MeleeProj}/LifePercentageProjectile.png
+369	0	Content/Projectiles/MeleeProj/LightSpearProjectile.cs
+-	-	Content/{Items/Weapons/Melee => Projectiles/MeleeProj}/LightSpearProjectile.png
+1	1	Content/Projectiles/MeleeProj/ShroomiteSwordProjectile.cs
+30	189	Content/Projectiles/MeleeProj/SpectreSwordProjectile.cs
+45	0	Content/Projectiles/MeleeProj/TangDynastySwordEnergyProjectile.cs
+-	-	Content/Projectiles/MeleeProj/TangDynastySwordEnergyProjectile.png
+130	0	Content/Projectiles/MeleeProj/TangDynastySwordProjectile.cs
+-	-	Content/Projectiles/MeleeProj/TangDynastySwordProjectile.png
+7	4	Content/Projectiles/MeleeProj/ThoughtsCrossBladeMiniProjectile.cs
+8	6	Content/Projectiles/MeleeProj/ThoughtsCrossBladeProjectile.cs
+1	1	Content/Projectiles/RangedProj/AAMissile.cs
+62	0	Content/Projectiles/RangedProj/BurningPaperAirPlaneProjectile.cs
+-	-	Content/Projectiles/RangedProj/BurningPaperAirPlaneProjectile.png
+1	1	Content/Projectiles/{ => RangedProj}/FadeProjectile.cs
+-	-	Content/Projectiles/{ => RangedProj}/FadeProjectile.png
+1	1	Content/Projectiles/{ => RangedProj}/FrostRayProjectile.cs
+-	-	Content/{Items/Weapons => Projectiles/RangedProj}/FrostRayProjectile.png
+1	1	Content/Projectiles/{ => RangedProj}/FullMoonArrowProj.cs
+-	-	Content/Projectiles/{ => RangedProj}/FullMoonArrowProj.png
+1	1	Content/Projectiles/{ => RangedProj}/GaussRifleProjectile.cs
+-	-	Content/Projectiles/{ => RangedProj}/GaussRifleProjectile.png
+-	-	Content/Projectiles/{ => RangedProj}/IronCurtainCannonExplosion.png
+1	1	Content/Projectiles/{ => RangedProj}/IronCurtainCannonLaser.cs
+-	-	Content/Projectiles/{ => RangedProj}/IronCurtainCannonLaser.png
+1	1	Content/Projectiles/{ => RangedProj}/IronCurtainCannonProjectile.cs
+-	-	Content/Projectiles/{ => RangedProj}/IronCurtainCannonProjectile.png
+3	2	Content/Projectiles/{ => RangedProj}/ProtonCannonHoldOut.cs
+-	-	Content/Projectiles/{ => RangedProj}/ProtonCannonHoldOut.png
+-	-	Content/Projectiles/{ => RangedProj}/ProtonCannonHoldOutA.png
+-	-	Content/Projectiles/{ => RangedProj}/ProtonCannonProjectile.png
+1	1	Content/Projectiles/{ => RangedProj}/SelfRedemptionProjectile.cs
+-	-	Content/Projectiles/{ => RangedProj}/SelfRedemptionProjectile.png
+1	1	Content/Projectiles/{ => RangedProj}/SharkyBullet.cs
+-	-	Content/Projectiles/{ => RangedProj}/SharkyBullet.png
+1	1	Content/Projectiles/{ => RangedProj}/SharkyBulletPlus.cs
+-	-	Content/Projectiles/{ => RangedProj}/SharkyBulletPlus.png
+3	3	Content/Projectiles/{ => RangedProj}/SoulCannonHoldOut.cs
+-	-	Content/Projectiles/{ => RangedProj}/SoulCannonHoldOut.png
+-	-	Content/Projectiles/{ => RangedProj}/SoulCannonProjectile.png
+-	-	Content/Projectiles/{ => RangedProj}/SpectralCurtainCannonExplosion.png
+1	1	Content/Projectiles/{ => RangedProj}/SpectralCurtainCannonProj.cs
+-	-	Content/Projectiles/{ => RangedProj}/SpectralCurtainCannonProj.png
+2	2	Content/Projectiles/{ => RangedProj}/StingerProjectile.cs
+-	-	Content/Projectiles/{ => RangedProj}/StingerProjectile.png
+-	-	Content/Projectiles/{ => RangedProj}/VortexHomingProjectile.png
+-	-	Content/Projectiles/{ => RangedProj}/VortexMainProjectile.png
+1	1	Content/Projectiles/{ => RangedProj}/VortexMissileProj.cs
+-	-	Content/Projectiles/SpectralCurtainCannonExplosion.aseprite
+106	0	Content/Projectiles/SummonProj/SpaceFunnelBeam.cs
+-	-	Content/Projectiles/SummonProj/SpaceFunnelBeam.png
+383	0	Content/Projectiles/SummonProj/SpaceFunnelMinion.cs
+-	-	Content/Projectiles/SummonProj/SpaceFunnelMinion.png
+1	0	Content/StaryMagic/AbsStarStaff.cs
+1	0	Content/StaryMagic/StarStaff.cs
+1	0	Content/StaryMelee/StarrySwordAbs.cs
+1	0	Content/StaryMelee/StarySword.cs
+1	0	Content/StaryMelee/StarySwordA.cs
+1	0	Content/StaryMelee/StarySwordB.cs
+1	0	Content/StaryMelee/StarySwordC.cs
+1	0	Content/StaryMelee/StarySwordD.cs
+1	0	Content/StarySniper/GaSniperAbs.cs
+3	0	ExpansionKele.cs
+5	0	ExpansionKeleSystem.cs
+5	0	Localization/en-US/Mods.ExpansionKele.Buff.hjson
+0	1	Localization/en-US/Mods.ExpansionKele.Items.Accessories.hjson
+10	0	Localization/en-US/Mods.ExpansionKele.Items.Tools.hjson
+9	1	Localization/en-US/Mods.ExpansionKele.Items.Weapons.Magic.hjson
+8	1	Localization/en-US/Mods.ExpansionKele.Items.Weapons.Melee.hjson
+4	0	Localization/en-US/Mods.ExpansionKele.Items.Weapons.Ranged.hjson
+0	1	Localization/en-US/Mods.ExpansionKele.Items.Weapons.Ranger.hjson
+8	1	Localization/en-US/Mods.ExpansionKele.Items.Weapons.Summon.hjson
+8	6	Localization/en-US/Mods.ExpansionKele.Items.Weapons.hjson
+8	0	Localization/en-US/Mods.ExpansionKele.Projectiles.hjson
+5	0	Localization/zh-Hans/Mods.ExpansionKele.Buff.hjson
+0	2	Localization/zh-Hans/Mods.ExpansionKele.Items.Accessories.hjson
+10	0	Localization/zh-Hans/Mods.ExpansionKele.Items.Tools.hjson
+9	1	Localization/zh-Hans/Mods.ExpansionKele.Items.Weapons.Magic.hjson
+4	1	Localization/zh-Hans/Mods.ExpansionKele.Items.Weapons.Melee.hjson
+8	0	Localization/zh-Hans/Mods.ExpansionKele.Items.Weapons.Ranged.hjson
+0	1	Localization/zh-Hans/Mods.ExpansionKele.Items.Weapons.Ranger.hjson
+8	1	Localization/zh-Hans/Mods.ExpansionKele.Items.Weapons.Summon.hjson
+8	6	Localization/zh-Hans/Mods.ExpansionKele.Items.Weapons.hjson
+8	0	Localization/zh-Hans/Mods.ExpansionKele.Projectiles.hjson
+1	1	build.txt
+23	0	description.txt

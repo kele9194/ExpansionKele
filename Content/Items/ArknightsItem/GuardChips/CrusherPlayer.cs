@@ -13,11 +13,13 @@ namespace ExpansionKele.Content.Items.ArknightsItem.GuardChips
     /// 
     /// 重剑手特性（玻璃大炮，极限输出）：
     /// 1. 挡2
-    /// 2. 防御 -50%
-    /// 3. 近战伤害 ×1.5
-    /// 4. 生命上限 +30%
-    /// 5. 自然回血 +20%
-    /// 6. 对团队阻挡目标额外 ×1.1 伤害
+    /// 2. 防御有效性 ×0（防御不提供减伤）
+    /// 3. 生命上限 ×2
+    /// 4. 每1点防御转化为 +0.5% 近战伤害加成
+    /// 5. 玩家自身近战伤害 ×1.75
+    /// 6. 抗药性 -17%（药水冷却缩短）
+    /// 7. 自然回血 +20%
+    /// 8. 对团队阻挡目标额外 ×1.1 伤害
     /// </summary>
     public class CrusherPlayer : ModPlayer
     {
@@ -29,6 +31,20 @@ namespace ExpansionKele.Content.Items.ArknightsItem.GuardChips
         public override void ResetEffects()
         {
             HasCrusherWeaponEquipped = false;
+        }
+        public override void UpdateEquips()
+        {
+            // 空手 / 选中空格槽时 HeldItem 是空气物品，必须提前返回：
+            // 空气物品没有 GlobalItem 实例，直接查询刻印会抛 KeyNotFoundException
+            Item held = Player.HeldItem;
+            if (held == null || held.IsAir)
+                return;
+
+            GuardSubclass subclass = ArknightsGlobalItem.GetGuardSubclass(held);
+            if (subclass != GuardSubclass.Crusher)
+                return;
+
+            Player.PotionDelayModifier *= 1 - 0.17f; // 冷却 × 0.83，减 17%
         }
 
         public override void PostUpdateEquips()
@@ -60,41 +76,40 @@ namespace ExpansionKele.Content.Items.ArknightsItem.GuardChips
             var blocking = Player.GetModPlayer<BlockingPlayer>();
             blocking.BlockingCap = BlockingSystem.GetBlockingCap(GuardSubclass.Crusher);
             blocking.CurrentGuardSubclass = GuardSubclass.Crusher;
+
+            // ===== 防御有效性 ×0（无视防御减伤） =====
+            // 乘算修改，保留难度基础语义；PvP 仍固定 0.5 不受影响
+            Player.DefenseEffectiveness *= 0f;
+
+            Player.GetDamage(DamageClass.Melee) += (int)Player.statDefense * 0.005f;
         }
 
-        // ======================== 防御 -50% ========================
+        // ======================== 近战伤害加成 ========================
 
         /// <summary>
-        /// 总防御力（护甲+饰品+所有来源）效果减半。
-        /// </summary>
-
-
-        // ======================== 近战伤害 ×1.5 ========================
-
-        /// <summary>
-        /// 近战伤害提高至 150%。
+        /// 近战伤害：
+        /// - 玩家自身伤害 ×1.75
+        /// - 每1点防御（statDefense 最终有效值）额外 +0.5% 近战伤害
         /// </summary>
         public override void ModifyWeaponDamage(Item item, ref StatModifier damage)
         {
             if (!HasCrusherWeaponEquipped) return;
 
-                damage *= 1.5f;
-
+            damage *= 1.75f;                                 // 自身伤害 ×1.75
         }
 
-        // ======================== 生命上限 +30% ========================
+        // ======================== 生命上限 ×2 ========================
 
         /// <summary>
-        /// 在 statLifeMax2（含装备/饰品加成）的基础上追加 +30%。
+        /// 在 statLifeMax2（含装备/饰品加成）的基础上翻倍。
         /// 每帧 statLifeMax2 被重新计算，因此不会重复叠加。
-        /// 防御减免到1/3
+        /// 防御有效性已由 DefenseEffectiveness ×0 处理，无需再改 statDefense。
         /// </summary>
         public override void PostUpdateMiscEffects()
         {
             if (!HasCrusherWeaponEquipped) return;
 
-            Player.statLifeMax2 += (int)(Player.statLifeMax2 * 0.30f);
-            Player.statDefense /= 3;
+            Player.statLifeMax2 *= 2;
         }
 
         // ======================== 自然回血 +20% ========================
@@ -106,6 +121,17 @@ namespace ExpansionKele.Content.Items.ArknightsItem.GuardChips
         {
             if (!HasCrusherWeaponEquipped) return;
             regen *= 1.20f;
+        }
+
+        // ======================== 攻速降低 ========================
+
+        /// <summary>
+        /// 攻速降低为原来的 60%（更慢）。
+        /// </summary>
+        public override float UseSpeedMultiplier(Item item)
+        {
+            if (!HasCrusherWeaponEquipped) return 1f;
+            return 0.6f;
         }
 
         // ======================== 阻挡增伤 ×1.1 ========================
@@ -125,4 +151,5 @@ namespace ExpansionKele.Content.Items.ArknightsItem.GuardChips
             }
         }
     }
+
 }

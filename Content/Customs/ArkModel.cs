@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Terraria;
+using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
@@ -50,6 +51,19 @@ namespace ExpansionKele.Content.Customs
         Earthshaker = Base + 12,   // 撼地者
         PrimalGuard = Base + 13,   // 本源近卫
         Mercenary = Base + 14,     // 佣兵
+    }
+
+    public enum DefenderSubclass : int
+    {
+        Unassigned = 0,
+        Base = (int)(ArknightsClass.Defender) * 16 + 0x00,   // = 48
+        Protector = Base + 1,   // 铁卫
+        // Fortress = Base + 2,       // 要塞
+        // Juggernaut = Base + 3,     // 决战者
+        // ArtsProtector = Base + 4,  // 哨戒铁卫
+        // Guardian = Base + 5,       // 不屈者
+        // PrimalProtector = Base + 6,// 本源铁卫
+        // Sustainer = Base + 7,      // 自强体
     }
 
     public interface IArknightsItem
@@ -121,6 +135,8 @@ namespace ExpansionKele.Content.Customs
                 homingSupported = CanSubclassHoming((SniperSubclass)num);
             else if (num >= (int)GuardSubclass.Base && num < (int)GuardSubclass.Base + 15)
                 homingSupported = CanGuardSubclassHoming((GuardSubclass)num);
+            else if (num >= (int)DefenderSubclass.Base && num < (int)DefenderSubclass.Base + 15)
+                homingSupported = CanDefenderSubclassHoming((DefenderSubclass)num);
 
             if (homingSupported)
             {
@@ -174,11 +190,24 @@ namespace ExpansionKele.Content.Customs
                 return "";
             }
 
+            // 尝试重装子职业 (48~62)
+            if (num >= (int)DefenderSubclass.Base && num < (int)DefenderSubclass.Base + 15)
+            {
+                var subclass = (DefenderSubclass)num;
+                string key = $"Mods.ExpansionKele.Items.Chips.TalentDisplayName.{subclass}";
+                string value = Language.GetTextValue(key);
+                if (value != key) return value;
+                return "";
+            }
+
             return "";
         }
 
         // ======================== 子类查询 ========================
 
+        /// <summary>
+        /// 读取物品的狙击子职业。空气 / 无效物品返回 <see cref="SniperSubclass.Unassigned"/>。
+        /// </summary>
         public static SniperSubclass GetSniperSubclass(Item item)
         {
             int num = GetArknightsNum(item);
@@ -187,12 +216,26 @@ namespace ExpansionKele.Content.Customs
             return SniperSubclass.Unassigned;
         }
 
+        /// <summary>
+        /// 读取物品的近卫子职业。空气 / 无效物品返回 <see cref="GuardSubclass.Unassigned"/>。
+        /// </summary>
         public static GuardSubclass GetGuardSubclass(Item item)
         {
             int num = GetArknightsNum(item);
             if (num >= (int)GuardSubclass.Base && num < (int)GuardSubclass.Base + 15)
                 return (GuardSubclass)num;
             return GuardSubclass.Unassigned;
+        }
+
+        /// <summary>
+        /// 读取物品的重装子职业。空气 / 无效物品返回 <see cref="DefenderSubclass.Unassigned"/>。
+        /// </summary>
+        public static DefenderSubclass GetDefenderSubclass(Item item)
+        {
+            int num = GetArknightsNum(item);
+            if (num >= (int)DefenderSubclass.Base && num < (int)DefenderSubclass.Base + 15)
+                return (DefenderSubclass)num;
+            return DefenderSubclass.Unassigned;
         }
 
         // ======================== 制导白名单（每个职业独立方法） ========================
@@ -214,25 +257,71 @@ namespace ExpansionKele.Content.Customs
             return false;
         }
 
+        public static bool CanDefenderSubclassHoming(DefenderSubclass subclass)
+        {
+            return false;
+        }
+
         // ======================== 刻印读写 ========================
 
+        /// <summary>
+        /// 安全地获取物品上的 <see cref="ArknightsGlobalItem"/> 附加数据实例。
+        /// <para/>空气物品（<c>type == 0</c>）不存在附加数据实例，此时直接调用
+        /// <see cref="Item.GetGlobalItem{T}()"/> 会抛 <see cref="KeyNotFoundException"/>：
+        /// TML 的 <c>GlobalType.TryGetGlobal</c> 只在 <c>entityType &gt; 0</c> 时才读实例数组，
+        /// 否则回落到 <c>AppliesToType</c> 分支（其实现为 <c>type &gt; 0 &amp;&amp; ...</c>）并判否。
+        /// 因此一切按 Item 读取刻印数据的入口都应先走这里。
+        /// </summary>
+        /// <param name="item">待查询的物品，允许为 <see langword="null"/>。</param>
+        /// <param name="arkItem">成功时输出附加数据实例；失败时为 <see langword="null"/>。</param>
+        /// <returns>取到附加数据实例时返回 <see langword="true"/>。</returns>
+        public static bool TryGetArknightsGlobalItem(Item item, out ArknightsGlobalItem arkItem)
+        {
+            arkItem = null;
+
+            // type <= ItemID.None（空气 / 空手 / 未初始化物品）没有附加数据实例，查询会抛异常
+            if (item == null || item.type <= ItemID.None)
+                return false;
+
+            return item.TryGetGlobalItem(out arkItem);
+        }
+
+        /// <summary>
+        /// 写入刻印编号。真·方舟物品与空气 / 无效物品会写入失败。
+        /// </summary>
+        /// <param name="item">目标物品。</param>
+        /// <param name="num">要写入的刻印编号，0 表示清除刻印。</param>
+        /// <returns>写入成功返回 <see langword="true"/>。</returns>
         public static bool TrySetArknightsNum(Item item, int num)
         {
-            var arkItem = item.GetGlobalItem<ArknightsGlobalItem>();
+            if (!TryGetArknightsGlobalItem(item, out var arkItem))
+                return false;
+
             if (arkItem.IsRealArknightsItem)
                 return false;
+
             arkItem.ArknightsNum = num;
             return true;
         }
 
+        /// <summary>
+        /// 读取物品上的刻印编号（0 表示未刻印）。空气 / 无效物品一律返回 0。
+        /// </summary>
+        /// <param name="item">待查询的物品。</param>
+        /// <returns>刻印编号；无法读取时返回 0。</returns>
         public static int GetArknightsNum(Item item)
         {
-            return item.GetGlobalItem<ArknightsGlobalItem>().ArknightsNum;
+            return TryGetArknightsGlobalItem(item, out var arkItem) ? arkItem.ArknightsNum : 0;
         }
 
+        /// <summary>
+        /// 该物品是否为“真·方舟物品”（自带天赋，不可被刻印）。空气 / 无效物品返回 <see langword="false"/>。
+        /// </summary>
+        /// <param name="item">待查询的物品。</param>
+        /// <returns>是真·方舟物品时返回 <see langword="true"/>。</returns>
         public static bool IsRealArknights(Item item)
         {
-            return item.GetGlobalItem<ArknightsGlobalItem>().IsRealArknightsItem;
+            return TryGetArknightsGlobalItem(item, out var arkItem) && arkItem.IsRealArknightsItem;
         }
 
         // ======================== 存档 ========================

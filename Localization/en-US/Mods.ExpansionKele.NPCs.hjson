@@ -28,3 +28,12 @@ Cola: {
 }
 
 BalloonNPC.DisplayName: Balloon N P C
+
+ZombieExecutioner: {
+	DisplayName: Zombie Executioner
+	Bestiary:
+		'''
+		A reinforced zombie. Its shuffling gait is deceptively slow, yet every swing aims to finish you outright.
+		Its base damage is increased, and its first strike deals bonus damage based on your maximum life.
+		'''
+}

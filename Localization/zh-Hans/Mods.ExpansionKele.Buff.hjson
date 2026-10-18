@@ -204,3 +204,8 @@ MushaRevivalCooldown: {
 	DisplayName: 武者意志冷却
 	Description: 武者的不屈意志正在冷却中，再次死亡将真正死去
 }
+
+LiberatorBuff: {
+	DisplayName: 解放
+	Description: 维持充能的伤害倍率，阻挡数提升至2
+}

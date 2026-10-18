@@ -1,0 +1,198 @@
+﻿commit ac3c479da81230fb335a86cff586259789f9ba51
+Author: Kele9194 <2893795217@qq.com>
+Date:   2026-02-14 10:00:10 +0800
+
+    工具更新，抛射体位置重整
+
+ Content/Bosses/BossKele/BossKeleBag.cs             |   1 +
+ Content/Buff/FrostShatterDebuff.cs                 |  30 --
+ Content/Buff/FullMoonArmorDebuff.cs                |  20 +-
+ Content/Buff/SpaceFunnelMinionBuff.cs              |  35 ++
+ Content/Buff/SpaceFunnelMinionBuff.png             | Bin 0 -> 518 bytes
+ Content/Customs/Tools.cs                           |   8 +-
+ Content/Items/Accessories/MoonCommonalityEmblem.cs |   4 +-
+ Content/Items/Ammos/SharkyBulletAmmo.cs            |   1 +
+ Content/Items/Armors/MoonHelmet.cs                 |   4 +-
+ Content/Items/Tools/ChromiumHamaxe.cs              |  77 +++++
+ Content/Items/Tools/ChromiumHamaxe.png             | Bin 0 -> 543 bytes
+ Content/Items/Tools/ChromiumPickaxe.cs             |  76 ++++
+ Content/Items/Tools/ChromiumPickaxe.png            | Bin 0 -> 456 bytes
+ Content/Items/Tools/FullMoonPickAxe.cs             |   4 +-
+ Content/Items/Weapons/Generic/NeutronGun.cs        |   1 +
+ Content/Items/Weapons/Magic/EnhancedSpaceGun.cs    |  51 +++
+ Content/Items/Weapons/Magic/EnhancedSpaceGun.png   | Bin 0 -> 565 bytes
+ Content/Items/Weapons/Magic/FullMoonEcho.cs        |   1 +
+ Content/Items/Weapons/Magic/NoMoreRoving.cs        |   1 +
+ Content/Items/Weapons/Magic/Resentment.cs          |   1 +
+ Content/Items/Weapons/Magic/SpaceFunnel.png        | Bin 0 -> 331 bytes
+ Content/Items/Weapons/Melee/FragmentsEmergence.cs  |   1 +
+ Content/Items/Weapons/Melee/FullMoonShortSword.cs  |   1 +
+ Content/Items/Weapons/Melee/FullMoonSpear.cs       |   1 +
+ Content/Items/Weapons/Melee/KillingsBlade.cs       |   1 +
+ Content/Items/Weapons/Melee/SigLightSpear.cs       | 328 +-----------------
+ Content/Items/Weapons/Melee/SolarSword.cs          |   2 +-
+ Content/Items/Weapons/Melee/SpectreSword.cs        |  44 +--
+ Content/Items/Weapons/Melee/TangDynastySaber.cs    | 119 +++++++
+ Content/Items/Weapons/Melee/TangDynastySaber.png   | Bin 0 -> 656 bytes
+ Content/Items/Weapons/Melee/ThoughtsCrossBlade.cs  |   1 -
+ .../Items/Weapons/Ranged/BurningPaperAirPlane.cs   |  45 +++
+ .../Items/Weapons/Ranged/BurningPaperAirPlane.png  | Bin 0 -> 344 bytes
+ Content/Items/Weapons/Ranged/Fade.cs               |   1 +
+ Content/Items/Weapons/Ranged/FrostRayGun.cs        |   1 +
+ Content/Items/Weapons/Ranged/FullMoonBow.cs        |   1 +
+ Content/Items/Weapons/Ranged/GaussRifle.cs         |   1 +
+ Content/Items/Weapons/Ranged/IronCurtainCannon.cs  |   1 +
+ Content/Items/Weapons/Ranged/ProtonCannon.cs       |   1 +
+ Content/Items/Weapons/Ranged/SelfRedemption.cs     |   1 +
+ Content/Items/Weapons/Ranged/SoulCannon.cs         |   1 +
+ .../Items/Weapons/Ranged/SpectralCurtainCannon.cs  |   1 +
+ Content/Items/Weapons/Ranged/StingerLauncher.cs    |   1 +
+ .../Items/Weapons/Ranged/VortexMissileLauncher.cs  |   5 +-
+ Content/Items/Weapons/Summon/SpaceFunnel.cs        |  85 +++++
+ Content/Items/Weapons/Summon/SpaceFunnel.png       | Bin 0 -> 331 bytes
+ Content/Projectiles/DeathLaser.png                 | Bin 1803 -> 0 bytes
+ Content/Projectiles/EnchantedBeam.png              | Bin 176 -> 0 bytes
+ Content/Projectiles/ExplosiveBullet.png            | Bin 5182 -> 0 bytes
+ Content/Projectiles/ExplosiveBulletPlus.png        | Bin 5182 -> 0 bytes
+ .../Projectiles/GenericProj/FullMoonExplosin.cs    |  84 +++++
+ .../FullMoonExplosion.png}                         | Bin
+ .../{ => GenericProj}/NeutronProjectile.cs         |   5 +-
+ .../{ => GenericProj}/NeutronProjectile.png        | Bin
+ .../IronCurtainCannonExplosion.aseprite            | Bin 3351 -> 0 bytes
+ .../Projectiles/IronCurtainCannonExplosionOld.png  | Bin 24419 -> 0 bytes
+ Content/Projectiles/LaserMachinegunLaser.png       | Bin 1601 -> 0 bytes
+ .../MagicProj/EnhancedLaserProjectile.cs           | 142 ++++++++
+ .../MagicProj/EnhancedLaserProjectile.png          | Bin 0 -> 148 bytes
+ .../MagicProj/EnhancedLaserSplitProjectile.cs      | 126 +++++++
+ .../MagicProj/EnhancedLaserSplitProjectile.png     | Bin 0 -> 115 bytes
+ .../{ => MagicProj}/FullMoonEchoProj.cs            |   2 +-
+ Content/Projectiles/MagicProj/FullMoonEchoProj.png | Bin 0 -> 808 bytes
+ .../{ => MagicProj}/MagicBlueProjectile.png        | Bin
+ .../{ => MagicProj}/MagicCyanProjectile.png        | Bin
+ .../{ => MagicProj}/MagicPurpleProjectile.png      | Bin
+ .../{ => MagicProj}/MagicRedProjectile.png         | Bin
+ .../{ => MagicProj}/MagicStarProjectile.cs         |   2 +-
+ .../{ => MagicProj}/MagicStarProjectile.png        | Bin
+ .../{ => MagicProj}/MagicStarProjectileLower.png   | Bin
+ .../{ => MagicProj}/NoMoreRovingProjectile.cs      |   2 +-
+ .../{ => MagicProj}/NoMoreRovingProjectile.png     | Bin
+ .../{ => MagicProj}/ResentmentProjectile.cs        |   2 +-
+ .../{ => MagicProj}/ResentmentProjectile.png       | Bin
+ Content/Projectiles/MagicProj/RippleProjectile.cs  |  17 +-
+ .../MeleeProj/ChromiumSwordProjectile.cs           |   2 +-
+ .../Projectiles/{ => MeleeProj}/ColaExplosion.png  | Bin
+ .../Projectiles/{ => MeleeProj}/ColaProjectile.cs  |   8 +-
+ .../Projectiles/{ => MeleeProj}/ColaProjectile.png | Bin
+ .../{ => MeleeProj}/ColaProjectileLower.cs         |   4 +-
+ .../{ => MeleeProj}/ColaProjectileLower.png        | Bin
+ .../Projectiles/MeleeProj/EnergySwordProjectile.cs |   4 +-
+ .../MeleeProj/EnergySwordProjectileLinear.cs       | 238 +++++++++++++
+ .../MeleeProj/EnergySwordProjectileLinear.png      | Bin 0 -> 1447 bytes
+ .../FragmentsEmergenceHitProjectile.cs             |   2 +-
+ .../FragmentsEmergenceHitProjectile.png            | Bin
+ .../FragmentsEmergenceProjectile.cs                |   2 +-
+ .../FragmentsEmergenceProjectile.png               | Bin
+ .../{ => MeleeProj}/FullMoonProjectile.cs          |   2 +-
+ .../{ => MeleeProj}/FullMoonProjectile.png         | Bin
+ .../{ => MeleeProj}/FullMoonShortSwordMoonProj.cs  | 189 ++++++++--
+ .../{ => MeleeProj}/FullMoonShortSwordMoonProj.png | Bin
+ .../FullMoonShortSwordProjectile.cs                |   2 +-
+ .../FullMoonShortSwordProjectile.png               | Bin
+ .../{ => MeleeProj}/FullMoonSpearHeadProjectile.cs |   2 +-
+ .../FullMoonSpearHeadProjectile.png                | Bin
+ .../{ => MeleeProj}/FullMoonSpearMoonProjectile.cs |   2 +-
+ .../FullMoonSpearMoonProjectile.png                | Bin
+ .../{ => MeleeProj}/FullMoonSpearProjectile.cs     |   2 +-
+ .../{ => MeleeProj}/FullMoonSpearProjectile.png    | Bin
+ .../MeleeProj/FullMoonSwordProjectile.cs           |   2 +-
+ .../MeleeProj/FullMoonSwordProjectileA.png         | Bin 0 -> 2890 bytes
+ .../KillingsBladeThrownProjectile.cs               |   2 +-
+ .../KillingsBladeThrownProjectile.png              | Bin
+ .../{ => MeleeProj}/LifePercentageProjectile.cs    |   2 +-
+ .../{ => MeleeProj}/LifePercentageProjectile.png   | Bin
+ .../Projectiles/MeleeProj/LightSpearProjectile.cs  | 369 ++++++++++++++++++++
+ .../MeleeProj}/LightSpearProjectile.png            | Bin
+ .../MeleeProj/ShroomiteSwordProjectile.cs          |   2 +-
+ .../MeleeProj/SpectreSwordProjectile.cs            | 219 ++----------
+ .../MeleeProj/TangDynastySwordEnergyProjectile.cs  |  45 +++
+ .../MeleeProj/TangDynastySwordEnergyProjectile.png | Bin 0 -> 2859 bytes
+ .../MeleeProj/TangDynastySwordProjectile.cs        | 130 +++++++
+ .../MeleeProj/TangDynastySwordProjectile.png       | Bin 0 -> 4091 bytes
+ .../MeleeProj/ThoughtsCrossBladeMiniProjectile.cs  |  11 +-
+ .../MeleeProj/ThoughtsCrossBladeProjectile.cs      |  14 +-
+ Content/Projectiles/RangedProj/AAMissile.cs        |   2 +-
+ .../RangedProj/BurningPaperAirPlaneProjectile.cs   |  62 ++++
+ .../RangedProj/BurningPaperAirPlaneProjectile.png  | Bin 0 -> 380 bytes
+ .../Projectiles/{ => RangedProj}/FadeProjectile.cs |   2 +-
+ .../{ => RangedProj}/FadeProjectile.png            | Bin
+ .../{ => RangedProj}/FrostRayProjectile.cs         |   2 +-
+ .../RangedProj}/FrostRayProjectile.png             | Bin
+ .../{ => RangedProj}/FullMoonArrowProj.cs          |   2 +-
+ .../{ => RangedProj}/FullMoonArrowProj.png         | Bin
+ .../{ => RangedProj}/GaussRifleProjectile.cs       |   2 +-
+ .../{ => RangedProj}/GaussRifleProjectile.png      | Bin
+ .../IronCurtainCannonExplosion.png                 | Bin
+ .../{ => RangedProj}/IronCurtainCannonLaser.cs     |   2 +-
+ .../{ => RangedProj}/IronCurtainCannonLaser.png    | Bin
+ .../IronCurtainCannonProjectile.cs                 |   2 +-
+ .../IronCurtainCannonProjectile.png                | Bin
+ .../{ => RangedProj}/ProtonCannonHoldOut.cs        |   5 +-
+ .../{ => RangedProj}/ProtonCannonHoldOut.png       | Bin
+ .../{ => RangedProj}/ProtonCannonHoldOutA.png      | Bin
+ .../{ => RangedProj}/ProtonCannonProjectile.png    | Bin
+ .../{ => RangedProj}/SelfRedemptionProjectile.cs   |   2 +-
+ .../{ => RangedProj}/SelfRedemptionProjectile.png  | Bin
+ .../Projectiles/{ => RangedProj}/SharkyBullet.cs   |   2 +-
+ .../Projectiles/{ => RangedProj}/SharkyBullet.png  | Bin
+ .../{ => RangedProj}/SharkyBulletPlus.cs           |   2 +-
+ .../{ => RangedProj}/SharkyBulletPlus.png          | Bin
+ .../{ => RangedProj}/SoulCannonHoldOut.cs          |   6 +-
+ .../{ => RangedProj}/SoulCannonHoldOut.png         | Bin
+ .../{ => RangedProj}/SoulCannonProjectile.png      | Bin
+ .../SpectralCurtainCannonExplosion.png             | Bin
+ .../{ => RangedProj}/SpectralCurtainCannonProj.cs  |   2 +-
+ .../{ => RangedProj}/SpectralCurtainCannonProj.png | Bin
+ .../{ => RangedProj}/StingerProjectile.cs          |   4 +-
+ .../{ => RangedProj}/StingerProjectile.png         | Bin
+ .../{ => RangedProj}/VortexHomingProjectile.png    | Bin
+ .../{ => RangedProj}/VortexMainProjectile.png      | Bin
+ .../{ => RangedProj}/VortexMissileProj.cs          |   2 +-
+ .../SpectralCurtainCannonExplosion.aseprite        | Bin 1410 -> 0 bytes
+ Content/Projectiles/SummonProj/SpaceFunnelBeam.cs  | 106 ++++++
+ Content/Projectiles/SummonProj/SpaceFunnelBeam.png | Bin 0 -> 148 bytes
+ .../Projectiles/SummonProj/SpaceFunnelMinion.cs    | 383 +++++++++++++++++++++
+ .../Projectiles/SummonProj/SpaceFunnelMinion.png   | Bin 0 -> 331 bytes
+ Content/StaryMagic/AbsStarStaff.cs                 |   1 +
+ Content/StaryMagic/StarStaff.cs                    |   1 +
+ Content/StaryMelee/StarrySwordAbs.cs               |   1 +
+ Content/StaryMelee/StarySword.cs                   |   1 +
+ Content/StaryMelee/StarySwordA.cs                  |   1 +
+ Content/StaryMelee/StarySwordB.cs                  |   1 +
+ Content/StaryMelee/StarySwordC.cs                  |   1 +
+ Content/StaryMelee/StarySwordD.cs                  |   1 +
+ Content/StarySniper/GaSniperAbs.cs                 |   1 +
+ ExpansionKele.cs                                   |   3 +
+ ExpansionKeleSystem.cs                             |   5 +
+ Localization/en-US/Mods.ExpansionKele.Buff.hjson   |   5 +
+ .../Mods.ExpansionKele.Items.Accessories.hjson     |   1 -
+ .../en-US/Mods.ExpansionKele.Items.Tools.hjson     |  10 +
+ .../Mods.ExpansionKele.Items.Weapons.Magic.hjson   |  10 +-
+ .../Mods.ExpansionKele.Items.Weapons.Melee.hjson   |   9 +-
+ .../Mods.ExpansionKele.Items.Weapons.Ranged.hjson  |   4 +
+ .../Mods.ExpansionKele.Items.Weapons.Ranger.hjson  |   1 -
+ .../Mods.ExpansionKele.Items.Weapons.Summon.hjson  |   9 +-
+ .../en-US/Mods.ExpansionKele.Items.Weapons.hjson   |  14 +-
+ .../en-US/Mods.ExpansionKele.Projectiles.hjson     |   8 +
+ Localization/zh-Hans/Mods.ExpansionKele.Buff.hjson |   5 +
+ .../Mods.ExpansionKele.Items.Accessories.hjson     |   2 -
+ .../zh-Hans/Mods.ExpansionKele.Items.Tools.hjson   |  10 +
+ .../Mods.ExpansionKele.Items.Weapons.Magic.hjson   |  10 +-
+ .../Mods.ExpansionKele.Items.Weapons.Melee.hjson   |   5 +-
+ .../Mods.ExpansionKele.Items.Weapons.Ranged.hjson  |   8 +
+ .../Mods.ExpansionKele.Items.Weapons.Ranger.hjson  |   1 -
+ .../Mods.ExpansionKele.Items.Weapons.Summon.hjson  |   9 +-
+ .../zh-Hans/Mods.ExpansionKele.Items.Weapons.hjson |  14 +-
+ .../zh-Hans/Mods.ExpansionKele.Projectiles.hjson   |   8 +
+ build.txt                                          |   2 +-
+ description.txt                                    |  23 ++
+ 191 files changed, 2660 insertions(+), 710 deletions(-)

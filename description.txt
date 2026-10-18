@@ -178,6 +178,10 @@ v1.5.4
 完全删除了旧版的Boss可乐
 修复了在多人模式下不能召唤本模组boss的bug
 
+1.6
+新增芯片刻印系统，该系统灵感来源于明日方舟
+注意：刻印可以造成武器20%以上的整体提升，后续可能会做出进一步修改
+
 This mod is developed purely for entertainment, developed by me alone, trying to achieve some imagination in ths mod and still under development. 
 When playing with the Calamity mod, some content will be adjusted to fit Calamity's numerical environment.
 
@@ -363,3 +367,7 @@ Rebalanced damage for some vanilla magic weapons in the mod
 v1.5.4
 Completely removed the old version of Boss Cola
 Fixed bug where mod bosses couldn't be summoned in multiplayer mode
+
+1.6
+Added Chip Engraving System, inspired by Arknights
+Note: Engraving can provide an overall weapon improvement of over 20%. Further adjustments may be made in the future.

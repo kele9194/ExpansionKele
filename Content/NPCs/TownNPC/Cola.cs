@@ -136,7 +136,8 @@ namespace ExpansionKele.Content.NPCs.TownNPC
     		var npcShop = new NPCShop(Type, ShopName)
         	.Add<GiftOfLight>()
         	.Add<SniperBaseChip>()
-			.Add<GuardBaseChip>();
+			.Add<GuardBaseChip>()
+			.Add<ChipExtractor>();
     		npcShop.Register();
 		}
 

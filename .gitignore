@@ -43,3 +43,6 @@ Thumbs.db
 *.tmod
 /build/
 /ModLoader/
+
+# Offline reference library (read-only, not part of the mod)
+Tmod_Ref/

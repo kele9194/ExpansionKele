@@ -1,0 +1,25 @@
+﻿武器类文件: 77
+平均覆写机制钩子(不含 SetDefaults/SetStaticDefaults/AddRecipes): 2.61
+其中覆写 >=3 个机制钩子的: 33
+覆写 >=5 个的: 8
+带配套 ModPlayer 的: 14
+实现 IChargeableItem（蓄力条）的: 19
+含 AddBuff 的: 17
+自定义弹幕文件: 97 个 / 15034 行
+
+钩子使用频次:
+  Shoot: 61
+  ModifyTooltips: 35
+  CanUseItem: 18
+  AltFunctionUse: 16
+  OnHitNPC: 16
+  ModifyHitNPC: 14
+  HoldItem: 10
+  ModifyShootStats: 8
+  ModifyWeaponDamage: 5
+  UpdateInventory: 5
+  MeleePrefix: 4
+  UseItem: 4
+  UseSpeedMultiplier: 3
+  PreDrawInInventory: 1
+  ModifyWeaponCrit: 1

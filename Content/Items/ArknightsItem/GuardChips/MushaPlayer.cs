@@ -83,12 +83,17 @@ namespace ExpansionKele.Content.Items.ArknightsItem.GuardChips
         /// </summary>
         public override void UpdateBadLifeRegen()
         {
-            if (!HasMushaWeaponEquipped) return;
+            if (!HasMushaWeaponEquipped) return;   // ← 补上这一行
+
+            Player.nebulaLevelLife = 0;
 
             if (Player.lifeRegen > 0)
                 Player.lifeRegen = 0;
 
             Player.lifeRegenTime = 0;
+
+            if (Player.lifeRegenCount > 0)
+                Player.lifeRegenCount = 0;
         }
 
         public override void NaturalLifeRegen(ref float regen)

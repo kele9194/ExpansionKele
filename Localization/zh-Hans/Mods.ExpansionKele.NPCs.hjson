@@ -28,3 +28,12 @@ Cola: {
 }
 
 BalloonNPC.DisplayName: Balloon N P C
+
+ZombieExecutioner: {
+	DisplayName: 僵尸处决者
+	Bestiary:
+		'''
+		一只被强化过的僵尸。它的步伐慢得可疑，但每一次挥击都想直接终结你。
+		基础伤害增加，第一次攻击附带对玩家最大生命值百分比伤害
+		'''
+}

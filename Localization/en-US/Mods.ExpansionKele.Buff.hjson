@@ -204,3 +204,8 @@ MushaRevivalCooldown: {
 	DisplayName: Musha Will Cooldown
 	Description: The Musha's unyielding will is on cooldown. Dying again will result in true death.
 }
+
+LiberatorBuff: {
+	DisplayName: Liberation
+	Description: Maintains the charged damage multiplier; block count raised to 2
+}

@@ -1,0 +1,145 @@
+﻿=== 同一主题前缀的文件数与创建跨度（>=3 个）===
+
+[FullMoo*]  28 个   2025/10/16 ~ 2026/3/29  (跨度 164 天)
+    2025/10/16 21:33:54  FullMoonArmorDebuff
+    2025/10/16 21:34:41  FullMoonBonusBuff
+    2025/10/23 19:48:22  FullMoonStaff
+    2025/10/23 19:50:57  FullMoonMinion
+    2025/10/23 19:55:34  FullMoonMinionBuff
+    2025/10/24 17:08:11  FullMoonShortSwordProjectile
+    2025/10/24 17:14:48  FullMoonShortSword
+    2025/10/24 17:27:54  FullMoonShortSwordMoonProj
+    2025/10/24 23:23:10  FullMoonSpear
+    2025/10/24 23:35:23  FullMoonSpearProjectile
+    2025/10/25 0:01:08  FullMoonSpearHeadProjectile
+    2025/10/25 0:01:35  FullMoonSpearMoonProjectile
+    2025/10/25 14:24:47  FullMoonOreSystem
+    2025/11/10 16:15:50  FullMoonAmulet
+    2025/4/30 18:33:31  FullMoonBar
+    2025/4/30 18:33:54  FullMoonOre
+    2025/4/30 18:37:53  FullMoonBarTile
+    2025/4/30 18:38:12  FullMoonOreTile
+    2025/5/1 15:15:37  FullMoonSword
+    2025/5/1 15:32:19  FullMoonProjectile
+    2025/5/1 18:21:45  FullMoonBow
+    2025/5/1 18:31:17  FullMoonArrowProj
+    2025/5/1 21:17:50  FullMoonEchoProj
+    2025/5/1 21:18:50  FullMoonEcho
+    2025/5/1 23:20:45  FullMoonPickAxe
+    2026/1/16 20:27:47  FullMoonSwordProjectile
+    2026/2/7 14:41:56  FullMoonExplosin
+    2026/3/29 14:16:23  FullMoonAmuletSegmentCooldown
+
+[Chromiu*]  15 个   2025/11/11 ~ 2026/4/8  (跨度 148 天)
+    2025/11/11 17:39:15  ChromiumOre
+    2025/11/11 17:39:31  ChromiumOreTile
+    2025/11/11 17:40:17  ChromiumBarTile
+    2025/11/11 17:40:32  ChromiumBar
+    2025/11/12 14:18:14  ChromiumOrePowder
+    2025/11/12 20:14:09  ChromiumSword
+    2025/12/14 16:38:11  ChromiumShield
+    2026/1/14 12:03:48  ChromiumSwordProjectile
+    2026/1/25 17:25:14  ChromiumBow
+    2026/1/25 18:25:11  ChromiumArrow
+    2026/1/25 18:25:38  ChromiumArrowProjectile
+    2026/2/12 23:36:35  ChromiumHamaxe
+    2026/2/13 11:36:24  ChromiumPickaxe
+    2026/4/8 15:00:25  ChromiumBullet
+    2026/4/8 15:00:58  ChromiumBulletProjectile
+
+[StarySw*]  12 个   2024/12/15 ~ 2026/2/3  (跨度 415 天)
+    2024/12/15 23:39:30  StarySword
+    2024/12/18 17:19:34  StarySwordA
+    2024/12/18 17:26:50  StarySwordB
+    2024/12/18 17:49:08  StarySwordC
+    2024/12/18 23:37:24  StarySwordD
+    2024/12/20 16:20:16  StarySwordE
+    2024/12/20 16:45:19  StarySwordF
+    2024/12/20 17:27:13  StarySwordG
+    2024/12/20 17:27:26  StarySwordH
+    2024/12/20 17:49:01  StarySwordI
+    2024/12/20 17:49:20  StarySwordJ
+    2026/2/3 18:07:54  StarySwordSP
+
+[StarBre*]  12 个   2024/12/24 ~ 2025/10/16  (跨度 296 天)
+    2024/12/24 23:07:30  StarBreastplate
+    2025/1/4 0:12:23  StarBreastplateA
+    2025/1/5 19:08:39  StarBreastplateB
+    2025/1/5 19:08:41  StarBreastplateC
+    2025/1/5 19:08:43  StarBreastplateD
+    2025/1/5 19:08:46  StarBreastplateE
+    2025/1/5 19:08:49  StarBreastplateF
+    2025/1/5 19:08:51  StarBreastplateG
+    2025/1/5 19:08:53  StarBreastplateH
+    2025/1/5 19:08:56  StarBreastplateI
+    2025/1/5 19:08:59  StarBreastplateJ
+    2025/10/16 14:01:53  StarBreastplateAbs
+
+[StarLeg*]  12 个   2024/12/26 ~ 2026/1/16  (跨度 386 天)
+    2024/12/26 15:25:39  StarLeggings
+    2025/1/4 0:12:23  StarLeggingsA
+    2025/1/5 19:08:39  StarLeggingsB
+    2025/1/5 19:08:41  StarLeggingsC
+    2025/1/5 19:08:43  StarLeggingsD
+    2025/1/5 19:08:46  StarLeggingsE
+    2025/1/5 19:08:49  StarLeggingsF
+    2025/1/5 19:08:51  StarLeggingsG
+    2025/1/5 19:08:53  StarLeggingsH
+    2025/1/5 19:08:56  StarLeggingsI
+    2025/1/5 19:08:59  StarLeggingsJ
+    2026/1/16 14:00:41  StarLeggingsAbs
+
+[StarHel*]  12 个   2024/12/26 ~ 2026/1/16  (跨度 386 天)
+    2024/12/26 15:25:39  StarHelmet
+    2025/1/4 0:12:23  StarHelmetA
+    2025/1/5 19:08:39  StarHelmetB
+    2025/1/5 19:08:41  StarHelmetJ
+    2025/1/5 19:08:43  StarHelmetI
+    2025/1/5 19:08:46  StarHelmetH
+    2025/1/5 19:08:49  StarHelmetG
+    2025/1/5 19:08:51  StarHelmetF
+    2025/1/5 19:08:53  StarHelmetE
+    2025/1/5 19:08:56  StarHelmetD
+    2025/1/5 19:08:59  StarHelmetC
+    2026/1/16 14:40:54  StarHelmetAbs
+
+[GaSnipe*]  11 个   2024/12/5 ~ 2025/9/29  (跨度 298 天)
+    2024/12/5 20:21:33  GaSniperA
+    2024/12/6 19:58:19  GaSniperB
+    2024/12/6 21:20:54  GaSniperC
+    2024/12/6 23:08:11  GaSniperD
+    2024/12/7 0:00:54  GaSniperE
+    2024/12/7 0:23:50  GaSniperF
+    2024/12/7 14:17:16  GaSniperG
+    2024/12/7 14:52:57  GaSniperH
+    2024/12/7 15:21:35  GaSniperI
+    2024/12/7 15:31:35  GaSniperJ
+    2025/9/29 13:20:55  GaSniperAbs
+
+[StarSta*]  11 个   2025/1/31 ~ 2025/2/1  (跨度 1 天)
+    2025/1/31 14:27:31  StarStaff
+    2025/2/1 17:36:42  StarStaffA
+    2025/2/1 17:43:06  StarStaffB
+    2025/2/1 17:43:08  StarStaffC
+    2025/2/1 18:01:29  StarStaffD
+    2025/2/1 18:01:42  StarStaffE
+    2025/2/1 18:01:53  StarStaffF
+    2025/2/1 23:30:03  StarStaffH
+    2025/2/1 23:30:14  StarStaffG
+    2025/2/1 23:30:44  StarStaffI
+    2025/2/1 23:30:57  StarStaffJ
+
+[StarryS*]  3 个   2025/8/9 ~ 2025/9/29  (跨度 51 天)
+    2025/8/9 19:32:25  StarrySummonerEmblem
+    2025/8/9 19:32:27  StarrySorcererEmblem
+    2025/9/29 10:42:19  StarrySwordAbs
+
+[Enhance*]  3 个   2026/2/9 ~ 2026/2/9  (跨度 0 天)
+    2026/2/9 12:14:54  EnhancedSpaceGun
+    2026/2/9 12:29:07  EnhancedLaserProjectile
+    2026/2/9 12:32:53  EnhancedLaserSplitProjectile
+
+[Blockin*]  3 个   2026/7/13 ~ 2026/7/13  (跨度 0 天)
+    2026/7/13 14:12:53  BlockingSystem
+    2026/7/13 14:13:36  BlockingPlayer
+    2026/7/13 23:04:19  BlockingMarkerNPC

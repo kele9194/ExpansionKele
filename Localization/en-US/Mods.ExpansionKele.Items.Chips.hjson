@@ -1,3 +1,12 @@
+# Common text definitions: blocking lines reused across guard chips
+Common: {
+	Block1: ■ Block 1: Blocks 1 enemy — +35% melee damage & -10% damage taken vs blocked
+	Block2: ■ Block 2: Blocks 2 enemies — +15% melee damage & -15% damage taken vs blocked
+	Block3: ■ Block 3: Blocks 3 enemies — +5% melee damage & -20% damage taken vs blocked
+	Block4: ■ Block 4: Blocks 4 enemies — +5% melee damage & -20% damage taken vs blocked
+	BlockFalloff: Blocking damage/reduction decays with distance: full within 100px, linear falloff 100-300px, no effect beyond 300px
+}
+
 SniperBaseChip: {
 	DisplayName: Sniper Base Chip
 	Tooltip: Base Sniper Chip, used to synthesize subclass chips
@@ -11,6 +20,10 @@ RapidFireChip: {
 		'''
 		Right-click: Engrave the held ranged weapon as [Rapid Fire]
 		Gain Rapid Fire talent: Increased fire rate, anti-air specialization, slight homing
+		■ Projectile speed +20%
+		■ Anti-air: +20% damage vs airborne enemies
+		■ Attack speed ×1.15 while a ground enemy is nearby (800px)
+		■ Light homing toward airborne enemies (400px)
 		Airborne enemies: enemies with Y velocity ≠ 0
 		'''
 }
@@ -23,6 +36,9 @@ ArtilleristChip: {
 		'''
 		Right-click: Engrave the held ranged weapon as [Artillerist]
 		Gain Artillerist talent: Attacks cause explosions and armor break
+		■ On hit: trigger an explosion — 20% of base damage, 24px radius
+		■ Armor break: defense effectiveness -50% (main hit & explosion)
+		■ +10% damage vs slow enemies (speed ≤ 10)
 		'''
 }
 
@@ -34,7 +50,10 @@ MarksmanChip: {
 		'''
 		Right-click: Engrave the held ranged weapon as [Marksman]
 		Gain Marksman talent: Precision strike, light homing, distance damage bonus
-		Miss compensation: Gain attack speed buff when projectile fails to defeat an enemy
+		■ Precision: +6% damage vs the lowest-defense enemy in range (700px)
+		■ Distance bonus: up to +15% at 640px+ (scales from 400px)
+		■ Light homing toward the lowest-defense target (600px)
+		Miss compensation: Gain +10% ranged attack speed for 2s when a projectile fails to defeat an enemy
 		'''
 }
 
@@ -61,8 +80,10 @@ SpreadChip: {
 		Right-click: Engrave the held ranged weapon as [Spread]
 		Gain Spread talent: Accumulate ammo damage, release fan-shaped AOE
 		Each shot accumulates ammo damage, releases fan-shaped AOE after 3 frames
-		Close range (0-200px): 50% of stored damage
-		Far range (200-400px): 20% of stored damage
+		Close range (0-200px): 75% of stored damage
+		Far range (200-400px): 40% of stored damage
+		Attack speed ×0.85 penalty
+		Fan: 180° arc, up to 400px
 		'''
 }
 
@@ -74,8 +95,10 @@ HeavyShooterChip: {
 		'''
 		Right-click to engrave your held ranged weapon as 【HeavyShooter】
 		Grants HeavyShooter talent: DMG↑ SPD↓ Close-range bonus Angle bonus
-		The closer and more direct your aim, the higher the damage
-		Weapon swap grants a burst of attack speed
+		■ Damage ×1.3, attack speed ×0.75
+		■ Close-range bonus: ×1.25 within 240px (decays to ×1.0 at 400px)
+		■ Aim bonus: ×1.1 when your aim is within 45° of the target
+		■ Weapon swap: attack speed burst for 5s (net ×1.5 → ×0.75), 20s cooldown
 		'''
 	SwapBurstStart: Chamber Loaded!
 	SwapBurstEnd: Burst Ended
@@ -90,9 +113,11 @@ SiegeChip: {
 		'''
 		Right-click: Engrave the held ranged weapon as [Siege]
 		Gain Siege talent: Volume targeting, close penalty, ranged bonus, slight homing
-		Auto-locks the enemy with the largest hitbox in range
-		Close range (under 64px): damage ×0.5
-		Long range (over 400px): damage ×1.12
+		■ Auto-locks the enemy with the largest hitbox in range (700px)
+		■ ×1.2 damage vs the locked largest target
+		■ Close range (under 64px): damage ×0.5
+		■ Long range (over 400px): damage ×1.2
+		■ Light homing toward locked target (600px)
 		'''
 }
 
@@ -134,7 +159,7 @@ HomingStatusOn:
 	'''
 HomingStatusOff:
 	'''
-	[Homing ON]
+	[Homing OFF]
 	(Press button(default J) to toggle)
 	'''
 
@@ -151,10 +176,12 @@ TalentDisplayName: {
 	ArtsFighter: 【Talent·ArtsFighter】Block 1, magic conversion, defense penetration, vulnerability
 	Fighter: 【Talent·Fighter】Block 1, high attack speed, dodge, hit stacks
 	Swordmaster: 【Talent·Swordmaster】Block 2, attack speed, armor pierce, def reduction, crit strike
-	Reaper: 【Talent·Reaper】Block 2, suppress life regen, life steal, group damage bonus
+	Reaper: 【Talent·Reaper】Block 2, suppress life regen, life steal, group damage bonus, Vengeance Mark, Harvest Mark
 	Musha: 【Talent·Musha】Block 1, suppress life regen, life steal, low HP dmg reduction, missing HP attack speed, revive
-	Crusher: 【Talent·Crusher】Block 2, glass cannon, +30% HP, +20% regen, blocking bonus dmg
+	Crusher: 【Talent·Crusher】Block 2, glass cannon, HP ×2, defense→dmg, 60% attack speed, +20% regen, blocking bonus dmg
 	Lord: 【Talent·Lord】Block 2, Lord Slash, projectile boost, group attack speed
+	Liberator: 【Talent·Liberator】No block by default, charge-up, liberation burst, Block 2
+	Protector: 【Talent·Protector】Block 4, defense effectiveness ×1.2
 }
 
 ArknightsTag: "[Arknights] "
@@ -172,7 +199,8 @@ DreadnoughtChip: {
 		'''
 		Right-click: Engrave the held melee weapon as [Dreadnought]
 		Gain Dreadnought talent:
-		■ Block 1: Blocks 1 enemy, melee damage bonus + damage reduction
+		{$Common.Block1}
+		      {$Common.BlockFalloff}
 		■ Exclusive bonus: +15% damage vs blocked targets
 		■ Dreadnought Rebirth: On lethal hit, heal to full, reduce max HP to 40%, gain ×1.3 attack speed (6 min duration)
 		'''
@@ -186,7 +214,8 @@ CenturionChip: {
 		'''
 		Right-click: Engrave the held melee weapon as [Centurion]
 		Gain Centurion talent:
-		■ Block 2: Blocks 2 enemies, melee damage bonus + damage reduction
+		{$Common.Block2}
+		      {$Common.BlockFalloff}
 		■ Exclusive bonus: +12% damage vs blocked targets
 		■ HP safeguard: Take 20% less damage from blocked enemies when HP > 50%
 		■ Splash conduction: On hit, deal 20% conduction damage to other blocked enemies
@@ -201,7 +230,8 @@ ArtsFighterChip: {
 		'''
 		Right-click: Engrave the held melee weapon as [Arts Fighter]
 		Gain Arts Fighter talent:
-		■ Block 1: Blocks 1 enemy, melee damage bonus + damage reduction
+		{$Common.Block1}
+		      {$Common.BlockFalloff}
 		■ Magic conversion: All damage and projectiles converted to magic damage
 		■ Defense penetration: 30% defense penetration
 		■ Unblocked bonus: +12% damage vs unblocked targets
@@ -217,9 +247,10 @@ FighterChip: {
 		'''
 		Right-click: Engrave the held melee weapon as [Fighter]
 		Gain Fighter talent:
-		■ Block 1: Blocks 1 enemy, melee damage bonus + damage reduction
+		{$Common.Block1}
+		      {$Common.BlockFalloff}
 		■ Swift Strikes: Attack speed ×1.25, but damage ×0.80
-		■ Base Dodge: Gain 15% dodge chance
+		■ Base Dodge: Gain 15% dodge chance (max 20% with stacks)
 		■ Fighting Spirit: When HP > 50%, +10% melee attack speed
 		■ Fighter Stacks: Each hit grants 1 stack of Fighter Buff (2 sec duration)
 		  Each stack: +1% dodge chance, +3% attack speed, max 5 stacks
@@ -234,8 +265,9 @@ SwordmasterChip: {
 		'''
 		Right-click: Engrave the held melee weapon as [Swordmaster]
 		Gain Swordmaster talent:
-		■ Block 2: Blocks 2 enemies, melee damage bonus + damage reduction
-		■ Bladestorm: Attack speed ×1.43 (animation time ×0.7), but damage ×0.65
+		{$Common.Block1}
+		      {$Common.BlockFalloff}
+		■ Bladestorm: Attack speed ×2.0, but damage ×0.65
 		■ Armor Pierce: Attacks ignore 15 flat armor
 		■ Sunder: Reduce target's defense effectiveness by 10%
 		■ Critical Strike: Final damage ×1.1 (not affected by distance)
@@ -250,10 +282,15 @@ ReaperChip: {
 		'''
 		Right-click: Engrave the held melee weapon as [Reaper]
 		Gain Reaper talent:
-		■ Block 2: Blocks 2 enemies, melee damage bonus + damage reduction
+		{$Common.Block2}
+		{$Common.BlockFalloff}
 		■ Dark Harvest: Suppress natural life regeneration (lifeRegen & lifeRegenTime set to 0)
-		■ Blood Siphon: Hitting an enemy restores missing health (non-linear, diminishing returns on rapid hits)
+		■ Blood Siphon: Each hit restores 3% of missing HP
+		  At most 3 heals per time window (= weapon use time), locked once used up
+		  Distance: full within 128px, 33% beyond 320px
 		■ Pack Instinct: +6% damage per additional enemy within 300px, up to +12%
+		      ■ Vengeance Mark: Enemies that attack the Reaper permanently deal -15% damage to all players
+		      ■ Harvest Mark: Enemies attacked by the Reaper permanently deal -10% damage to this Reaper
 		'''
 }
 
@@ -265,9 +302,11 @@ MushaChip: {
 		'''
 		Right-click: Engrave the held melee weapon as [Musha]
 		Gain Musha talent:
-		■ Block 1: Blocks 1 enemy, melee damage bonus + damage reduction
+		{$Common.Block1}
+		      {$Common.BlockFalloff}
 		■ Last Stand: Suppress natural life regeneration (lifeRegen & lifeRegenTime set to 0)
 		■ Life Steal Strike: Each hit restores 5% of missing HP, cooldown equals weapon use time
+		  (distance: full within 128px, 33% beyond 320px)
 		■ Desperate Gamble: Take 20% less damage when HP ≤ 50%
 		■ Indomitable: Up to 50% attack speed bonus scaling linearly with missing HP (max 70%)
 		■ Unyielding Will: On death, revive with 30% max HP (10 min cooldown), true death if killed again
@@ -282,9 +321,11 @@ CrusherChip: {
 		'''
 		Right-click: Engrave the held melee weapon as [Crusher]
 		Gain Crusher talent:
-		■ Block 2: Blocks 2 enemies, melee damage bonus + damage reduction
-		■ Glass Cannon: Total defense reduced by 50%, melee damage increased to 150%
-		■ Unyielding Body: Max HP +30%, natural life regen +20%
+		{$Common.Block2}
+		■ Glass Cannon: Defense effectiveness ×0 (defense provides no damage reduction)
+		■ Heavy Strike: Each point of defense grants +0.5% melee damage
+		■ Crushing Force: Own melee damage ×1.75, attack speed reduced to 60%
+		■ Unyielding Body: Max HP ×2, natural life regen +20%，Potion cooldown reduced by 17%
 		■ Break Formation: Deal ×1.1 damage to blocked enemies
 		'''
 }
@@ -297,13 +338,53 @@ LordChip: {
 		'''
 		Right-click: Engrave the held melee weapon as [Lord]
 		Gain Lord talent:
-		■ Block 2: Blocks 2 enemies, melee damage bonus + damage reduction
+		{$Common.Block2}
+		      {$Common.BlockFalloff}
 		■ Lord Slash: Melee attacks fire an additional Lord Slash projectile
-		  Base damage 60%, speed 8
+		  Base damage 60%, speed 8, +20 armor penetration
 		  Damage decays with distance: 60% at 128px, 20% at 320px
 		■ Projectile Boost: If the weapon itself fires projectiles, within 128~320px:
 		  Damage bonus: +100% → +120% (scales with proximity)
 		  Armor penetration: 0% → 10% (scales with proximity)
 		■ Battle Momentum: +12% melee attack speed when 2+ enemies within 300px
+		'''
+}
+
+LiberatorChip: {
+	DisplayName: Liberator Chip
+	Tooltip: ""
+	ChipEngraveName: Liberator
+	ChipTooltip:
+		'''
+		Right-click: Engrave the held melee weapon as [Liberator]
+		Gain Liberator talent:
+		{$Common.Block2}
+		      {$Common.BlockFalloff}
+		■ Endurance Charge: Weapon damage multiplier charges up while not using items
+		  +0.16 per second, caps at +2.4 after 15s (total multiplier 1 → 3.4)
+		  Switching weapons keeps the charge but stops charging
+		■ Liberation: Using a weapon stops charging and enters [Liberation] (10s)
+		  The damage multiplier is maintained during Liberation
+		■ After Liberation: multiplier resets to 1×, cannot re-liberate for 2s
+		■ No Block by default: does not block enemies outside Liberation
+		'''
+}
+
+DefenderBaseChip: {
+	DisplayName: Defender Base Chip
+	Tooltip: Base Defender Chip, used to synthesize subclass chips
+}
+
+ProtectorChip: {
+	DisplayName: Protector Chip
+	Tooltip: ""
+	ChipEngraveName: Protector
+	ChipTooltip:
+		'''
+		Right-click: Engrave the held melee weapon as [Protector]
+		Gain Protector talent:
+		{$Common.Block4}
+		      {$Common.BlockFalloff}
+		■ Iron Bulwark: Own defense effectiveness ×1.2 (20% more effective defense reduction)
 		'''
 }

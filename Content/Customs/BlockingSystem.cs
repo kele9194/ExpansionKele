@@ -101,10 +101,10 @@ namespace ExpansionKele.Content.Customs
         {
             return blockingCap switch
             {
-                1 => 0.25f,  // 挡1：+20%
-                2 => 0.15f,  // 挡2：+15%
-                3 => 0.1f,  // 挡3：+8%
-                4 => 0f,     // 挡4：+0%
+                1 => 0.35f,   // 挡1：+35%
+                2 => 0.15f,   // 挡2：+15%
+                3 => 0.05f,   // 挡3：+5%
+                4 => 0.05f,   // 挡4：+5%（与挡3一致）
                 _ => 0f
             };
         }
@@ -116,10 +116,10 @@ namespace ExpansionKele.Content.Customs
         {
             return blockingCap switch
             {
-                1 => 0.10f,  // 挡1：-10%
-                2 => 0.2f,  // 挡2：-15%
-                3 => 0.25f,  // 挡3：-25%
-                4 => 0.35f,  // 挡4：-35%
+                1 => 0.10f,   // 挡1：-10%
+                2 => 0.15f,   // 挡2：-15%
+                3 => 0.20f,   // 挡3：-20%
+                4 => 0.20f,   // 挡4：-20%（与挡3一致）
                 _ => 0f
             };
         }
@@ -140,13 +140,60 @@ namespace ExpansionKele.Content.Customs
                 GuardSubclass.Musha        => 1,   // 武者：挡1
                 GuardSubclass.Reaper       => 2,   // 收割者：挡2
                 GuardSubclass.Instructor   => 2,   // 教官：挡2
-                GuardSubclass.Liberator    => 1,   // 解放者：挡1
+                GuardSubclass.Liberator    => 2,   // 解放者：挡1
                 GuardSubclass.Crusher      => 2,   // 重剑手：挡2
                 GuardSubclass.Earthshaker  => 1,   // 撼地者：挡1
                 GuardSubclass.PrimalGuard  => 1,   // 本源近卫：挡1
                 GuardSubclass.Mercenary    => 1,   // 佣兵：挡1
                 _                          => 0
             };
+        }
+
+        /// <summary>
+        /// 获取重装子职业对应的阻挡上限。
+        /// </summary>
+        public static int GetDefenderBlockingCap(DefenderSubclass subclass)
+        {
+            return subclass switch
+            {
+                DefenderSubclass.Protector => 4,   // 铁卫：挡4
+                _ => 0
+            };
+        }
+
+        // ======================== 阻挡补偿 ========================
+
+        /// <summary>阻挡补偿：每少挡1个目标对应的补偿比例（5%）</summary>
+        public const float UNDER_BLOCK_COMPENSATION = 0.05f;
+
+        /// <summary>
+        /// 获取挡2的阻挡补偿增伤：仅挡1个目标时 +5% 攻击。
+        /// 补偿量随阻挡效果系数（距离衰减）等比缩放：效果越不满，补偿越少。
+        /// </summary>
+        /// <param name="blockingCap">阻挡上限</param>
+        /// <param name="currentBlockCount">当前实际阻挡数</param>
+        /// <param name="effectFactor">阻挡效果系数（0.0~1.0，距离衰减）</param>
+        public static float GetUnderBlockDamageBonus(int blockingCap, int currentBlockCount, float effectFactor)
+        {
+            if (blockingCap == 2 && currentBlockCount == 1)
+                return UNDER_BLOCK_COMPENSATION * effectFactor;
+            return 0f;
+        }
+
+        /// <summary>
+        /// 获取挡3/挡4的阻挡补偿：每相对最大阻挡数少挡1个目标，
+        /// 将5%防御后减伤转化为防御前减伤。
+        /// 转化量随阻挡效果系数（距离衰减）等比缩放：效果越不满，转化越少。
+        /// </summary>
+        /// <param name="blockingCap">阻挡上限</param>
+        /// <param name="currentBlockCount">当前实际阻挡数</param>
+        /// <param name="effectFactor">阻挡效果系数（0.0~1.0，距离衰减）</param>
+        public static float GetUnderBlockConvertedReduction(int blockingCap, int currentBlockCount, float effectFactor)
+        {
+            if (blockingCap < 3) return 0f;
+            int missing = blockingCap - currentBlockCount;
+            if (missing <= 0) return 0f;
+            return UNDER_BLOCK_COMPENSATION * missing * effectFactor;
         }
 
         // ======================== 团队统合阻挡（团队名单） ========================

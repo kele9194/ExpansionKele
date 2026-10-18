@@ -1,0 +1,58 @@
+﻿=== 方舟目录规模 ===
+文件 52 个 / 4814 行
+
+=== 方舟目录用到的工具库类（Content/Customs）===
+   26 处   ArknightsGlobalItem   (Content/Customs/ArkModel.cs)
+   25 处   GuardSubclass   (Content/Customs/ArkModel.cs)
+   17 处   SniperSubclass   (Content/Customs/ArkModel.cs)
+   12 处   BlockingPlayer   (Content/Customs/BlockingPlayer.cs)
+   11 处   BlockingSystem   (Content/Customs/BlockingSystem.cs)
+    4 处   DefenderSubclass   (Content/Customs/ArkModel.cs)
+    3 处   NPCProjectileSourceTracker   (Content/Customs/NPCProjectileSourceTracker.cs)
+    2 处   ExpansionKeleDamageMulti   (Content/Customs/MultiDamgeDefenseTool.cs)
+    2 处   UseTimeHelper   (Content/Customs/AttackSpeedHelper.cs)
+    2 处   ValueUtils   (Content/Customs/Tools.cs)
+    1 处   IArknightsItem   (Content/Customs/ArkModel.cs)
+
+=== 外部（非方舟）引用 ArknightsItem 的文件 ===
+  Content/Buff/FighterBuff.cs
+  Content/Customs/ArkModel.cs
+  Content/Customs/BlockingPlayer.cs
+  Content/Customs/ItemChargeUI.cs
+  Content/NPCs/TownNPC/Cola.cs
+
+=== 疑似方舟专属的公共文件（潜在搬运对象）===
+
+[BlockingSystem]  方舟内引用 13 处
+
+[BlockingPlayer]  方舟内引用 15 处
+      外部: Content/Customs/NPCProjectileSourceTracker.cs
+
+[BlockingMarkerNPC]  方舟内引用 1 处
+
+[NPCProjectileSourceTracker]  方舟内引用 4 处
+      外部: Content/Customs/NPCProjectileSourceTracker.cs
+
+[FighterBuff]  方舟内引用 2 处
+
+[LiberatorBuff]  方舟内引用 1 处
+      外部: Content/Buff/LiberatorBuff.cs
+
+[DreadnoughtRebirthBuff]  方舟内引用 1 处
+      外部: Content/Buff/DreadnoughtRebirthBuff.cs
+
+[MushaRevivalCooldown]  方舟内引用 1 处
+      外部: Content/Buff/MushaRevivalCooldown.cs
+
+[MarksmanBuff]  方舟内引用 1 处
+      外部: Content/Buff/MarksmanBuff.cs
+
+[ArknightsHomingPlayer]  方舟内引用 1 处
+
+[ECShieldSystem]  方舟内引用 0 处
+      外部: Content/Customs/ECShield/ECShieldSystem.cs
+      外部: Content/Customs/ECShield/ShieldBar.cs
+      外部: Content/Customs/ECShield/ShieldStateManagement.cs
+      外部: Content/Items/Accessories/ChromiumShield.cs
+      外部: Content/Items/Accessories/StarBurn.cs
+      外部: Content/Temp/TestShield.cs

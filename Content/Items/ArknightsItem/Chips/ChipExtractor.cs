@@ -6,6 +6,7 @@ using ExpansionKele.Content.Customs;
 using System.Collections.Generic;
 using Terraria.Localization;
 using ExpansionKele.Content.Items.ArknightsItem.GuardChips;
+using ExpansionKele.Content.Items.ArknightsItem.DefenderChip;
 
 namespace ExpansionKele.Content.Items.ArknightsItem.Chips
 {
@@ -73,6 +74,14 @@ namespace ExpansionKele.Content.Items.ArknightsItem.Chips
                 return;
             }
 
+            // ===== 再检查重装子职业 =====
+            DefenderSubclass defenderSubclass = ArknightsGlobalItem.GetDefenderSubclass(held);
+            if (defenderSubclass != DefenderSubclass.Unassigned)
+            {
+                ExtractDefenderChip(player, held, defenderSubclass);
+                return;
+            }
+
             // 未知类型
             Main.NewText(Language.GetTextValue($"{Prefix}.UnknownType"), Color.Red);
         }
@@ -119,6 +128,34 @@ namespace ExpansionKele.Content.Items.ArknightsItem.Chips
             Main.NewText(Language.GetTextValue($"{Prefix}.Success", held.Name), Color.Green);
         }
 
+        private void ExtractDefenderChip(Player player, Item held, DefenderSubclass subclass)
+        {
+            if (!DeductCost(player)) return;
+
+            ArknightsGlobalItem.TrySetArknightsNum(held, 0);
+
+            int chipType = GetChipTypeFromDefenderSubclass(subclass);
+            if (chipType > 0)
+            {
+                player.QuickSpawnItem(player.GetSource_ItemUse(Item), chipType);
+            }
+            else
+            {
+                Main.NewText(Language.GetTextValue($"{Prefix}.MissingChip", subclass), Color.Yellow);
+            }
+
+            Main.NewText(Language.GetTextValue($"{Prefix}.Success", held.Name), Color.Green);
+        }
+
+        private static int GetChipTypeFromDefenderSubclass(DefenderSubclass subclass)
+        {
+            return subclass switch
+            {
+                DefenderSubclass.Protector => ModContent.ItemType<ProtectorChip>(),
+                _ => 0
+            };
+        }
+
         /// <summary>扣除50铜币，钱不够返回false</summary>
         private bool DeductCost(Player player)
         {
@@ -162,6 +199,7 @@ namespace ExpansionKele.Content.Items.ArknightsItem.Chips
                 GuardSubclass.Crusher      => ModContent.ItemType<CrusherChip>(),
                 GuardSubclass.Musha        => ModContent.ItemType<MushaChip>(),
                 GuardSubclass.Lord         => ModContent.ItemType<LordChip>(),
+                GuardSubclass.Liberator    => ModContent.ItemType<LiberatorChip>(),
                 _ => 0
             };
         }
