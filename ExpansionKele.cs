@@ -27,6 +27,7 @@ using ExpansionKele.Content.Projectiles.GenericProj;
 using ExpansionKele.Commons;
 using ExpansionKele.Content.Bosses.BossKeleNew;
 using ExpansionKele.Content.Items.Weapons.Melee;
+using ExpansionKele.Content.Items.OtherItem;
 
 
 namespace ExpansionKele
@@ -39,8 +40,10 @@ namespace ExpansionKele
 
         public static ModKeybind AutoAimingKeyBind{ get; private set; }
 
+        /// <summary>按 P 键输出手持物品的使用时间 / 动画时间诊断信息。</summary>
+        public static ModKeybind HeldItemStatsKeyBind { get; private set; }
+
         // 在类成员区域添加
-        public static ModKeybind ArkHomingKeyBind { get; private set; }
 
         public static object Content { get; internal set; }
         // public static int[] projectileTypes;
@@ -48,6 +51,25 @@ namespace ExpansionKele
         
 
         public static Texture2D sniperLaserTexture = ModContent.Request<Texture2D>("ExpansionKele/Content/StarySniper/SniperLaser").Value;
+
+        /// <summary>
+        /// 接收本模组的自定义包。所有 ModPacket 都汇聚到这里，靠包内首字节区分业务。
+        /// </summary>
+        public override void HandlePacket(BinaryReader reader, int whoAmI)
+        {
+            switch ((DeathOfPlaceSystem.MessageType)reader.ReadByte())
+            {
+                case DeathOfPlaceSystem.MessageType.ToggleRequest:
+                    if (Main.netMode == NetmodeID.Server)
+                        DeathOfPlaceSystem.OnToggleRequested(whoAmI);
+                    break;
+
+                case DeathOfPlaceSystem.MessageType.StateChanged:
+                    if (Main.netMode == NetmodeID.MultiplayerClient)
+                        DeathOfPlaceSystem.OnStateReceived(reader.ReadBoolean());
+                    break;
+            }
+        }
 
         // 添加物品修改UI的按键绑定
 
@@ -69,7 +91,7 @@ namespace ExpansionKele
             sniperLaserTexture = ModContent.Request<Texture2D>("ExpansionKele/Content/StarySniper/SniperLaser").Value;
             TrackingKeyBind = KeybindLoader.RegisterKeybind(this, "TrackingLocator", Keys.Y);
             AutoAimingKeyBind = KeybindLoader.RegisterKeybind(this, "AutoAiming", "MouseRight");
-            ArkHomingKeyBind = KeybindLoader.RegisterKeybind(this, "ArkHoming",Keys.J);
+            HeldItemStatsKeyBind = KeybindLoader.RegisterKeybind(this, "HeldItemStats", Keys.P);
 
             ProjectileClassificationManager.InitializeProjectileClassifications();
             
@@ -119,7 +141,7 @@ namespace ExpansionKele
             sniperLaserTexture = null;
             TrackingKeyBind = null;
             AutoAimingKeyBind = null;
-            ArkHomingKeyBind = null;
+            HeldItemStatsKeyBind = null;
             ProjectileHelper.CleanupLockData();
             // 其他卸载逻辑
         }

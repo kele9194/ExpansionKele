@@ -23,6 +23,7 @@ namespace ExpansionKele.Content.Projectiles.MeleeProj
             Projectile.aiStyle = 1;
             Projectile.friendly = true;
             Projectile.hostile = false;
+            Projectile.DamageType = DamageClass.Melee;
             Projectile.penetrate = 1;
             Projectile.timeLeft = 600;
             Projectile.alpha = 100;

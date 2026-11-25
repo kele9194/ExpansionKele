@@ -17,16 +17,13 @@ namespace ExpansionKele.Content.Bosses.BossKeleNew
         
         public Color purpleColor = new Color(0xbf, 0x9c, 0xf4);
 
-        [SyncVar]
         public int npcIndex;
         
-        [SyncVar]
         public Phase summonPhase;
         
 
         
         
-        [SyncVar]
         public float counter = 0f;
 
         public static Asset<Texture2D> _cachedTexture;

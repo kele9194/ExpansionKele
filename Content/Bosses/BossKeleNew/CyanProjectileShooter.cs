@@ -13,16 +13,11 @@ namespace ExpansionKele.Content.Bosses.BossKeleNew
     {
         public override string Texture => this.GetRelativeTexturePath("./InvisibleNPCProjectile");
         protected override int MaxLifetime => 100;
-        [SyncVar]
         private float shootTimer = 0f;
         private const float ShootInterval = 5f;
-        [SyncVar]
         private int currentAngleOffset = -5;
-        [SyncVar]
         private int angleDirection = 1;
-        [SyncVar]
         public int npcIndex;
-        [SyncVar]
         public Phase magicPhase;
         
         public override void SetStaticDefaults()
@@ -34,6 +29,13 @@ namespace ExpansionKele.Content.Bosses.BossKeleNew
         {
             npcIndex = (int)Math.Round(Projectile.ai[0]);
             magicPhase = (Phase)(int)Math.Round(Projectile.ai[1]);
+
+            // 这个发射器完全由服务端驱动：弹幕隐形、不造成伤害，只负责按节奏生成真正的攻击。
+            // 客户端若也跑一遍 AI，就会在「服务端同步过来的那份」之外再本地生成一份，
+            // 表现为玩家看到双倍弹幕（伤害仍在服务端结算，所以只翻倍视觉不翻倍伤害）。
+            if (Main.netMode == NetmodeID.MultiplayerClient)
+                return;
+
             NPC ownerNPC = npcIndex.GetNPCOwner();
             if (ownerNPC == null || !ownerNPC.active)
             {

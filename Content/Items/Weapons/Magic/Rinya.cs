@@ -92,9 +92,7 @@ namespace ExpansionKele.Content.Items.Weapons.Magic
         
         private static Asset<Texture2D> _cachedTexture;
 
-        [SyncVar]
         public Vector2 MousePosition;
-        [SyncVar]
         public bool init=true;
 
         
@@ -167,6 +165,8 @@ namespace ExpansionKele.Content.Items.Weapons.Magic
                 player.itemTime = 2;
                 player.itemAnimation = 2;
                 if(init){
+                    // 只有主人这一端生成：服务端也跑 AI，不判断会再生成一份→伤害翻倍
+                    if (Main.myPlayer == Projectile.owner)
                     Projectile.NewProjectile(Projectile.GetSource_FromThis(),
                     player.MountedCenter + Vector2.Normalize(MouseVector) * 240f, 
                     MouseVector.SafeNormalize(Vector2.Zero) * 10f, 

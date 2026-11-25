@@ -1,0 +1,378 @@
+# 值 \t 常量名 \t 中文名 \t 血污标记（✔ 安全 / ✘ 血腥 / ? 未标记）
+0	Dirt		✔
+1	Stone		✔
+2	Grass		✔
+3	GrassBlades		✔
+4	TintableDust		✔
+4	t_Slime		✔
+5	Blood		✘
+5	t_Flesh		✘
+6	Torch		✔
+7	WoodFurniture	木材、丛林荆棘	✔
+8	Iron		✔
+8	t_SteampunkMetal		✔
+9	Copper		✔
+10	Gold		✔
+10	t_Golden		✔
+11	Silver		✔
+12	LifeCrystal	生命水晶	✔
+12	HeartCrystal	生命水晶	✔
+13	Glass	玻璃、冷鞭	✔
+14	Demonite	腐化	✔
+14	Corruption	腐化	✔
+15	MagicMirror	坠落之星尾迹、魔法尘埃、三叉戟	✔
+16	Cloud		✔
+17	CorruptPlants		✔
+18	CorruptGibs		✔
+19	Sunflower	向日葵、金币射弹	✔
+20	PurificationPowder	净化粉	✔
+21	VilePowder	魔粉	✔
+22	Pot	普通罐子、粘土盆	✔
+23	t_Meteor		✔
+23	PiggyBank		✔
+23	Meteorite		✔
+24	CorruptionThorns	腐化荆棘	✔
+25	MeteorHead	狱石、流星头	✔
+26	Bone		✔
+27	Shadowflame		✔
+27	GoblinSorcerer		✔
+28	Clay	粘土	✔
+29	WaterCandle		✔
+30	Web		✔
+31	Smoke		✔
+32	Sand		✔
+33	Water	水	✔
+34	BreatheBubble	呼吸气泡	✔
+35	Lava		✔
+36	Ash	灰烬、猩红沙	✔
+37	Obsidian	黑曜石、腐化	✔
+38	Mud	泥	✔
+39	JungleGrass	荆鞭	✔
+40	JunglePlants		✔
+40	t_Cactus		✔
+41	GlowingMushroom	发光蘑菇释放	✔
+42	Harpy	蘑菇矿	✔
+43	TintableDustLighted		✔
+44	JungleSpore	丛林孢子释放	✔
+45	ManaRegeneration	魔力恢复	✔
+46	Poisoned	中毒减益	✔
+47	HallowedPlants		✔
+48	Cobalt	钴、冰雪生物群系罐子	✔
+49	Mythril	秘银	✔
+50	Adamantite	精金、电线	✔
+51	SnowBlock	雪、珍珠沙	✔
+51	Pearlsand	雪、珍珠沙	✔
+52	UnholyWater	邪水飞溅	✔
+53	Silt	泥沙	✔
+54	Wraith	幻灵、装甲幻影魔、愤怒翻滚怪	✔
+55	Pixie	闪亮石、双足翼龙怒气、瞌睡章鱼	✔
+56	BlueFairy	粘鞍、硬鞍	✔
+57	Enchanted_Gold	坠落之星	✔
+57	HallowedWeapons	坠落之星	✔
+58	Enchanted_Pink	坠落之星	✔
+59	BlueTorch		✔
+60	RedTorch		✔
+61	GreenTorch		✔
+62	PurpleTorch		✔
+63	WhiteTorch		✔
+64	YellowTorch		✔
+65	DemonTorch		✔
+66	RainbowTorch		✔
+66	RainbowRod		✔
+67	IceRod	冰雪武器、冰雪敌怪	✔
+68	BlueCrystalShard		✔
+68	t_Crystal		✔
+69	PinkCrystalShard		✔
+70	PurpleCrystalShard		✔
+71	UndergroundHallowedEnemies	星云烈焰、神圣敌怪	✔
+72	Gastropod	星云烈焰	✔
+73	PinkFairy	真断钢剑、星云烈焰	✔
+74	GreenFairy		✔
+75	CursedTorch	诅咒火把、真永夜刃	✔
+76	Snow	雪花、冰雪敌怪	✔
+77	Ebonwood	乌木	✔
+78	t_LivingWood		✔
+78	t_PearlWood		✔
+78	RichMahogany		✔
+79	Pearlwood	珍珠木（浅色）	✔
+80	Ice		✔
+80	t_Frozen		✔
+81	Tin		✔
+82	Lead		✔
+83	Tungsten		✔
+84	Platinum		✔
+85	UnusedBrown	丛林罐子	✔
+86	GemAmethyst		✔
+87	GemTopaz		✔
+88	GemSapphire		✔
+89	GemEmerald		✔
+90	GemRuby		✔
+91	GemDiamond		✔
+92	Frost	冰雪武器	✔
+92	FrostStaff	冰雪武器	✔
+93	GreenMoss		✔
+94	BrownMoss		✔
+95	RedMoss		✔
+96	BlueMoss		✔
+97	PurpleMoss		✔
+98	Water_Corruption	腐化水	✔
+99	Water_Jungle	丛林水	✔
+100	Water_Hallowed	神圣水	✔
+101	Water_Snow	冰雪水	✔
+102	Water_Desert	沙漠水	✔
+103	Water_Space	地下水	✔
+103	Water_GlowingMushroom	地下水	✔
+104	Water_Cavern	洞穴水	✔
+105	Water_BloodMoon	血月水	✔
+106	RuneWizard	符文巫师	✔
+107	Terra	泰拉刃	✔
+107	TerraBlade	泰拉刃	✔
+108	RainCloud	雪云、暴风雨云	✔
+109	Asphalt	沥青、反传送门块	✔
+110	PureSpray	绿溶液	✔
+110	Clentaminator_Green	绿溶液	✔
+111	HallowSpray	蓝溶液	✔
+111	Clentaminator_Cyan	蓝溶液	✔
+112	CorruptSpray	紫溶液	✔
+112	Clentaminator_Purple	紫溶液	✔
+113	MushroomSpray	深蓝溶液	✔
+113	Clentaminator_Blue	深蓝溶液	✔
+114	CrimsonSpray	红溶液、猩红魔杖	✔
+114	Clentaminator_Red	红溶液、猩红魔杖	✔
+115	Crimson	猩红矿武器	✔
+115	CrimtaneWeapons	猩红矿武器	✔
+116	Skyware	天域	✔
+117	Crimstone	猩红	✔
+118	Ice_Purple	紫冰雪、奥术神符墙	✔
+119	Ice_Pink	粉冰雪	✔
+120	Ice_Red	红冰雪	✔
+121	Shadewood_Tree	暗影木（树）	✔
+122	BorealWood	针叶木（树）	✔
+123	Water_Crimson	猩红水	✔
+124	SandstormInABottle	沙暴瓶	✔
+125	CrimsonPlants		✔
+126	Shadewood	暗影木	✔
+127	Flare	照明弹尾迹	✔
+128	Chlorophyte	叶绿	✔
+129	Rope	绳	✔
+130	Firework_Red	红火箭	✔
+131	Firework_Green	绿火箭	✔
+132	Firework_Blue	蓝火箭	✔
+133	Firework_Yellow	黄火箭	✔
+134	Firework_Pink	黄火箭、外星法杖	✔
+135	IceTorch		✔
+136	Crimslime	猩红史莱姆	✔
+137	IcyMerman	冰雪人鱼	✔
+138	GemAmber		✔
+139	Confetti		✔
+139	Confetti_Blue		✔
+140	Confetti_Green	彩纸（绿）	✔
+141	Confetti_Pink	彩纸（粉）	✔
+142	Confetti_Yellow	彩纸（黄）	✔
+143	TintablePaint	油漆	✔
+143	Paint	油漆	✔
+144	Palladium	钯金	✔
+145	Orichalcum	山铜	✔
+146	Titanium	钛金	✔
+147	t_Honey		✔
+147	Hive		✔
+148	t_Lihzahrd		✔
+148	Lihzahrd		✔
+149	Slush	雪泥	✔
+150	Bee	蜜蜂	✔
+151	SeaSnail	乌贼被击中	✔
+151	Squid	乌贼被击中	✔
+152	Honey		✔
+153	Honey2	蜂蜜块	✔
+154	Rain	雨云魔杖	✔
+155	Ambient_DarkBrown	熔岩墙、猩红沙岩墙、硬化猩红沙墙	✔
+156	UltraBrightTorch		✔
+157	ChlorophyteWeapon	叶状水晶、叶绿双刃刀球体	✔
+158	OrangeTorch		✔
+159	Teleporter	传送机	✔
+160	MagnetSphere	磁球、外星法杖	✔
+161	IceGolem	星旋异星蜂王	✔
+162	HeatRay	高温射线枪	✔
+163	PoisonStaff	剧毒法杖、树妖祝福	✔
+163	DryadsWard	剧毒法杖、树妖祝福	✔
+164	TeleportationPotion	混沌传送杖	✔
+165	FungiHit	蘑菇回旋镖、蘑菇敌怪被击中	✔
+166	Plantera_Pink	世纪之花（粉）	✔
+167	Plantera_Green	世纪之花（绿）	✔
+168	PlanteraBulb	世纪之花球茎释放	✔
+169	IchorTorch		✔
+170	Ichor	黄金雨	✔
+171	Venom	毒液减益	✔
+172	DungeonWater	地牢武器	✔
+173	ShadowbeamStaff	暗影束法杖	✔
+174	InfernoFork		✔
+175	SpectreStaff	幽灵尘	✔
+176	BubbleBurst_Blue	派对泡泡（蓝）、恩赐苹果	✔
+177	BubbleBurst_Pink	派对泡泡（粉）、恩赐苹果	✔
+178	BubbleBurst_Green	派对泡泡（黄）	✔
+179	BubbleBurst_Purple	派对泡泡（紫）、恩赐苹果	✔
+180	DungeonSpirit	裂天剑、地牢幽魂	✔
+181	GiantCursedSkullBolt	巨型诅咒骷髅头	✔
+182	TheDestroyer	机械矿车尾迹、吸血鬼飞刀	✔
+183	VampireHeal	吸血鬼治愈（吸血鬼刀）	✔
+184	ScourgeOfTheCorruptor	腐化者之戟	✔
+185	FrostHydra	寒霜九头蛇	✔
+186	RedsWingsRun	Red的翅膀	✔
+187	BlueFlare	蓝照明弹尾迹	✔
+187	Flare_Blue	蓝照明弹尾迹	✔
+188	FartInAJar	屁尘埃、恶臭减益	✔
+189	Pumpkin	南瓜	✔
+190	Hay	干草	✔
+191	SpookyWood	阴森木	✔
+192	Ghost	胡闹鬼、兔兔史莱姆	✔
+192	BunnySlime	胡闹鬼、兔兔史莱姆	✔
+193	SlimeBunny	史莱姆兔兔	✔
+194	Scarecrow	稻草人	✔
+195	BatScepter	蝙蝠权杖	✔
+196	Everscream	松树, Razor Pine	✔
+197	SnowflakeIce	北极、暴雪法杖	✔
+197	NorthPole	北极、暴雪法杖	✔
+198	FireflyHit	瓢虫	✔
+199	Butterfly	蝴蝶	✔
+200	Worm	蠕虫	✔
+201	Snail	蜗牛	✔
+202	GlowingSnail	发光蜗牛	✔
+203	Scorpion	蝎子	✔
+204	TreasureSparkle	洞穴探险发光	✔
+204	SpelunkerGlowstickSparkle	洞穴探险发光	✔
+205	VenomStaff	毒液法杖	✔
+206	UnusedWhiteBluePurple	脉冲弓	✔
+207	DynastyWood	王朝木	✔
+208	DynastyShingle_Red	红王朝瓦	✔
+209	DynastyShingle_Blue	蓝王朝瓦	✔
+210	DynastyWall	王朝木墙	✔
+211	Wet	臭屁车、泰拉臭屁车	✔
+212	BubbleBurst_White	中士联盾	✔
+213	MinecartSpark	矿车火花、矿车轨道	✔
+214	t_BorealWood		✔
+214	BorealWood_Small		✔
+215	PalmWood	棕榈木	✔
+216	PirateStaff	马桶溢出物（接线的马桶）	✔
+217	FishronWings	猪龙鱼公爵	✔
+217	RazorbladeTyphoon	猪龙鱼公爵	✔
+218	Rain_BloodMoon		✔
+219	Fireworks		✔
+219	FireworkFountain_Red		✔
+220	FireworkFountain_Green	烟花喷泉（绿）	✔
+221	FireworkFountain_Blue	烟花喷泉（蓝）	✔
+222	FireworkFountain_Yellow	烟花喷泉（黄）	✔
+223	FireworkFountain_Pink	烟花喷泉（粉）	✔
+224	Shiverthorn	寒颤棘	✔
+225	Coralstone	珊瑚石	✔
+226	Electric	致命球法杖	✔
+226	t_Martian	致命球法杖	✔
+227	MartianHit	火星人的血	✘
+228	GoldFlame		✔
+228	MartianSaucerSpark		✔
+229	Vortex		✔
+229	InfluxWaver		✔
+229	Phantasmal		✔
+230	DrillContainmentUnit	钻头控制装置	✔
+230	CosmicCarKeys	钻头控制装置	✔
+231	ViciousPowder	毒粉	✔
+232	GoldCritter		✔
+233	GoldCritter_LessOutline		✔
+234	BoneTorch		✔
+235	LifeDrain	夺命杖	✔
+236	Marble		✔
+236	t_Marble		✔
+237	Mothron		✔
+238	MothronEgg		✔
+239	Silk		✔
+240	Granite		✔
+240	t_Granite		✔
+241	MarblePot		✔
+242	PinkTorch		✔
+243	PinkSlime		✔
+244	CopperCoin		✔
+245	SilverCoin		✔
+246	GoldCoin		✔
+247	PlatinumCoin		✔
+248	EnchantedNightcrawler		✔
+249	Grubby		✔
+250	Sluggy		✔
+251	Buggy		✔
+252	FrostDaggerfish	寒霜飞鱼	✔
+253	TsunamiInABottle	旗鱼靴（和其升级物）、海啸瓶（和其升级物）	✔
+253	SailfishBoots	旗鱼靴（和其升级物）、海啸瓶（和其升级物）	✔
+254	CrystalPulse		✔
+254	CrystalSerpent		✔
+255	CrystalPulse2		✔
+255	CrystalSerpent_Pink		✔
+256	ToxicBubble		✔
+256	Toxikarp		✔
+257	BubbleBlock		✔
+258	LavaMoss		✔
+259	SolarFlare		✔
+260	SparksMech		✔
+260	MechanicalCart		✔
+261	AncientLight		✔
+262	AmberBolt		✔
+263	PortalBolt		✔
+264	PortalBoltTrail		✔
+265	LunarOre		✔
+266	SomethingRed	血水	✔
+266	BloodWater	血水	✔
+267	RainbowMk2		✔
+267	LastPrism		✔
+268	Sandstorm		✔
+269	Sandnado		✔
+270	FlameBurst		✔
+271	HealingPlus		✔
+272	WitherLightning		✔
+273	GreenBlood		✘
+274	ApprenticeStorm		✔
+275	DungeonBlue		✔
+276	DungeonGreen		✔
+277	DungeonPink		✔
+278	FireworksRGB		✔
+279	SilverFlame		✔
+280	BeachShell		✔
+281	RedStarfish		✔
+282	PinkStarfish		✔
+283	YellowStarfish		✔
+284	FoodPiece		✔
+285	GolfPaticle		✔
+286	OrangeStainedGlass		✔
+287	DesertPot		✔
+288	DesertWater2		✔
+289	SeaOatsOasis		✔
+290	SeaOatsBeach		✔
+291	OasisCactus		✔
+292	YellowStarDust		✔
+293	DesertTorch		✔
+294	CoralTorch		✔
+295	CorruptTorch		✔
+296	CrimsonTorch		✔
+297	HallowedTorch		✔
+298	JungleTorch		✔
+299	KryptonMoss		✔
+300	XenonMoss		✔
+301	ArgonMoss		✔
+302	Terragrim		✔
+303	SteampunkSteam		✔
+304	Firefly		✔
+305	VioletMoss		✔
+306	SparkForLightDisc		✔
+307	MushroomTorch		✔
+308	ShimmerSplash		✔
+309	ShimmerSpark		✔
+310	ShimmerTorch		✔
+311	SandSpray		✔
+312	SnowSpray		✔
+313	DirtSpray		✔
+314	LunarRust		✔
+315	DarkCelestial		✔
+316	Astra		✔
+317	CosmicEmber		✔
+318	Cryocore		✔
+319	Mercury		✔
+320	StarRoyale		✔
+321	Heavenforge		✔
+322	Poop		✔
+323	MoonBoulder		✔

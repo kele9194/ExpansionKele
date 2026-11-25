@@ -1,0 +1,6 @@
+size=102x100  opaque=1320  partial=44
+partial alpha range: x 10..99  y 4..99
+partial sample: [(98, 4, 251), (99, 4, 251), (98, 5, 251), (99, 5, 251), (96, 6, 253), (97, 6, 253), (96, 7, 253), (97, 7, 253), (94, 10, 245), (95, 10, 245), (94, 11, 245), (95, 11, 245)]
+opaque avg RGB = (120, 137, 200)
+opaque pixels lighter than 200 avg: 268 (20%)
+opaque pixels darker than 80 avg: 84 (6%)

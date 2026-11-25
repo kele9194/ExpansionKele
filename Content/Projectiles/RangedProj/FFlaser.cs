@@ -18,11 +18,8 @@ namespace ExpansionKele.Content.Projectiles.RangedProj
         private const int MAX_LASER_LENGTH = 900;
         
         private static Asset<Texture2D> _cachedTexture;
-        [SyncVar]
         public int npcIndex;
-        [SyncVar]
         public int laserLength;
-        [SyncVar]
         public bool init=true;
 
         public override void Load()
@@ -70,6 +67,8 @@ namespace ExpansionKele.Content.Projectiles.RangedProj
                     if(npc!=null){
                         laserLength=(int)(npc.Center-Projectile.Center).Length();
                         explosionPos = Projectile.Center + Projectile.velocity.SafeNormalize(Vector2.UnitX) * laserLength;
+                        // 只有主人这一端生成，避免服务端重复生成
+                        if (Main.myPlayer == Projectile.owner)
                         Projectile.NewProjectile(Projectile.GetSource_FromThis(), 
                         explosionPos, 
                         Vector2.Zero, 

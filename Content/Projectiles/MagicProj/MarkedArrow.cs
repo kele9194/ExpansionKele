@@ -18,7 +18,6 @@ namespace ExpansionKele.Content.Projectiles.MagicProj
         private static Asset<Texture2D> _cachedTexture;
 
         public override string Texture => this.GetRelativeTexturePath("./MarkedArrow");
-        [SyncVar]
         public bool isshoot=false;
 
         public override void Load()

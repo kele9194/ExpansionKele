@@ -7,6 +7,8 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
+using ExpansionKele.Content.Customs;
+
 namespace ExpansionKele.Content.Projectiles.RangedProj
 {
     public class SeitaadBallistaProjectile : ModProjectile
@@ -150,9 +152,11 @@ namespace ExpansionKele.Content.Projectiles.RangedProj
             }
             
             // 随机选择最多 3 个目标
+            // 确定性随机：targets 由 Main.npc 顺序构建，两端一致，因此能删出同样的结果
+            var targetRng = NetRandom.Deterministic(Projectile.identity, 0x7A11);
             while (targets.Count > MAX_TARGETS)
             {
-                targets.RemoveAt(Main.rand.Next(targets.Count));
+                targets.RemoveAt(targetRng.Next(targets.Count));
             }
             
             // Deleted:// 获取弹幕所属玩家的暴击率

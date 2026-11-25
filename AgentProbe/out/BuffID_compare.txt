@@ -1,0 +1,138 @@
+source unique constants : 354
+user table parsed rows  : 352
+constants without CN    : 10
+only in source          : 64
+only in user table      : 62
+value mismatch          : 0
+
+=== value mismatch ===
+
+=== only in source ===
+AmberMinecartLeft	246	{$BuffName.MinecartLeft}
+AmberMinecartRight	245	{$BuffName.MinecartRight}
+AmethystMinecartLeft	234	{$BuffName.MinecartLeft}
+AmethystMinecartRight	233	{$BuffName.MinecartRight}
+BeeMinecartLeft	221	{$BuffName.MinecartLeft}
+BeeMinecartRight	220	{$BuffName.MinecartRight}
+BeetleMinecartLeft	248	{$BuffName.MinecartLeft}
+BeetleMinecartRight	247	{$BuffName.MinecartRight}
+BlandWhipEnemyDebuff	307	
+BoneWhipNPCDebuff	326	
+CoffinMinecartLeft	270	{$BuffName.MinecartLeft}
+CoffinMinecartRight	269	{$BuffName.MinecartRight}
+CoolWhipNPCDebuff	340	
+DesertMinecartLeft	209	{$BuffName.MinecartLeft}
+DesertMinecartRight	208	{$BuffName.MinecartRight}
+DiamondMinecartLeft	244	{$BuffName.MinecartLeft}
+DiamondMinecartRight	243	{$BuffName.MinecartRight}
+DiggingMoleMinecartLeft	273	挖掘鼹鼠矿车
+DiggingMoleMinecartRight	272	挖掘鼹鼠矿车
+EmeraldMinecartLeft	240	{$BuffName.MinecartLeft}
+EmeraldMinecartRight	239	{$BuffName.MinecartRight}
+FartMinecartLeft	339	{$BuffName.FartMinecartRight}
+FartMinecartRight	338	放屁车
+FishMinecartLeft	211	{$BuffName.MinecartLeft}
+FishMinecartRight	210	{$BuffName.MinecartRight}
+FlameWhipEnemyDebuff	313	
+HellMinecartLeft	229	{$BuffName.MinecartLeft}
+HellMinecartRight	228	{$BuffName.MinecartRight}
+LadybugMinecartLeft	223	{$BuffName.MinecartLeft}
+LadybugMinecartRight	222	{$BuffName.MinecartRight}
+MaceWhipNPCDebuff	319	
+MeowmereMinecartLeft	250	{$BuffName.MinecartLeft}
+MeowmereMinecartRight	249	{$BuffName.MinecartRight}
+MinecartLeft	118	矿车
+MinecartLeftMech	167	矿车
+MinecartLeftWood	184	矿车
+MinecartRight	138	矿车
+MinecartRightMech	166	矿车
+MinecartRightWood	185	矿车
+PartyMinecartLeft	252	{$BuffName.MinecartLeft}
+PartyMinecartRight	251	{$BuffName.MinecartRight}
+PigronMinecartLeft	225	{$BuffName.MinecartLeft}
+PigronMinecartRight	224	{$BuffName.MinecartRight}
+PirateMinecartLeft	254	{$BuffName.MinecartLeft}
+PirateMinecartRight	253	{$BuffName.MinecartRight}
+RainbowWhipNPCDebuff	316	
+RubyMinecartLeft	242	{$BuffName.MinecartLeft}
+RubyMinecartRight	241	{$BuffName.MinecartRight}
+SapphireMinecartLeft	238	{$BuffName.MinecartLeft}
+SapphireMinecartRight	237	{$BuffName.MinecartRight}
+ScytheWhipEnemyDebuff	310	
+ShroomMinecartLeft	232	{$BuffName.MinecartLeft}
+ShroomMinecartRight	231	{$BuffName.MinecartRight}
+SteampunkMinecartLeft	256	{$BuffName.MinecartLeft}
+SteampunkMinecartRight	255	{$BuffName.MinecartRight}
+SunflowerMinecartLeft	227	{$BuffName.MinecartLeft}
+SunflowerMinecartRight	226	{$BuffName.MinecartRight}
+SwordWhipNPCDebuff	309	
+TentacleSpike	337	
+TerraFartMinecartLeft	347	{$BuffName.TerraFartMinecartRight}
+TerraFartMinecartRight	346	泰拉放屁车
+ThornWhipNPCDebuff	315	
+TopazMinecartLeft	236	{$BuffName.MinecartLeft}
+TopazMinecartRight	235	{$BuffName.MinecartRight}
+
+=== only in user table ===
+AcceleratePoisons	398
+AmberMinecart	245
+AmethystMinecart	233
+AxeFairyPet	372
+BatMount	377
+BeeMinecart	220
+BeetleMinecart	247
+BlueLightning	399
+BoulderPet	373
+ChlorophyteSpore	397
+ClayPotMinion	393
+CobWhipPlayerBuff	365
+CoffinMinecart	269
+DeadCellsMushroomBoiMinion	355
+DeadCellsPotionStation	366
+DeadCellsSwarmBiter	356
+DesertMinecart	208
+DiamondMinecart	243
+DiggingMoleMinecart	272
+EmeraldMinecart	239
+FartMinecart	338
+FishMinecart	210
+ForbiddenMinion	394
+HellMinecart	228
+Hemorrhage	375
+Kite	383
+LadybugMinecart	222
+ManaHeat	396
+MeowmereMinecart	249
+Minecart	118
+MinecartMech	166
+MinecartWood	184
+PalworldMinionCattiva	385
+PalworldMinionFoxsparks	386
+PalworldMinionTrustyCattiva	389
+PalworldMinionTrustyFoxsparks	390
+PalworldMountTrustyChillet	391
+PalworldMountTrustyChilletIgnis	392
+PalworldPetChillet	387
+PalworldPetChilletIgnis	388
+PartyMinecart	251
+PigronMinecart	224
+PirateMinecart	253
+PixieMount	384
+PotentAcid	395
+Pufferfish	371
+RainbowBoulderPet	382
+RatMount	374
+RedLightning	400
+RollerSkatesGreenMount	379
+RollerSkatesMount	378
+RollerSkatesPinkMount	381
+RollerSkatesWhiteMount	380
+RubyMinecart	241
+SapphireMinecart	237
+ShroomMinecart	231
+SteampunkMinecart	255
+SunflowerMinecart	226
+TerraFartMinecart	346
+TopazMinecart	235
+TorchGodPotion	376
+VelociraptorMount	370

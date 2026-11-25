@@ -15,19 +15,15 @@ namespace ExpansionKele.Content.Bosses.BossKeleNew
 {
     public class RinyaBossProjectile : ModProjectile
     {
-        [SyncVar]
         public int npcIndex;
         
-        [SyncVar]
         public Phase summonPhase;
         
 
         
         
-        [SyncVar]
         public float counter = 0f;
 
-        [SyncVar]
         public float scale=0f;
         
         
@@ -73,6 +69,10 @@ namespace ExpansionKele.Content.Bosses.BossKeleNew
         {
             npcIndex=(int)Math.Round(Projectile.ai[0]);
             summonPhase = (Phase)(int)Math.Round(Projectile.ai[1]);
+
+            // 生成子弹幕由服务端（含单人）统一负责：客户端也生成会与同步过来的那份重复。
+            bool canSpawn = Main.netMode != NetmodeID.MultiplayerClient;
+
             NPC ownerNPC = npcIndex.GetNPCOwner();
             if (ownerNPC == null || !ownerNPC.active)
             {
@@ -94,7 +94,7 @@ namespace ExpansionKele.Content.Bosses.BossKeleNew
             if(counter>=275){
                 scale-=1/25f;
             }
-            if(counter>=25 && counter<=275&&counter%15==0){
+            if(canSpawn && counter>=25 && counter<=275 && counter%15==0){
                 for(int i = 0; i < 5; i++){
                 Projectile.NewProjectile(
                     Projectile.GetSource_FromAI(),
@@ -112,7 +112,7 @@ namespace ExpansionKele.Content.Bosses.BossKeleNew
 
 
 
-            if(summonPhase==Phase.phase3){
+            if(canSpawn && summonPhase==Phase.phase3){
                 if(counter==50){
                     for(int i = 0; i < 5; i++){
                         Projectile.NewProjectile(
@@ -130,7 +130,7 @@ namespace ExpansionKele.Content.Bosses.BossKeleNew
                 }
             }
 
-            if(summonPhase==Phase.phase4){
+            if(canSpawn && summonPhase==Phase.phase4){
                 if(counter==50||counter==250){
                     foreach(Player player in Main.player){
                         if(player.active && !player.dead){

@@ -190,6 +190,7 @@ public class FullMoonArmorProj : ModProjectile
             Projectile.width = 8;                   // 弹幕宽度
             Projectile.height = 8;                  // 弹幕高度
             Projectile.friendly = true;             // 对玩家友好
+            Projectile.DamageType = DamageClass.Generic;
             Projectile.penetrate = 1;              // 无限穿透
             Projectile.timeLeft = 420;              // 总生存时间为 420 帧（7 秒）
             Projectile.tileCollide = false;         // 不与地形碰撞

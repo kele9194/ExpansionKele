@@ -1,0 +1,20 @@
+# 本项目实际用到的 TileID：值 \t 常量名 \t 中文名
+5	Trees	
+13	Bottles	玻璃瓶
+16	Anvils	铁砧
+17	Furnaces	熔炉
+18	WorkBenches	工作台
+57	Ash	灰烬块
+77	Hellforge	地狱熔炉
+101	Bookcases	书架
+114	TinkerersWorkbench	工匠作坊
+125	CrystalBall	水晶球
+133	AdamantiteForge	精金熔炉
+134	MythrilAnvil	秘银砧
+172	Sinks	
+220	Solidifier	固化机
+228	DyeVat	染缸
+304	LivingLoom	生命木织机
+306	IceMachine	冰雪机
+355	AlchemyTable	炼药桌
+412	LunarCraftingStation	远古操纵机

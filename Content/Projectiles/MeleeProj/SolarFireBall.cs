@@ -3,6 +3,8 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 
+using ExpansionKele.Content.Customs;
+
 namespace ExpansionKele.Content.Projectiles.MeleeProj
 {
     public class SolarFireball : ModProjectile
@@ -87,6 +89,10 @@ namespace ExpansionKele.Content.Projectiles.MeleeProj
         
         private void SpawnSplitFireballs(Vector2 position, float parentKnockback)
         {
+            // 只有弹幕主人这一端生成：服务端也跑 AI，不判断会再生成一份 -> 分裂弹翻倍
+            if (!NetRandom.IsOwner(Projectile.owner))
+                return;
+
             int splitCount = Main.rand.Next(3, 5); // 3-4个小火球
             
             for (int i = 0; i < splitCount; i++)

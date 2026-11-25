@@ -1,0 +1,770 @@
+-66	NegativeIDCount	
+-65	BigHornetStingy	
+-64	LittleHornetStingy	
+-63	BigHornetSpikey	
+-62	LittleHornetSpikey	
+-61	BigHornetLeafy	
+-60	LittleHornetLeafy	
+-59	BigHornetHoney	
+-58	LittleHornetHoney	
+-57	BigHornetFatty	
+-56	LittleHornetFatty	
+-55	BigRainZombie	僵尸
+-54	SmallRainZombie	僵尸
+-53	BigPantlessSkeleton	
+-52	SmallPantlessSkeleton	
+-51	BigMisassembledSkeleton	
+-50	SmallMisassembledSkeleton	
+-49	BigHeadacheSkeleton	
+-48	SmallHeadacheSkeleton	
+-47	BigSkeleton	
+-46	SmallSkeleton	
+-45	BigFemaleZombie	
+-44	SmallFemaleZombie	
+-43	DemonEye2	
+-42	PurpleEye2	
+-41	GreenEye2	
+-40	DialatedEye2	
+-39	SleepyEye2	
+-38	CataractEye2	
+-37	BigTwiggyZombie	
+-36	SmallTwiggyZombie	
+-35	BigSwampZombie	
+-34	SmallSwampZombie	
+-33	BigSlimedZombie	
+-32	SmallSlimedZombie	
+-31	BigPincushionZombie	
+-30	SmallPincushionZombie	
+-29	BigBaldZombie	
+-28	SmallBaldZombie	
+-27	BigZombie	
+-26	SmallZombie	
+-25	BigCrimslime	
+-24	LittleCrimslime	
+-23	BigCrimera	
+-22	LittleCrimera	
+-21	GiantMossHornet	
+-20	BigMossHornet	
+-19	LittleMossHornet	
+-18	TinyMossHornet	
+-17	BigStinger	
+-16	LittleStinger	
+-15	HeavySkeleton	
+-14	BigBoned	
+-13	ShortBones	
+-12	BigEater	
+-11	LittleEater	
+-10	JungleSlime	丛林史莱姆
+-9	YellowSlime	黄史莱姆
+-8	RedSlime	红史莱姆
+-7	PurpleSlime	紫史莱姆
+-6	BlackSlime	黑史莱姆
+-5	BabySlime	史莱姆宝宝
+-4	Pinky	粉史莱姆
+-3	GreenSlime	绿史莱姆
+-2	Slimer2	恶翅史莱姆
+-1	Slimeling	小史莱姆
+0	None	
+1	BlueSlime	蓝史莱姆
+2	DemonEye	恶魔眼
+3	Zombie	僵尸
+4	EyeofCthulhu	克苏鲁之眼
+5	ServantofCthulhu	克苏鲁之仆
+6	EaterofSouls	噬魂怪
+7	DevourerHead	吞噬怪
+8	DevourerBody	吞噬怪
+9	DevourerTail	吞噬怪
+10	GiantWormHead	巨型蠕虫
+11	GiantWormBody	巨型蠕虫
+12	GiantWormTail	巨型蠕虫
+13	EaterofWorldsHead	世界吞噬怪
+14	EaterofWorldsBody	世界吞噬怪
+15	EaterofWorldsTail	世界吞噬怪
+16	MotherSlime	史莱姆之母
+17	Merchant	商人
+18	Nurse	护士
+19	ArmsDealer	军火商
+20	Dryad	树妖
+20	Poisoned	
+21	Skeleton	骷髅
+22	Guide	向导
+23	MeteorHead	流星头
+24	FireImp	火焰小鬼
+24	OnFire	
+25	BurningSphere	烈焰球
+26	GoblinPeon	哥布林苦力
+27	GoblinThief	哥布林盗贼
+28	GoblinWarrior	哥布林战士
+29	GoblinSorcerer	哥布林巫士
+30	ChaosBall	混沌球
+31	AngryBones	愤怒骷髅怪
+31	Confused	
+32	DarkCaster	暗黑法师
+33	WaterSphere	水球
+34	CursedSkull	诅咒骷髅头
+35	SkeletronHead	骷髅王
+36	SkeletronHand	骷髅王
+37	OldMan	老人
+38	Demolitionist	爆破专家
+39	BoneSerpentHead	骨蛇
+39	CursedInferno	
+40	BoneSerpentBody	骨蛇
+41	BoneSerpentTail	骨蛇
+42	Hornet	黄蜂
+43	ManEater	食人怪
+44	Frostburn	
+44	UndeadMiner	不死矿工
+45	Tim	蒂姆
+46	Bunny	兔兔
+47	CorruptBunny	腐化兔
+48	Harpy	鸟妖
+49	CaveBat	洞穴蝙蝠
+50	KingSlime	史莱姆王
+51	JungleBat	丛林蝙蝠
+52	DoctorBones	骷髅博士
+53	TheGroom	僵尸新郎
+54	Clothier	服装商
+55	Goldfish	金鱼
+56	Snatcher	抓人草
+57	CorruptGoldfish	腐化金鱼
+58	Piranha	食人鱼
+59	LavaSlime	熔岩史莱姆
+60	Hellbat	地狱蝙蝠
+61	Vulture	秃鹰
+62	Demon	恶魔
+63	BlueJellyfish	蓝水母
+64	PinkJellyfish	粉水母
+65	Shark	鲨鱼
+66	VoodooDemon	巫毒恶魔
+67	Crab	螃蟹
+68	DungeonGuardian	地牢守卫
+69	Antlion	蚁狮
+69	Ichor	
+70	SpikeBall	尖刺球
+70	Venom	
+71	DungeonSlime	地牢史莱姆
+72	BlazingWheel	烈焰火轮
+73	GoblinScout	哥布林侦察兵
+74	Bird	鸟
+75	Pixie	妖精
+76	None2	
+77	ArmoredSkeleton	装甲骷髅
+78	Mummy	木乃伊
+79	DarkMummy	暗黑木乃伊
+80	LightMummy	光明木乃伊
+81	CorruptSlime	腐化史莱姆
+82	Wraith	幻灵
+83	CursedHammer	诅咒锤
+84	EnchantedSword	附魔剑
+85	Mimic	宝箱怪
+86	Unicorn	独角兽
+87	WyvernHead	飞龙
+88	WyvernLegs	飞龙
+89	WyvernBody	飞龙
+90	WyvernBody2	飞龙
+91	WyvernBody3	飞龙
+92	WyvernTail	飞龙
+93	GiantBat	巨型蝙蝠
+94	Corruptor	腐化者
+95	DiggerHead	挖掘怪
+96	DiggerBody	挖掘怪
+97	DiggerTail	挖掘怪
+98	SeekerHead	吞世怪
+99	SeekerBody	吞世怪
+100	SeekerTail	吞世怪
+101	Clinger	爬藤怪
+102	AnglerFish	琵琶鱼
+103	GreenJellyfish	绿水母
+104	Werewolf	狼人
+105	BoundGoblin	受缚哥布林
+106	BoundWizard	受缚巫师
+107	GoblinTinkerer	哥布林工匠
+108	Wizard	巫师
+109	Clown	小丑
+110	SkeletonArcher	骷髅弓箭手
+111	GoblinArcher	哥布林弓箭手
+112	VileSpit	魔唾液
+113	WallofFlesh	血肉墙
+114	WallofFleshEye	血肉墙
+115	TheHungry	饿鬼
+116	TheHungryII	饿鬼
+117	LeechHead	血蛭
+118	LeechBody	血蛭
+119	LeechTail	血蛭
+120	ChaosElemental	混沌精
+121	Slimer	恶翅史莱姆
+122	Gastropod	腹足怪
+123	BoundMechanic	受缚机械师
+124	Mechanic	机械师
+125	Retinazer	激光眼
+126	Spazmatism	魔焰眼
+127	SkeletronPrime	机械骷髅王
+128	PrimeCannon	机械炮
+129	PrimeSaw	机械锯
+130	PrimeVice	机械钳
+131	PrimeLaser	机械激光
+132	BaldZombie	僵尸
+133	WanderingEye	游荡眼球怪
+134	TheDestroyer	毁灭者
+135	TheDestroyerBody	毁灭者
+136	TheDestroyerTail	毁灭者
+137	IlluminantBat	夜明蝙蝠
+138	IlluminantSlime	夜明史莱姆
+139	Probe	探测怪
+140	PossessedArmor	装甲幻影魔
+141	ToxicSludge	毒泥
+142	SantaClaus	圣诞老人
+143	SnowmanGangsta	雪人暴徒
+144	MisterStabby	戳刺先生
+145	SnowBalla	巴拉雪人
+146	None3	
+147	IceSlime	冰雪史莱姆
+148	Penguin	企鹅
+149	PenguinBlack	企鹅
+150	IceBat	冰雪蝙蝠
+151	Lavabat	熔岩蝙蝠
+152	GiantFlyingFox	巨型飞狐
+153	GiantTortoise	巨型陆龟
+153	ShadowFlame	
+154	IceTortoise	冰雪陆龟
+155	Wolf	狼
+156	RedDevil	红魔鬼
+157	Arapaima	巨骨舌鱼
+158	VampireBat	吸血鬼
+159	Vampire	吸血鬼
+160	Truffle	松露人
+161	ZombieEskimo	冰冻僵尸
+162	Frankenstein	科学怪人
+163	BlackRecluse	黑隐士
+164	WallCreeper	爬墙蜘蛛
+165	WallCreeperWall	爬墙蜘蛛
+166	SwampThing	沼泽怪
+167	UndeadViking	亡灵维京海盗
+168	CorruptPenguin	腐化企鹅
+169	BoneJavelin	
+169	IceElemental	冰雪精
+170	PigronCorruption	猪龙
+171	PigronHallow	猪龙
+172	RuneWizard	符文巫师
+173	Crimera	猩红喀迈拉
+174	Herpling	蹦蹦兽
+175	AngryTrapper	愤怒捕手
+176	MossHornet	青苔黄蜂
+177	Derpling	跳跳兽
+178	Steampunker	蒸汽朋克人
+179	CrimsonAxe	猩红斧
+180	PigronCrimson	猪龙
+181	FaceMonster	脸怪
+182	FloatyGross	恶心浮游怪
+183	Crimslime	猩红史莱姆
+184	SpikedIceSlime	尖刺冰雪史莱姆
+185	SnowFlinx	小雪怪
+186	PincushionZombie	僵尸
+187	SlimedZombie	僵尸
+188	SwampZombie	僵尸
+189	Daybreak	
+189	TwiggyZombie	僵尸
+190	CataractEye	恶魔眼
+191	SleepyEye	恶魔眼
+192	DialatedEye	恶魔眼
+193	GreenEye	恶魔眼
+194	PurpleEye	恶魔眼
+195	LostGirl	迷失女孩
+196	Nymph	宁芙
+197	ArmoredViking	装甲维京海盗
+198	Lihzahrd	丛林蜥蜴
+199	LihzahrdCrawler	丛林蜥蜴
+200	FemaleZombie	僵尸
+201	HeadacheSkeleton	骷髅
+202	MisassembledSkeleton	骷髅
+203	BetsysCurse	
+203	PantlessSkeleton	骷髅
+204	Oiled	
+204	SpikedJungleSlime	尖刺丛林史莱姆
+205	Moth	蛾
+206	IcyMerman	冰雪人鱼
+207	DyeTrader	染料商
+208	PartyGirl	派对女孩
+209	Cyborg	机器侠
+210	Bee	蜜蜂
+211	BeeSmall	蜜蜂
+212	PirateDeckhand	海盗水手
+213	PirateCorsair	私船海盗
+214	PirateDeadeye	海盗神射手
+215	PirateCrossbower	海盗弩手
+216	PirateCaptain	海盗船长
+217	CochinealBeetle	胭脂虫
+218	CyanBeetle	青壳虫
+219	LacBeetle	紫胶虫
+220	SeaSnail	海蜗牛
+221	Squid	乌贼
+222	QueenBee	蜂王
+223	ZombieRaincoat	雨衣僵尸
+224	FlyingFish	飞鱼
+225	UmbrellaSlime	雨伞史莱姆
+226	FlyingSnake	飞蛇
+227	Painter	油漆工
+228	WitchDoctor	巫医
+229	Pirate	海盗
+230	GoldfishWalker	金鱼
+231	HornetFatty	黄蜂
+232	HornetHoney	黄蜂
+233	HornetLeafy	黄蜂
+234	HornetSpikey	黄蜂
+235	HornetStingy	黄蜂
+236	JungleCreeper	丛林蜘蛛
+237	JungleCreeperWall	丛林蜘蛛
+238	BlackRecluseWall	黑隐士
+239	BloodCrawler	血爬虫
+240	BloodCrawlerWall	血爬虫
+241	BloodFeeder	嗜血怪
+242	BloodJelly	血水母
+243	IceGolem	冰雪巨人
+244	RainbowSlime	彩虹史莱姆
+245	Golem	石巨人
+246	GolemHead	石巨人头
+247	GolemFistLeft	石巨人之拳
+248	GolemFistRight	石巨人之拳
+249	GolemHeadFree	石巨人头
+250	AngryNimbus	愤怒雨云怪
+251	Eyezor	眼怪
+252	Parrot	鹦鹉
+253	Reaper	死神
+254	ZombieMushroom	孢子僵尸
+255	ZombieMushroomHat	孢子僵尸
+256	FungoFish	蘑菇鱼
+257	AnomuraFungus	歪尾真菌
+258	MushiLadybug	瓢虫
+259	FungiBulb	真菌球怪
+260	GiantFungiBulb	巨型真菌球怪
+261	FungiSpore	真菌孢子
+262	Plantera	世纪之花
+263	PlanterasHook	世纪之花钩
+264	PlanterasTentacle	世纪之花触手
+265	Spore	孢子
+266	BrainofCthulhu	克苏鲁之脑
+267	Creeper	飞眼怪
+268	IchorSticker	灵液黏黏怪
+269	RustyArmoredBonesAxe	生锈装甲骷髅
+270	RustyArmoredBonesFlail	生锈装甲骷髅
+271	RustyArmoredBonesSword	生锈装甲骷髅
+272	RustyArmoredBonesSwordNoArmor	生锈装甲骷髅
+273	BlueArmoredBones	蓝装甲骷髅
+274	BlueArmoredBonesMace	蓝装甲骷髅
+275	BlueArmoredBonesNoPants	蓝装甲骷髅
+276	BlueArmoredBonesSword	蓝装甲骷髅
+277	HellArmoredBones	地狱装甲骷髅
+278	HellArmoredBonesSpikeShield	地狱装甲骷髅
+279	HellArmoredBonesMace	地狱装甲骷髅
+280	HellArmoredBonesSword	地狱装甲骷髅
+281	RaggedCaster	褴褛邪教徒法师
+282	RaggedCasterOpenCoat	褴褛邪教徒法师
+283	Necromancer	死灵法师
+284	NecromancerArmored	死灵法师
+285	DiabolistRed	魔教徒
+286	DiabolistWhite	魔教徒
+287	BoneLee	骷髅李小龙
+288	DungeonSpirit	地牢幽魂
+289	GiantCursedSkull	巨型诅咒骷髅头
+290	Paladin	圣骑士
+291	SkeletonSniper	骷髅狙击手
+292	TacticalSkeleton	骷髅特警
+293	SkeletonCommando	骷髅突击手
+294	AngryBonesBig	愤怒骷髅怪
+295	AngryBonesBigMuscle	愤怒骷髅怪
+296	AngryBonesBigHelmet	愤怒骷髅怪
+297	BirdBlue	冠蓝鸦
+298	BirdRed	红雀
+299	Squirrel	松鼠
+300	Mouse	老鼠
+301	Raven	乌鸦
+302	SlimeMasked	史莱姆
+303	BunnySlimed	兔兔
+304	HoppinJack	弹跳杰克南瓜灯
+305	Scarecrow1	稻草人
+306	Scarecrow2	稻草人
+307	Scarecrow3	稻草人
+308	Scarecrow4	稻草人
+309	Scarecrow5	稻草人
+310	Scarecrow6	稻草人
+311	Scarecrow7	稻草人
+312	Scarecrow8	稻草人
+313	Scarecrow9	稻草人
+314	Scarecrow10	稻草人
+315	HeadlessHorseman	无头骑士
+316	Ghost	鬼魂
+317	DemonEyeOwl	恶魔眼
+318	DemonEyeSpaceship	恶魔眼
+319	ZombieDoctor	僵尸
+320	ZombieSuperman	僵尸
+321	ZombiePixie	僵尸
+322	SkeletonTopHat	骷髅
+323	OnFire3	
+323	SkeletonAstonaut	骷髅
+324	Frostburn2	
+324	SkeletonAlien	骷髅
+325	MourningWood	哀木
+326	Splinterling	树精
+327	Pumpking	南瓜王
+328	PumpkingBlade	南瓜王
+329	Hellhound	地狱犬
+330	Poltergeist	胡闹鬼
+331	ZombieXmas	僵尸
+332	ZombieSweater	僵尸
+333	SlimeRibbonWhite	史莱姆
+334	SlimeRibbonYellow	史莱姆
+335	SlimeRibbonGreen	史莱姆
+336	SlimeRibbonRed	史莱姆
+337	BunnyXmas	兔兔
+337	TentacleSpike	
+338	ZombieElf	僵尸精灵
+339	ZombieElfBeard	僵尸精灵
+340	ZombieElfGirl	僵尸精灵
+341	PresentMimic	礼物宝箱怪
+342	GingerbreadMan	姜饼人
+343	Yeti	雪兽
+344	BloodButcherer	
+344	Everscream	常绿尖叫怪
+345	IceQueen	冰雪女王
+346	SantaNK1	圣诞坦克
+347	ElfCopter	精灵直升机
+348	Nutcracker	胡桃夹士
+349	NutcrackerSpinning	胡桃夹士
+350	ElfArcher	精灵弓箭手
+351	Krampus	坎卜斯
+352	Flocko	雪花怪
+353	Stylist	发型师
+354	WebbedStylist	织网发型师
+355	Firefly	萤火虫
+356	Butterfly	蝴蝶
+357	Worm	蠕虫
+358	LightningBug	荧光虫
+359	Snail	蜗牛
+360	GlowingSnail	发光蜗牛
+361	Frog	青蛙
+362	Duck	鸭
+363	Duck2	鸭
+364	DuckWhite	鸭
+365	DuckWhite2	鸭
+366	ScorpionBlack	蝎子
+367	Scorpion	蝎子
+368	TravellingMerchant	旅商
+369	Angler	渔夫
+370	DukeFishron	猪龙鱼公爵
+371	DetonatingBubble	爆炸泡泡
+372	Sharkron	鲨鱼龙
+373	Sharkron2	鲨鱼龙
+374	TruffleWorm	松露虫
+375	TruffleWormDigger	松露虫
+376	SleepingAngler	沉睡渔夫
+377	Grasshopper	蚱蜢
+378	ChatteringTeethBomb	嗒嗒牙齿炸弹
+379	CultistArcherBlue	邪教徒弓箭手
+380	CultistArcherWhite	邪教徒弓箭手
+381	BrainScrambler	扰脑怪
+382	RayGunner	激光枪手
+383	MartianOfficer	火星军官
+384	ForceBubble	泡泡护盾
+385	GrayGrunt	灰咕噜兽旗
+386	MartianEngineer	火星工程师
+387	MartianTurret	特斯拉炮塔
+388	MartianDrone	火星飞船
+389	GigaZapper	电击怪
+390	ScutlixRider	鳞甲怪枪手
+391	Scutlix	鳞甲怪
+392	MartianSaucer	火星飞碟
+393	MartianSaucerTurret	火星飞碟炮塔
+394	MartianSaucerCannon	火星飞碟炮
+395	MartianSaucerCore	火星飞碟
+396	MoonLordHead	月亮领主
+397	MoonLordHand	月亮领主手
+398	MoonLordCore	月亮领主心脏
+399	MartianProbe	火星探测器
+400	MoonLordFreeEye	克苏鲁真眼
+401	MoonLordLeechBlob	月蛭凝块
+402	StardustWormHead	银河织妖
+403	StardustWormBody	
+404	StardustWormTail	
+405	StardustCellBig	星细胞
+406	StardustCellSmall	迷你星细胞
+407	StardustJellyfishBig	流体入侵怪
+408	StardustJellyfishSmall	
+409	StardustSpiderBig	闪耀炮手
+410	StardustSpiderSmall	闪耀怪
+411	StardustSoldier	观星怪
+412	SolarCrawltipedeHead	千足蜈蚣
+413	SolarCrawltipedeBody	千足蜈蚣
+414	SolarCrawltipedeTail	千足蜈蚣
+415	SolarDrakomire	火龙怪
+416	SolarDrakomireRider	火龙怪骑士
+417	SolarSroller	火滚怪
+418	SolarCorite	流星火怪
+419	SolarSolenian	火月怪
+420	NebulaBrain	星云浮怪
+421	NebulaHeadcrab	吮脑怪
+422	LunarTowerVortex	星旋柱
+423	NebulaBeast	进化兽
+424	NebulaSoldier	预言帝
+425	VortexRifleman	漩泥怪
+426	VortexHornetQueen	异星蜂王
+427	VortexHornet	异星黄蜂
+428	VortexLarva	异星幼虫
+429	VortexSoldier	星旋怪
+430	ArmedZombie	僵尸
+431	ArmedZombieEskimo	冰冻僵尸
+432	ArmedZombiePincussion	僵尸
+433	ArmedZombieSlimed	僵尸
+434	ArmedZombieSwamp	僵尸
+435	ArmedZombieTwiggy	僵尸
+436	ArmedZombieCenx	僵尸
+437	CultistTablet	神秘碑牌
+438	CultistDevote	拜月教忠教徒
+439	CultistBoss	拜月教邪教徒
+440	CultistBossClone	拜月教邪教徒
+441	TaxCollector	税收官
+442	GoldBird	金鸟
+443	GoldBunny	金兔
+444	GoldButterfly	金蝴蝶
+445	GoldFrog	金蛙
+446	GoldGrasshopper	金蚱蜢
+447	GoldMouse	金老鼠
+448	GoldWorm	金蠕虫
+449	BoneThrowingSkeleton	骷髅
+450	BoneThrowingSkeleton2	骷髅
+451	BoneThrowingSkeleton3	骷髅
+452	BoneThrowingSkeleton4	骷髅
+453	SkeletonMerchant	骷髅商人
+454	CultistDragonHead	幻影弓龙
+455	CultistDragonBody1	幻影弓龙
+456	CultistDragonBody2	幻影弓龙
+457	CultistDragonBody3	幻影弓龙
+458	CultistDragonBody4	幻影弓龙
+459	CultistDragonTail	幻影弓龙
+460	Butcher	屠夫
+461	CreatureFromTheDeep	水月怪
+462	Fritz	弗里茨
+463	Nailhead	钉头
+464	CrimsonBunny	毒兔兔
+465	CrimsonGoldfish	毒金鱼
+466	Psycho	变态人
+467	DeadlySphere	致命球
+468	DrManFly	飞人博士
+469	ThePossessed	攀爬魔
+470	CrimsonPenguin	毒企鹅
+471	GoblinSummoner	哥布林术士
+472	ShadowFlameApparition	暗影焰幻鬼
+473	BigMimicCorruption	腐化宝箱怪
+474	BigMimicCrimson	猩红宝箱怪
+475	BigMimicHallow	神圣宝箱怪
+476	BigMimicJungle	丛林宝箱怪
+477	Mothron	蛾怪
+478	MothronEgg	蛾怪蛋
+479	MothronSpawn	蛾怪宝宝
+480	Medusa	蛇发女妖
+481	GreekSkeleton	装甲步兵
+482	GraniteGolem	花岗岩巨人
+483	GraniteFlyer	花岗精
+484	EnchantedNightcrawler	附魔夜行者
+485	Grubby	蛆虫
+486	Sluggy	鼻涕虫
+487	Buggy	蚜虫
+488	TargetDummy	傀儡
+489	BloodZombie	血腥僵尸
+490	Drippler	滴滴怪
+491	PirateShip	荷兰飞盗船
+492	PirateShipCannon	荷兰大炮
+493	LunarTowerStardust	星尘柱
+494	Crawdad	龙虾
+495	Crawdad2	龙虾
+496	GiantShelly	巨型卷壳怪
+497	GiantShelly2	巨型卷壳怪
+498	Salamander	蝾螈
+499	Salamander2	蝾螈
+500	Salamander3	蝾螈
+501	Salamander4	蝾螈
+502	Salamander5	蝾螈
+503	Salamander6	蝾螈
+504	Salamander7	蝾螈
+505	Salamander8	蝾螈
+506	Salamander9	蝾螈
+507	LunarTowerNebula	星云柱
+508	GiantWalkingAntlion	巨型蚁狮马
+509	GiantFlyingAntlion	巨型蚁狮蜂
+510	DuneSplicerHead	沙虫
+511	DuneSplicerBody	沙虫
+512	DuneSplicerTail	沙虫
+513	TombCrawlerHead	墓穴爬虫
+514	TombCrawlerBody	墓穴爬虫
+515	TombCrawlerTail	墓穴爬虫
+516	SolarFlare	耀斑
+517	LunarTowerSolar	日耀柱
+518	SolarSpearman	火龙战士
+519	SolarGoop	日耀碎片
+520	MartianWalker	火星走妖
+521	AncientCultistSquidhead	远古幻影妖
+522	AncientLight	远古光明妖
+523	AncientDoom	远古噩运妖
+524	DesertGhoul	食尸鬼
+525	DesertGhoulCorruption	腐恶食尸鬼
+526	DesertGhoulCrimson	红染食尸鬼
+527	DesertGhoulHallow	神梦食尸鬼
+528	DesertLamiaLight	拉弥亚
+529	DesertLamiaDark	拉弥亚
+530	DesertScorpionWalk	沙贼
+531	DesertScorpionWall	沙贼
+532	DesertBeast	蛇蜥怪
+533	DesertDjinn	沙漠幽魂
+534	DemonTaxCollector	痛苦亡魂
+535	SlimeSpiked	尖刺史莱姆
+536	TheBride	新娘
+537	SandSlime	沙史莱姆
+538	SquirrelRed	红松鼠
+539	SquirrelGold	金松鼠
+540	PartyBunny	兔兔
+541	SandElemental	沙尘精
+542	SandShark	沙鲨
+543	SandsharkCorrupt	噬骨沙鲨
+544	SandsharkCrimson	戮血沙鲨
+545	SandsharkHallow	晶狐沙鲨
+546	Tumbleweed	愤怒翻滚怪
+547	DD2AttackerTest	???
+548	DD2EterniaCrystal	埃特尼亚水晶
+549	DD2LanePortal	神秘传送门
+550	DD2Bartender	酒馆老板
+551	DD2Betsy	双足翼龙
+552	DD2GoblinT1	天国哥布林
+553	DD2GoblinT2	{$NPCName.DD2GoblinT1}
+554	DD2GoblinT3	{$NPCName.DD2GoblinT1}
+555	DD2GoblinBomberT1	天国哥布林投弹手
+556	DD2GoblinBomberT2	{$NPCName.DD2GoblinBomberT1}
+557	DD2GoblinBomberT3	{$NPCName.DD2GoblinBomberT1}
+558	DD2WyvernT1	天国飞龙
+559	DD2WyvernT2	{$NPCName.DD2WyvernT1}
+560	DD2WyvernT3	{$NPCName.DD2WyvernT1}
+561	DD2JavelinstT1	天国标枪投掷怪
+562	DD2JavelinstT2	{$NPCName.DD2JavelinstT1}
+563	DD2JavelinstT3	{$NPCName.DD2JavelinstT1}
+564	DD2DarkMageT1	黑暗魔法师
+565	DD2DarkMageT3	{$NPCName.DD2DarkMageT1}
+566	DD2SkeletonT1	撒旦骷髅
+567	DD2SkeletonT3	{$NPCName.DD2SkeletonT1}
+568	DD2WitherBeastT2	枯萎兽
+569	DD2WitherBeastT3	{$NPCName.DD2WitherBeastT2}
+570	DD2DrakinT2	德拉克龙
+571	DD2DrakinT3	{$NPCName.DD2DrakinT2}
+572	DD2KoboldWalkerT2	小妖魔
+573	DD2KoboldWalkerT3	{$NPCName.DD2KoboldWalkerT2}
+574	DD2KoboldFlyerT2	小妖魔滑翔怪
+575	DD2KoboldFlyerT3	{$NPCName.DD2KoboldFlyerT2}
+576	DD2OgreT2	食人魔
+577	DD2OgreT3	{$NPCName.DD2OgreT2}
+578	DD2LightningBugT3	天国荧光虫
+579	BartenderUnconscious	昏迷男子
+580	WalkingAntlion	蚁狮马
+581	FlyingAntlion	蚁狮蜂
+582	LarvaeAntlion	蚁狮幼虫
+583	FairyCritterPink	粉仙灵
+584	FairyCritterGreen	绿仙灵
+585	FairyCritterBlue	蓝仙灵
+586	ZombieMerman	僵尸人鱼
+587	EyeballFlyingFish	游荡眼球怪鱼
+588	Golfer	高尔夫球手
+589	GolferRescue	高尔夫球手
+590	TorchZombie	僵尸
+591	ArmedTorchZombie	僵尸
+592	GoldGoldfish	金金鱼
+593	GoldGoldfishWalker	金金鱼
+594	WindyBalloon	大风气球怪
+595	BlackDragonfly	蜻蜓
+596	BlueDragonfly	蜻蜓
+597	GreenDragonfly	蜻蜓
+598	OrangeDragonfly	蜻蜓
+599	RedDragonfly	蜻蜓
+600	YellowDragonfly	蜻蜓
+601	GoldDragonfly	金蜻蜓
+602	Seagull	海鸥
+603	Seagull2	海鸥
+604	LadyBug	瓢虫
+605	GoldLadyBug	金瓢虫
+606	Maggot	蝇蛆
+607	Pupfish	鳉鱼
+608	Grebe	䴙䴘
+609	Grebe2	䴙䴘
+610	Rat	大鼠
+611	Owl	猫头鹰
+612	WaterStrider	水黾
+613	GoldWaterStrider	金水黾
+614	ExplosiveBunny	爆炸兔
+615	Dolphin	海豚
+616	Turtle	龟
+617	TurtleJungle	丛林龟
+618	BloodNautilus	恐惧鹦鹉螺
+619	BloodSquid	血乌贼
+620	GoblinShark	血浆哥布林鲨鱼
+621	BloodEelHead	血鳗鱼
+622	BloodEelBody	血鳗鱼
+623	BloodEelTail	血鳗鱼
+624	Gnome	侏儒
+625	SeaTurtle	海龟
+626	Seahorse	海马
+627	GoldSeahorse	金海马
+628	Dandelion	愤怒蒲公英
+629	IceMimic	冰雪宝箱怪
+630	BloodMummy	血木乃伊
+631	RockGolem	岩石巨人
+632	MaggotZombie	蝇蛆僵尸
+633	BestiaryGirl	动物学家
+634	SporeBat	孢子蝙蝠
+635	SporeSkeleton	孢子骷髅
+636	HallowBoss	光之女皇
+637	TownCat	猫咪
+638	TownDog	狗狗
+639	GemSquirrelAmethyst	紫晶松鼠
+640	GemSquirrelTopaz	黄玉松鼠
+641	GemSquirrelSapphire	蓝玉松鼠
+642	GemSquirrelEmerald	翡翠松鼠
+643	GemSquirrelRuby	红玉松鼠
+644	GemSquirrelDiamond	钻石松鼠
+645	GemSquirrelAmber	琥珀松鼠
+646	GemBunnyAmethyst	紫晶兔兔
+647	GemBunnyTopaz	黄玉兔兔
+648	GemBunnySapphire	蓝玉兔兔
+649	GemBunnyEmerald	翡翠兔兔
+650	GemBunnyRuby	红玉兔兔
+651	GemBunnyDiamond	钻石兔兔
+652	GemBunnyAmber	琥珀兔兔
+653	HellButterfly	地狱蝴蝶
+654	Lavafly	熔岩蝇
+655	MagmaSnail	岩浆蜗牛
+656	TownBunny	兔兔
+657	QueenSlimeBoss	史莱姆皇后
+658	QueenSlimeMinionBlue	水晶史莱姆
+659	QueenSlimeMinionPink	弹力史莱姆
+660	QueenSlimeMinionPurple	飞翔史莱姆
+661	EmpressButterfly	七彩草蛉
+662	PirateGhost	海盗诅咒
+663	Princess	公主
+664	TorchGod	火把神
+665	ChaosBallTim	{$NPCName.ChaosBall}
+666	VileSpitEaterOfWorlds	{$NPCName.VileSpit}
+667	GoldenSlime	金色史莱姆
+668	Deerclops	鹿角怪
+669	Stinkbug	臭虫
+670	TownSlimeBlue	呆瓜史莱姆
+671	ScarletMacaw	猩红金刚鹦鹉
+672	BlueMacaw	蓝色金刚鹦鹉
+673	Toucan	犀鸟
+674	YellowCockatiel	黄色玄凤鹦鹉
+675	GrayCockatiel	灰色玄凤鹦鹉
+676	ShimmerSlime	微光史莱姆
+677	Shimmerfly	仙灵
+678	TownSlimeGreen	冷酷史莱姆
+679	TownSlimeOld	年长史莱姆
+680	TownSlimePurple	笨拙史莱姆
+681	TownSlimeRainbow	唱将史莱姆
+682	TownSlimeRed	粗暴史莱姆
+683	TownSlimeYellow	神秘史莱姆
+684	TownSlimeCopper	侍卫史莱姆
+685	BoundTownSlimeOld	老旧摇摇箱
+686	BoundTownSlimePurple	笨拙气球史莱姆
+687	BoundTownSlimeYellow	神秘青蛙

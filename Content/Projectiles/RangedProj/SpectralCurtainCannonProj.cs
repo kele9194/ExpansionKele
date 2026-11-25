@@ -19,6 +19,7 @@ public class SpectralCurtainCannonProj : ModProjectile
             Projectile.aiStyle = 0; // 使用自定义AI而不是重力弹道
             Projectile.friendly = true;
             Projectile.hostile = false;
+            Projectile.DamageType = DamageClass.Ranged;
             Projectile.penetrate = 1;
             Projectile.timeLeft = 600;
             Projectile.light = 0.5f;
@@ -83,6 +84,7 @@ public class SpectralCurtainCannonProj : ModProjectile
             Projectile.aiStyle = 0;
             Projectile.friendly = true;
             Projectile.hostile = false;
+            Projectile.DamageType = DamageClass.Ranged;
             Projectile.penetrate = -1;
             Projectile.timeLeft = 40; // 持续时间更长
             Projectile.light = 0.5f;

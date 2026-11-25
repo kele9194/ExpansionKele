@@ -83,18 +83,13 @@ namespace ExpansionKele.Content.Items.Weapons.Magic
         public override string Texture => this.GetRelativeTexturePath("./ThousandEyedSoulChaseSheet");
         
         private static Asset<Texture2D> _cachedTexture;
-        [SyncVar]
         public float charge = 0f;
         public const float MAX_CHARGE = 1f;
 
 
-        [SyncVar]
         public Vector2 MousePosition;
-        [SyncVar]
         public bool init = true;
-        [SyncVar]
         public int frameCounter = 0;
-        [SyncVar]
         public int currentFrame = 0;
 
         public override void Load()
@@ -179,6 +174,8 @@ namespace ExpansionKele.Content.Items.Weapons.Magic
                 Projectile.Kill();
                 if (init)
                 {
+                    // 只有主人这一端生成：服务端也跑 AI，不判断会再生成一份→伤害翻倍
+                    if (Main.myPlayer == Projectile.owner)
                     Projectile.NewProjectile(Projectile.GetSource_FromThis(),
                         player.MountedCenter + Vector2.Normalize(MouseVector) * 12f,
                         MouseVector.SafeNormalize(Vector2.Zero) * player.HeldItem.shootSpeed,

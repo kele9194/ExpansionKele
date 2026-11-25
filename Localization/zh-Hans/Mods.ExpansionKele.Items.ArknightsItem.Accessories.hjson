@@ -1,0 +1,407 @@
+RapidFireChip: {
+	DisplayName: 速射手芯片
+	Tooltip: ""
+	InactiveHint: 装备或放于背包中收藏后生效
+	NoStackHint: 装备与收藏效果不叠加
+	ShiftHint: 按住 Shift 查看装备与收藏的全部效果
+	EquippedDetailed:
+		'''
+		装备时：
+		+3% 远程伤害，对空中目标额外 +15% 远程伤害
+		'''
+	FavoritedDetailed:
+		'''
+		收藏时：
+		+1% 远程伤害，对空中目标额外 +5% 远程伤害
+		'''
+	ActiveStatus: 当前生效：{0}
+	TierEquippedChip: 速射手芯片（装备）
+	TierEquippedModule: 速射手芯片模组（装备）
+	TierFavoritedChip: 速射手芯片（收藏）
+	TierFavoritedModule: 速射手芯片模组（收藏）
+}
+
+RapidFireChipModule: {
+	DisplayName: 速射手芯片模组
+	Tooltip: ""
+	InactiveHint: 装备或放于背包中收藏后生效
+	NoStackHint: 装备与收藏效果不叠加；重复属性与其下位芯片不叠加
+	ShiftHint: 按住 Shift 查看装备与收藏的全部效果
+	EquippedDetailed:
+		'''
+		装备时：
+		+3% 远程伤害，对空中目标额外 +15% 远程伤害
+		敌人每受到你的一次伤害降低1点防御，最多15点
+		'''
+	FavoritedDetailed:
+		'''
+		收藏时：
+		+1% 远程伤害，对空中目标额外 +5% 远程伤害
+		削防上限降为5点
+		'''
+}
+
+HeavyShooterChip: {
+	DisplayName: 重射手芯片
+	Tooltip: ""
+	InactiveHint: 装备或放于背包中收藏后生效
+	NoStackHint: 装备与收藏效果不叠加
+	ShiftHint: 按住 Shift 查看装备与收藏的全部效果
+	EquippedDetailed:
+		'''
+		装备时：
+		+4% 远程伤害、+8% 远程暴击率
+		随着距离不断接近（600px-240px）获得20%-50%的忽视防御效果
+		并获得线性提升的1.5倍-3倍的击退提升效果
+		'''
+	FavoritedDetailed:
+		'''
+		收藏时：
+		+1% 远程伤害、+2% 远程暴击率
+		随着距离不断接近（600px-240px）获得10%-25%的忽视防御效果
+		并获得线性提升的1.25倍-2倍的击退提升效果
+		'''
+}
+
+MarksmanChip: {
+	DisplayName: 神射手芯片
+	Tooltip: ""
+	InactiveHint: 装备或放于背包中收藏后生效
+	NoStackHint: 装备与收藏效果不叠加
+	ShiftHint: 按住 Shift 查看装备与收藏的全部效果
+	EquippedDetailed:
+		'''
+		装备时：
+		+5% 远程伤害、+6% 远程暴击率
+		目标防御低于本次伤害的40%时视为低防目标，对其额外造成25%暴击伤害
+		'''
+	FavoritedDetailed:
+		'''
+		收藏时：
+		+1% 远程伤害、+2% 远程暴击率
+		目标防御低于本次伤害的40%时视为低防目标，对其额外造成10%暴击伤害
+		'''
+}
+
+SiegeChip: {
+	DisplayName: 攻城手芯片
+	Tooltip: ""
+	InactiveHint: 装备或放于背包中收藏后生效
+	NoStackHint: 装备与收藏效果不叠加
+	ShiftHint: 按住 Shift 查看装备与收藏的全部效果
+	EquippedDetailed:
+		'''
+		装备时：
+		+5% 远程伤害
+		对大型目标的最终伤害随体型提升：宽+高 60 时 ×1.00，300 时 ×1.25
+		'''
+	FavoritedDetailed:
+		'''
+		收藏时：
+		+2% 远程伤害
+		对大型目标的最终伤害随体型提升：宽+高 60 时 ×1.00，300 时 ×1.10
+		'''
+}
+
+ArtilleristChip: {
+	DisplayName: 炮手芯片
+	Tooltip: ""
+	InactiveHint: 装备或放于背包中收藏后生效
+	NoStackHint: 装备与收藏效果不叠加
+	ShiftHint: 按住 Shift 查看装备与收藏的全部效果
+	EquippedDetailed:
+		'''
+		装备时：
+		+10% 远程伤害
+		每发弹幕第一次命中敌人时，在命中点产生半径 128 像素的范围伤害
+		范围伤害为该弹幕面板伤害的 25%，也会命中主目标
+		'''
+	FavoritedDetailed:
+		'''
+		收藏时：
+		+3% 远程伤害
+		范围伤害降为该弹幕面板伤害的 15%
+		'''
+}
+
+DreadnoughtChip: {
+	DisplayName: 无畏者芯片
+	Tooltip: ""
+	InactiveHint: 装备或放于背包中收藏后生效
+	NoStackHint: 装备与收藏效果不叠加
+	ShiftHint: 按住 Shift 查看装备与收藏的全部效果
+	EquippedDetailed:
+		'''
+		装备时：
+		+5% 近战伤害
+		半径 300 像素内只剩 1 个敌人时，会标记它，并对其最终伤害 ×1.12
+		'''
+	FavoritedDetailed:
+		'''
+		收藏时：
+		+2% 近战伤害
+		半径 300 像素内只剩 1 个敌人时，会标记它，并对其最终伤害 ×1.04
+		'''
+}
+
+FighterChip: {
+	DisplayName: 斗士芯片
+	Tooltip: ""
+	InactiveHint: 装备或放于背包中收藏后生效
+	NoStackHint: 装备与收藏效果不叠加
+	ShiftHint: 按住 Shift 查看装备与收藏的全部效果
+	EquippedDetailed:
+		'''
+		装备时：
+		近战攻速 +20%，近战伤害 −10%
+		命中敌人获得 1 层，每层使攻速额外 ×1.03（最多 5 层）
+		3 秒内没有新的命中则层数清空
+		'''
+	FavoritedDetailed:
+		'''
+		收藏时：
+		近战攻速 +10%，近战伤害 −5%
+		命中敌人获得 1 层，每层使攻速额外 ×1.01（最多 5 层）
+		3 秒内没有新的命中则层数清空
+		'''
+}
+
+MushaChip: {
+	DisplayName: 武者芯片
+	Tooltip: ""
+	InactiveHint: 装备或放于背包中收藏后生效
+	NoStackHint: 装备与收藏效果不叠加
+	ShiftHint: 按住 Shift 查看装备与收藏的全部效果
+	EquippedDetailed:
+		'''
+		装备时：
+		不能自然回血（治疗药水与护士不受影响）
+		近战每次挥动命中回复 4% 已损失生命（至少 1 点）
+		生命损失 70% 及以上时，近战攻速 ×1.5、近战伤害 +50%（随损失比例线性提升）
+		'''
+	FavoritedDetailed:
+		'''
+		收藏时：
+		不会禁疗，也不提供回血
+		生命损失 70% 及以上时，近战攻速 ×1.15、近战伤害 +15%（随损失比例线性提升）
+		'''
+}
+
+CenturionChip: {
+	DisplayName: 强攻手芯片
+	Tooltip: ""
+	InactiveHint: 装备或放于背包中收藏后生效
+	NoStackHint: 装备与收藏效果不叠加
+	ShiftHint: 按住 Shift 查看装备与收藏的全部效果
+	EquippedDetailed:
+		'''
+		装备时：
+		+6% 近战伤害
+		半径 320 像素内的敌人按「圈内人数」造成额外（1+4%*人数）倍率伤害（最多计算三人）
+		'''
+	FavoritedDetailed:
+		'''
+		收藏时：
+		+2% 近战伤害
+		半径 320 像素内的敌人按「圈内人数」造成额外（1+2%*人数）倍率伤害（最多计算三人）
+		'''
+}
+
+ReaperChip: {
+	DisplayName: 收割者芯片
+	Tooltip: ""
+	InactiveHint: 装备或放于背包中收藏后生效
+	NoStackHint: 装备与收藏效果不叠加
+	ShiftHint: 按住 Shift 查看装备与收藏的全部效果
+	EquippedDetailed:
+		'''
+		装备时：
+		不能自然回血（治疗药水与护士不受影响）
+		每次攻击最多对 2 个敌人各回复 3% 已损失生命
+		命中后 10 秒内：该敌人攻击与防御 −15%，自身攻击与防御 +15%（可刷新）
+		'''
+	FavoritedDetailed:
+		'''
+		收藏时：
+		不禁疗，也不提供回血
+		命中后 10 秒内：该敌人攻击与防御 −5%，自身攻击与防御 +5%（可刷新）
+		'''
+}
+
+InstructorChip: {
+	DisplayName: 教官芯片
+	Tooltip: ""
+	InactiveHint: 装备或放于背包中收藏后生效
+	NoStackHint: 装备与收藏效果不叠加
+	ShiftHint: 按住 Shift 查看装备与收藏的全部效果
+	EquippedDetailed:
+		'''
+		装备时：
+		+5% 召唤伤害、+5% 鞭子攻速、+5% 鞭子范围
+		用非召唤攻击和用鞭子命中敌人后，敌人身上留下 5 秒标记
+		期间所有召唤类攻击对该敌人伤害 ×1.15（不叠加，只刷新）
+		'''
+	FavoritedDetailed:
+		'''
+		收藏时：
+		+5% 召唤伤害
+		用非召唤攻击和用鞭子命中敌人后，敌人身上留下 5 秒标记
+		期间所有召唤类攻击对该敌人伤害 ×1.05（不叠加，只刷新）
+		'''
+}
+
+ArtsFighterChip: {
+	DisplayName: 术战者芯片
+	Tooltip: ""
+	InactiveHint: 装备或放于背包中收藏后生效
+	NoStackHint: 装备与收藏效果不叠加
+	ShiftHint: 按住 Shift 查看装备与收藏的全部效果
+	EquippedDetailed:
+		'''
+		装备时：
+		+5% 魔法伤害、+40 魔力上限
+		近战武器额外获得你全部的魔法伤害加成
+		每次挥动消耗 5 点魔力；魔力不足时无法攻击
+		'''
+	FavoritedDetailed:
+		'''
+		收藏时：
+		近战武器额外获得你 30% 的魔法伤害加成
+		不消耗魔力
+		'''
+}
+
+CrusherChip: {
+	DisplayName: 重剑手芯片
+	Tooltip: ""
+	InactiveHint: 装备或放于背包中收藏后生效
+	NoStackHint: 装备与收藏效果不叠加
+	ShiftHint: 按住 Shift 查看装备与收藏的全部效果
+	EquippedDetailed:
+		'''
+		装备时：
+		+20% 近战伤害，并额外获得「原防御 × 0.3%」的近战伤害
+		近战攻速 −15%
+		生命上限 ×2
+		防御归零
+		每次受伤后回复该次伤害的 15%（专家 20%、大师 25%）
+		'''
+	FavoritedDetailed:
+		'''
+		收藏时：
+		+5% 近战伤害
+		每次受伤后回复该次伤害的 5%（防御后数值）
+		'''
+}
+
+LordChip: {
+	DisplayName: 领主芯片
+	Tooltip: ""
+	InactiveHint: 装备或放于背包中收藏后生效
+	NoStackHint: 装备与收藏效果不叠加
+	ShiftHint: 按住 Shift 查看装备与收藏的全部效果
+	EquippedDetailed:
+		'''
+		装备时：
+		+5% 近战伤害
+		近战武器每次挥动朝鼠标方向额外射出一道剑气，伤害为面板的 30%
+		剑气附带 20 点忽视防御，命中后附加 5 秒「着火了！」；速度 14、不穿透
+		'''
+	FavoritedDetailed:
+		'''
+		收藏时：
+		+2% 近战伤害
+		剑气伤害降为面板的 10%，其余不变
+		'''
+}
+
+EarthshakerChip: {
+	DisplayName: 撼地者芯片
+	Tooltip: ""
+	InactiveHint: 装备或放于背包中收藏后生效
+	NoStackHint: 装备与收藏效果不叠加
+	ShiftHint: 按住 Shift 查看装备与收藏的全部效果
+	EquippedDetailed:
+		'''
+		装备时：
+		+10% 近战伤害
+		每次挥动命中时，在命中点产生半径 120 像素的地爆，对范围内其他敌人造成面板 50% 的伤害
+		地爆不会波及被近战直接命中的那个目标
+		'''
+	FavoritedDetailed:
+		'''
+		收藏时：
+		+4% 近战伤害
+		地爆伤害降为面板的 20%，其余不变
+		'''
+}
+
+SwordmasterChip: {
+	DisplayName: 剑豪芯片
+	Tooltip: ""
+	InactiveHint: 装备或放于背包中收藏后生效
+	NoStackHint: 装备与收藏效果不叠加
+	ShiftHint: 按住 Shift 查看装备与收藏的全部效果
+	EquippedDetailed:
+		'''
+		装备时：
+		近战攻速 +10%
+		每第 4 次命中的挥动，该次伤害 ×1.45
+		空挥不计入连击；连续 3 秒没有命中则连击断开
+		'''
+	FavoritedDetailed:
+		'''
+		收藏时：
+		近战攻速 +5%
+		每第 4 次命中的挥动，该次伤害 ×1.10
+		'''
+}
+
+LiberatorChip: {
+	DisplayName: 解放者芯片
+	Tooltip: ""
+	InactiveHint: 装备或放于背包中收藏后生效
+	NoStackHint: 装备与收藏效果不叠加
+	ShiftHint: 按住 Shift 查看装备与收藏的全部效果
+	EquippedDetailed:
+		'''
+		装备时：
+		不挥动武器时蓄积解放值，每秒 +0.16，7 秒蓄满（上限 1.12）
+		蓄积期间用近战武器攻击会立即进入「解放」，持续 10 秒
+		解放期间近战伤害 ×(1 + 解放值)，满蓄为 ×2.12
+		解放结束后解放值清零，2 秒后才能再次解放
+		'''
+	FavoritedDetailed:
+		'''
+		收藏时：
+		随时间自动蓄积解放值，每秒 +0.04，6 秒蓄满（上限 0.24）
+		攻击与否都照常蓄积，蓄积期间不提供额外倍率
+		蓄满后自动进入「解放」，持续 3 秒
+		解放期间近战伤害 ×(1 + 解放值)，满蓄为 ×1.24
+		解放结束后解放值清零，2 秒后才能再次解放
+		'''
+}
+
+PrimalGuardChip: {
+	DisplayName: 本源近卫芯片
+	Tooltip: ""
+	InactiveHint: 装备或放于背包中收藏后生效
+	NoStackHint: 装备与收藏效果不叠加
+	ShiftHint: 按住 Shift 查看装备与收藏的全部效果
+	EquippedDetailed:
+		'''
+		装备时：
+		近战伤害 +10%
+		近战命中累积元素损伤，为实际造成伤害的 25%
+		损伤达到目标最大生命的 4% 时引爆，造成目标最大生命 4% 的真实伤害（无视防御）
+		引爆后 8 秒内，你的近战伤害将转化为真实伤害（不低于原始伤害）
+		'''
+	FavoritedDetailed:
+		'''
+		收藏时：
+		近战伤害 +4%
+		近战命中累积元素损伤，为实际造成伤害的 20%
+		损伤达到目标最大生命的 4% 时引爆，造成目标最大生命 2% 的真实伤害（无视防御）
+		引爆后该目标 8 秒内不再累积损伤；不提供引爆后的真伤期
+		'''
+}

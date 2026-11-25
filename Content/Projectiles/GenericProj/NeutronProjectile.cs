@@ -16,6 +16,7 @@ public class NeutronProjectile : ModProjectile
             Projectile.aiStyle = 1; // 使用默认的飞行AI
             Projectile.friendly = true;
             Projectile.hostile = false;
+            Projectile.DamageType = DamageClass.Generic;
             Projectile.penetrate = 1; // 穿透一次
             Projectile.timeLeft = 600; // 弹幕存在时间
             Projectile.alpha = 63;

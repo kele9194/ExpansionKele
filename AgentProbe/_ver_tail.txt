@@ -1,0 +1,235 @@
+增强了星元狙击步枪的伤害和后期星元剑的伤害
+其他武器平衡调整
+
+v1.5
+新增石刀
+自该版本起需要InnoVault mod作为前置模组
+
+v1.5.1
+新增NPC：可乐Cola
+新增武器：羽毛法杖，天羽法杖，千目追魂，
+新增纪念武器：百夜凛夜的魔法书
+修复了追踪武器的一个bug
+其他修复
+
+v1.5.2
+新增弹药：铬钢弹
+新增武器：自动武器站
+重置武器：光束炮（原激光切割机）
+
+v1.5.3
+削弱幽幕加农炮，灵魂质子炮
+重置boss可乐
+对魔法武器中原版武器中的部分魔法武器进行伤害重整
+
+v1.5.4
+完全删除了旧版的Boss可乐
+修复了在多人模式下不能召唤本模组boss的bug
+
+1.6
+新增芯片刻印系统，该系统灵感来源于明日方舟
+注意：刻印可以造成武器20%以上的整体提升，后续可能会做出进一步修改
+
+v1.6.1
+芯片刻印系统整体拆分到独立模组「Rhodes Archive」
+本模组不再包含芯片、职业刻印效果、相关 Buff 与芯片提取器
+可乐也不再售卖基础芯片与芯片提取器
+注意：此前已经刻印过的武器会失去刻印，需要在新模组中重新获取芯片
+如需继续使用刻印系统，请同时订阅「Rhodes Archive」
+
+This mod is developed purely for entertainment, developed by me alone, trying to achieve some imagination in ths mod and still under development. 
+When playing with the Calamity mod, some content will be adjusted to fit Calamity's numerical environment.
+
+Currently, this mod includes the following series:
+- Stary Sword series, Stary Sniper Rifle series, and Stary Staff series - a total of 30 Stary weapons
+- Stary Armor series with 10 sets, Full Moon Emblem series with 10 Emblems, and Stary Emblem series with 10 Emblems
+(Art assets may be reused due to limited artistic skills)
+
+Additionally, there are:
+- Nearly 40 other types of weapons, 6 accessories, 3 ingots, 1 armor set, and 2 initial bosses
+This mod does not rewrite existing boss AI, so it allows joining after creating the mod
+If you have any ideas or suggestions, feel free to leave a comment.
+
+Recent updates:
+
+v1.3.1
+Adjusted the damage of quite a few weapons in Calamity, so that these weapons won't have ridiculous damage. 
+Note: The Stary series weapons are temporarily excluded from this adjustment. They remain intentionally overpowered for now.
+Added appropriate prices and rarities for almost all items. 
+For items that have recipes, rarity is determined by the highest rarity material.
+Price is calculated as the sum of all crafting material prices.
+New additions: Electric Ballista, Seitaad Ballista, Solar Sword, EMP Pistol. 
+New weapon damage scaler: A setting to adjust damage of all weapons in this mod with default multiplier of 1
+Convert all ranged weapons that don't consume ammo in this mod into expert weapons, allowing them to receive bonuses from Shroomite Helmet.
+
+v1.3.2
+Added starter item: Gift of Light
+Fixed an issue where Sharp Teeth would not drop items when instantly killing enemies
+Added support prompts for two bosses in the boss checklist mod
+Added weapons: Thoughts Cross Blade, Super Gear, Balloon Bow
+Added accessories: Chromium Shield, Life Healing Wings
+Added bag item: Cross Fire
+
+v1.3.2.1
+Make some adjustments
+
+v1.3.3
+Added ECshield System
+Weakened IronWillShield, IronOathShield, and adjusted ChromiumShield
+
+v1.3.4(2026.1.15)
+Added Shroomite Sword and Spectre sword
+Added weapon charge bar, allowing some weapon charge bar to be displayed
+Modified Chrome Sword to energy sword form
+Adjusted effects of Moon Warrior Emblem and Star Warrior Emblem
+
+v1.3.5
+Modified Full Moon Sword to energy sword form
+Adjusted damages of some weapons
+for almost all items, provided a more reasonable price
+fix many bugs
+
+v1.3.6.1
+Improve the charge bar system
+display charge bar properties for many weapons
+
+v1.3.7
+Added Chromium Bow, M37 Shotgun, Laser Cutter, Chromium Arrow
+
+v1.3.8
+Optimized the tracking algorithm to make it easier to lock onto important targets such as bosses rather than other targets.
+Optimized the texture logic to reduce memory consumption.
+Reset the FullMoon Staff.
+Enhanced the FullMoon armor set.
+
+v1.3.9
+Fixed charge bar and shield bar to display correctly in multiplayer mode
+Fixed and nerfed the effect of Life Light Wings
+Added buff effects for Holy Heart Shield, Iron Oath Shield, and Stellar Heart Emblem
+Merged the iron curtain effects of Holy Heart Shield and Iron Oath Shield
+Fixed issues with tracking algorithm
+Fixed errors with some weapons in multiplayer mode
+Fixed some issues that appeared after texture optimization
+Emergency fix for errors caused by Calamity updates
+
+v1.4.0
+Further fixed multiplayer display errors for some weapons
+Modified some weapons and weapon descriptions
+
+v1.4.1
+Added weapons: Space Funnel, Enhanced Space Gun, Burning Paper Plane
+
+v1.4.2
+Added chromium steel pickaxe, chromium steel hammer-axe
+Corrected usage time and tool speed for some tools. 
+Added weapon Tang Dynasty Saber
+
+v1.4.3
+Added weapon Anaxa Magic Trick, Golden Brocade Needle
+Added accessory Starburn
+Increased the types of projectiles used in weapon CodeChaos
+Modified localization descriptions for some weapons
+
+v1.4.4.X
+Added mechanic where all bars in this mod can be obtained 
+from certain specific crates after defeating the corresponding boss.
+Fixed bug where Starry buff would limit player's maximum life 
+and prevent accessories from providing health bonuses.
+Emergency fix: Star Helmet A cannot be equipped bug
+
+v1.4.5
+Major bug fixes:
+Fixed bug where Cocoa Liquor was not recognized as a healing potion
+Fixed bug where all multiplicative damage bonuses could not be applied to summons
+Fixed incorrect crafting recipe for Space Funnel
+Fixed issue where projectiles lasted too long during Shadow of Revenge boss fight
+Fixed recipe error that allowed Auto Hammer to be obtained before Plantera
+Added testing instrument that can display some player stats
+Fixed bug where Stary Sword-I could be obtained before Lunar Cultist
+Fixed missing recipe that converts Hellstone Bars to Meteorite Bars (originally intended but not implemented)
+
+Other bug fixes:
+Fixed localization error in Stary Armor set bonus
+Disabled unfinished boss defeat message printing
+Fixed animation issue with Burning Paper Plane weapon
+Added hint that Stary Staff series can be right-clicked to use, and fixed one localization oversight in English
+
+Buffs:
+Increased conversion ratio of Starburn health to shield
+Changed Stary Sorcerer Emblem's mana damage bonus from additive to multiplicative
+Fixed issue where Space Funnel laser was too slow to hit enemies
+Increased damage of Electric Ballista and its upgrade
+Slightly increased the damage of Full Moon Sword projectile
+Slightly increased M37 Shotgun damage
+Greatly increased DotZeroFive Sniper Rifle damage, hitbox size, and damage judgment time
+Greatly increased Tang Dynasty Saber damage and projectile speed
+
+Nerfs:
+Reduced Burning Paper Plane debuff duration
+Increased Gauss Rifle use time and reload time
+Reduced damage and spawn count of Full Moon Spear's spawned projectiles
+Removed incorrect logic that converted critical strike chance to damage for Seitaad Ballista
+Nerfed Soul Proton Cannon
+Changed Mind Cross Blade acquisition from post-Plantera to post-Golem
+Greatly reduced Auto Sniper Rifle damage
+Reduced Resentment healing amount
+
+Adjustments:
+Nerfed Enhanced Space Gun and moved its progression timing earlier
+Changed Full Moon Mage Emblem's mana damage bonus from +20% additive to 1.15x multiplier
+Greatly increased Full Moon Echo damage, but its projectile now deals reduced damage over time as it travels; fixed its localization text
+Modified Bash Glove and Slow Glove summon damage multipliers, adjusted their stealth attack cooldown when equipped in Calamity mod to better reflect their characteristics
+Seitaad Ballista electric current critical hits now only cause 30% slow, but its EMP wave now deals 10% damage
+
+v1.4.5.X
+Emergency Update:
+Fixed a bug where erroneous code caused all healing potion cooldown times to be reduced to 30s
+Adjusted the restoration effect of Cocoa Liquor (100 HP, 1 minute Cocoa buff, 60s cooldown)
+Fixed a bug where attack speed gloves and slowing gloves displayed incorrect damage and attack speed for non-whip summon weapons.
+
+v1.4.6
+Added various Runic Tablet that provide buff effects
+Changed the Full Moon Amulet's cooldown mechanic to be displayed as a buff
+Fixed an issue where Fade and Self-Redemption hit effects were not working
+Fixed localization issues for some items
+Relaxed the damage reduction cap for the Tenacious series emblems
+Added new weapons: Master Card, Boxing Gloves, Fireworks, White Phosphorus Smoke Launcher
+Adjusted the weapon damage mechanic for Golden Weaver Needle
+Increased damage for Starry Sniper Rifle and late-game Starry Sword
+Other weapon balance adjustments
+
+v1.5
+Added Stone Blade
+InnoVault mod is now required as a dependency starting from this version
+
+v1.5.1
+Added NPC: Cola
+Added weapons: Feather Staff, Celestial Plume Staff, Thousand Eyed Soul Chase
+Added commemorative weapon: Rinya's Magic Book
+Fixed a bug with tracking weapons
+Other fixes
+
+v1.5.2
+Added ammo: Chromium Bullet
+Added weapon: Remote Gatling Syetem
+Reset weapon: Beam Cannon (formerly Laser Cutter)
+
+v1.5.3
+Nerfed Spectral Curtain Cannon and Soul Proton Cannon
+Reset boss Cola
+Rebalanced damage for some vanilla magic weapons in the mod
+
+v1.5.4
+Completely removed the old version of Boss Cola
+Fixed bug where mod bosses couldn't be summoned in multiplayer mode
+
+1.6
+Added Chip Engraving System, inspired by Arknights
+Note: Engraving can provide an overall weapon improvement of over 20%. Further adjustments may be made in the future.
+
+v1.6.1
+The Chip Engraving system has been split into a separate mod, "Rhodes Archive".
+This mod no longer includes chips, class engraving effects, related buffs, or the Chip Extractor.
+Cola no longer sells base chips or the Chip Extractor.
+Note: weapons engraved before this update will lose their engraving. Get new chips from the new mod.
+Subscribe to "Rhodes Archive" if you want to keep using the engraving system.

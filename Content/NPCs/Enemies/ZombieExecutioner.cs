@@ -88,7 +88,7 @@ namespace ExpansionKele.Content.NPCs.Enemies
     /// <summary>
     /// 每个处决者实体一份的标记。放在 GlobalNPC 而非 ModNPC 字段里，
     /// 因为 ModNPC 是按类型单例的，写在里面会被所有处决者共享
-    /// （同 <c>ReaperGlobalNPC</c> 的 InstancePerEntity 先例）。
+    /// （同其它启用 InstancePerEntity 的 GlobalNPC 先例）。
     /// </summary>
     public class ZombieExecutionerExecutionTracker : GlobalNPC
     {

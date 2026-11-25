@@ -8,7 +8,6 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ModLoader.UI;
 using Terraria.UI;
-using ExpansionKele.Content.Items.ArknightsItem.GuardChips;
 
 namespace ExpansionKele.Content.Customs
 {

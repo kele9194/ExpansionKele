@@ -19,9 +19,7 @@ namespace ExpansionKele.Content.Bosses.BossKeleNew
         
         private static Asset<Texture2D> _cachedTexture;
 
-        [SyncVar]
         public int npcIndex;
-        [SyncVar]
         public Phase meleePhase;
 
         public override void Load()

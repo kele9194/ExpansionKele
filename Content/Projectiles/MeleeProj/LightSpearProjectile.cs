@@ -12,7 +12,6 @@ using Terraria.Localization;
 using ExpansionKele.Content.Items.Placeables;
 using ReLogic.Content;
 using ExpansionKele.Content.Items.Weapons.Melee;
-using System.IO;
 namespace ExpansionKele.Content.Projectiles.MeleeProj
 { 
 
@@ -36,7 +35,8 @@ namespace ExpansionKele.Content.Projectiles.MeleeProj
         private bool dashBlocked = false;
         // 冲刺击中计数
         private List<int> hitNPCs = new List<int>(); // 用于跟踪已经击中的NPC
-        // 网络同步的鼠标位置
+        // 拥有者每帧写入，其余端由 AutoSync 读取
+        [Sync]
         private Vector2 syncedMousePosition = Vector2.Zero;
         private static Asset<Texture2D> _cachedTexture;
         
@@ -103,20 +103,11 @@ namespace ExpansionKele.Content.Projectiles.MeleeProj
             player.noKnockback=true;
             
             // 网络同步鼠标位置处理
+            // 鼠标位置由拥有者写入，跨端传输交给 AutoSync（[Sync] 标记）
             if (Main.myPlayer == Projectile.owner)
             {
-                // 拥有者客户端：获取实际鼠标位置并同步
-                Vector2 mousePosition = Main.MouseWorld;
-                syncedMousePosition = new Vector2(mousePosition.X, mousePosition.Y);
-                // 将鼠标位置存储到Projectile.localAI中进行网络传输
-                Projectile.localAI[0] = syncedMousePosition.X;
-                Projectile.localAI[1] = syncedMousePosition.Y;
-                Projectile.netUpdate = true; // 强制网络同步
-            }
-            else
-            {
-                // 非拥有者客户端：从网络数据中获取同步的鼠标位置
-                syncedMousePosition = new Vector2(Projectile.localAI[0], Projectile.localAI[1]);
+                syncedMousePosition = Main.MouseWorld;
+                Projectile.netUpdate = true; // 触发 SyncProjectile，AutoSync 才会写出该字段
             }
             
             // 使用同步后的鼠标位置
@@ -272,16 +263,6 @@ namespace ExpansionKele.Content.Projectiles.MeleeProj
                     Projectile.Kill();
                 }
             }
-        }
-        public override void SendExtraAI(BinaryWriter writer)
-        {
-            writer.Write(syncedMousePosition.X);
-            writer.Write(syncedMousePosition.Y);
-        }
-        public override void ReceiveExtraAI(BinaryReader reader)
-        {
-            syncedMousePosition.X = reader.ReadSingle();
-            syncedMousePosition.Y = reader.ReadSingle();
         }
 
         /// <summary>

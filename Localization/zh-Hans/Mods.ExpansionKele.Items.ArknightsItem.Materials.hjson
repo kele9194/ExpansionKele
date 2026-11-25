@@ -1,0 +1,9 @@
+SniperBaseChip: {
+	DisplayName: 狙击基础芯片
+	Tooltip: 可用于合成狙击系芯片
+}
+
+GuardBaseChip: {
+	DisplayName: 近卫基础芯片
+	Tooltip: 可用于合成近卫系芯片
+}

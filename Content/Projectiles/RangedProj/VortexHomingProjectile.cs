@@ -23,6 +23,7 @@ namespace ExpansionKele.Content.Projectiles.RangedProj
             Projectile.aiStyle = 0;
             Projectile.friendly = true;
             Projectile.hostile = false;
+            Projectile.DamageType = DamageClass.Ranged;
             Projectile.penetrate = 1;
             Projectile.timeLeft = 600;
             Projectile.ignoreWater = true;

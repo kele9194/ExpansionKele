@@ -1,0 +1,54 @@
+old TileID entries: 165
+new TileID entries: 130
+old-only (41):
+  AvoidedByMeteorLanding
+  Campfire
+  CanBeClearedDuringOreRunner
+  CanBeSloped
+  CanDropFromRightClick
+  CanPlaceNextToNonSolidTile
+  ClearedOnWorldLoad
+  Clock
+  CloseDoorID
+  CorruptBiome
+  CountsAsHoneySource
+  CountsAsLavaSource
+  CountsAsPylon
+  CountsAsShimmerSource
+  CountsAsWaterSource
+  CrimsonBiome
+  DisableSmartCursor
+  DisableSmartInteract
+  DungeonBiome
+  HallowBiome
+  IgnoredByGrowingSaplings
+  IgnoredByNpcStepUp
+  Infectable
+  IsMultitile
+  IsValidSpawnPoint
+  JungleBiome
+  MultiTileSway
+  MushroomBiome
+  NegatesFallDamage
+  OpenDoorID
+  PressurePlate
+  PreventsSandfall
+  PreventsTileHammeringIfOnTopOfIt
+  RemixCorruptBiome
+  RemixCrimsonBiome
+  RemixJungleBiome
+  SandBiome
+  SnowBiome
+  Torch
+  TreeSapling
+  WallsMergeWith
+new-only (6):
+  CorruptCountCollection
+  CrimsonCountCollection
+  DrawTileInSolidLayer
+  Factory
+  GemsparkFramingTypes
+  HallowCountCollection
+
+ItemID.cs raw 'public static' after class Sets: 83
+  without assignment match: 0

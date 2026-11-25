@@ -8,8 +8,7 @@ using Terraria.Utilities;
 using ExpansionKele.Content.Projectiles.MeleeProj;
 using ExpansionKele.Content.Items.OtherItem.BagItem;
 using ExpansionKele.Content.Bosses.ShadowOfRevenge;
-using ExpansionKele.Content.Items.ArknightsItem.Chips;
-using ExpansionKele.Content.Items.ArknightsItem.GuardChips;
+using ExpansionKele.Content.Items.ArknightsItem.Materials;
 
 namespace ExpansionKele.Content.NPCs.TownNPC
 {
@@ -112,8 +111,7 @@ namespace ExpansionKele.Content.NPCs.TownNPC
 		return chat;
 	}
 
-// ... existing code ...
-// ... existing code ...
+
 
 		public override void SetChatButtons(ref string button, ref string button2) {
 			// TODO: Add functionality to shop buttons
@@ -134,10 +132,9 @@ namespace ExpansionKele.Content.NPCs.TownNPC
 
 		public override void AddShops() {
     		var npcShop = new NPCShop(Type, ShopName)
-        	.Add<GiftOfLight>()
-        	.Add<SniperBaseChip>()
-			.Add<GuardBaseChip>()
-			.Add<ChipExtractor>();
+        		.Add<GiftOfLight>()
+        		.Add<SniperBaseChip>()
+        		.Add<GuardBaseChip>();
     		npcShop.Register();
 		}
 

@@ -46,4 +46,52 @@ ExpansionKeleConfig: {
 			'''
 		Label: 原版配方增强
 	}
+
+	HeldItemStatsConfig: {
+		DisplayName: 手持物品攻速仪表
+
+		PanelHAlign: {
+			Label: 面板横向位置
+			Tooltip: 拖动面板后自动记录，一般不需要手动调整
+		}
+
+		PanelVAlign: {
+			Label: 面板纵向位置
+			Tooltip: 拖动面板后自动记录，一般不需要手动调整
+		}
+
+		Draggable: {
+			Label: 允许拖动面板
+			Tooltip: 关闭后按住左键不会再移动面板
+		}
+
+		ProgressColor: {
+			Label: 阈值用进度色
+			Tooltip: 当前攻速越接近下一档，数字越偏绿
+		}
+	}
+}
+
+HeldItemStatsConfig: {
+	// DisplayName: Held Item Stats Config
+
+	PanelHAlign: {
+		// Label: Panel H Align
+		// Tooltip: ""
+	}
+
+	PanelVAlign: {
+		// Label: Panel V Align
+		// Tooltip: ""
+	}
+
+	Draggable: {
+		// Label: Draggable
+		// Tooltip: ""
+	}
+
+	ProgressColor: {
+		// Label: Progress Color
+		// Tooltip: ""
+	}
 }

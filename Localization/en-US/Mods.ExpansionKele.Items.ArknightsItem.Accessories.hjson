@@ -1,0 +1,407 @@
+RapidFireChip: {
+	DisplayName: Rapid-Fire Sniper Chip
+	Tooltip: ""
+	InactiveHint: Activate by equipping it or favoriting it in your inventory
+	NoStackHint: Equipped and favorited effects do not stack
+	ShiftHint: Hold Shift to view both equipped and favorited effects
+	EquippedDetailed:
+		'''
+		When equipped:
+		3% increased ranged damage, plus 15% extra ranged damage against aerial targets
+		'''
+	FavoritedDetailed:
+		'''
+		While favorited:
+		1% increased ranged damage, plus 5% extra ranged damage against aerial targets
+		'''
+	ActiveStatus: Active: {0}
+	TierEquippedChip: Rapid-Fire Sniper Chip (equipped)
+	TierEquippedModule: Rapid-Fire Sniper Chip Module (equipped)
+	TierFavoritedChip: Rapid-Fire Sniper Chip (favorited)
+	TierFavoritedModule: Rapid-Fire Sniper Chip Module (favorited)
+}
+
+RapidFireChipModule: {
+	DisplayName: Rapid-Fire Sniper Chip Module
+	Tooltip: ""
+	InactiveHint: Activate by equipping it or favoriting it in your inventory
+	NoStackHint: Equipped and favorited effects do not stack; overlapping stats do not stack with the base chip
+	ShiftHint: Hold Shift to view both equipped and favorited effects
+	EquippedDetailed:
+		'''
+		When equipped:
+		3% increased ranged damage, plus 15% extra ranged damage against aerial targets
+		Enemies lose 1 defense each time you damage them, up to 15
+		'''
+	FavoritedDetailed:
+		'''
+		While favorited:
+		1% increased ranged damage, plus 5% extra ranged damage against aerial targets
+		Defense reduction cap lowered to 5
+		'''
+}
+
+HeavyShooterChip: {
+	DisplayName: Heavy Shooter Chip
+	Tooltip: ""
+	InactiveHint: Activate by equipping it or favoriting it in your inventory
+	NoStackHint: Equipped and favorited effects do not stack
+	ShiftHint: Hold Shift to view both equipped and favorited effects
+	EquippedDetailed:
+		'''
+		When equipped:
+		4% increased ranged damage and 8% increased ranged crit chance
+		Gain 20%-50% armor penetration as the distance closes (600px-240px)
+		And gain a linearly increasing 1.5x-3x knockback bonus
+		'''
+	FavoritedDetailed:
+		'''
+		While favorited:
+		1% increased ranged damage and 2% increased ranged crit chance
+		Gain 10%-25% armor penetration as the distance closes (600px-240px)
+		And gain a linearly increasing 1.25x-2x knockback bonus
+		'''
+}
+
+MarksmanChip: {
+	DisplayName: Marksman Chip
+	Tooltip: ""
+	InactiveHint: Activate by equipping it or favoriting it in your inventory
+	NoStackHint: Equipped and favorited effects do not stack
+	ShiftHint: Hold Shift to view both equipped and favorited effects
+	EquippedDetailed:
+		'''
+		When equipped:
+		5% increased ranged damage and 6% increased ranged crit chance
+		Targets whose defense is below 40% of this hit's damage count as low-defense and take 25% extra critical damage
+		'''
+	FavoritedDetailed:
+		'''
+		While favorited:
+		1% increased ranged damage and 2% increased ranged crit chance
+		Targets whose defense is below 40% of this hit's damage count as low-defense and take 10% extra critical damage
+		'''
+}
+
+SiegeChip: {
+	DisplayName: Siege Chip
+	Tooltip: ""
+	InactiveHint: Activate by equipping it or favoriting it in your inventory
+	NoStackHint: Equipped and favorited effects do not stack
+	ShiftHint: Hold Shift to view both equipped and favorited effects
+	EquippedDetailed:
+		'''
+		When equipped:
+		5% increased ranged damage
+		Final damage against large targets scales with size: x1.00 at width+height 60, up to x1.25 at 300
+		'''
+	FavoritedDetailed:
+		'''
+		While favorited:
+		2% increased ranged damage
+		Final damage against large targets scales with size: x1.00 at width+height 60, up to x1.10 at 300
+		'''
+}
+
+ArtilleristChip: {
+	DisplayName: Artillerist Chip
+	Tooltip: ""
+	InactiveHint: Activate by equipping it or favoriting it in your inventory
+	NoStackHint: Equipped and favorited effects do not stack
+	ShiftHint: Hold Shift to view both equipped and favorited effects
+	EquippedDetailed:
+		'''
+		When equipped:
+		10% increased ranged damage
+		The first enemy hit by each projectile triggers a 128-pixel blast at the hit point
+		The blast deals 25% of the projectile's damage and also hits the primary target
+		'''
+	FavoritedDetailed:
+		'''
+		While favorited:
+		3% increased ranged damage
+		The blast deals 15% of the projectile's damage
+		'''
+}
+
+DreadnoughtChip: {
+	DisplayName: Dreadnought Chip
+	Tooltip: ""
+	InactiveHint: Activate by equipping it or favoriting it in your inventory
+	NoStackHint: Equipped and favorited effects do not stack
+	ShiftHint: Hold Shift to view both equipped and favorited effects
+	EquippedDetailed:
+		'''
+		When equipped:
+		5% increased melee damage
+		When exactly one enemy is within 300 pixels, it is marked and final damage against it is multiplied by 1.12
+		'''
+	FavoritedDetailed:
+		'''
+		While favorited:
+		2% increased melee damage
+		When exactly one enemy is within 300 pixels, it is marked and final damage against it is multiplied by 1.04
+		'''
+}
+
+FighterChip: {
+	DisplayName: Fighter Chip
+	Tooltip: ""
+	InactiveHint: Activate by equipping it or favoriting it in your inventory
+	NoStackHint: Equipped and favorited effects do not stack
+	ShiftHint: Hold Shift to view both equipped and favorited effects
+	EquippedDetailed:
+		'''
+		When equipped:
+		20% increased melee attack speed, 10% reduced melee damage
+		Hitting an enemy grants 1 stack; each stack additionally multiplies attack speed by 1.03 (up to 5)
+		Stacks are cleared if no hit lands for 3 seconds
+		'''
+	FavoritedDetailed:
+		'''
+		While favorited:
+		10% increased melee attack speed, 5% reduced melee damage
+		Hitting an enemy grants 1 stack; each stack additionally multiplies attack speed by 1.01 (up to 5)
+		Stacks are cleared if no hit lands for 3 seconds
+		'''
+}
+
+MushaChip: {
+	DisplayName: Musha Chip
+	Tooltip: ""
+	InactiveHint: Activate by equipping it or favoriting it in your inventory
+	NoStackHint: Equipped and favorited effects do not stack
+	ShiftHint: Hold Shift to view both equipped and favorited effects
+	EquippedDetailed:
+		'''
+		When equipped:
+		Natural life regeneration is disabled (healing potions and the Nurse still work)
+		Each melee swing that hits restores 4% of missing life (at least 1)
+		As life is lost, gain up to ×1.5 melee attack speed and +50% melee damage, reaching the cap at 70% life lost
+		'''
+	FavoritedDetailed:
+		'''
+		While favorited:
+		No healing and no regeneration penalty
+		As life is lost, gain up to ×1.15 melee attack speed and +15% melee damage, reaching the cap at 70% life lost
+		'''
+}
+
+CenturionChip: {
+	DisplayName: Centurion Chip
+	Tooltip: ""
+	InactiveHint: Activate by equipping it or favoriting it in your inventory
+	NoStackHint: Equipped and favorited effects do not stack
+	ShiftHint: Hold Shift to view both equipped and favorited effects
+	EquippedDetailed:
+		'''
+		When equipped:
+		6% increased melee damage
+		Enemies within 320 pixels take damage multiplied by (1 + 4% x nearby enemy count), counting at most 3 enemies
+		'''
+	FavoritedDetailed:
+		'''
+		While favorited:
+		2% increased melee damage
+		Enemies within 320 pixels take damage multiplied by (1 + 2% x nearby enemy count), counting at most 3 enemies
+		'''
+}
+
+ReaperChip: {
+	DisplayName: Reaper Chip
+	Tooltip: ""
+	InactiveHint: Activate by equipping it or favoriting it in your inventory
+	NoStackHint: Equipped and favorited effects do not stack
+	ShiftHint: Hold Shift to view both equipped and favorited effects
+	EquippedDetailed:
+		'''
+		When equipped:
+		Natural life regeneration is disabled (healing potions and the Nurse still work)
+		Each attack restores 3% of missing life, for up to 2 enemies
+		For 10 seconds after the mark: that enemy loses 15% attack and defense, you gain 15% attack and defense (refreshes)
+		'''
+	FavoritedDetailed:
+		'''
+		While favorited:
+		No healing and no regeneration penalty
+		For 10 seconds after the mark: that enemy loses 5% attack and defense, you gain 5% attack and defense (refreshes)
+		'''
+}
+
+InstructorChip: {
+	DisplayName: Instructor Chip
+	Tooltip: ""
+	InactiveHint: Activate by equipping it or favoriting it in your inventory
+	NoStackHint: Equipped and favorited effects do not stack
+	ShiftHint: Hold Shift to view both equipped and favorited effects
+	EquippedDetailed:
+		'''
+		When equipped:
+		5% increased summon damage, 5% increased whip speed, 5% increased whip range
+		Non-summon attacks and whips mark the enemy they hit for 5 seconds
+		While marked, all summon damage dealt to that enemy is multiplied by 1.15 (refreshes, does not stack)
+		'''
+	FavoritedDetailed:
+		'''
+		While favorited:
+		5% increased summon damage
+		Non-summon attacks and whips mark the enemy they hit for 5 seconds
+		While marked, all summon damage dealt to that enemy is multiplied by 1.05 (refreshes, does not stack)
+		'''
+}
+
+ArtsFighterChip: {
+	DisplayName: Arts Fighter Chip
+	Tooltip: ""
+	InactiveHint: Activate by equipping it or favoriting it in your inventory
+	NoStackHint: Equipped and favorited effects do not stack
+	ShiftHint: Hold Shift to view both equipped and favorited effects
+	EquippedDetailed:
+		'''
+		When equipped:
+		5% increased magic damage, +40 maximum mana
+		Melee weapons also gain your full magic damage bonus
+		Each swing costs 5 mana; cannot attack when out of mana
+		'''
+	FavoritedDetailed:
+		'''
+		While favorited:
+		Melee weapons also gain 30% of your magic damage bonus
+		No mana cost
+		'''
+}
+
+CrusherChip: {
+	DisplayName: Crusher Chip
+	Tooltip: ""
+	InactiveHint: Activate by equipping it or favoriting it in your inventory
+	NoStackHint: Equipped and favorited effects do not stack
+	ShiftHint: Hold Shift to view both equipped and favorited effects
+	EquippedDetailed:
+		'''
+		When equipped:
+		20% increased melee damage, plus an extra melee damage bonus equal to 0.3% of your original defense
+		15% reduced melee attack speed
+		Maximum life x2
+		Defense is reduced to 0
+		After taking damage, heal for 15% of that damage (20% in Expert, 25% in Master)
+		'''
+	FavoritedDetailed:
+		'''
+		While favorited:
+		5% increased melee damage
+		After taking damage, heal for 5% of that damage (post-defense value)
+		'''
+}
+
+LordChip: {
+	DisplayName: Lord Chip
+	Tooltip: ""
+	InactiveHint: Activate by equipping it or favoriting it in your inventory
+	NoStackHint: Equipped and favorited effects do not stack
+	ShiftHint: Hold Shift to view both equipped and favorited effects
+	EquippedDetailed:
+		'''
+		When equipped:
+		5% increased melee damage
+		Each melee swing also fires a sword wave toward the cursor, dealing 30% of the weapon's damage
+		The wave ignores 20 points of defense and inflicts On Fire! for 5 seconds; speed 14, pierces nothing
+		'''
+	FavoritedDetailed:
+		'''
+		While favorited:
+		2% increased melee damage
+		Sword wave damage is reduced to 10% of the weapon's damage
+		'''
+}
+
+EarthshakerChip: {
+	DisplayName: Earthshaker Chip
+	Tooltip: ""
+	InactiveHint: Activate by equipping it or favoriting it in your inventory
+	NoStackHint: Equipped and favorited effects do not stack
+	ShiftHint: Hold Shift to view both equipped and favorited effects
+	EquippedDetailed:
+		'''
+		When equipped:
+		10% increased melee damage
+		Each swing that lands creates a 120 px ground burst dealing 50% of the weapon's damage to other enemies in range
+		The burst never hits the enemy that was struck directly
+		'''
+	FavoritedDetailed:
+		'''
+		While favorited:
+		4% increased melee damage
+		The ground burst is reduced to 20% of the weapon's damage
+		'''
+}
+
+SwordmasterChip: {
+	DisplayName: Swordmaster Chip
+	Tooltip: ""
+	InactiveHint: Activate by equipping it or favoriting it in your inventory
+	NoStackHint: Equipped and favorited effects do not stack
+	ShiftHint: Hold Shift to view both equipped and favorited effects
+	EquippedDetailed:
+		'''
+		When equipped:
+		10% increased melee attack speed
+		Every 4th swing that lands deals 1.45x damage
+		Whiffed swings do not count; the combo breaks after 3 seconds without a hit
+		'''
+	FavoritedDetailed:
+		'''
+		While favorited:
+		5% increased melee attack speed
+		Every 4th swing that lands deals 1.10x damage
+		'''
+}
+
+LiberatorChip: {
+	DisplayName: Liberator Chip
+	Tooltip: ""
+	InactiveHint: Activate by equipping it or favoriting it in your inventory
+	NoStackHint: Equipped and favorited effects do not stack
+	ShiftHint: Hold Shift to view both equipped and favorited effects
+	EquippedDetailed:
+		'''
+		When equipped:
+		While you are not swinging a weapon, charge accumulates at +0.16 per second, reaching the 1.12 cap in 7 seconds
+		Attacking with a melee weapon while charging immediately enters Liberation for 10 seconds
+		During Liberation, melee damage is multiplied by (1 + charge), up to x2.12 at full charge
+		When Liberation ends, charge resets to 0 and cannot be triggered again for 2 seconds
+		'''
+	FavoritedDetailed:
+		'''
+		While favorited:
+		Charge accumulates automatically over time at +0.04 per second, reaching the 0.24 cap in 6 seconds
+		It accumulates whether or not you are attacking, and grants no damage bonus while charging
+		A full gauge automatically enters Liberation for 3 seconds
+		During Liberation, melee damage is multiplied by (1 + charge), up to x1.24 at full charge
+		When Liberation ends, charge resets to 0 and cannot be triggered again for 2 seconds
+		'''
+}
+
+PrimalGuardChip: {
+	DisplayName: Primal Guard Chip
+	Tooltip: ""
+	InactiveHint: Activate by equipping it or favoriting it in your inventory
+	NoStackHint: Equipped and favorited effects do not stack
+	ShiftHint: Hold Shift to view both equipped and favorited effects
+	EquippedDetailed:
+		'''
+		When equipped:
+		10% increased melee damage
+		Melee hits accumulate elemental damage equal to 25% of the damage dealt
+		At 4% of the target's maximum life it detonates, dealing true damage equal to 4% of the target's maximum life (ignores defense)
+		For 8 seconds after detonating, your melee damage is converted into true damage (never lower than the original damage)
+		'''
+	FavoritedDetailed:
+		'''
+		While favorited:
+		4% increased melee damage
+		Melee hits accumulate elemental damage equal to 20% of the damage dealt
+		At 4% of the target's maximum life it detonates, dealing true damage equal to 2% of the target's maximum life (ignores defense)
+		After detonating, that target cannot accumulate elemental damage for 8 seconds; no true damage window is granted
+		'''
+}

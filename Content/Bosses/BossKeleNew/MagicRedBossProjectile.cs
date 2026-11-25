@@ -29,11 +29,8 @@ namespace ExpansionKele.Content.Bosses.BossKeleNew
     }
     public class MagicRedBossProjectile : ModProjectile
     {
-        [SyncVar]
         public int npcIndex;
-        [SyncVar]
         public Phase magicPhase;
-        [SyncVar]
         public float counter = 0f;
         public const float MaxCounterFrames = 60f;
 
@@ -125,16 +122,11 @@ namespace ExpansionKele.Content.Bosses.BossKeleNew
 
     public class MagicBlueBossProjectile : ModProjectile
     {
-        [SyncVar]
         public int npcIndex;
-        [SyncVar]
         public Phase magicPhase;
-        [SyncVar]
         public float counter = 0f;
         public const float MaxCounterFrames = 60f;
-        [SyncVar]
         public bool init = true;
-        [SyncVar]
         public Vector2 Center;
 
         public override void SetDefaults()
@@ -220,11 +212,8 @@ namespace ExpansionKele.Content.Bosses.BossKeleNew
 
     public class MagicPurpleBossProjectile : ModProjectile
     {
-        [SyncVar]
         public int npcIndex;
-        [SyncVar]
         public Phase magicPhase;
-        [SyncVar]
         public float counter = 0f;
         public const float MaxCounterFrames = 60f;
         private Vector2 initialDirection;
@@ -310,11 +299,8 @@ namespace ExpansionKele.Content.Bosses.BossKeleNew
 
     public class MagicCyanBossProjectile : ModProjectile
     {
-        [SyncVar]
         public int npcIndex;
-        [SyncVar]
         public Phase magicPhase;
-        [SyncVar]
         public float counter = 0f;
         public const float MaxCounterFrames = 60f;
 

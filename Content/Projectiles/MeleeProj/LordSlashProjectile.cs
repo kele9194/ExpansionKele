@@ -1,35 +1,26 @@
 using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.ModLoader;
-using System;
 using Terraria.ID;
-using Terraria.DataStructures;
+using Terraria.ModLoader;
 
 namespace ExpansionKele.Content.Projectiles.MeleeProj
 {
     /// <summary>
-    /// 领主剑气 - 领主子职业的特有射弹。
-    /// 
-    /// 特性：
-    /// - 基础伤害为武器伤害的60%
-    /// - 速度固定为8
-    /// - 伤害随飞行距离衰减：
-    ///   128px内保持60%伤害
-    ///   128px~320px线性衰减至20%
-    ///   320px外保持20%
+    /// 领主剑气：由 <see cref="Items.ArknightsItem.Accessories.Guard.LordChip"/> 在挥动近战武器时发射。
+    /// <para/>
+    /// 直线飞行、命中一个目标即消散（<c>penetrate = 1</c>），自带 20 点固定穿甲，
+    /// 命中后附加 5 秒「着火了！」。整体走橙红色调。
     /// </summary>
     public class LordSlashProjectile : ModProjectile
     {
-        /// <summary>发射时的原始伤害（用于距离衰减计算）</summary>
-        private float originalDamage;
+        /// <summary>剑气自带的固定穿甲，装备档与收藏档一致。</summary>
+        public const int ArmorPenetration = 20;
 
-        /// <summary>发射位置（用于距离衰减计算）</summary>
-        private Vector2 firePosition;
+        /// <summary>命中后附加「着火了！」的持续时间（帧）：5 秒。</summary>
+        public const int OnFireDuration = 300;
 
-        public override void SetStaticDefaults()
-        {
-            Main.projFrames[Type] = 1;
-        }
+        /// <summary>剑气主色（橙红）。</summary>
+        private static readonly Color TintColor = new Color(255, 130, 60);
 
         public override void SetDefaults()
         {
@@ -38,79 +29,58 @@ namespace ExpansionKele.Content.Projectiles.MeleeProj
             Projectile.DamageType = DamageClass.Melee;
             Projectile.friendly = true;
             Projectile.hostile = false;
-            Projectile.penetrate = 1;
-            Projectile.timeLeft = 90;        // 约1.5秒存活时间
+            Projectile.penetrate = 1;      // 不穿透
+            Projectile.timeLeft = 60;      // 速度 14、不减速 ⇒ 射程约 840px
             Projectile.tileCollide = true;
             Projectile.ignoreWater = true;
-            Projectile.alpha = 0;
-            Projectile.scale = 1f;   // 提高精度，使剑气更流畅
-        }
-
-        public override void OnSpawn(IEntitySource source)
-        {
-            firePosition = Projectile.Center;
-            originalDamage = Projectile.damage;
-        }
-
-        public override void AI()
-        {
-            // 计算飞行距离
-            float distance = Vector2.Distance(Projectile.Center, firePosition);
-
-            // 距离衰减逻辑
-            float damageMult;
-            if (distance <= 128f)
-            {
-                damageMult = 1f; // 100%原始伤害（即武器伤害的60%）
-            }
-            else if (distance >= 320f)
-            {
-                damageMult = 0.333f; // 33%原始伤害（即武器伤害的20%）
-            }
-            else
-            {
-                // 128~320px 线性衰减：1.0 → 0.333
-                damageMult = 1f - (distance - 128f) / 192f * 0.667f;
-            }
-
-            Projectile.damage = (int)(originalDamage * damageMult);
-
-            // 剑气旋转效果
-            Projectile.rotation = Projectile.velocity.ToRotation() - MathHelper.PiOver4;
-
-            // 渐隐效果（最后0.5秒）
-            if (Projectile.timeLeft < 30)
-            {
-                Projectile.alpha = (int)(255f * (1f - Projectile.timeLeft / 30f));
-            }
-
-            // 光效
-            Lighting.AddLight(Projectile.Center, 0.3f, 0.3f, 0.5f);
+            Projectile.aiStyle = -1;
+            Projectile.light = 0.35f;
         }
 
         public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
         {
-            modifiers.ArmorPenetration+=20;
+            modifiers.ArmorPenetration += ArmorPenetration;
+        }
+
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
+        {
+            // 减益放在 OnHitNPC 而不是 ModifyHitNPC：后者是伤害计算阶段，可能被重算多次。
+            target.AddBuff(BuffID.OnFire, OnFireDuration);
+        }
+
+        public override void AI()
+        {
+            // 贴图沿用 RAc 那张 36×36 的斜向图（基准朝向右上），
+            // 所以对齐飞行方向要减 45°；写成 +45° 会让剑气整体歪 90°。
+            Projectile.rotation = Projectile.velocity.ToRotation() - MathHelper.PiOver4;
+            Lighting.AddLight(Projectile.Center, 1.0f, 0.5f, 0.2f);
+
+            if (Main.rand.NextBool(3))
+            {
+                Dust dust = Dust.NewDustDirect(
+                    Projectile.position, Projectile.width, Projectile.height,
+                    DustID.Torch, 0f, 0f, 100, default, 1.2f);
+                dust.noGravity = true;
+                dust.velocity *= 0.3f;
+            }
         }
 
         public override bool PreDraw(ref Color lightColor)
         {
-            // 剑气半透明效果
-            lightColor *= (1f - Projectile.alpha / 255f);
-            return base.PreDraw(ref lightColor);
+            // 只改绘制色调，不动贴图本身；保留环境光的明暗影响。
+            lightColor = TintColor * (lightColor.A / 255f);
+            return true;
         }
 
         public override void OnKill(int timeLeft)
         {
-            // 消散时的粒子效果
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 6; i++)
             {
                 Dust dust = Dust.NewDustDirect(
                     Projectile.position, Projectile.width, Projectile.height,
-                    DustID.BlueCrystalShard, 
-                    Projectile.velocity.X * 0.3f, Projectile.velocity.Y * 0.3f,
-                    50, default, 1.2f
-                );
+                    DustID.FlameBurst,
+                    Projectile.velocity.X * 0.2f, Projectile.velocity.Y * 0.2f,
+                    100, default, 1.1f);
                 dust.noGravity = true;
             }
         }

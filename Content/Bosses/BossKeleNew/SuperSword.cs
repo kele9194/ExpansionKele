@@ -25,9 +25,7 @@ namespace ExpansionKele.Content.Bosses.BossKeleNew
         public float alpha = 1f;
         public bool init = true;
         public int npcitemtime=20;
-        [SyncVar]
         public int npcIndex;
-        [SyncVar]
         public Phase meleePhase;
         
         public override void Load()
@@ -77,6 +75,9 @@ namespace ExpansionKele.Content.Bosses.BossKeleNew
             npcIndex = (int)Math.Round(Projectile.ai[0]);
             meleePhase=(Phase)(int)Math.Round(Projectile.ai[1]);
             
+            // 生成子弹幕由服务端（含单人）统一负责：客户端也生成会与同步过来的那份重复。
+            bool canSpawn = Main.netMode != NetmodeID.MultiplayerClient;
+
             NPC ownerNPC = npcIndex.GetNPCOwner();
             if (ownerNPC == null || !ownerNPC.active)
             {
@@ -110,7 +111,7 @@ namespace ExpansionKele.Content.Bosses.BossKeleNew
             {
                 Projectile.Kill();
             }
-            if(meleePhase == Phase.phase2||meleePhase == Phase.phase3){
+            if(canSpawn && (meleePhase == Phase.phase2 || meleePhase == Phase.phase3)){
                 if(counter==MaxUpdateTimes/2){
                 Projectile.NewProjectile(
                 Projectile.GetSource_FromAI(),
@@ -124,7 +125,7 @@ namespace ExpansionKele.Content.Bosses.BossKeleNew
                 (int)meleePhase);
                 }
             }
-            if (meleePhase == Phase.phase3||meleePhase == BossKeleNew.Phase.phase4){
+            if (canSpawn && (meleePhase == Phase.phase3 || meleePhase == BossKeleNew.Phase.phase4)){
                 if(counter==MaxUpdateTimes/2){
                 for(int i = 0; i < (meleePhase == Phase.phase3?6:12); i++){
                     Projectile.NewProjectile(
@@ -141,7 +142,7 @@ namespace ExpansionKele.Content.Bosses.BossKeleNew
                 }
             }
 
-            if (meleePhase == Phase.phase4)
+            if (canSpawn && meleePhase == Phase.phase4)
             {
                 if(counter==MaxUpdateTimes/4||counter==MaxUpdateTimes/2||counter==MaxUpdateTimes*3/4){
                 Projectile.NewProjectile(

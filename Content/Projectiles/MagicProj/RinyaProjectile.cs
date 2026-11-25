@@ -22,7 +22,6 @@ public class RinyaProjectile : ModProjectile
         
         public static Asset<Texture2D> _cachedTexture;
         
-        [SyncVar]
         public float currentCharge = 0f;
         
         public const float MAX_CHARGE = 1f;
@@ -57,24 +56,17 @@ public class RinyaProjectile : ModProjectile
         {
             Main.projFrames[Projectile.type] = 1;
         }
-        [SyncVar]
         public Vector2 MousePosition;
 
-        [SyncVar]
         public bool isReleased=false;
 
-        [SyncVar]
         public Vector2 targetPosition;
 
-        [SyncVar]
         public float randomFloat;
 
-        [SyncVar]
         public bool isshoot;
 
-        [SyncVar]
         public float randomAngle ;
-        [SyncVar]
         public float UseSpeedMul;
         
         

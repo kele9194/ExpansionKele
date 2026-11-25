@@ -1,0 +1,296 @@
+source unique constants : 770
+user table parsed rows  : 495  (unparsed lines: 538)
+constants without CN    : 76
+only in source          : 281
+only in user table      : 6
+value mismatch          : 0
+
+=== value mismatch ===
+
+=== only in source ===
+AngryBonesBig	294	愤怒骷髅怪
+AngryBonesBigHelmet	296	愤怒骷髅怪
+AngryBonesBigMuscle	295	愤怒骷髅怪
+ArmedTorchZombie	591	僵尸
+ArmedZombie	430	僵尸
+ArmedZombieCenx	436	僵尸
+ArmedZombieEskimo	431	冰冻僵尸
+ArmedZombiePincussion	432	僵尸
+ArmedZombieSlimed	433	僵尸
+ArmedZombieSwamp	434	僵尸
+ArmedZombieTwiggy	435	僵尸
+BaldZombie	132	僵尸
+BeeSmall	211	蜜蜂
+BetsysCurse	203	
+BigBaldZombie	-29	
+BigBoned	-14	
+BigCrimera	-23	
+BigCrimslime	-25	
+BigEater	-12	
+BigFemaleZombie	-45	
+BigHeadacheSkeleton	-49	
+BigHornetFatty	-57	
+BigHornetHoney	-59	
+BigHornetLeafy	-61	
+BigHornetSpikey	-63	
+BigHornetStingy	-65	
+BigMisassembledSkeleton	-51	
+BigMossHornet	-20	
+BigPantlessSkeleton	-53	
+BigPincushionZombie	-31	
+BigRainZombie	-55	僵尸
+BigSkeleton	-47	
+BigSlimedZombie	-33	
+BigStinger	-17	
+BigSwampZombie	-35	
+BigTwiggyZombie	-37	
+BigZombie	-27	
+BlackRecluseWall	238	黑隐士
+BloodButcherer	344	
+BloodCrawlerWall	240	血爬虫
+BloodEelBody	622	血鳗鱼
+BloodEelHead	621	血鳗鱼
+BloodEelTail	623	血鳗鱼
+BlueArmoredBonesMace	274	蓝装甲骷髅
+BlueArmoredBonesNoPants	275	蓝装甲骷髅
+BlueArmoredBonesSword	276	蓝装甲骷髅
+BoneJavelin	169	
+BoneSerpentBody	40	骨蛇
+BoneSerpentHead	39	骨蛇
+BoneSerpentTail	41	骨蛇
+BoneThrowingSkeleton	449	骷髅
+BoneThrowingSkeleton2	450	骷髅
+BoneThrowingSkeleton3	451	骷髅
+BoneThrowingSkeleton4	452	骷髅
+BunnySlimed	303	兔兔
+BunnyXmas	337	兔兔
+Butterfly	356	蝴蝶
+CataractEye	190	恶魔眼
+CataractEye2	-38	
+Confused	31	
+CultistDragonBody1	455	幻影弓龙
+CultistDragonBody2	456	幻影弓龙
+CultistDragonBody3	457	幻影弓龙
+CultistDragonBody4	458	幻影弓龙
+CultistDragonHead	454	幻影弓龙
+CultistDragonTail	459	幻影弓龙
+CursedInferno	39	
+DD2AttackerTest	547	???
+DD2DarkMageT1	564	黑暗魔法师
+DD2DarkMageT3	565	{$NPCName.DD2DarkMageT1}
+DD2DrakinT2	570	德拉克龙
+DD2DrakinT3	571	{$NPCName.DD2DrakinT2}
+DD2GoblinBomberT1	555	天国哥布林投弹手
+DD2GoblinBomberT2	556	{$NPCName.DD2GoblinBomberT1}
+DD2GoblinBomberT3	557	{$NPCName.DD2GoblinBomberT1}
+DD2GoblinT1	552	天国哥布林
+DD2GoblinT2	553	{$NPCName.DD2GoblinT1}
+DD2GoblinT3	554	{$NPCName.DD2GoblinT1}
+DD2JavelinstT1	561	天国标枪投掷怪
+DD2JavelinstT2	562	{$NPCName.DD2JavelinstT1}
+DD2JavelinstT3	563	{$NPCName.DD2JavelinstT1}
+DD2KoboldFlyerT2	574	小妖魔滑翔怪
+DD2KoboldFlyerT3	575	{$NPCName.DD2KoboldFlyerT2}
+DD2KoboldWalkerT2	572	小妖魔
+DD2KoboldWalkerT3	573	{$NPCName.DD2KoboldWalkerT2}
+DD2OgreT2	576	食人魔
+DD2OgreT3	577	{$NPCName.DD2OgreT2}
+DD2SkeletonT1	566	撒旦骷髅
+DD2SkeletonT3	567	{$NPCName.DD2SkeletonT1}
+DD2WitherBeastT2	568	枯萎兽
+DD2WitherBeastT3	569	{$NPCName.DD2WitherBeastT2}
+DD2WyvernT1	558	天国飞龙
+DD2WyvernT2	559	{$NPCName.DD2WyvernT1}
+DD2WyvernT3	560	{$NPCName.DD2WyvernT1}
+Daybreak	189	
+DemonEye2	-43	
+DemonEyeOwl	317	恶魔眼
+DemonEyeSpaceship	318	恶魔眼
+DesertLamiaDark	529	拉弥亚
+DesertLamiaLight	528	拉弥亚
+DesertScorpionWall	531	沙贼
+DevourerBody	8	吞噬怪
+DevourerHead	7	吞噬怪
+DevourerTail	9	吞噬怪
+DiabolistRed	285	魔教徒
+DiabolistWhite	286	魔教徒
+DialatedEye	192	恶魔眼
+DialatedEye2	-40	
+DiggerBody	96	挖掘怪
+DiggerHead	95	挖掘怪
+DiggerTail	97	挖掘怪
+Dryad	20	树妖
+Duck	362	鸭
+Duck2	363	鸭
+DuckWhite	364	鸭
+DuckWhite2	365	鸭
+DuneSplicerBody	511	沙虫
+DuneSplicerHead	510	沙虫
+DuneSplicerTail	512	沙虫
+EaterofWorldsBody	14	世界吞噬怪
+EaterofWorldsHead	13	世界吞噬怪
+EaterofWorldsTail	15	世界吞噬怪
+FemaleZombie	200	僵尸
+Frostburn	44	
+Frostburn2	324	
+GiantMossHornet	-21	
+GiantWormBody	11	巨型蠕虫
+GiantWormHead	10	巨型蠕虫
+GiantWormTail	12	巨型蠕虫
+GoldGoldfishWalker	593	金金鱼
+GoldfishWalker	230	金鱼
+Golem	245	石巨人
+GolemFistLeft	247	石巨人之拳
+GolemFistRight	248	石巨人之拳
+GolemHeadFree	249	石巨人头
+GolferRescue	589	高尔夫球手
+GreenEye	193	恶魔眼
+GreenEye2	-41	
+HeadacheSkeleton	201	骷髅
+HeavySkeleton	-15	
+HellArmoredBonesMace	279	地狱装甲骷髅
+HellArmoredBonesSpikeShield	278	地狱装甲骷髅
+HellArmoredBonesSword	280	地狱装甲骷髅
+HornetFatty	231	黄蜂
+HornetHoney	232	黄蜂
+HornetLeafy	233	黄蜂
+HornetSpikey	234	黄蜂
+HornetStingy	235	黄蜂
+Ichor	69	
+JungleCreeperWall	237	丛林蜘蛛
+LeechBody	118	血蛭
+LeechHead	117	血蛭
+LeechTail	119	血蛭
+LihzahrdCrawler	199	丛林蜥蜴
+LittleCrimera	-22	
+LittleCrimslime	-24	
+LittleEater	-11	
+LittleHornetFatty	-56	
+LittleHornetHoney	-58	
+LittleHornetLeafy	-60	
+LittleHornetSpikey	-62	
+LittleHornetStingy	-64	
+LittleMossHornet	-19	
+LittleStinger	-16	
+MartianSaucerCore	395	火星飞碟
+MisassembledSkeleton	202	骷髅
+NecromancerArmored	284	死灵法师
+NegativeIDCount	-66	
+None	0	
+None2	76	
+None3	146	
+NutcrackerSpinning	349	胡桃夹士
+Oiled	204	
+OnFire	24	
+OnFire3	323	
+PantlessSkeleton	203	骷髅
+PartyBunny	540	兔兔
+PenguinBlack	149	企鹅
+PigronCorruption	170	猪龙
+PigronCrimson	180	猪龙
+PigronHallow	171	猪龙
+PincushionZombie	186	僵尸
+Poisoned	20	
+PumpkingBlade	328	南瓜王
+PurpleEye	194	恶魔眼
+PurpleEye2	-42	
+RaggedCasterOpenCoat	282	褴褛邪教徒法师
+RustyArmoredBonesAxe	269	生锈装甲骷髅
+RustyArmoredBonesFlail	270	生锈装甲骷髅
+RustyArmoredBonesSword	271	生锈装甲骷髅
+RustyArmoredBonesSwordNoArmor	272	生锈装甲骷髅
+Salamander2	499	蝾螈
+Salamander3	500	蝾螈
+Salamander4	501	蝾螈
+Salamander5	502	蝾螈
+Salamander6	503	蝾螈
+Salamander7	504	蝾螈
+Salamander8	505	蝾螈
+Salamander9	506	蝾螈
+Scarecrow10	314	稻草人
+
+=== only in user table ===
+LibrarianSkeleton	693
+MossZombie	691
+Orca	692
+Pufferfish	688
+StatueMimic	690
+WaterBoltMimic	694
+
+=== constants without CN name ===
+BetsysCurse	203
+BigBaldZombie	-29
+BigBoned	-14
+BigCrimera	-23
+BigCrimslime	-25
+BigEater	-12
+BigFemaleZombie	-45
+BigHeadacheSkeleton	-49
+BigHornetFatty	-57
+BigHornetHoney	-59
+BigHornetLeafy	-61
+BigHornetSpikey	-63
+BigHornetStingy	-65
+BigMisassembledSkeleton	-51
+BigMossHornet	-20
+BigPantlessSkeleton	-53
+BigPincushionZombie	-31
+BigSkeleton	-47
+BigSlimedZombie	-33
+BigStinger	-17
+BigSwampZombie	-35
+BigTwiggyZombie	-37
+BigZombie	-27
+BloodButcherer	344
+BoneJavelin	169
+CataractEye2	-38
+Confused	31
+CursedInferno	39
+Daybreak	189
+DemonEye2	-43
+DialatedEye2	-40
+Frostburn	44
+Frostburn2	324
+GiantMossHornet	-21
+GreenEye2	-41
+HeavySkeleton	-15
+Ichor	69
+LittleCrimera	-22
+LittleCrimslime	-24
+LittleEater	-11
+LittleHornetFatty	-56
+LittleHornetHoney	-58
+LittleHornetLeafy	-60
+LittleHornetSpikey	-62
+LittleHornetStingy	-64
+LittleMossHornet	-19
+LittleStinger	-16
+NegativeIDCount	-66
+None	0
+None2	76
+None3	146
+Oiled	204
+OnFire	24
+OnFire3	323
+Poisoned	20
+PurpleEye2	-42
+ShadowFlame	153
+ShortBones	-13
+SleepyEye2	-39
+SmallBaldZombie	-28
+SmallFemaleZombie	-44
+SmallHeadacheSkeleton	-48
+SmallMisassembledSkeleton	-50
+SmallPantlessSkeleton	-52
+SmallPincushionZombie	-30
+SmallSkeleton	-46
+SmallSlimedZombie	-32
+SmallSwampZombie	-34
+SmallTwiggyZombie	-36
+SmallZombie	-26
+StardustJellyfishSmall	408
+StardustWormBody	403
+StardustWormTail	404
+TentacleSpike	337
+TinyMossHornet	-18
+Venom	70

@@ -40,6 +40,7 @@ public class MagicBlueProjectile : ModProjectile
         Projectile.height = 16;
         Projectile.friendly = true;
         Projectile.hostile = false;
+        Projectile.DamageType = DamageClass.Magic;
         Projectile.tileCollide = false;
         Projectile.ignoreWater = true;
         Projectile.timeLeft = 600;
@@ -87,6 +88,7 @@ public class MagicRedProjectile : ModProjectile
             Projectile.height = 16;
             Projectile.friendly = true;
             Projectile.hostile = false;
+            Projectile.DamageType = DamageClass.Magic;
             Projectile.tileCollide = false;
             Projectile.ignoreWater = true;
             Projectile.timeLeft = 600;
@@ -131,6 +133,7 @@ public class MagicRedProjectile : ModProjectile
             Projectile.height = 16;
             Projectile.friendly = true;
             Projectile.hostile = false;
+            Projectile.DamageType = DamageClass.Magic;
             Projectile.tileCollide = false;
             Projectile.ignoreWater = true;
             Projectile.timeLeft = 600;
@@ -179,6 +182,7 @@ public class MagicCyanProjectile : ModProjectile
             Projectile.height = 16;
             Projectile.friendly = true;
             Projectile.hostile = false;
+            Projectile.DamageType = DamageClass.Magic;
             Projectile.tileCollide = false;
             Projectile.ignoreWater = true;
             Projectile.timeLeft = 600;
@@ -229,6 +233,7 @@ public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
             Projectile.height = 16;
             Projectile.friendly = true;
             Projectile.hostile = false;
+            Projectile.DamageType = DamageClass.Magic;
             Projectile.tileCollide = false;
             Projectile.ignoreWater = true;
             Projectile.timeLeft = 600;
@@ -299,6 +304,7 @@ public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
             Projectile.height = 16;
             Projectile.friendly = true;
             Projectile.hostile = false;
+            Projectile.DamageType = DamageClass.Magic;
             Projectile.tileCollide = false;
             Projectile.ignoreWater = true;
             Projectile.timeLeft = 140; // 最大时间

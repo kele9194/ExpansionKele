@@ -49,6 +49,7 @@ namespace ExpansionKele.Content.Projectiles.MeleeProj
             Projectile.width = 16;
             Projectile.height = 16;
             Projectile.friendly = true;
+            Projectile.DamageType = DamageClass.Melee;
             Projectile.penetrate = -1;              // 无限穿透
             Projectile.timeLeft = MaxTimeLeft;              // 总生存时间为6秒
             Projectile.tileCollide = true;          // 与地形碰撞

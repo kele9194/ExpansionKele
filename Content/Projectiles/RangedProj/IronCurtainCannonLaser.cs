@@ -31,6 +31,7 @@ public class IronCurtainCannonLaser : ModProjectile
         Projectile.aiStyle = 0; // 自定义AI
         Projectile.friendly = true;
         Projectile.hostile = false;
+        Projectile.DamageType = DamageClass.Ranged;
         Projectile.penetrate = -1; // 无限穿透
         Projectile.timeLeft = 600; // 设置一个合理的生存时间
         Projectile.tileCollide = false; // 不与地形碰撞

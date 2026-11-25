@@ -1,0 +1,9 @@
+SniperBaseChip: {
+	DisplayName: Sniper Base Chip
+	Tooltip: Used to craft sniper-class chips
+}
+
+GuardBaseChip: {
+	DisplayName: Guard Base Chip
+	Tooltip: Used to craft guard-class chips
+}

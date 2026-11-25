@@ -62,7 +62,6 @@ namespace ExpansionKele.Content.Bosses.BossKeleNew
         public float totalTimer=>NPC.ai[0];
         public float coolDown => NPC.ai[1];
         public float subTimer=>NPC.ai[2];
-        [SyncVar]
         public int _phaseNum;
         public int phaseNum
         {
@@ -71,7 +70,6 @@ namespace ExpansionKele.Content.Bosses.BossKeleNew
         }
         public Phase phase => (Phase)phaseNum;
         
-        [SyncVar]
         public int _attackTypeNum;
         public int attackTypeNum
         {
@@ -79,7 +77,6 @@ namespace ExpansionKele.Content.Bosses.BossKeleNew
             set => _attackTypeNum = value;
         }
         public AttackType attackType => (AttackType)attackTypeNum;
-        [SyncVar]
         private int _horizontalMoveNum;
         public int horizontalMoveNum
         {
@@ -88,7 +85,6 @@ namespace ExpansionKele.Content.Bosses.BossKeleNew
         }
         public HorizaonalMove horizontalMove => (HorizaonalMove)horizontalMoveNum;
         
-        [SyncVar]
         private int _verticalMoveNum;
         public int verticalMoveNum
         {
@@ -97,7 +93,6 @@ namespace ExpansionKele.Content.Bosses.BossKeleNew
         }
         public VerticalMove verticalMove => (VerticalMove)verticalMoveNum;
         
-        [SyncVar]
         public int currentAttackIndex = 0;
          private const float MaxHorizontalSpeed = 40f;
         private const float HorizontalAcceleration = 0.5f;
@@ -204,6 +199,9 @@ namespace ExpansionKele.Content.Bosses.BossKeleNew
         }
         public override void AI()
         {
+            // 生成弹幕由服务端（含单人）统一负责：客户端也生成会与同步过来的那份重复。
+            bool canSpawn = Main.netMode != NetmodeID.MultiplayerClient;
+
             if (totalTimer % 5 == 0)
             {
                 NPC.frame.Y = ((int)(totalTimer / 5) % 4) * NPC.frame.Height;
@@ -248,8 +246,7 @@ namespace ExpansionKele.Content.Bosses.BossKeleNew
             
             // 每180帧（3秒）选择一次攻击类型
             
-            //必须是服务器才能获得boss的弹幕
-            if(attackType==AttackType.Summon&&CanAttatck()){
+            if(canSpawn && attackType==AttackType.Summon && CanAttatck()){
 
                        Projectile.NewProjectile(
                         NPC.GetSource_FromAI(),
@@ -271,7 +268,7 @@ namespace ExpansionKele.Content.Bosses.BossKeleNew
 
 
 
-            if (attackType == AttackType.Magic&&CanAttatck())
+            if (canSpawn && attackType == AttackType.Magic && CanAttatck())
             {
                     if(phase == Phase.phase1)
                     { 
@@ -337,7 +334,7 @@ namespace ExpansionKele.Content.Bosses.BossKeleNew
                     NPC.ai[1] = 120;
             }
 
-            if(attackType == AttackType.Ranged&&CanAttatck()){
+            if(canSpawn && attackType == AttackType.Ranged && CanAttatck()){
                 Projectile.NewProjectile(
                 NPC.GetSource_FromAI(),
                 NPC.Center,           // 弹幕位置
@@ -358,6 +355,10 @@ namespace ExpansionKele.Content.Bosses.BossKeleNew
                 SoundEngine.PlaySound(SoundID.Item1, NPC.Center);
                 Player targetPlayer = Main.player[NPC.target];
                 float targetDirection = (targetPlayer.Center - NPC.Center).ToRotation();
+
+                // 生成由服务端（含单人）负责；音效保留在两端，否则纯客户端玩家听不到。
+                if (canSpawn)
+                {
                 // 生成指向特定角度的 SuperSword
                 Projectile.NewProjectile(
                 NPC.GetSource_FromAI(),
@@ -370,6 +371,7 @@ namespace ExpansionKele.Content.Bosses.BossKeleNew
                 NPC.whoAmI,
                 (int)phase        // ai[0] = 目标角度（弧度）
                 );
+                }
                 NPC.ai[1] = 60;
             }
         }

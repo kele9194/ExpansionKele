@@ -50,4 +50,52 @@ ExpansionKeleConfig: {
 			'''
 		Label: Enable Vanilla Recipes
 	}
+
+	HeldItemStatsConfig: {
+		DisplayName: Held Item Speed Meter
+
+		PanelHAlign: {
+			Label: Panel Horizontal Anchor
+			Tooltip: Recorded automatically when you drag the panel, usually no need to adjust
+		}
+
+		PanelVAlign: {
+			Label: Panel Vertical Anchor
+			Tooltip: Recorded automatically when you drag the panel, usually no need to adjust
+		}
+
+		Draggable: {
+			Label: Allow Dragging
+			Tooltip: When off, holding left click will no longer move the panel
+		}
+
+		ProgressColor: {
+			Label: Progress Colored Thresholds
+			Tooltip: The closer your attack speed is to the next tier, the greener the numbers
+		}
+	}
+}
+
+HeldItemStatsConfig: {
+	DisplayName: Held Item Stats Config
+
+	PanelHAlign: {
+		Label: Panel H Align
+		Tooltip: ""
+	}
+
+	PanelVAlign: {
+		Label: Panel V Align
+		Tooltip: ""
+	}
+
+	Draggable: {
+		Label: Draggable
+		Tooltip: ""
+	}
+
+	ProgressColor: {
+		Label: Progress Color
+		Tooltip: ""
+	}
 }

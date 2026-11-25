@@ -9,3 +9,4 @@ DevModifiedAdd: 增加 {0} ({1})
 DevModifiedSet: 设为 {0} ({1})
 DevModifiedGlobal: 全局 - {0}
 DevModifiedPlayer: 个人 - {0}
+HeldItemStatsNoKeybind: 手持物品攻速仪表的按键尚未绑定，当前临时使用 P 键。可到「设置 → 控件」绑定自己的键。

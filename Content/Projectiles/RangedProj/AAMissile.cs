@@ -15,6 +15,7 @@ namespace ExpansionKele.Content.Projectiles.RangedProj
             Projectile.aiStyle = 0; // 设置为0以手动控制AI
             Projectile.friendly = true;
             Projectile.hostile = false;
+            Projectile.DamageType = DamageClass.Ranged;
             Projectile.penetrate = 1;
             Projectile.timeLeft = 600;
             Projectile.ignoreWater = true;

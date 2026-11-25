@@ -118,6 +118,8 @@ namespace ExpansionKele.Content.Projectiles.MagicProj
 				Vector2 splitVelocity = Vector2.UnitX.RotatedBy(randomAngle) * 12f; // 速度12
 				
 				// 创建次级激光弹幕
+				// 只有主人这一端生成：OnTileCollide 在两端都会执行，不判断会重复
+				if (Main.myPlayer == Projectile.owner)
 				Projectile.NewProjectile(
 					Projectile.GetSource_FromThis(),
 					hitPosition,

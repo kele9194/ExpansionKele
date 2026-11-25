@@ -1,0 +1,303 @@
+=== ID class entry counts (const / legacy sound / readonly) ===
+ItemID	const=5504	sound=0	readonly=4
+SoundID	const=70	sound=410	readonly=936
+ProjectileID	const=1022	sound=0	readonly=2
+GoreID	const=803	sound=0	readonly=1
+NPCID	const=770	sound=0	readonly=2
+ArmorIDs	const=690	sound=0	readonly=15
+DustID	const=377	sound=0	readonly=1
+BuffID	const=354	sound=0	readonly=2
+GlowMaskID	const=355	sound=0	readonly=1
+ExtrasID	const=266	sound=0	readonly=1
+ProjAIStyleID	const=195	sound=0	readonly=1
+MessageID	const=154	sound=0	readonly=2
+NPCAIStyleID	const=123	sound=0	readonly=1
+MusicID	const=90	sound=0	readonly=0
+PrefixID	const=84	sound=0	readonly=2
+NPCHeadID	const=81	sound=0	readonly=1
+AchievementHelperID	const=57	sound=0	readonly=0
+MenuID	const=57	sound=0	readonly=0
+MountID	const=55	sound=0	readonly=0
+CloudID	const=41	sound=0	readonly=1
+PaintID	const=33	sound=0	readonly=1
+Colors	const=0	sound=0	readonly=26
+GameEventClearedID	const=26	sound=0	readonly=0
+TorchID	const=24	sound=0	readonly=1
+ProjectileSourceID	const=18	sound=0	readonly=1
+ChainID	const=17	sound=0	readonly=1
+CursorOverrideID	const=18	sound=0	readonly=0
+ItemRarityID	const=17	sound=0	readonly=1
+ItemUseStyleID	const=16	sound=0	readonly=1
+PlayerTextureID	const=16	sound=0	readonly=1
+SurfaceBackgroundID	const=14	sound=0	readonly=0
+TeleportationStyleID	const=14	sound=0	readonly=0
+WaterStyleID	const=13	sound=0	readonly=1
+PlayerVariantID	const=12	sound=0	readonly=1
+BiomeConversionID	const=10	sound=0	readonly=1
+ItemSourceID	const=10	sound=0	readonly=1
+InvasionID	const=9	sound=0	readonly=1
+ItemHoldStyleID	const=8	sound=0	readonly=0
+StatusID	const=7	sound=0	readonly=1
+DashID	const=6	sound=0	readonly=0
+ImmunityCooldownID	const=6	sound=0	readonly=0
+LiquidID	const=4	sound=0	readonly=2
+AnimationID	const=5	sound=0	readonly=0
+LangID	const=5	sound=0	readonly=0
+GameModeID	const=4	sound=0	readonly=0
+NetmodeID	const=3	sound=0	readonly=1
+PlayerDifficultyID	const=4	sound=0	readonly=0
+ItemAlternativeFunctionID	const=3	sound=0	readonly=0
+PaintCoatingID	const=3	sound=0	readonly=0
+HousingCategoryID	const=2	sound=0	readonly=0
+TileID	const=0	sound=0	readonly=2
+WallID	const=0	sound=0	readonly=2
+CustomCurrencyID	const=1	sound=0	readonly=0
+HairID	const=0	sound=0	readonly=1
+TreeTopID	const=1	sound=0	readonly=0
+
+=== zh-Hans localization groups ===
+ItemName	5443
+ItemTooltip	2268
+ProjectileName	925
+RandomWorldName_Noun	883
+RandomWorldName_Adjective	724
+NPCName	694
+Bestiary_FlavorText	558
+RandomWorldName_Location	492
+LegacyDialog	392
+BuffDescription	347
+BuffName	344
+LegacyMenu	254
+Achievements	248
+UI	163
+EmojiCommand	151
+EmojiName	151
+GameUI	128
+LegacyInterface	125
+LoadingTips_Default	109
+LegacyMisc	106
+CLI	106
+LegacyWorldGen	92
+Prefix	84
+CreativePowers	81
+MapObject	78
+DeathTextGeneric	76
+CreditsRollCategory_Playtesting	74
+GameTitle	68
+ArmorSetBonus	66
+LegacyTooltip	61
+Bestiary_BiomeText	60
+DeathText	55
+LegacyChestType	52
+GuideHelpTextSpecific	52
+Game	51
+AnglerQuestText	51
+WorkshopTags	48
+Workshop	46
+TownNPCMood_Princess	44
+LegacyDresserType	43
+Bestiary_Biomes	42
+Bestiary_ItemDropConditions	41
+CommonItemTooltip	40
+PaintingArtist	39
+CommonBestiaryFlavor	37
+GuideNames	36
+Misc	34
+Net	32
+SlimeNames_Rainbow	29
+BestiaryInfo	27
+LegacyMultiplayer	27
+SlimeNames_Blue	27
+SlimeNames_Old	27
+SlimeNames_Red	27
+SlimeNames_Yellow	27
+WizardSpecialText	26
+SlimeNames_Copper	26
+ClothierNames	25
+GoblinTinkererNames	25
+SlimeNames_Green	25
+SlimeNames_Purple	25
+DryadSpecialText	24
+NurseNames	24
+ArmsDealerNames	24
+MechanicNames	24
+MerchantNames	23
+CyborgNames	23
+CatNames_Black	23
+DemolitionistNames	22
+WizardNames	22
+PrincessNames	22
+DryadNames	21
+AnglerNames	21
+BestiaryGirlNames	21
+SteampunkerNames	20
+StylistNames	20
+BartenderChatter	19
+PainterNames	19
+TaxCollectorNames	19
+CatNames_Silver	19
+PartyGirlNames	18
+CatNames_OrangeTabby	18
+LegacyChestType2	17
+PartyGirlSpecialText	17
+PrincessChatter	17
+GolferChatter	17
+CatNames_RussianBlue	17
+DogNames_Labrador	17
+BartenderSpecialText	16
+DyeTraderNames	16
+BartenderNames	16
+CatNames_White	16
+DogNames_Husky	16
+LoadingTips_GamePad	15
+Error	15
+DyeTraderSpecialText	15
+TownNPCMood_Angler	15
+TownNPCMood_ArmsDealer	15
+TownNPCMood_BestiaryGirl	15
+TownNPCMood_Clothier	15
+TownNPCMood_Cyborg	15
+TownNPCMood_DD2Bartender	15
+TownNPCMood_Demolitionist	15
+TownNPCMood_Dryad	15
+TownNPCMood_DyeTrader	15
+TownNPCMood_GoblinTinkerer	15
+TownNPCMood_Golfer	15
+TownNPCMood_Guide	15
+TownNPCMood_Mechanic	15
+TownNPCMood_Merchant	15
+TownNPCMood_Nurse	15
+TownNPCMood_Painter	15
+TownNPCMood_PartyGirl	15
+TownNPCMood_Pirate	15
+TownNPCMood_SantaClaus	15
+TownNPCMood_Steampunker	15
+TownNPCMood_Stylist	15
+TownNPCMood_TaxCollector	15
+TownNPCMood_Truffle	15
+TownNPCMood_WitchDoctor	15
+TownNPCMood_BestiaryGirlTransformed	15
+TownNPCMood_Wizard	15
+TownNPCMood	14
+DogNames_PitBull	14
+DogNames_Corgi	14
+BunnyNames_White	14
+ChatCommand	13
+CaptureBiomeChoice	13
+GuideSpecialText	13
+TruffleNames	13
+TravelingMerchantNames	13
+DogNames_Beagle	13
+DogNames_Dalmation	13
+BunnyNames_Lop	13
+BunnyNames_Silver	13
+CreditsRollCategory_SpecialThanksto	12
+NurseSpecialText	12
+GolferSpecialText	12
+CatNames_Siamese	12
+BunnyNames_Flemish	12
+ChatCommandDescription	11
+AnglerSpecialText	11
+BartenderHelpText	11
+TownNPCMoodBiomes	11
+BestiaryGirlChatter	11
+PirateNames	11
+SkeletonMerchantNames	11
+BunnyNames_Dutch	11
+Bestiary_Events	10
+LucyTheAxe_ChoppedTree	10
+CreditsRollCategory_Graphics	10
+WitchDoctorSpecialText	10
+DemolitionistSpecialText	10
+AnglerChatter	10
+WitchDoctorNames	10
+BunnyNames_Angora	10
+LoadingTips_Keyboard	9
+Language	9
+MerchantSpecialText	9
+GoblinTinkererSpecialText	9
+ClothierSpecialText	9
+TravellingMerchantSpecialText	9
+MechanicSpecialText	9
+PirateSpecialText	9
+TruffleSpecialText	9
+SteampunkerSpecialText	9
+CyborgSpecialText	9
+ArmsDealerSpecialText	9
+StylistSpecialText	9
+PainterSpecialText	9
+PrincessSpecialText	9
+BestiaryGirlSpecialText	9
+DungeonDefenders2	8
+RandomWorldName_Composition	8
+CreditsRollCategory_Programming	8
+TaxCollectorSpecialText	8
+GolferNames	8
+Bestiary_Invasions	7
+TitleLinks	7
+TownNPCHousingFailureReasons	7
+CreditsRollCategory_QualityAssurance	6
+RichPresence	6
+SantaSpecialText	6
+LucyTheAxe_Idle	5
+LucyTheAxe_Storage	5
+LucyTheAxe_ThrownAway	5
+Currency	5
+CreditsRollCategory_Sound	5
+RandomWorldName_Legacy	5
+ItemVariant	5
+SkeletonMerchantSpecialText	5
+Announcement	4
+StardewTalk	4
+Social	4
+CreditsRollCategory_Designer	4
+CreditsRollCategory_Dialog	4
+Friends	4
+LucyTheAxe_PickedUp	3
+DeathSource	3
+CreditsRollCategory_BusinessDevelopment	3
+CreditsRollCategory_Webmaster	3
+ItemVariantCondition	3
+GuideHelpText	3
+CatChatter	3
+DogChatter	3
+GolferQuestsChatterApprentice	3
+GolferQuestsChatterBeginner	3
+GolferQuestsChatterJourneyman	3
+GolferQuestsChatterMaster	3
+SlimeBlueChatter	3
+SlimeGreenChatter	3
+SlimeOldChatter	3
+SlimeRainbowChatter	3
+SlimePurpleChatter	3
+SlimeRedChatter	3
+SlimeYellowChatter	3
+SlimeCopperChatter	3
+Bestiary_Times	2
+WorldGeneration	2
+Controls	2
+Enemies	2
+Key	2
+CreditsRollCategory_Creator	2
+CreditsRollCategory_ExecutiveProducer	2
+CreditsRollCategory_Marketing	2
+CreditsRollCategory_Music	2
+CreditsRollCategory_PublicRelations	2
+AssetRejections	2
+AnglerQuestChatter	2
+BestiaryGirlLycantropeChatter	2
+BunnyChatter	2
+GuideChatter	2
+LucyTheAxe_GemTree	1
+LucyTheAxe_ChoppedCactus	1
+CreditsRollCategory_EndingNotes	1
+SpecialWorldName	1
+CyborgChatter	1
+GoblinTinkererChatter	1
+MechanicChatter	1
+NurseChatter	1
+PirateChatter	1
+StylistChatter	1
+
+=== unreadable json ===
+tModLoader.json	JSONDecodeError

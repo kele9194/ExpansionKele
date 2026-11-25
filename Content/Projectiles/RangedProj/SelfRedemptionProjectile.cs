@@ -5,6 +5,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
+using ExpansionKele.Content.Customs;
 namespace ExpansionKele.Content.Projectiles.RangedProj
 {
 	public class SelfRedemptionProjectile : ModProjectile
@@ -50,7 +51,8 @@ namespace ExpansionKele.Content.Projectiles.RangedProj
        // ... existing code ...
 public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
 			// 当击中NPC且将其击杀时，掉落救赎碎片
-			if (target.life <= 0) {
+			// OnHitNPC 两端都会调用，只有服务端负责掉落，否则物品翻倍
+			if (target.life <= 0 && NetRandom.IsAuthority) {
 				// 每次击杀掉落10-20个救赎碎片
 				int itemCount = Main.rand.Next(4, 7); // Next方法的上限是排他的，所以要写21才能得到最大20
 				Item.NewItem(Projectile.GetSource_OnHit(target), target.getRect(), ModContent.ItemType<RedemptionShard>(), itemCount);

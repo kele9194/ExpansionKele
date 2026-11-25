@@ -9,3 +9,4 @@ DevModifiedAdd: Add {0} ({1})
 DevModifiedSet: Set to {0} ({1})
 DevModifiedGlobal: Global - {0}
 DevModifiedPlayer: Personal - {0}
+HeldItemStatsNoKeybind: Held item speed meter keybind is not assigned; temporarily using P. Bind your own key in Settings > Controls.

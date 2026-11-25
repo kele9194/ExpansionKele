@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using ExpansionKele.Content.Items;
 using ExpansionKele.Content.Weapons.Effects;
+using ExpansionKele.Content.Customs;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
@@ -84,6 +85,7 @@ public class TestWeaponProjectile : MentalOmegaProjectile
             Projectile.width = 8;
             Projectile.height = 8;
             Projectile.friendly = true;
+            Projectile.DamageType = ModContent.GetInstance<MentalOmegaDamageClass>();
             Projectile.aiStyle = 0;
             Projectile.penetrate = 1;
             base.SetDefaults();

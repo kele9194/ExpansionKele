@@ -100,7 +100,8 @@ namespace ExpansionKele.Content.Projectiles.MeleeProj
             int totalDuration = 20;
             
             // 在第35帧生成小斩击
-            if (timer == 35)
+            // 只有主人这一端生成；ai[2] 两端同步，不判断会重复
+            if (timer == 35 && Main.myPlayer == Projectile.owner)
             {
                 // 创建小型投射物，传递角度和缩放信息
                 Projectile.NewProjectile(

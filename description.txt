@@ -182,6 +182,24 @@ v1.5.4
 新增芯片刻印系统，该系统灵感来源于明日方舟
 注意：刻印可以造成武器20%以上的整体提升，后续可能会做出进一步修改
 
+v1.6.1
+芯片刻印系统整体拆分到独立模组「Rhodes Archive」
+本模组不再包含芯片、职业刻印效果、相关 Buff 与芯片提取器
+可乐也不再售卖基础芯片与芯片提取器
+注意：此前已经刻印过的武器会失去刻印，需要在新模组中重新获取芯片
+如需继续使用刻印系统，请同时订阅「Rhodes Archive」
+
+v1.7
+独立模组「Rhodes Archive」已终止开发，芯片系统回归本模组
+芯片改为饰品形式：
+· 装备在饰品栏时发挥全额效果
+· 放入背包并标记收藏时发挥较弱效果
+目前共 13 种近卫芯片、5 种狙击芯片。
+可乐重新售卖近卫基础芯片与狙击基础芯片
+注意：v1.6.1 中因拆分而失效的刻印无法恢复，芯片效果现在由饰品提供
+新增明日方舟纪念武器：开辟明日的剑刃
+修复了某些武器在多人游戏下的问题
+
 This mod is developed purely for entertainment, developed by me alone, trying to achieve some imagination in ths mod and still under development. 
 When playing with the Calamity mod, some content will be adjusted to fit Calamity's numerical environment.
 
@@ -371,3 +389,22 @@ Fixed bug where mod bosses couldn't be summoned in multiplayer mode
 1.6
 Added Chip Engraving System, inspired by Arknights
 Note: Engraving can provide an overall weapon improvement of over 20%. Further adjustments may be made in the future.
+
+v1.6.1
+The Chip Engraving system has been split into a separate mod, "Rhodes Archive".
+This mod no longer includes chips, class engraving effects, related buffs, or the Chip Extractor.
+Cola no longer sells base chips or the Chip Extractor.
+Note: weapons engraved before this update will lose their engraving. Get new chips from the new mod.
+Subscribe to "Rhodes Archive" if you want to keep using the engraving system.
+
+v1.7
+The standalone mod "Rhodes Archive" has been discontinued, so the chip system has returned to this mod
+Chips are now accessories:
+· Equipped in an accessory slot, a chip grants its full effect
+· Kept in the inventory and marked as a favorite, it grants a weaker effect
+Currently 13 Guard chips and 5 Sniper chips are available
+Cola sells Guard Base Chips and Sniper Base Chips again
+Note: engravings lost in v1.6.1 cannot be restored; chip effects are now provided by accessories
+Added Arknights commemorative weapon: Dawn-Piercing Blade
+Fixed issues with some weapons in multiplayer
+

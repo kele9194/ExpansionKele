@@ -78,6 +78,7 @@ PowerShotSMG: {
 		and ranged critical chance increases up to 20%.
 		When you stop shooting, damage slowly decreases back to base value.
 		Switching weapons resets damage to base value.
+		---Technology supposedly salvaged from an abandoned armored vehicle. Who knows?
 		'''
 }
 
@@ -472,4 +473,34 @@ LaserCutter: {
 		---Technology obtained from an unmanned tank
 		'''
 	DisplayName: Laser Cannon
+}
+
+TomorrowsEdge: {
+	DisplayName: Dawn-Piercing Blade
+	Tooltip:
+		'''
+		A longsword with a guard; you can feel an inexplicable sorrow and a great power within it
+		[RMB] Summon the "Thanatos" stand when SP is full (about 15 seconds); in stage one, RMB summons the "Orpheus" stand; RMB does nothing in stage two
+		[Lethal hit] Taking a lethal hit while holding it enters "Thanatos" immediately; taking a lethal hit in "Thanatos" enters the "Orpheus" stand
+		[Stage one: Thanatos] Attacks deal 2.25x damage, attack speed is reduced to 80%, attacks ignore all defense, strikes up to 4 enemies within 600 pixels; extra slashes have a chance to compensate when there are fewer targets
+		[Stage two: Orpheus] Cannot attack; heals itself and nearby allies for 5% max life per second and grants 30% dodge
+		[Stand invulnerability] Entering "Thanatos", entering "Orpheus", and reverting to the sword all restore full life and grant 1 second of invincibility
+		[Final strike] When the stand ends, deals a 600% attack damage slash that ignores all defense to up to 6 nearby enemies
+		[Duration] The stand lasts 25 seconds in total; stage one never auto-advances and reverts to the sword when time runs out
+		[Stand restriction] Switching to another weapon during the stand kills you after 0.5 seconds
+		---An Arknights memorial weapon
+		'''
+	HintSpNotFull: SP not full
+	DeathReason: "{0} was torn apart outside the stand"
+	HudCharging: Charging
+	HudPaused: Paused
+	HudReady: Ready
+	HudContractOn: Sword form
+	HudContractOff: Stand form
+	HudSubstitute: Stand: {0:0.0}s
+	HudRightSummon: RMB: summon stand
+	HudRightAdvance: RMB: enter stage two
+	HudRightNone: RMB: unavailable
+	HudStageThanatos: Thanatos
+	HudStageOrpheus: Orpheus
 }

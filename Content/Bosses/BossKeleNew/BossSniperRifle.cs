@@ -21,9 +21,7 @@ namespace ExpansionKele.Content.Bosses.BossKeleNew
         
         private static Asset<Texture2D> _cachedTexture;
         private static Asset<Texture2D> _cachedTexture2;
-        [SyncVar]
         public int npcIndex;
-        [SyncVar]
         public Phase rangedPhase;
         
         
@@ -140,6 +138,11 @@ namespace ExpansionKele.Content.Bosses.BossKeleNew
 
             if(Projectile.timeLeft==30){
                     SoundEngine.PlaySound(ExpansionKeleSounds.SniperSound, ownerNPC.Center);
+
+                    // 子弹由服务端（含单人）统一生成：客户端再生成一份会与同步过来的重复。
+                    // 音效必须保留在两端，否则纯客户端玩家听不到。
+                    if (Main.netMode != NetmodeID.MultiplayerClient)
+                    {
                     Projectile.NewProjectile(
                     Projectile.GetSource_FromAI(),
                     ownerNPC.Center+Projectile.rotation.ToRotationVector2() * 90f, 
@@ -151,6 +154,7 @@ namespace ExpansionKele.Content.Bosses.BossKeleNew
                     ownerNPC.whoAmI, 
                     (int)rangedPhase
                 );
+                    }
                 
             }
         }

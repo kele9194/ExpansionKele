@@ -575,6 +575,10 @@ namespace ExpansionKele.Content.Bosses.ShadowOfRevenge
         
        private void UseSkill3()
         {
+            // Boss 技能由服务端统一生成：客户端跑 AI 时若也生成会重复，且两端随机方向不同
+            if (!NetRandom.IsAuthority)
+                return;
+
             // 技能3：向随机方向发射三个月亮弹幕，这些月亮弹幕发射后10帧开始追踪玩家
             for (int i = 0; i < 3; i++)
             {

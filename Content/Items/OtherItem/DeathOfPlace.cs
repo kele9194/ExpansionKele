@@ -1,4 +1,4 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using System.Collections.Generic;
@@ -69,30 +69,104 @@ namespace ExpansionKele.Content.Items.OtherItem
         public static bool IsActive { get; private set; } = false;
         private static bool _savedIsActive = false;
 
+
+        /// <summary>自定义包类型。两端必须一致，只能追加，不要调序。</summary>
+        public enum MessageType : byte
+        {
+            /// <summary>客户端 -> 服务端：请求翻转模式。</summary>
+            ToggleRequest,
+
+            /// <summary>服务端 -> 客户端：同步翻转后的状态（bool = IsActive）。</summary>
+            StateChanged,
+        }
+
+        /// <summary>
+        /// 由物品使用入口调用。
+        /// <para>
+        /// 多人下客户端只发翻转请求 —— 本地直接翻转只会让点的人自己进入模式，
+        /// 服务端和其他玩家都不知道。真正翻转由服务端完成后再广播回来。
+        /// </para>
+        /// </summary>
         public static void ToggleMode()
+        {
+            // 音效不等服务端往返，本地立即播
+            if (!Main.dedServ)
+                Terraria.Audio.SoundEngine.PlaySound(SoundID.MenuTick);
+
+            if (Main.netMode == NetmodeID.MultiplayerClient)
+            {
+                WritePacket(MessageType.ToggleRequest).Send();
+                return;
+            }
+
+            ApplyToggle();
+            Announce();
+            BroadcastState();
+        }
+
+        /// <summary>服务端收到翻转请求：校验来源持有该物品后翻转并广播。</summary>
+        public static void OnToggleRequested(int whoAmI)
+        {
+            // 校验来源确实手持该物品，避免伪造包随意切换世界模式
+            if (whoAmI < 0 || whoAmI >= Main.maxPlayers)
+                return;
+
+            if (Main.player[whoAmI].HeldItem.type != ModContent.ItemType<DeathOfPlace>())
+                return;
+
+            ApplyToggle();
+            Announce();
+            BroadcastState();
+        }
+
+        /// <summary>客户端收到状态同步：只改状态，提示由服务端广播聊天统一发出。</summary>
+        public static void OnStateReceived(bool active)
+        {
+            IsActive = active;
+            _savedIsActive = active;
+        }
+
+        private static void ApplyToggle()
         {
             IsActive = !IsActive;
             _savedIsActive = IsActive;
-            
-            // 使用本地化的提示消息
-            string messageKey = IsActive ? "Mods.ExpansionKele.Items.OtherItem.DeathOfPlace.ModeEnabled" 
-                                        : "Mods.ExpansionKele.Items.OtherItem.DeathOfPlace.ModeDisabled";
-            string message = Language.GetTextValue(messageKey);
+        }
+
+        private static void Announce()
+        {
+            string messageKey = IsActive
+                ? "Mods.ExpansionKele.Items.OtherItem.DeathOfPlace.ModeEnabled"
+                : "Mods.ExpansionKele.Items.OtherItem.DeathOfPlace.ModeDisabled";
             Color color = IsActive ? Color.Red : Color.Green;
-            
-            if (Main.netMode == NetmodeID.SinglePlayer)
+            string message = Language.GetTextValue(messageKey);
+
+            if (Main.netMode == NetmodeID.Server)
+            {
+                Terraria.Chat.ChatHelper.BroadcastChatMessage(
+                    Terraria.Localization.NetworkText.FromLiteral(message),
+                    color);
+            }
+            else
             {
                 Main.NewText(message, color);
             }
-            else if (Main.netMode == NetmodeID.Server)
-            {
-                Terraria.Chat.ChatHelper.BroadcastChatMessage(
-                    Terraria.Localization.NetworkText.FromLiteral(message), 
-                    color);
-            }
-            
-            // 播放音效
-            Terraria.Audio.SoundEngine.PlaySound(Terraria.ID.SoundID.MenuTick);
+        }
+
+        private static void BroadcastState()
+        {
+            if (Main.netMode != NetmodeID.Server)
+                return;
+
+            ModPacket packet = WritePacket(MessageType.StateChanged);
+            packet.Write(IsActive);
+            packet.Send();
+        }
+
+        private static ModPacket WritePacket(MessageType type)
+        {
+            ModPacket packet = ModContent.GetInstance<DeathOfPlaceSystem>().Mod.GetPacket();
+            packet.Write((byte)type);
+            return packet;
         }
 
         public override void OnWorldLoad()

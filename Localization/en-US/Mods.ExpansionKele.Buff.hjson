@@ -1,3 +1,13 @@
+ThanatosBuff: {
+	Description: The stand "Thanatos" is active; the remaining time is the remaining stand time
+	DisplayName: Thanatos
+}
+
+OrpheusBuff: {
+	Description: The stand "Orpheus" is active; the remaining time is the remaining stand time
+	DisplayName: Orpheus
+}
+
 StarSetBonusBuff: {
 	Description:
 		'''
@@ -185,27 +195,7 @@ SelfRedemptionHitBuff: {
 	DisplayName: Self Redemption Hit Buff
 }
 
-MarksmanBuff: {
-	Description: Marksman miss compensation: Ranged attack speed increased by 10%
-	DisplayName: Marksman Focus
-}
-
-DreadnoughtRebirthBuff: {
-	DisplayName: Dreadnought Rebirth
-	Description: Max HP reduced to 40%, attack speed ×1.3\nFurther lethal damage will cause true death
-}
-
-FighterBuff: {
-	DisplayName: Fighter Stacks
-	Description: Attack speed and dodge chance stack up, max to 5 stacks
-}
-
-MushaRevivalCooldown: {
-	DisplayName: Musha Will Cooldown
-	Description: The Musha's unyielding will is on cooldown. Dying again will result in true death.
-}
-
 LiberatorBuff: {
 	DisplayName: Liberation
-	Description: Maintains the charged damage multiplier; block count raised to 2
+	Description: Charged power is being converted into melee damage
 }

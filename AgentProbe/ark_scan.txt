@@ -1,0 +1,243 @@
+ISSUES.md
+    `Content/Items/ArknightsItem/`（灵感来自明日方舟的「芯片刻印」系统）。
+ISSUES.md
+    **用途：专门给"非方舟武器"套上方舟式的职业模板** ⇒ 本质是个通用的武器改造层，
+ISSUES.md
+    并不依赖方舟内容，因此适合独立。
+ISSUES.md
+    - 目录外但属于方舟的：**10 个** —— `Content/Customs/ArkModel.cs`、
+ISSUES.md
+    - 方舟引用的"工具库"里**绝大多数本身就是方舟专属**（`ArkModel.cs` 全家、`Blocking*`），只是放错了目录
+ISSUES.md
+    1. **目录归位**（先在现模组内做）：10 个外部文件搬进方舟目录 + 改命名空间与引用 —— 纯搬家，零行为变更
+ISSUES.md
+    3. **处理 6 处真依赖**：三选一 —— 复制一份 / 上提到 `InnoVault` / 方舟自己重写
+Content\Buff\LiberatorBuff.cs
+    /// <see cref="Items.ArknightsItem.Accessories.Guard.LiberatorChipPlayer"/> 按解放值
+Content\Items\ArknightsItem\Accessories\Guard\ArtsFighterChip.cs
+    using ExpansionKele.Content.Items.ArknightsItem.Materials;
+Content\Items\ArknightsItem\Accessories\Guard\ArtsFighterChip.cs
+    namespace ExpansionKele.Content.Items.ArknightsItem.Accessories.Guard
+Content\Items\ArknightsItem\Accessories\Guard\ArtsFighterChip.cs
+    ic override string LocalizationCategory => "Items.ArknightsItem.Accessories";
+Content\Items\ArknightsItem\Accessories\Guard\ArtsFighterChip.cs
+    const string baseKey = "Mods.ExpansionKele.Items.ArknightsItem.Accessories.ArtsFighterChip.";
+Content\Items\ArknightsItem\Accessories\Guard\CenturionChip.cs
+    using ExpansionKele.Content.Items.ArknightsItem.Materials;
+Content\Items\ArknightsItem\Accessories\Guard\CenturionChip.cs
+    namespace ExpansionKele.Content.Items.ArknightsItem.Accessories.Guard
+Content\Items\ArknightsItem\Accessories\Guard\CenturionChip.cs
+    /// 玩家看到的是「人越多越猛」而不是「越远越疼」，也与方舟强攻手「挡 3」的语义一致。
+Content\Items\ArknightsItem\Accessories\Guard\CenturionChip.cs
+    ic override string LocalizationCategory => "Items.ArknightsItem.Accessories";
+Content\Items\ArknightsItem\Accessories\Guard\CenturionChip.cs
+    const string baseKey = "Mods.ExpansionKele.Items.ArknightsItem.Accessories.CenturionChip.";
+Content\Items\ArknightsItem\Accessories\Guard\CrusherChip.cs
+    using ExpansionKele.Content.Items.ArknightsItem.Materials;
+Content\Items\ArknightsItem\Accessories\Guard\CrusherChip.cs
+    namespace ExpansionKele.Content.Items.ArknightsItem.Accessories.Guard
+Content\Items\ArknightsItem\Accessories\Guard\CrusherChip.cs
+    ic override string LocalizationCategory => "Items.ArknightsItem.Accessories";
+Content\Items\ArknightsItem\Accessories\Guard\CrusherChip.cs
+    const string baseKey = "Mods.ExpansionKele.Items.ArknightsItem.Accessories.CrusherChip.";
+Content\Items\ArknightsItem\Accessories\Guard\DreadnoughtChip.cs
+    using ExpansionKele.Content.Items.ArknightsItem.Materials;
+Content\Items\ArknightsItem\Accessories\Guard\DreadnoughtChip.cs
+    namespace ExpansionKele.Content.Items.ArknightsItem.Accessories.Guard
+Content\Items\ArknightsItem\Accessories\Guard\DreadnoughtChip.cs
+    ic override string LocalizationCategory => "Items.ArknightsItem.Accessories";
+Content\Items\ArknightsItem\Accessories\Guard\DreadnoughtChip.cs
+    const string baseKey = "Mods.ExpansionKele.Items.ArknightsItem.Accessories.DreadnoughtChip.";
+Content\Items\ArknightsItem\Accessories\Guard\EarthshakerChip.cs
+    using ExpansionKele.Content.Items.ArknightsItem.Materials;
+Content\Items\ArknightsItem\Accessories\Guard\EarthshakerChip.cs
+    namespace ExpansionKele.Content.Items.ArknightsItem.Accessories.Guard
+Content\Items\ArknightsItem\Accessories\Guard\EarthshakerChip.cs
+    ic override string LocalizationCategory => "Items.ArknightsItem.Accessories";
+Content\Items\ArknightsItem\Accessories\Guard\EarthshakerChip.cs
+    const string baseKey = "Mods.ExpansionKele.Items.ArknightsItem.Accessories.EarthshakerChip.";
+Content\Items\ArknightsItem\Accessories\Guard\FighterChip.cs
+    using ExpansionKele.Content.Items.ArknightsItem.Materials;
+Content\Items\ArknightsItem\Accessories\Guard\FighterChip.cs
+    namespace ExpansionKele.Content.Items.ArknightsItem.Accessories.Guard
+Content\Items\ArknightsItem\Accessories\Guard\FighterChip.cs
+    ic override string LocalizationCategory => "Items.ArknightsItem.Accessories";
+Content\Items\ArknightsItem\Accessories\Guard\FighterChip.cs
+    const string baseKey = "Mods.ExpansionKele.Items.ArknightsItem.Accessories.FighterChip.";
+Content\Items\ArknightsItem\Accessories\Guard\InstructorChip.cs
+    using ExpansionKele.Content.Items.ArknightsItem.Materials;
+Content\Items\ArknightsItem\Accessories\Guard\InstructorChip.cs
+    namespace ExpansionKele.Content.Items.ArknightsItem.Accessories.Guard
+Content\Items\ArknightsItem\Accessories\Guard\InstructorChip.cs
+    ic override string LocalizationCategory => "Items.ArknightsItem.Accessories";
+Content\Items\ArknightsItem\Accessories\Guard\InstructorChip.cs
+    const string baseKey = "Mods.ExpansionKele.Items.ArknightsItem.Accessories.InstructorChip.";
+Content\Items\ArknightsItem\Accessories\Guard\LiberatorChip.cs
+    using ExpansionKele.Content.Items.ArknightsItem.Materials;
+Content\Items\ArknightsItem\Accessories\Guard\LiberatorChip.cs
+    namespace ExpansionKele.Content.Items.ArknightsItem.Accessories.Guard
+Content\Items\ArknightsItem\Accessories\Guard\LiberatorChip.cs
+    /// 这是把方舟解放者「平时不出手，技能期爆发」转成 TR 的手段：
+Content\Items\ArknightsItem\Accessories\Guard\LiberatorChip.cs
+    ic override string LocalizationCategory => "Items.ArknightsItem.Accessories";
+Content\Items\ArknightsItem\Accessories\Guard\LiberatorChip.cs
+    "Mods.ExpansionKele.Items.ArknightsItem.Accessories.LiberatorChip.DisplayName");
+Content\Items\ArknightsItem\Accessories\Guard\LiberatorChip.cs
+    const string baseKey = "Mods.ExpansionKele.Items.ArknightsItem.Accessories.LiberatorChip.";
+Content\Items\ArknightsItem\Accessories\Guard\LordChip.cs
+    using ExpansionKele.Content.Items.ArknightsItem.Materials;
+Content\Items\ArknightsItem\Accessories\Guard\LordChip.cs
+    namespace ExpansionKele.Content.Items.ArknightsItem.Accessories.Guard
+Content\Items\ArknightsItem\Accessories\Guard\LordChip.cs
+    ic override string LocalizationCategory => "Items.ArknightsItem.Accessories";
+Content\Items\ArknightsItem\Accessories\Guard\LordChip.cs
+    const string baseKey = "Mods.ExpansionKele.Items.ArknightsItem.Accessories.LordChip.";
+Content\Items\ArknightsItem\Accessories\Guard\MushaChip.cs
+    using ExpansionKele.Content.Items.ArknightsItem.Materials;
+Content\Items\ArknightsItem\Accessories\Guard\MushaChip.cs
+    namespace ExpansionKele.Content.Items.ArknightsItem.Accessories.Guard
+Content\Items\ArknightsItem\Accessories\Guard\MushaChip.cs
+    /// 禁疗只关 <c>lifeRegen</c>：方舟的「治疗」对应 TR 的持续回复链
+Content\Items\ArknightsItem\Accessories\Guard\MushaChip.cs
+    ic override string LocalizationCategory => "Items.ArknightsItem.Accessories";
+Content\Items\ArknightsItem\Accessories\Guard\MushaChip.cs
+    const string baseKey = "Mods.ExpansionKele.Items.ArknightsItem.Accessories.MushaChip.";
+Content\Items\ArknightsItem\Accessories\Guard\PrimalGuardChip.cs
+    using ExpansionKele.Content.Items.ArknightsItem.Materials;
+Content\Items\ArknightsItem\Accessories\Guard\PrimalGuardChip.cs
+    namespace ExpansionKele.Content.Items.ArknightsItem.Accessories.Guard
+Content\Items\ArknightsItem\Accessories\Guard\PrimalGuardChip.cs
+    ic override string LocalizationCategory => "Items.ArknightsItem.Accessories";
+Content\Items\ArknightsItem\Accessories\Guard\PrimalGuardChip.cs
+    const string baseKey = "Mods.ExpansionKele.Items.ArknightsItem.Accessories.PrimalGuardChip.";
+Content\Items\ArknightsItem\Accessories\Guard\ReaperChip.cs
+    using ExpansionKele.Content.Items.ArknightsItem.Materials;
+Content\Items\ArknightsItem\Accessories\Guard\ReaperChip.cs
+    namespace ExpansionKele.Content.Items.ArknightsItem.Accessories.Guard
+Content\Items\ArknightsItem\Accessories\Guard\ReaperChip.cs
+    ic override string LocalizationCategory => "Items.ArknightsItem.Accessories";
+Content\Items\ArknightsItem\Accessories\Guard\ReaperChip.cs
+    const string baseKey = "Mods.ExpansionKele.Items.ArknightsItem.Accessories.ReaperChip.";
+Content\Items\ArknightsItem\Accessories\Guard\SwordmasterChip.cs
+    using ExpansionKele.Content.Items.ArknightsItem.Materials;
+Content\Items\ArknightsItem\Accessories\Guard\SwordmasterChip.cs
+    namespace ExpansionKele.Content.Items.ArknightsItem.Accessories.Guard
+Content\Items\ArknightsItem\Accessories\Guard\SwordmasterChip.cs
+    ic override string LocalizationCategory => "Items.ArknightsItem.Accessories";
+Content\Items\ArknightsItem\Accessories\Guard\SwordmasterChip.cs
+    const string baseKey = "Mods.ExpansionKele.Items.ArknightsItem.Accessories.SwordmasterChip.";
+Content\Items\ArknightsItem\Accessories\Sniper\ArtilleristChip.cs
+    using ExpansionKele.Content.Items.ArknightsItem.Materials;
+Content\Items\ArknightsItem\Accessories\Sniper\ArtilleristChip.cs
+    namespace ExpansionKele.Content.Items.ArknightsItem.Accessories.Sniper
+Content\Items\ArknightsItem\Accessories\Sniper\ArtilleristChip.cs
+    ic override string LocalizationCategory => "Items.ArknightsItem.Accessories";
+Content\Items\ArknightsItem\Accessories\Sniper\ArtilleristChip.cs
+    const string baseKey = "Mods.ExpansionKele.Items.ArknightsItem.Accessories.ArtilleristChip.";
+Content\Items\ArknightsItem\Accessories\Sniper\HeavyShooterChip.cs
+    using ExpansionKele.Content.Items.ArknightsItem.Materials;
+Content\Items\ArknightsItem\Accessories\Sniper\HeavyShooterChip.cs
+    namespace ExpansionKele.Content.Items.ArknightsItem.Accessories.Sniper
+Content\Items\ArknightsItem\Accessories\Sniper\HeavyShooterChip.cs
+    ic override string LocalizationCategory => "Items.ArknightsItem.Accessories";
+Content\Items\ArknightsItem\Accessories\Sniper\HeavyShooterChip.cs
+    const string baseKey = "Mods.ExpansionKele.Items.ArknightsItem.Accessories.HeavyShooterChip.";
+Content\Items\ArknightsItem\Accessories\Sniper\MarksmanChip.cs
+    using ExpansionKele.Content.Items.ArknightsItem.Materials;
+Content\Items\ArknightsItem\Accessories\Sniper\MarksmanChip.cs
+    namespace ExpansionKele.Content.Items.ArknightsItem.Accessories.Sniper
+Content\Items\ArknightsItem\Accessories\Sniper\MarksmanChip.cs
+    ic override string LocalizationCategory => "Items.ArknightsItem.Accessories";
+Content\Items\ArknightsItem\Accessories\Sniper\MarksmanChip.cs
+    const string baseKey = "Mods.ExpansionKele.Items.ArknightsItem.Accessories.MarksmanChip.";
+Content\Items\ArknightsItem\Accessories\Sniper\RapidFireChip.cs
+    using ExpansionKele.Content.Items.ArknightsItem.Materials;
+Content\Items\ArknightsItem\Accessories\Sniper\RapidFireChip.cs
+    namespace ExpansionKele.Content.Items.ArknightsItem.Accessories.Sniper
+Content\Items\ArknightsItem\Accessories\Sniper\RapidFireChip.cs
+    /// 速射手芯片（一级芯片）：贴方舟速射手的定义 —— 优先攻击空中单位。
+Content\Items\ArknightsItem\Accessories\Sniper\RapidFireChip.cs
+    st string ChipBaseKey = "Mods.ExpansionKele.Items.ArknightsItem.Accessories.RapidFireChip.";
+Content\Items\ArknightsItem\Accessories\Sniper\RapidFireChip.cs
+    ic override string LocalizationCategory => "Items.ArknightsItem.Accessories";
+Content\Items\ArknightsItem\Accessories\Sniper\RapidFireChip.cs
+    const string baseKey = "Mods.ExpansionKele.Items.ArknightsItem.Accessories.RapidFireChip.";
+Content\Items\ArknightsItem\Accessories\Sniper\RapidFireChipModule.cs
+    namespace ExpansionKele.Content.Items.ArknightsItem.Accessories.Sniper
+Content\Items\ArknightsItem\Accessories\Sniper\RapidFireChipModule.cs
+    ic override string LocalizationCategory => "Items.ArknightsItem.Accessories";
+Content\Items\ArknightsItem\Accessories\Sniper\RapidFireChipModule.cs
+    "Mods.ExpansionKele.Items.ArknightsItem.Accessories.RapidFireChipModule.");
+Content\Items\ArknightsItem\Accessories\Sniper\SiegeChip.cs
+    using ExpansionKele.Content.Items.ArknightsItem.Materials;
+Content\Items\ArknightsItem\Accessories\Sniper\SiegeChip.cs
+    namespace ExpansionKele.Content.Items.ArknightsItem.Accessories.Sniper
+Content\Items\ArknightsItem\Accessories\Sniper\SiegeChip.cs
+    ic override string LocalizationCategory => "Items.ArknightsItem.Accessories";
+Content\Items\ArknightsItem\Accessories\Sniper\SiegeChip.cs
+    const string baseKey = "Mods.ExpansionKele.Items.ArknightsItem.Accessories.SiegeChip.";
+Content\Items\ArknightsItem\Materials\GuardBaseChip.cs
+    namespace ExpansionKele.Content.Items.ArknightsItem.Materials
+Content\Items\ArknightsItem\Materials\GuardBaseChip.cs
+    ic override string LocalizationCategory => "Items.ArknightsItem.Materials";
+Content\Items\ArknightsItem\Materials\SniperBaseChip.cs
+    namespace ExpansionKele.Content.Items.ArknightsItem.Materials
+Content\Items\ArknightsItem\Materials\SniperBaseChip.cs
+    c>UpdateAccessory</c> / <c>UpdateInventory</c> —— 方舟里基底模组只是前置，
+Content\Items\ArknightsItem\Materials\SniperBaseChip.cs
+    ic override string LocalizationCategory => "Items.ArknightsItem.Materials";
+Content\NPCs\TownNPC\Cola.cs
+    using ExpansionKele.Content.Items.ArknightsItem.Materials;
+Content\Projectiles\MeleeProj\LordSlashProjectile.cs
+    /// 领主剑气：由 <see cref="Items.ArknightsItem.Accessories.Guard.LordChip"/> 在挥动近战武器时发射。
+Global\ArtilleristChipGlobalNPC.cs
+    using ExpansionKele.Content.Items.ArknightsItem.Accessories.Sniper;
+Global\CenturionChipGlobalNPC.cs
+    using ExpansionKele.Content.Items.ArknightsItem.Accessories.Guard;
+Global\DreadnoughtChipGlobalNPC.cs
+    using ExpansionKele.Content.Items.ArknightsItem.Accessories.Guard;
+Global\HeavyShooterChipGlobalNPC.cs
+    using ExpansionKele.Content.Items.ArknightsItem.Accessories.Sniper;
+Global\InstructorChipGlobalNPC.cs
+    using ExpansionKele.Content.Items.ArknightsItem.Accessories.Guard;
+Global\LordChipGlobalItem.cs
+    using ExpansionKele.Content.Items.ArknightsItem.Accessories.Guard;
+Global\MarksmanChipGlobalNPC.cs
+    using ExpansionKele.Content.Items.ArknightsItem.Accessories.Sniper;
+Global\MushaChipGlobalItem.cs
+    using ExpansionKele.Content.Items.ArknightsItem.Accessories.Guard;
+Global\PrimalGuardGlobalNPC.cs
+    using ExpansionKele.Content.Items.ArknightsItem.Accessories.Guard;
+Global\PrimalGuardGlobalNPC.cs
+    /// <see cref="Content.Items.ArknightsItem.Accessories.Guard.PrimalGuardChipPlayer"/> 引爆
+Global\RapidFireChipGlobalNPC.cs
+    using ExpansionKele.Content.Items.ArknightsItem.Accessories.Sniper;
+Global\RapidFireChipGlobalNPC.cs
+    /// <item><b>对空中目标增伤</b>：芯片档就有（贴「优先攻击空中单位」的方舟定义）。</item>
+Global\ReaperChipGlobalItem.cs
+    using ExpansionKele.Content.Items.ArknightsItem.Accessories.Guard;
+Global\ReaperChipGlobalNPC.cs
+    using ExpansionKele.Content.Items.ArknightsItem.Accessories.Guard;
+Global\SiegeChipGlobalNPC.cs
+    using ExpansionKele.Content.Items.ArknightsItem.Accessories.Sniper;
+Global\SwordmasterChipGlobalItem.cs
+    using ExpansionKele.Content.Items.ArknightsItem.Accessories.Guard;
+Localization\en-US\Mods.ExpansionKele.Items.Weapons.hjson
+    ---An Arknights memorial weapon
+Localization\zh-Hans\Mods.ExpansionKele.Items.Weapons.hjson
+    ---明日方舟纪念武器
+
+=== zh-Hans 所有 --- 引用行 ===
+  Mods.ExpansionKele.Items.Accessories.Wings.hjson:9  ---生生不息的流光
+  Mods.ExpansionKele.Items.Consumables.hjson:15  ---比可可更好吃！
+  Mods.ExpansionKele.Items.OtherItem.hjson:55  ---救赎之道就在其中
+  Mods.ExpansionKele.Items.OtherItem.hjson:214  ---万法归一，统御全场
+  Mods.ExpansionKele.Items.Weapons.Magic.hjson:19  ---世界的真理，我已解明
+  Mods.ExpansionKele.Items.Weapons.Magic.hjson:20  ---[崩铁]阿那克萨戈拉斯
+  Mods.ExpansionKele.Items.Weapons.Magic.hjson:48  ---B站纪念武器
+  Mods.ExpansionKele.Items.Weapons.Magic.hjson:70  ---B站up纪念武器
+  Mods.ExpansionKele.Items.Weapons.Summon.hjson:17  ---生命脆弱游丝，谎言纤毫毕现
+  Mods.ExpansionKele.Items.Weapons.Summon.hjson:18  ---[崩铁]阿格莱雅
+  Mods.ExpansionKele.Items.Weapons.hjson:81  ---据说是从某辆废弃装甲车上回收的技术，谁知道呢？
+  Mods.ExpansionKele.Items.Weapons.hjson:453  ---从某个无人坦克上获得的技术
+  Mods.ExpansionKele.Items.Weapons.hjson:471  ---明日方舟纪念武器

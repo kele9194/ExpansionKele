@@ -1,0 +1,16 @@
+user parsed values    : 324  (with mark: 324)
+source unique values  : 324
+source total names    : 377
+matched values        : 324
+only in source        : 0
+only in user table    : 0
+merged rows           : 377  (safe 373, unsafe 4, unknown 0)
+
+=== unsafe values ===
+5	Blood,t_Flesh
+227	MartianHit
+273	GreenBlood
+
+=== only in source ===
+
+=== only in user table ===

@@ -11,9 +11,7 @@ namespace ExpansionKele.Content.Bosses.BossKeleNew
     public class BossHighVelocityBullet : ModProjectile
     {
         public override string Texture => "Terraria/Images/Projectile_242";
-        [SyncVar]
         public int npcIndex;
-        [SyncVar]
         public Phase rangedPhase;
         public override void SetDefaults()
         {

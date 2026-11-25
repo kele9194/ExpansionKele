@@ -21,6 +21,7 @@ namespace ExpansionKele.Content.Projectiles.GenericProj
             Projectile.height = 20;
             Projectile.friendly = true;
             Projectile.hostile = false;
+            Projectile.DamageType = DamageClass.Generic;
             Projectile.penetrate = -1; // 无限穿透
             Projectile.timeLeft = 10; // 存活时间很短
             Projectile.tileCollide = false; // 不与地形碰撞

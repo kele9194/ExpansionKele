@@ -29,7 +29,8 @@ namespace ExpansionKele.Content.Projectiles.MeleeProj
 			Projectile.rotation = Projectile.velocity.ToRotation() + MathHelper.PiOver4+2*MathHelper.PiOver4; // 加上PiOver4来补偿贴图初始角度
 			
 			// 每15帧发射两个追踪弹幕
-			if (Projectile.timeLeft % 12 == 0) {
+			// 只有主人这一端生成，避免服务端重复生成
+			if (Projectile.timeLeft % 12 == 0 && Main.myPlayer == Projectile.owner) {
 				// 计算垂直于飞行方向的两个方向
 				Vector2 perpendicular = Vector2.Normalize(Projectile.velocity).RotatedBy(MathHelper.PiOver2);
 				
